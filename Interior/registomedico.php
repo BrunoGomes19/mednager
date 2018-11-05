@@ -1,8 +1,8 @@
 <?php
 include('../php/topo_medico.php');
 
-
 ?>
+
 
 <!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
 <script type="text/javascript" src="https://formden.com/static/cdn/formden.js"></script>
@@ -29,9 +29,48 @@ include('../php/topo_medico.php');
                                 <h4 class="title">Editar perfil</h4>
                             </div>
                             <div class="content">
-                                <form>
+                                <form method="POST" action="../php/fimregistomedico.php">
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        
+										
+										
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Nome completo</label>
+                                                <input type="text" class="form-control" value="<?php	echo $login_session;	?>" name="nomecompleto" required>
+                                            </div>
+                                        </div>
+										
+										<div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Endereço de email</label>
+                                                <input type="email" class="form-control" disabled value="<?php	echo $email;	?>">
+                                            </div>
+                                        </div>
+										
+										<div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Número de ordem</label>
+                                                <input type="text" class="form-control" value="<?php	echo $n_ordem;	?>" required name="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Sexo</label>
+                                                <select name="sexo" id="select" class="form-control" required>
+                                                        <option selected hidden value=""><?php	echo $sexo;	?></option>
+                                                        <option value="Masculino">Masculino</option>
+                                                        <option value="Feminino">Feminino</option>
+                                                        <option value="Outro">Outro</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+										
+                                    </div>
+
+                                    <div class="row">
+									
+									<div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Especialidade</label>
                                                 <select name="especialidade" id="select" class="form-control" required>
@@ -58,63 +97,28 @@ include('../php/topo_medico.php');
 														 </i>
 														</div>
 														
-														<input class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" type="text"/>
+														<input class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" type="text" required>
 													   </div>
 													  </div>
 													
 													 
 													</form>
                                             </div>
-													</div>
-										
-										
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Nome completo</label>
-                                                <input type="email" class="form-control" placeholder="">
-                                            </div>
-                                        </div>
-										
-										<div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Endereço de email</label>
-                                                <input type="email" class="form-control" placeholder="">
-                                            </div>
-                                        </div>
-										
-                                    </div>
-
-                                    <div class="row">
-                                         <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Número de ordem</label>
-                                                <input type="email" class="form-control" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Sexo</label>
-                                                <select name="especialidade" id="select" class="form-control" required>
-                                                        <option selected hidden value="">BD</option>
-                                                        <option value="Masculino">Masculino</option>
-                                                        <option value="Feminino">Feminino</option>
-                                                        <option value="Outro">Outro</option>
-                                                    </select>
-                                            </div>
-                                        </div>
+												</div>
+                                         
                                     </div>
 									
 									<div class="row">
                                          <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Contacto 1</label>
-                                                <input type="email" class="form-control" placeholder="">
+                                                <input type="tel" class="form-control" placeholder="" required name="contacto1">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Contacto 2</label>
-                                                <input type="email" class="form-control" placeholder="">
+                                                <input type="tel" class="form-control" placeholder="" name="contacto2">
                                             </div>
                                         </div>
                                     </div>
@@ -123,7 +127,7 @@ include('../php/topo_medico.php');
                                          <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Cartão de cidadão</label>
-                                                <input type="email" class="form-control" placeholder="">
+                                                <input type="text" class="form-control" placeholder="" required name="cc" >
                                             </div>
                                         </div>
                                         
@@ -133,13 +137,13 @@ include('../php/topo_medico.php');
                                          <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Número de identificação fiscal (NIF)</label>
-                                                <input type="email" class="form-control" placeholder="">
+                                                <input type="text" class="form-control" placeholder="" required name="nif">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Número de Identificação Bancária (NIB)</label>
-                                                <input type="email" class="form-control" placeholder="">
+                                                <input type="email" class="form-control" placeholder="" required>
                                             </div>
                                         </div>
                                     </div>
@@ -148,7 +152,7 @@ include('../php/topo_medico.php');
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Morada</label>
-                                                <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                                                <input type="text" class="form-control" placeholder="" value="" required name="morada">
                                             </div>
                                         </div>
                                     </div>
@@ -157,13 +161,13 @@ include('../php/topo_medico.php');
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Cidade</label>
-                                                <input type="text" class="form-control" placeholder="City" value="Mike">
+                                                <input type="text" class="form-control" placeholder="" value="" required name="cidade">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Código postal</label>
-                                                <input type="text" class="form-control" placeholder="Country" value="Andrew">
+                                                <input type="text" class="form-control" placeholder="" value="" required name="codigopostal">
                                             </div>
                                         </div>
                                      
@@ -173,7 +177,7 @@ include('../php/topo_medico.php');
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Sobre mim</label>
-                                                <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="" value="" name="sobremim"></textarea>
                                             </div>
                                         </div>
                                     </div>

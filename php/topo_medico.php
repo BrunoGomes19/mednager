@@ -1,6 +1,9 @@
 <?php
 include('../php/header.php');
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -252,7 +255,7 @@ include('../php/header.php');
                                             <img src="images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#"><?php $login_session=$_SESSION['login_user']; echo $login_session;?></a>
+                                            <a class="js-acc-btn" href="#"><?php $login_session=$_SESSION['login_user'];	 echo $login_session;?></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -267,7 +270,7 @@ include('../php/header.php');
                                                     </h5>
                                                     <span class="email"><?php $email=$_SESSION['email']; echo $email;?></span>
                                                 </div>
-                                            </div>
+                                            </div><?php $sexo=$_SESSION['sexo'];?><?php $n_ordem=$_SESSION['n_ordem'];?>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
@@ -294,4 +297,7 @@ include('../php/header.php');
                     </div>
                 </div>
             </header>
+			
+			
+			
             <!-- HEADER DESKTOP-->

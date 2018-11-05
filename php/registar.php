@@ -162,6 +162,12 @@
 					$_SESSION['login_user']= $nome; //esta var.
 				
 					$_SESSION['email']=$email; //esta var.
+					
+					$_SESSION['n_ordem']=$numeroOrdem; //esta var.
+					
+					$_SESSION['sexo']=$sexo; //esta var.
+				
+					
 			
 			
 			//Variaveis de sessão

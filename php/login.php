@@ -89,6 +89,8 @@ if(isset($_POST['submit'])){
 					$_SESSION['email']=$row["emailComprador"]; //esta var.
 					
 					$_SESSION['sexo']=$row["sexoComprador"]; //esta var.
+					
+					$_SESSION['n_ordem']=$row["nrOrdem"]; //esta var.
 				
 				header("Location: ../Interior/index-admin.php");
 					
@@ -103,6 +105,8 @@ if(isset($_POST['submit'])){
 						$_SESSION['email']=$row["emailComprador"]; //esta var.
 						
 						$_SESSION['sexo']=$row["sexoComprador"]; //esta var.
+						
+						$_SESSION['n_ordem']=$row["nrOrdem"]; //esta var.
 				
 					header("Location: ../Interior/index-medico.php");
 					
