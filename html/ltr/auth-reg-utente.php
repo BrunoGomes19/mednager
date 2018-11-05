@@ -151,7 +151,7 @@ session_start();
 					
 						if(strpos($fullUrl, "signup=uerror") == true){
 						
-						echo '<p id="erro">Ocorreu um erro a registar o comprador.<br><br></p>';
+						echo '<p id="erro">Ocorreu um erro a registar o utente.<br><br></p>';
 						
 						
 					
