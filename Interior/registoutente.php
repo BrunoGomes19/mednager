@@ -32,20 +32,12 @@ include('../php/topo_medico.php');
                                 <form>
                                     <div class="row">
                                         <div class="col-md-5">
-                                            <div class="form-group">
-                                                <label>Especialidade</label>
-                                                <select name="especialidade" id="select" class="form-control" required>
-                                                        <option selected hidden value="">Escolher</option>
-                                                        <option value="Masculino">Masculino</option>
-                                                        <option value="Feminino">Feminino</option>
-                                                        <option value="Outro">Outro</option>
-                                                    </select>
-                                            </div>
+                                            
                                         </div>
 										
                                         
 													
-													<div class="col-md-5">
+										<div class="col-md-5">
                                             <div class="form-group">
 											<label>&nbsp &nbsp Data de nascimento</label>
                                                 <form action="https://formden.com/post/MlKtmY4x/" class="form-horizontal" method="post">
@@ -63,7 +55,7 @@ include('../php/topo_medico.php');
 													  </div>
 													
 													 
-													</form>
+								</form>
                                             </div>
 													</div>
 										
@@ -87,7 +79,7 @@ include('../php/topo_medico.php');
                                     <div class="row">
                                          <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Número de ordem</label>
+                                                <label for="exampleInputEmail1">Cartão de cidadão</label>
                                                 <input type="email" class="form-control" placeholder="">
                                             </div>
                                         </div>
@@ -119,15 +111,7 @@ include('../php/topo_medico.php');
                                         </div>
                                     </div>
 									
-									<div class="row">
-                                         <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Cartão de cidadão</label>
-                                                <input type="email" class="form-control" placeholder="">
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
+									
 									
 									<div class="row">
                                          <div class="col-md-4">
