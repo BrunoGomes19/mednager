@@ -31,9 +31,22 @@
 	$foto = $_POST['foto'];
 	
 	echo $nomecompleto;
+	echo $numeroOrdem;
+	echo $sexo;
+	echo $especialidade;
+	echo $date;
+	echo $contacto1;
+	echo $contacto2;
+	echo $cc;
+	echo $nif;
+	echo $nib;
+	echo $morada;
+	echo $cidade;
+	echo $codigopostal;
+	echo $sobremim;
 	
 	
 
-	$conn->query("UPDATE comprador set tokenComprador='$str' WHERE emailComprador='$email'");
+	//$conn->query("UPDATE comprador set tokenComprador='$str' WHERE emailComprador='$email'");
 
 ?>

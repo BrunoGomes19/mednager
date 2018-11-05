@@ -75,9 +75,9 @@ include('../php/topo_medico.php');
                                                 <label>Especialidade</label>
                                                 <select name="especialidade" id="select" class="form-control" required>
                                                         <option selected hidden value="">Escolher</option>
-                                                        <option value="Masculino">A</option>
-                                                        <option value="Feminino">B</option>
-                                                        <option value="Outro">C</option>
+                                                        <option value="A">A</option>
+                                                        <option value="B">B</option>
+                                                        <option value="C">C</option>
                                                     </select>
                                             </div>
                                         </div>
@@ -143,7 +143,7 @@ include('../php/topo_medico.php');
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="nib">Número de Identificação Bancária (NIB)</label>
-                                                <input type="email" class="form-control" placeholder="" required name="nib">
+                                                <input type="text" class="form-control" placeholder="" required name="nib">
                                             </div>
                                         </div>
                                     </div>
