@@ -15,7 +15,7 @@ include('../php/topo_admin.php');
                             </div>
                         </div>
                         <div class="row m-t-25">
-                            <div class="col-sm-7 col-lg-2">
+                            <div class="col-sm-6 col-lg-3">
                                 <div class="overview-item overview-item--c1">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
@@ -30,7 +30,7 @@ include('../php/topo_admin.php');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-7 col-lg-2">
+                            <div class="col-sm-6 col-lg-3">
                                 <div class="overview-item overview-item--c2">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
@@ -46,7 +46,7 @@ include('../php/topo_admin.php');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-lg-2">
+                            <div class="col-sm-6 col-lg-3">
                                 <div class="overview-item overview-item--c3">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">

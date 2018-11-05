@@ -71,7 +71,7 @@ include('../php/header.php');
                            
                         </li>
                         <li>
-                            <a href="chart.html">
+                            <a href="../html/ltr/pages-calendar.php">
                                 <i class="fa fa-book"></i>Agenda Pessoal</a>
                         </li>
 
