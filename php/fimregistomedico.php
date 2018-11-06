@@ -33,8 +33,10 @@
 	$sobremim = $_POST['sobremim'];
 	
 	$foto = $_POST['foto'];
+	
+	$sql = "UPDATE comprador set nrOrdem='$numeroOrdem',dataNascComprador='$date',nomeComprador = '$nomecompleto',formacaoCarreira='$sobremim',moradaComprador='$morada',codPostalComprador='$codigopostal',localidadeComprador='$cidade',NIBComprador='$nib',NIFComprador='$nif',contacto1Comprador='$contacto1',contacto2Comprador='$contacto2',ccComprador='$cc',sexoComprador='$sexo',codEspecialidade='$especialidade' WHERE emailComprador='$email'";
 
-	$conn->query("UPDATE comprador set nrOrdem='$numeroOrdem',dataNascComprador='$date',nomeComprador = '$nomecompleto',formacaoCarreira='$sobremim',moradaComprador='$morada',codPostalComprador='$codigopostal',localidadeComprador='$cidade',NIBComprador='$nib',NIFComprador='$nif',contacto1Comprador='$contacto1',contacto2Comprador='$contacto2',ccComprador='$cc',sexoComprador='$sexo',codEspecialidade='$especialidade' WHERE emailComprador='$email'");
+	$conn->query($sql);
 
 	echo "Perfil atualizado com sucesso!";
 	
