@@ -1,5 +1,66 @@
 <?php
 include('../php/topo_medico.php');
+			
+	$sql = "SELECT * from comprador where emailComprador like 'patriciacorreia@gmail.com'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        
+		$especialidade = $row["codEspecialidade"];
+		
+		if($especialidade==1){
+			
+			$especialidade="";
+			
+		}else{
+			
+			if($especialidade==2){
+			
+			$especialidade="Pediatria";
+			
+		}else{
+			
+			if($especialidade==1){
+			
+			$especialidade="Cardiologia";
+			
+		}else{
+			
+			$especialidade="";
+			
+		}
+			
+		}
+			
+		}
+		
+		$date = $row["dataNascComprador"];
+		
+		$contacto1 = $row["contacto1Comprador"];
+		
+		$contacto2 = $row["contacto2Comprador"];
+		
+		$cc = $row["ccComprador"];
+		
+		$nif = $row["NIFComprador"];
+		
+		$nib = $row["NIBComprador"];
+		
+		$morada = $row["moradaComprador"];
+		
+		$cidade = $row["cidadeComprador"];
+		
+		$codigopostal = $row["codPostalComprador"];
+		
+		$sobremim = $row["formacaoCarreira"];
+		
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();
 
 ?>
 
@@ -74,7 +135,7 @@ include('../php/topo_medico.php');
                                             <div class="form-group">
                                                 <label>Especialidade</label>
                                                 <select name="especialidade" id="select" class="form-control" required>
-                                                        <option selected hidden value="">Escolher</option>
+                                                        <option selected hidden value=""><?php	echo $especialidade;	?></option>
                                                         <option value="2">Pediatria</option>
                                                         <option value="3">Cardiologia</option>
                                                      

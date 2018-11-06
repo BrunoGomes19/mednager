@@ -41,7 +41,9 @@
 	echo "Perfil atualizado com sucesso!";
 	
 	if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
+    
+	header("Location: ../Interior/index-medico.php");
+	
 } else {
     echo "Error updating record: " . $conn->error;
 }

@@ -273,8 +273,8 @@ include('../php/header.php');
                                             </div><?php $sexo=$_SESSION['sexo'];?><?php $n_ordem=$_SESSION['n_ordem'];?>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-account"></i>Account</a>
+                                                    <a href="registomedico.php">
+                                                        <i class="zmdi zmdi-account"></i>Perfil</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
