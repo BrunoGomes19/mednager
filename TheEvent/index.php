@@ -278,11 +278,10 @@
 
                 <hr>
                 <ul class="fa-ul">
-                  <li><span class="fa-li "><i class="fa fa-check"></i></span>XXXXXXXXXXXXXXX</li>
+                  <li><span class="fa-li "><i class="fa fa-check"></i></span>Proximidade ao Médico</li>
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Gestão de Intervenções</li>
-                  <li><span class="fa-li "><i class="fa fa-check"></i></span>XXXXXXXXXXXXXXX</li>
+                  <li><span class="fa-li "><i class="fa fa-check"></i></span></li>
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Planos de Medicação</li>
-                  <li><span class="fa-li "><i class="fa fa-check"></i></span>XXXXXXXXXXXXXXX</li>
                   <li><span class="fa-li "><i class="fa fa-check"></i></span>XXXXXXXXXXXXXXX</li>
                 </ul>
                 <hr>
