@@ -1,13 +1,17 @@
 <?php
 include('../php/topo_medico.php');
 			
-	$sql = "SELECT * from comprador where emailComprador like 'patriciacorreia@gmail.com'";
+	$sql = "SELECT * from comprador where emailComprador like '$email'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         
+		$sexo = $row["sexoComprador"];
+		
+		$especialidadeInt = $row["codEspecialidade"];
+		
 		$especialidade = $row["codEspecialidade"];
 		
 		if($especialidade==1){
@@ -22,7 +26,7 @@ if ($result->num_rows > 0) {
 			
 		}else{
 			
-			if($especialidade==1){
+			if($especialidade==3){
 			
 			$especialidade="Cardiologia";
 			
@@ -35,6 +39,8 @@ if ($result->num_rows > 0) {
 		}
 			
 		}
+		
+		//sexo
 		
 		$date = $row["dataNascComprador"];
 		
@@ -50,7 +56,7 @@ if ($result->num_rows > 0) {
 		
 		$morada = $row["moradaComprador"];
 		
-		$cidade = $row["cidadeComprador"];
+		$cidade = $row["localidadeComprador"];
 		
 		$codigopostal = $row["codPostalComprador"];
 		
@@ -131,11 +137,11 @@ $conn->close();
 
                                     <div class="row">
 									
-									<div class="col-md-5">
+										<div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Especialidade</label>
                                                 <select name="especialidade" id="select" class="form-control" required>
-                                                        <option selected hidden value=""><?php	echo $especialidade;	?></option>
+                                                        <option selected hidden value="<?php	echo $especialidadeInt;	?>"><?php	echo $especialidade;	?></option>
                                                         <option value="2">Pediatria</option>
                                                         <option value="3">Cardiologia</option>
                                                      
@@ -158,7 +164,7 @@ $conn->close();
 														 </i>
 														</div>
 														
-														<input class="form-control" id="date" name="date" placeholder="YYYY/MM/DD" type="text" required>
+														<input class="form-control" id="date" name="date" placeholder="YYYY/MM/DD" type="text" value="<?php	echo $date;	?>" required>
 													   </div>
 													  </div>
 													
@@ -173,13 +179,13 @@ $conn->close();
                                          <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="contacto1">Contacto 1</label>
-                                                <input type="tel" class="form-control" placeholder="" required name="contacto1">
+                                                <input type="tel" class="form-control" placeholder="" required name="contacto1" value="<?php	echo $contacto1;	?>">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="contacto2">Contacto 2</label>
-                                                <input type="tel" class="form-control" placeholder="" name="contacto2">
+                                                <input type="tel" class="form-control" placeholder="" name="contacto2" value="<?php	echo $contacto2;	?>">
                                             </div>
                                         </div>
                                     </div>
@@ -188,7 +194,7 @@ $conn->close();
                                          <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="cc">Cartão de cidadão</label>
-                                                <input type="text" class="form-control" placeholder="" required name="cc" >
+                                                <input type="text" class="form-control" placeholder="" required name="cc" value="<?php	echo $cc;	?>">
                                             </div>
                                         </div>
                                         
@@ -198,13 +204,13 @@ $conn->close();
                                          <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="nif">Número de identificação fiscal (NIF)</label>
-                                                <input type="text" class="form-control" placeholder="" required name="nif">
+                                                <input type="text" class="form-control" placeholder="" required name="nif" value="<?php	echo $nif;	?>">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="nib">Número de Identificação Bancária (NIB)</label>
-                                                <input type="text" class="form-control" placeholder="" required name="nib">
+                                                <input type="text" class="form-control" placeholder="" required name="nib" value="<?php	echo $nib;	?>">
                                             </div>
                                         </div>
                                     </div>
@@ -213,7 +219,7 @@ $conn->close();
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Morada</label>
-                                                <input type="text" class="form-control" placeholder="" value="" required name="morada">
+                                                <input type="text" class="form-control" placeholder="" required name="morada" value="<?php	echo $morada;	?>">
                                             </div>
                                         </div>
                                     </div>
@@ -222,13 +228,13 @@ $conn->close();
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Cidade</label>
-                                                <input type="text" class="form-control" placeholder="" value="" required name="cidade">
+                                                <input type="text" class="form-control" placeholder="" required name="cidade" value="<?php	echo $cidade;	?>">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Código postal</label>
-                                                <input type="text" class="form-control" placeholder="" value="" required name="codigopostal">
+                                                <input type="text" class="form-control" placeholder="" required name="codigopostal" value="<?php	echo $codigopostal;	?>">
                                             </div>
                                         </div>
                                      
@@ -238,7 +244,7 @@ $conn->close();
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Sobre mim</label>
-                                                <textarea rows="5" class="form-control" placeholder="" value="" name="sobremim"></textarea>
+                                                <textarea rows="5" class="form-control" placeholder="" name="sobremim"><?php	echo $sobremim;	?></textarea>
                                             </div>
                                         </div>
                                     </div>
