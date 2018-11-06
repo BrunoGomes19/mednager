@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>mednager</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="img/redondo.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/venobox/venobox.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: TheEvent
+    Theme URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <!-- Uncomment below if you prefer to use a text logo -->
+        <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
+
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#intro">Início</a></li>
+
+          <li><a href="#speakers">Quem somos?</a></li>
+
+
+
+          <li><a href="#sponsors">Serviços</a></li>
+          <li><a href="#contact">Contacte-nos</a></li>
+          
+          <li><a href="../html/ltr/authentication-login.php">Login</a></li>
+          <li class="buy-tickets"><a href="#buy-tickets">QUERO AGORA</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  <section id="intro">
+    <div class="intro-container wow fadeIn">
+    	<a href="#"><img src="img/logotipo.png" class="img-responsive" style="width: 600px; margin-top: -16px;"></a>
+
+      <p class="mb-4 pb-0" style="background-color: rgba(6, 12, 34, 0.1); border-radius: 15px">&nbsp&nbspO melhor amigo do médico&nbsp&nbsp</p>
+      <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
+        data-autoplay="true"></a>
+
+    </div>
+  </section>
+
+  <main id="main">
+
+
+
+    <!--==========================
+      Speakers Section
+    ============================-->
+    <section id="speakers" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>A nossa equipa</h2>
+        </div>
+
+        <div class="row">
+
+
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker">
+              <img src="img/speakers/bruno.png" alt="Speaker 3" class="img-fluid">
+              <div class="details">
+                <h3 style="color: #5fbace"> Bruno Gomes</h3>
+                <p>Programador</p>
+                <div class="social">
+                  <a href="https://www.linkedin.com/in/bmbgomes/"><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker">
+              <img src="img/speakers/carol.png" alt="Speaker 4" class="img-fluid">
+              <div class="details">
+                <h3 style="color: #5fbace">Carolina Roque</h3>
+                <p>Programadora</p>
+                <div class="social">
+                  <a href="https://www.linkedin.com/in/carolinaroqu3/"><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker">
+              <img src="img/speakers/maria.png" alt="Speaker 5" class="img-fluid">
+              <div class="details">
+                <h3 style="color: #5fbace">Maria Correia</h3>
+                <p>Programadora</p>
+                <div class="social">
+                  <a href="https://www.linkedin.com/in/maria99/"><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker">
+              <img src="img/speakers/pat.png" alt="Speaker 6" class="img-fluid">
+              <div class="details">
+                <h3 style="color: #5fbace">Patrícia Correia</h3>
+                <p>Programadora</p>
+                <div class="social">
+                  <a href="https://www.linkedin.com/in/pa7amc/"><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+    <!--==========================
+      Sponsors Section
+    ============================-->
+    <section id="sponsors" class="section-with-bg wow fadeInUp">
+
+      <div class="container">
+        <div class="section-header">
+          <h2>Serviços</h2>
+        </div>
+
+        <div class="row no-gutters sponsors-wrap clearfix">
+
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div>
+              <img src="analise.png" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div>
+              <img src="autogestao.png" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div>
+              <img src="inforeal.png" class="img-fluid" alt="">
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div>
+              <img src="previsao.png" class="img-fluid" alt="">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!--==========================
+      Buy Ticket Section
+    ============================-->
+    <section id="buy-tickets" class="section-with-bg wow fadeInUp">
+      <div class="container">
+
+        <div class="section-header">
+          <h2>Preços</h2>
+        </div>
+
+        <div class="row">
+          <!-- Admin Tier-->
+          <div class="col-lg-4a">
+            <div class="card mb-5 m-lg-3">
+              <div class="card-body">
+                <h6 class="card-price text-center">1€</h6>
+                <h5 class="card-title text-muted text-uppercase text-center">Administrador</h5>
+                <hr>
+                <ul class="fa-ul">
+                  <li><span class="fa-li "><i class="fa fa-check"></i></span>Acesso Total</li>
+                  <li><span class="fa-li"><i class="fa fa-check"></i></span>Registo de Utilizadores</li>
+                  <li><span class="fa-li"><i class="fa fa-check"></i></span>Gestão de Intervenções</li>
+                  <li><span class="fa-li"><i class="fa fa-check"></i></span>Estatísticas</li>
+                  <li><span class="fa-li"><i class="fa fa-check"></i></span>Planos de Medicação</li>
+                  <li><span class="fa-li"><i class="fa fa-check"></i></span>Lista de Medicamentos</li>
+                </ul>
+                <hr>
+                <div class="text-center">
+                  <a href="#contact"" style="color:white"><button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="standard-access">Adquirir</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Médico Tier -->
+          <div class="col-lg-4a">
+            <div class="card mb-5 m-lg-3">
+              <div class="card-body">
+                <h6 class="card-price text-center">XX.X€</h6>
+                <h5 class="card-title text-muted text-uppercase text-center">Valor por médico</h5>
+                <hr>
+                <ul class="fa-ul">
+                  <li><span class="fa-li "><i class="fa fa-check"></i></span>Agenda Pessoal</li>
+                  <li><span class="fa-li"><i class="fa fa-check"></i></span>Associação de Utentes</li>
+                  <li><span class="fa-li"><i class="fa fa-check"></i></span>Gestão de Intervenções</li>
+                  <li><span class="fa-li"><i class="fa fa-check"></i></span>Estatísticas</li>
+                  <li><span class="fa-li"><i class="fa fa-check"></i></span>Planos de Medicação</li>
+                  <li><span class="fa-li"><i class="fa fa-check"></i></span>Lista de Medicamentos</li>
+                </ul>
+                <hr>
+                <div class="text-center">
+                  <a href="../html/ltr/authentication-register.php" style="color:white"><button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="pro-access">Adquirir</button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Utente Tier -->
+          <div class="col-lg-4a">
+            <div class="card mb-5 m-lg-3">
+              <div class="card-body">
+              	<h6 class="card-price text-center">Grátis</h6>
+                <h5 class="card-title text-muted text-uppercase text-center">Utente</h5>
+
+                <hr>
+                <ul class="fa-ul">
+                  <li><span class="fa-li "><i class="fa fa-check"></i></span>XXXXXXXXXXXXXXX</li>
+                  <li><span class="fa-li"><i class="fa fa-check"></i></span>Gestão de Intervenções</li>
+                  <li><span class="fa-li "><i class="fa fa-check"></i></span>XXXXXXXXXXXXXXX</li>
+                  <li><span class="fa-li"><i class="fa fa-check"></i></span>Planos de Medicação</li>
+                  <li><span class="fa-li "><i class="fa fa-check"></i></span>XXXXXXXXXXXXXXX</li>
+                  <li><span class="fa-li "><i class="fa fa-check"></i></span>XXXXXXXXXXXXXXX</li>
+                </ul>
+                <hr>
+                <div class="text-center">
+                  <a href="../html/ltr/auth-reg-utente.php" style="color:white"><button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="premium-access">Registar</button></a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </section>
+
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact" class="section-bg wow fadeInUp">
+
+      <div class="container">
+
+        <div class="section-header">
+          <h2>Contacte-nos</h2>
+          <p>Se tiver alguma questão, não hesite em contactar-nos!</p>
+        </div>
+
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="ion-ios-location-outline"></i>
+              <h3>Local</h3>
+              <address>Évora, Portugal</address>
+            </div>
+          </div>
+
+
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="ion-ios-email-outline"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:info@example.com">mednager@outlook.pt</a></p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form">
+          <div id="sendmessage">A mensagem foi enviada. Obrigada!</div>
+          <div id="errormessage"></div>
+          <form action="" method="post" role="form" class="contactForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input type="text" name="name" class="form-control" id="name" placeholder="O seu nome" data-rule="minlen:4" data-msg="Por favor introduza no mínimo 4 caracteres" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="email" class="form-control" name="email" id="email" placeholder="O seu email" data-rule="email" data-msg="Por favor introduza um email válido" />
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto" data-rule="minlen:4" data-msg="Por favor introduza no mínimo 8 caracteres de assunto" />
+              <div class="validation"></div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Por favor escreva qualquer coisa para nós" placeholder="Mensagem. Caso queira inscrever-se como coletivo, envie-nos os seguintes dados: Nome, LEI (Legal Entity Identifier), email e número de médicos aderentes à plataforma."></textarea>
+              <div class="validation"></div>
+            </div>
+            <div class="text-center"><button type="submit">Enviar mensagem</button></div>
+          </form>
+        </div>
+
+      </div>
+    </section><!-- #contact -->
+
+  </main>
+
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright 2018 <strong>mednager</strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/venobox/venobox.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
