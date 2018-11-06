@@ -229,8 +229,8 @@
           <div class="col-lg-4a">
             <div class="card mb-5 m-lg-3">
               <div class="card-body">
-                <h6 class="card-price text-center">1€</h6>
-                <h5 class="card-title text-muted text-uppercase text-center">Administrador</h5>
+                <h6 class="card-price text-center">XX.X€</h6>
+                <h5 class="card-title text-muted text-uppercase text-center">Coletivo</h5>
                 <hr>
                 <ul class="fa-ul">
                   <li><span class="fa-li "><i class="fa fa-check"></i></span>Acesso Total</li>
@@ -252,7 +252,7 @@
             <div class="card mb-5 m-lg-3">
               <div class="card-body">
                 <h6 class="card-price text-center">XX.X€</h6>
-                <h5 class="card-title text-muted text-uppercase text-center">Valor por médico</h5>
+                <h5 class="card-title text-muted text-uppercase text-center">Médico</h5>
                 <hr>
                 <ul class="fa-ul">
                   <li><span class="fa-li "><i class="fa fa-check"></i></span>Agenda Pessoal</li>
