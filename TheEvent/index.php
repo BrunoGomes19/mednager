@@ -322,7 +322,7 @@
 					
 					if(strpos($fullUrl, "signup=ee") == true){
 					
-					echo'<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
+					echo'<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#70e093;border-radius:8px";>
 							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							   <span style="color:white;">Mensagem enviada com sucesso. Entraremos em contacto brevemente!</span>
 								</div>';
