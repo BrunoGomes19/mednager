@@ -43,8 +43,8 @@ include('../php/topo_medico.php');
 										
 										<div class="col-md-4">
                                             <div class="form-group">
-                                                <label>Endereço de email</label>
-                                                <input type="email" class="form-control" disabled value="<?php	echo $email;	?>">
+                                                <label for="email">Endereço de email</label>
+                                                <input type="email" class="form-control" value="<?php	echo $email;	?>" name="email" disabled>
                                             </div>
                                         </div>
 										
@@ -75,9 +75,9 @@ include('../php/topo_medico.php');
                                                 <label>Especialidade</label>
                                                 <select name="especialidade" id="select" class="form-control" required>
                                                         <option selected hidden value="">Escolher</option>
-                                                        <option value="A">A</option>
-                                                        <option value="B">B</option>
-                                                        <option value="C">C</option>
+                                                        <option value="2">Pediatria</option>
+                                                        <option value="3">Cardiologia</option>
+                                                     
                                                     </select>
                                             </div>
                                         </div>

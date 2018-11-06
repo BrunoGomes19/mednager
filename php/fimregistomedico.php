@@ -1,6 +1,10 @@
 <?php
 
+	include('header.php');
+
 	$nomecompleto = $_POST['nomecompleto'];
+	
+	$email = $_SESSION['email'];
 	
 	$numeroOrdem = $_POST['numeroOrdem'];
 	
@@ -29,24 +33,17 @@
 	$sobremim = $_POST['sobremim'];
 	
 	$foto = $_POST['foto'];
-	
-	echo $nomecompleto;
-	echo $numeroOrdem;
-	echo $sexo;
-	echo $especialidade;
-	echo $date;
-	echo $contacto1;
-	echo $contacto2;
-	echo $cc;
-	echo $nif;
-	echo $nib;
-	echo $morada;
-	echo $cidade;
-	echo $codigopostal;
-	echo $sobremim;
-	
-	
 
-	//$conn->query("UPDATE comprador set tokenComprador='$str' WHERE emailComprador='$email'");
+	$conn->query("UPDATE comprador set nrOrdem='$numeroOrdem',dataNascComprador='$date',nomeComprador = '$nomecompleto',formacaoCarreira='$sobremim',moradaComprador='$morada',codPostalComprador='$codigopostal',localidadeComprador='$cidade',NIBComprador='$nib',NIFComprador='$nif',contacto1Comprador='$contacto1',contacto2Comprador='$contacto2',ccComprador='$cc',sexoComprador='$sexo',codEspecialidade='$especialidade' WHERE emailComprador='$email'");
 
+	echo "Perfil atualizado com sucesso!";
+	
+	if ($conn->query($sql) === TRUE) {
+    echo "Record updated successfully";
+} else {
+    echo "Error updating record: " . $conn->error;
+}
+
+$conn->close();
+	
 ?>
