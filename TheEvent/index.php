@@ -324,7 +324,7 @@
 					
 					echo'<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
 							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							   <span style="color:white;">Mensagem enviada com sucesso. Iremos responder o mais r</span>
+							   <span style="color:white;">Mensagem enviada com sucesso. Entraremos em contacto brevemente!</span>
 								</div>';
 						
 						
