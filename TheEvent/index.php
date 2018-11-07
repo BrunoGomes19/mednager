@@ -202,7 +202,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4 wow fadeInRight visible-xs">
-                        <img src="img/textinho.jpg" class="img-responsive"  />
+                        <img src="img/textinho.png" style="width:310%" class="img-responsive"  />
                     </div>
                 </div>
             </div>
@@ -281,7 +281,7 @@
 
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Gestão de Intervenções</li>
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Interação com médico</li>
-              
+
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Planos de Medicação</li>
 
                 </ul>
