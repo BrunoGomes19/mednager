@@ -59,7 +59,7 @@
 
           <li><a href="#sponsors">Serviços</a></li>
           <li><a href="#contact">Contacte-nos</a></li>
-          
+
           <li><a href="../html/ltr/authentication-login.php">Login</a></li>
           <li class="buy-tickets"><a href="#buy-tickets">Adquirir</a></li>
         </ul>
@@ -67,7 +67,7 @@
     </div>
   </header><!-- #header -->
 
-  
+
 
   <!--==========================
     Intro Section
@@ -77,7 +77,7 @@
     	<a href="#"><img src="img/logotipo.png" class="img-responsive" style="width: 600px; margin-top: -16px;"></a>
 
       <p class="mb-4 pb-0" style="background-color: rgba(6, 12, 34, 0.1); border-radius: 15px">&nbsp&nbspO melhor amigo do médico&nbsp&nbsp</p>
-      
+
 
     </div>
   </section>
@@ -278,12 +278,12 @@
 
                 <hr>
                 <ul class="fa-ul">
-                  <li><span class="fa-li "><i class="fa fa-check"></i></span>XXXXXXXXXXXXXXX</li>
+
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Gestão de Intervenções</li>
-                  <li><span class="fa-li "><i class="fa fa-check"></i></span>XXXXXXXXXXXXXXX</li>
+                  <li><span class="fa-li"><i class="fa fa-check"></i></span>Interação com médico</li>
+              
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Planos de Medicação</li>
-                  <li><span class="fa-li "><i class="fa fa-check"></i></span>XXXXXXXXXXXXXXX</li>
-                  <li><span class="fa-li "><i class="fa fa-check"></i></span>XXXXXXXXXXXXXXX</li>
+
                 </ul>
                 <hr>
                 <div class="text-center">
@@ -307,32 +307,32 @@
     <section id="contact" class="section-bg wow fadeInUp">
 
       <div class="container">
-	  
+
 
         <div class="section-header">
           <h2>Contacte-nos</h2>
           <p>Se tiver alguma questão, não hesite em contactar-nos!</p>
         </div>
 
-		
+
 		<?php
-				
-				
+
+
 					$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-					
+
 					if(strpos($fullUrl, "signup=ee") == true){
-					
+
 					echo'<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#70e093;border-radius:8px";>
 							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							   <span style="color:white;">Mensagem enviada com sucesso. Entraremos em contacto brevemente!</span>
 								</div>';
-						
-						
-					
+
+
+
 					}
 		?>
-		
-		
+
+
         <div class="row contact-info">
 
           <div class="col-md-4">
@@ -356,8 +356,8 @@
         </div>
 
         <div class="form">
-		
-		
+
+
           <div id="sendmessage">A mensagem foi enviada. Obrigada!</div>
           <div id="errormessage"></div>
           <form method="post" role="form" class="contactForm" action="../php/enviarmensagem.php">
@@ -421,17 +421,17 @@
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
-  
+
   <script>
-  
-  
+
+
    window.setTimeout(function() {
     $(".alert").fadeTo(500, 0).slideUp(500, function(){
-        $(this).remove(); 
+        $(this).remove();
     });
 }, 5000);
-  
-  
+
+
   </script>
 </body>
 
