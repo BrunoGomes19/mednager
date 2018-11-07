@@ -7156,14 +7156,14 @@ button.bg-warning:hover {
 }
 
 .bg-danger {
-	background-color: #a7b8bc!important
+	background-color: #da542e!important
 }
 
 a.bg-danger:focus,
 a.bg-danger:hover,
 button.bg-danger:focus,
 button.bg-danger:hover {
-	background-color: #a7b8bc!important
+	background-color: #b54120!important
 }
 
 .bg-light {
