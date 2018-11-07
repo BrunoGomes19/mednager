@@ -3,7 +3,7 @@
 	if(isset($_GET["email"]) && isset($_GET["token"])){
 
 	
-	include "config.php";
+	include "../topos/config.php";
 	
 	$email = $_GET["email"];
 	
@@ -15,18 +15,18 @@
 
 	if($data->num_rows>0){
 		
-		header("Location: ../html/ltr/recuperacao.php?token=$token&email=$email&tipo=$tipo");
+		header("Location: ../reset_pass/recuperacao.php?token=$token&email=$email&tipo=$tipo");
 		
 		
 	}else{
 		
-		header("Location: ../html/ltr/error-403");
+		header("Location: ../erros/error-403");
 		
 	}
 	
 	}else{
 
-		header("Location: ../html/ltr/authentication-login.php");
+		header("Location: ../logins/authentication-login.php");
 
 	}
 
