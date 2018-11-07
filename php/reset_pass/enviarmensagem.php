@@ -10,8 +10,8 @@
 	
 	
 	
-	require '../PHPMailerAutoload.php';
-		require '../credential.php';
+	require '../../PHPMailerAutoload.php';
+		require '../../credential.php';
 
 			$mail = new PHPMailer;
 
@@ -43,7 +43,7 @@
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
 			} else {
 				
-				header("Location: ../TheEvent/index.php?signup=ee#contact");
+				header("Location: ../indexes/index.php?signup=ee#contact");
 				
 			}
 	

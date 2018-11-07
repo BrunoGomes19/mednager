@@ -9,23 +9,22 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="img/redondo.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="../../landingPage/img/redondo.png" rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../landingPage/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/venobox/venobox.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../../landingPage/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../../landingPage/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="../../landingPage/lib/venobox/venobox.css" rel="stylesheet">
+  <link href="../../landingPage/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="../../landingPage/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
     Theme Name: TheEvent
@@ -74,7 +73,7 @@
   ============================-->
   <section id="intro">
     <div class="intro-container wow fadeIn">
-    	<a href="#"><img src="img/logotipo.png" class="img-responsive" style="width: 600px; margin-top: -16px;"></a>
+    	<a href="#"><img src="../../landingPage/img/logos/logotipo.png" class="img-responsive" style="width: 600px; margin-top: -16px;"></a>
 
       <p class="mb-4 pb-0" style="background-color: rgba(6, 12, 34, 0.1); border-radius: 15px">&nbsp&nbspO melhor amigo do médico&nbsp&nbsp</p>
 
@@ -100,7 +99,7 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="speaker">
-              <img src="img/speakers/bruno.png" alt="Speaker 3" class="img-fluid">
+              <img src="../../landingPage/img/equipa/bruno.png" alt="Speaker 3" class="img-fluid">
               <div class="details">
                 <h3 style="color: #5fbace"> Bruno Gomes</h3>
                 <p>Programador</p>
@@ -112,7 +111,7 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="speaker">
-              <img src="img/speakers/carol.png" alt="Speaker 4" class="img-fluid">
+              <img src="../../landingPage/img/equipa/carol.png" alt="Speaker 4" class="img-fluid">
               <div class="details">
                 <h3 style="color: #5fbace">Carolina Roque</h3>
                 <p>Programadora</p>
@@ -124,7 +123,7 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="speaker">
-              <img src="img/speakers/maria.png" alt="Speaker 5" class="img-fluid">
+              <img src="../../landingPage/img/equipa/maria.png" alt="Speaker 5" class="img-fluid">
               <div class="details">
                 <h3 style="color: #5fbace">Maria Correia</h3>
                 <p>Programadora</p>
@@ -136,7 +135,7 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="speaker">
-              <img src="img/speakers/pat.png" alt="Speaker 6" class="img-fluid">
+              <img src="../../landingPage/img/equipa/pat.png" alt="Speaker 6" class="img-fluid">
               <div class="details">
                 <h3 style="color: #5fbace">Patrícia Correia</h3>
                 <p>Programadora</p>
@@ -174,25 +173,25 @@
 
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div>
-              <img src="analise.png" class="img-fluid" alt="">
+              <img src="../../landingPage/img/servicos/analise.png" class="img-fluid" alt="">
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div>
-              <img src="autogestao.png" class="img-fluid" alt="">
+              <img src="../../landingPage/img/servicos/autogestao.png" class="img-fluid" alt="">
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div>
-              <img src="inforeal.png" class="img-fluid" alt="">
+              <img src="../../landingPage/img/servicos/inforeal.png" class="img-fluid" alt="">
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div>
-              <img src="previsao.png" class="img-fluid" alt="">
+              <img src="../../landingPage/img/servicos/previsao.png" class="img-fluid" alt="">
             </div>
           </div>
 
@@ -202,7 +201,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4 wow fadeInRight visible-xs">
-                        <img src="img/textinho.png" style="width:310%" class="img-responsive"  />
+                        <img src="../../landingPage/servicos/textinho.png" style="width:310%" class="img-responsive"  />
                     </div>
                 </div>
             </div>
@@ -229,7 +228,7 @@
           <div class="col-lg-4a">
             <div class="card mb-5 m-lg-3">
               <div class="card-body">
-                <h6 class="card-price text-center">XX.X€</h6>
+                <h6 class="card-price text-center">XX.XX€</h6>
                 <h5 class="card-title text-muted text-uppercase text-center">Coletivo</h5>
                 <hr>
                 <ul class="fa-ul">
@@ -251,7 +250,7 @@
           <div class="col-lg-4a">
             <div class="card mb-5 m-lg-3">
               <div class="card-body">
-                <h6 class="card-price text-center">XX.X€</h6>
+                <h6 class="card-price text-center">XX.XX€</h6>
                 <h5 class="card-title text-muted text-uppercase text-center">Médico</h5>
                 <hr>
                 <ul class="fa-ul">
@@ -264,7 +263,7 @@
                 </ul>
                 <hr>
                 <div class="text-center">
-                  <a href="../html/ltr/authentication-register.php" style="color:white"><button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="pro-access">Adquirir</button></a>
+                  <a href="../registos/authentication-register.php" style="color:white"><button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="pro-access">Adquirir</button></a>
                 </div>
               </div>
             </div>
@@ -287,7 +286,7 @@
                 </ul>
                 <hr>
                 <div class="text-center">
-                  <a href="../html/ltr/auth-reg-utente.php" style="color:white"><button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="premium-access">Registar</button></a>
+                  <a href="../registos/auth-reg-utente.php" style="color:white"><button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="premium-access">Registar</button></a>
                 </div>
 
               </div>
@@ -360,7 +359,7 @@
 
           <div id="sendmessage">A mensagem foi enviada. Obrigada!</div>
           <div id="errormessage"></div>
-          <form method="post" role="form" class="contactForm" action="../php/enviarmensagem.php">
+          <form method="post" role="form" class="contactForm" action="../reset_pass/enviarmensagem.php">
             <div class="form-row">
               <div class="form-group col-md-6">
                 <input type="text" name="name" class="form-control" id="name" placeholder="O seu nome" data-rule="minlen:4" data-msg="Por favor introduza no mínimo 4 caracteres" />
@@ -406,21 +405,21 @@
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 
   <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/superfish/hoverIntent.js"></script>
-  <script src="lib/superfish/superfish.min.js"></script>
-  <script src="lib/wow/wow.min.js"></script>
-  <script src="lib/venobox/venobox.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="../../landingPage/lib/jquery/jquery.min.js"></script>
+  <script src="../../landingPage/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="../../landingPage/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../landingPage/lib/easing/easing.min.js"></script>
+  <script src="../../landingPage/lib/superfish/hoverIntent.js"></script>
+  <script src="../../landingPage/lib/superfish/superfish.min.js"></script>
+  <script src="../../landingPage/lib/wow/wow.min.js"></script>
+  <script src="../../landingPage/lib/venobox/venobox.min.js"></script>
+  <script src="../../landingPage/lib/owlcarousel/owl.carousel.min.js"></script>
 
   <!-- Contact Form JavaScript File -->
 
 
   <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
+  <script src="../../landingPage/js/main.js"></script>
 
   <script>
 

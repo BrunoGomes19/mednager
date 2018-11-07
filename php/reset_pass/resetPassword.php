@@ -5,7 +5,7 @@
 
 	}else{
 
-		header("Location: ../ltr/authentication-login.php");
+		header("Location: ../logins/authentication-login.php");
 
 	}
 
