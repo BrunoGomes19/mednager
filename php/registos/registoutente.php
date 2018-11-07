@@ -1,14 +1,53 @@
 <?php
 include('../topos/topo_utente.php');
 
+	$sql = "SELECT * from utente where emailUtente like '$email'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+
+		$sexo = $row["sexoUtente"];
+
+    $nomeCompleto = $row["nomeUtente"];
+
+		$date = $row["dataNascUtente"];
+
+		$contacto1 = $row["contacto1Utente"];
+
+		$contacto2 = $row["contacto2Utente"];
+
+		$cc = $row["ccUtente"];
+
+		$nif = $row["NIFUtente"];
+
+		$nib = $row["NIBUtente"];
+
+		$morada = $row["moradaUtente"];
+
+		$cidade = $row["localidadeUtente"];
+
+		$codigopostal = $row["codPostalUtente"];
+
+		$sobremim = $row["ObservacoesUtente"];
+
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();
 
 ?>
+
 
 <!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
 <script type="text/javascript" src="https://formden.com/static/cdn/formden.js"></script>
 
 <!-- Special version of Bootstrap that is isolated to content wrapped in .bootstrap-iso -->
 <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+
 
 <!--Font Awesome (added because you use icons in your prepend/append)-->
 <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
@@ -25,22 +64,67 @@ include('../topos/topo_utente.php');
 					<div class="row">
                     <div class="col-md-8">
                         <div class="card">
-                            <div class="header">
-                                <h4 class="title">Editar perfil</h4>
-                            </div>
+													<div class="card-footer">
+														<form action="../perfis/perfil_utente.php" method="GET" style ='float: left; padding: 5px;'>
+																			<button type="submit" class="btn btn-primary btn-sm" style="font-size:16px">
+																					<i class="fa fa-dot-circle-o"></i> Ver
+																			</button>&nbsp
+														</form>
+														<form action="../registos/registoutente.php" method="GET" style ='float: left; padding: 5px;'>
+																			<button type="submit" class="btn btn-danger btn-sm" style="font-size:16px">
+																					<i class="fa fa-dot-circle-o"></i> Editar
+																			</button>
+														 </form>
+																	</div>
                             <div class="content">
-                                <form>
+                                <form method="POST" action="fimregistoutente.php">
                                     <div class="row">
-                                        <div class="col-md-5">
 
+
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="nomecompleto">Nome completo</label>
+                                                <input type="text" class="form-control" value="<?php	echo $login_session;	?>" name="nomecompleto" required>
+                                            </div>
                                         </div>
 
+										<div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="email"><b>Endereço de email</b></label>
+                                                <input type="email" class="form-control" value="<?php	echo $email;	?>" name="email" disabled style="border:0;background-color:#f4f4f4;border-radius:5px;">
+                                            </div>
+                                        </div>
+
+										<div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="cc">Número CC</label>
+                                                <input type="text" class="form-control" value="<?php	echo $cc;	?>" required name="cc">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="sexo">Sexo</label>
+                                                <select name="sexo" id="select" class="form-control" required>
+                                                        <option selected hidden value="<?php	echo $sexo;	?>"><?php	echo $sexo;	?></option>
+                                                        <option value="Masculino">Masculino</option>
+                                                        <option value="Feminino">Feminino</option>
+                                                        <option value="Outro">Outro</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
 
 
-										<div class="col-md-5">
+
+
+													<div class="col-md-5">
                                             <div class="form-group">
 											<label>&nbsp &nbsp Data de nascimento</label>
-                                                <form action="https://formden.com/post/MlKtmY4x/" class="form-horizontal" method="post">
+
 
 
 													  <div class="col-sm-10">
@@ -50,63 +134,28 @@ include('../topos/topo_utente.php');
 														 </i>
 														</div>
 
-														<input class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" type="text"/>
+														<input class="form-control" id="date" name="date" placeholder="YYYY/MM/DD" type="text" value="<?php	echo $date;	?>" required>
 													   </div>
 													  </div>
 
 
-								</form>
-                                            </div>
-													</div>
 
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Nome completo</label>
-                                                <input type="email" class="form-control" placeholder="">
                                             </div>
-                                        </div>
+												</div>
 
-										<div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Endereço de email</label>
-                                                <input type="email" class="form-control" placeholder="">
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="row">
-                                         <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Cartão de cidadão</label>
-                                                <input type="email" class="form-control" placeholder="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Sexo</label>
-                                                <select name="especialidade" id="select" class="form-control" required>
-                                                        <option selected hidden value="">BD</option>
-                                                        <option value="Masculino">Masculino</option>
-                                                        <option value="Feminino">Feminino</option>
-                                                        <option value="Outro">Outro</option>
-                                                    </select>
-                                            </div>
-                                        </div>
                                     </div>
 
 									<div class="row">
                                          <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Contacto 1</label>
-                                                <input type="email" class="form-control" placeholder="">
+                                                <label for="contacto1">Contacto 1</label>
+                                                <input type="tel" class="form-control" placeholder="" required name="contacto1" value="<?php	echo $contacto1;	?>">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Contacto 2</label>
-                                                <input type="email" class="form-control" placeholder="">
+                                                <label for="contacto2">Contacto 2</label>
+                                                <input type="tel" class="form-control" placeholder="" name="contacto2" value="<?php	echo $contacto2;	?>">
                                             </div>
                                         </div>
                                     </div>
@@ -116,14 +165,14 @@ include('../topos/topo_utente.php');
 									<div class="row">
                                          <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Número de identificação fiscal (NIF)</label>
-                                                <input type="email" class="form-control" placeholder="">
+                                                <label for="nif">Número de identificação fiscal (NIF)</label>
+                                                <input type="text" class="form-control" placeholder="" required name="nif" value="<?php	echo $nif;	?>">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Número de Identificação Bancária (NIB)</label>
-                                                <input type="email" class="form-control" placeholder="">
+                                                <label for="nib">Número de Identificação Bancária (NIB)</label>
+                                                <input type="text" class="form-control" placeholder="" required name="nib" value="<?php	echo $nib;	?>">
                                             </div>
                                         </div>
                                     </div>
@@ -132,7 +181,7 @@ include('../topos/topo_utente.php');
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Morada</label>
-                                                <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                                                <input type="text" class="form-control" placeholder="" required name="morada" value="<?php	echo $morada;	?>">
                                             </div>
                                         </div>
                                     </div>
@@ -141,13 +190,13 @@ include('../topos/topo_utente.php');
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Cidade</label>
-                                                <input type="text" class="form-control" placeholder="City" value="Mike">
+                                                <input type="text" class="form-control" placeholder="" required name="cidade" value="<?php	echo $cidade;	?>">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Código postal</label>
-                                                <input type="text" class="form-control" placeholder="Country" value="Andrew">
+                                                <input type="text" class="form-control" placeholder="" required name="codigopostal" value="<?php	echo $codigopostal;	?>">
                                             </div>
                                         </div>
 
@@ -157,7 +206,7 @@ include('../topos/topo_utente.php');
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Sobre mim</label>
-                                                <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                                                <textarea rows="5" class="form-control" placeholder="" name="sobremim"><?php	echo $sobremim;	?></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -169,7 +218,7 @@ include('../topos/topo_utente.php');
 									<div class="col-md-4">
 
                                             <div class="form-group">
-                                                <input type="file" class="custom-file-input" id="validatedCustomFile">
+                                                <input type="file" class="custom-file-input" id="validatedCustomFile" name="foto">
                                             <label class="custom-file-label " for="validatedCustomFile">Escolher imagem...</label>
                                             <div class="invalid-feedback">Example invalid custom file feedback</div>
                                             </div>
@@ -178,7 +227,7 @@ include('../topos/topo_utente.php');
 
 
 
-                                    <button type="submit" class="btn btn-info btn-fill pull-right">Guardar</button>
+                                    <input type="submit" class="btn btn-info btn-fill pull-right">
                                     <div class="clearfix"></div>
                                 </form>
                             </div>
@@ -234,7 +283,7 @@ include('../topos/topo_utente.php');
 		var date_input=$('input[name="date"]'); //our date input has the name "date"
 		var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
 		date_input.datepicker({
-			format: 'dd/mm/yyyy',
+			format: 'yyyy/mm/dd',
 			container: container,
 			todayHighlight: true,
 			autoclose: true,
