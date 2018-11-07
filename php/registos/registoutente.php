@@ -41,6 +41,7 @@ $conn->close();
 ?>
 
 
+
 <!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
 <script type="text/javascript" src="https://formden.com/static/cdn/formden.js"></script>
 
@@ -91,7 +92,7 @@ $conn->close();
 
 										<div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="email"><b>Endereço de email</b></label>
+                                                <label for="email">Endereço de email</label>
                                                 <input type="email" class="form-control" value="<?php	echo $email;	?>" name="email" disabled style="border:0;background-color:#f4f4f4;border-radius:5px;">
                                             </div>
                                         </div>

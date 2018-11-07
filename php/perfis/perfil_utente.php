@@ -1,4 +1,7 @@
+
 <?php
+
+
 include('../topos/topo_utente.php');
 
 $sql = "SELECT * from utente where emailUtente like '$email'";
@@ -45,7 +48,8 @@ $conn->close();
 ?>
 
             <!-- MAIN CONTENT-->
-              <link href="../../assets/css/style.css" rel="stylesheet">
+
+            <link href="../../assets/css/style.css" rel="stylesheet">
 
             <div class="content" style="padding-top:8%;">
                         <div class="container-fluid">

@@ -21,7 +21,7 @@ include('header.php');
     <title>mednager</title>
 
     <!-- Fontfaces CSS-->
-    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="../../Interior/css/font-face.css" rel="stylesheet" media="all">
     <link href="../../Interior/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="../../Interior/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="../../Interior/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -51,8 +51,8 @@ include('header.php');
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="../indexes/index-medico.php>
-                            <img src="../assets/images/logotipo.png" alt="mednager" width="179px" height="52px" />
+                        <a class="logo" href="../indexes/index-medico.php">
+                            <img src="../../assets/images/logos/logotipo.png" alt="mednager" width="179px" height="52px" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
