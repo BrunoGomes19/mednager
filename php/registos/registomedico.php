@@ -77,6 +77,8 @@ $conn->close();
 <!-- Special version of Bootstrap that is isolated to content wrapped in .bootstrap-iso -->
 <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
 
+
+
 <!--Font Awesome (added because you use icons in your prepend/append)-->
 <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
 
@@ -92,9 +94,14 @@ $conn->close();
 					<div class="row">
                     <div class="col-md-8">
                         <div class="card">
-                            <div class="header">
-                                <h4 class="title">Editar perfil</h4>
-                            </div>
+													<div class="card-footer">
+																			<button href="../perfis/perfil_medico.php" type="submit" class="btn btn-primary btn-sm">
+																					<i class="fa fa-dot-circle-o"></i> Ver
+																			</button>&nbsp
+																			<button type="submit" class="btn btn-danger btn-sm">
+																					<i class="fa fa-dot-circle-o"></i> Editar
+																			</button>
+																	</div>
                             <div class="content">
                                 <form method="POST" action="fimregistomedico.php">
                                     <div class="row">
@@ -110,8 +117,8 @@ $conn->close();
 
 										<div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="email">Endereço de email</label>
-                                                <input type="email" class="form-control" value="<?php	echo $email;	?>" name="email" disabled>
+                                                <label for="email"><b>Endereço de email</b></label>
+                                                <input type="email" class="form-control" value="<?php	echo $email;	?>" name="email" disabled style="border:0;background-color:#f4f4f4;border-radius:5px;">
                                             </div>
                                         </div>
 
