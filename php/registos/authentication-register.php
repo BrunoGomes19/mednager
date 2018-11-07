@@ -15,7 +15,7 @@ session_start();
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link href="../../redondo.png" rel="icon">
+    <link href="../../landingPage/img/logos/logotipo.png" rel="icon">
     <link rel="stylesheet" type="text/css" href="../../assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
     <title>mednager</title>
     <!-- Custom CSS -->
@@ -67,7 +67,7 @@ session_start();
             <div class="auth-box bg-light border-top border-secondary">
                 <div>
                     <div class="text-center p-t-20 p-b-20">
-                        <a href="../../TheEvent/index.php"><span class="db"><img style="width: 100%" src="../../assets/images/dindindin.png" alt="logo" /></span></a>
+                        <a href="../indexes/index.php"><span class="db"><img style="width: 100%" src="../../assets/images/logos/dindindin.png" alt="logo" /></span></a>
                     </div>
                     <!-- Form -->
                     <form name="myForm" class="form-horizontal m-t-20" onsubmit="return checkInp()" action="../../php/registar.php" method="post">

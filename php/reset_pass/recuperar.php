@@ -77,15 +77,15 @@ if(isset($_POST['submit'])){
 		
 		$str = substr($str,0,10);
 		
-		$url = "http://localhost/mednager/php/resetPasswordComprador.php?token=$str&email=$email&tipo=c";
+		$url = "http://localhost/mednager/php/reset_pass/resetPasswordComprador.php?token=$str&email=$email&tipo=c";
 		
 		echo $url;
 		
 		//CODIGO PHPMAILER
 		
 		
-		require '../PHPMailerAutoload.php';
-		require '../credential.php';
+		require '../../PHPMailerAutoload.php';
+		require '../../credential.php';
 
 			$mail = new PHPMailer;
 
@@ -117,7 +117,7 @@ if(isset($_POST['submit'])){
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
 			} else {
 				
-				header("Location: ../html/ltr/authentication-login.php?signup=ee");
+				header("Location: ../logins/authentication-login.php?signup=ee");
 				
 			}
 
@@ -148,15 +148,15 @@ if(isset($_POST['submit'])){
 		
 		$str = substr($str,0,10);
 		
-		$url = "http://localhost/mednager/php/resetPasswordUtente.php?token=$str&email=$email&tipo=u";
+		$url = "http://localhost/mednager/reset_pass/resetPasswordUtente.php?token=$str&email=$email&tipo=u";
 		
 		echo $url;
 		
 		//CODIGO PHPMAILER
 		
 		
-		require '../PHPMailerAutoload.php';
-		require '../credential.php';
+		require '../../PHPMailerAutoload.php';
+		require '../../credential.php';
 
 			$mail = new PHPMailer;
 
@@ -188,7 +188,7 @@ if(isset($_POST['submit'])){
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
 			} else {
 				
-				header("Location: ../html/ltr/authentication-login.php?signup=ee");
+				header("Location: ../logins/authentication-login.php?signup=ee");
 				
 			}
 
@@ -210,7 +210,7 @@ if(isset($_POST['submit'])){
 		
 		//location a dizer que este email nao existe na bd
 		
-		header("Location: ../html/ltr/authentication-login.php?signup=emailnotin&recup=1");
+		header("Location: ../logins/authentication-login.php?signup=emailnotin&recup=1");
 					
 			exit();
 		
@@ -225,7 +225,7 @@ if(isset($_POST['submit'])){
 }else{
 	
 	if(!(isset($_SESSION['login_user']) && $_SESSION['login_user'] != "")){
-	header('Location: ../html/ltr/authentication-login.php');
+	header('Location: ../logins/authentication-login.php');
 }
 	}
 	

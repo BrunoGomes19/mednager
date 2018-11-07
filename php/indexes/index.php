@@ -59,7 +59,7 @@
           <li><a href="#sponsors">Serviços</a></li>
           <li><a href="#contact">Contacte-nos</a></li>
 
-          <li><a href="../html/ltr/authentication-login.php">Login</a></li>
+          <li><a href="../logins/authentication-login.php">Login</a></li>
           <li class="buy-tickets"><a href="#buy-tickets">Adquirir</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->

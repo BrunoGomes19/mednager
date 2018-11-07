@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr">
-
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link href="../../redondo.png" rel="icon">
+    <link href="../../landingPage/img/logos/redondo.png" rel="icon">
     <title>mednager</title>
     <!-- Custom CSS -->
     <link href="../../dist/css/style.min.css" rel="stylesheet">
@@ -85,7 +84,7 @@
             <div class="auth-box bg-light border-top border-secondary">
                 <div id="loginform">
                     <div class="text-center p-t-20 p-b-20">
-                        <a href="../../TheEvent/index.php"><span class="db"><img style="width: 100%" src="../../assets/images/dindindin.png" alt="logo" /></span></a>
+                        <a href="../indexes/index.php"><span class="db"><img style="width: 100%" src="../../assets/images/logos/dindindin.png" alt="logo" /></span></a>
                     </div>
                     <!-- Form -->
                     <form class="form-horizontal m-t-20" id="loginform" action="../../php/login.php" method="post">
@@ -203,8 +202,10 @@
 				
 						
                         <div class="row border-top border-secondary">
+
                             <div class="col-12">
                                 <div class="form-group">
+                                
                                     <div class="p-t-20">
                                         <button class="btn btn-info" id="to-recover" type="button"><i class="fa fa-lock m-r-5"></i> Esqueceu-se da senha?</button>
                                         <input class="btn btn-info float-right" type="submit" name="submit" value="Entrar"></input>
@@ -227,7 +228,8 @@
                     </div>
                     <div class="row m-t-20">
                         <!-- Form -->
-                        <form class="col-12" action="../../php/recuperar.php" method="POST">
+                        <br>
+                        <form class="col-12" action="../reset_pass/recuperar.php" method="POST">
                             <!-- email -->
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
