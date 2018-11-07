@@ -198,7 +198,7 @@
 
         </div>
 
-        <section id="texto">
+        <!--<section id="texto">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4 wow fadeInRight visible-xs">
@@ -206,7 +206,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
 
       </div>
 
