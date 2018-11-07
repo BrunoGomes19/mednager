@@ -95,12 +95,16 @@ $conn->close();
                     <div class="col-md-8">
                         <div class="card">
 													<div class="card-footer">
-																			<button href="../perfis/perfil_medico.php" type="submit" class="btn btn-primary btn-sm">
+														<form action="../perfis/perfil_medico.php" method="GET" style ='float: left; padding: 5px;'>
+																			<button type="submit" class="btn btn-primary btn-sm" style="font-size:16px">
 																					<i class="fa fa-dot-circle-o"></i> Ver
 																			</button>&nbsp
-																			<button type="submit" class="btn btn-danger btn-sm">
+														</form>
+														<form action="../registos/registomedico.php" method="GET" style ='float: left; padding: 5px;'>
+																			<button type="submit" class="btn btn-danger btn-sm" style="font-size:16px">
 																					<i class="fa fa-dot-circle-o"></i> Editar
 																			</button>
+														 </form>
 																	</div>
                             <div class="content">
                                 <form method="POST" action="fimregistomedico.php">
