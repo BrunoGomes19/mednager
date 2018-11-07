@@ -71,7 +71,7 @@ include('header.php');
 
                         </li>
                         <li>
-                            <a href="../pages-calendar.php">
+                            <a href="../pages_medico/pages-calendar.php">
                                 <i class="fa fa-book"></i>Agenda Pessoal</a>
                         </li>
 
@@ -140,7 +140,7 @@ include('header.php');
 
                         </li>
                         <li>
-                            <a href="../pages-calendar.php">
+                            <a href="../pages_medico/pages-calendar.php">
                                 <i class="fa fa-book"></i>Agenda Pessoal</a>
                         </li>
 
