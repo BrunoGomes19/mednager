@@ -67,7 +67,7 @@ session_start();
             <div class="auth-box bg-light border-top border-secondary">
                 <div>
                     <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img style="width: 100%" src="../../assets/images/dindindin.png" alt="logo" /></span>
+                        <a href="../../TheEvent/index.php"><span class="db"><img style="width: 100%" src="../../assets/images/dindindin.png" alt="logo" /></span></a>
                     </div>
                     <!-- Form -->
                     <form name="myForm" class="form-horizontal m-t-20" onsubmit="return checkInp()" action="../../php/registar.php" method="post">
@@ -82,7 +82,7 @@ session_start();
                                 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-quote-right"></i></span>
+                                        <span class="input-group-text bg-danger text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
                                     <input type="text" class="form-control form-control-lg" placeholder="Número de Ordem" aria-label="nrOrdem" aria-describedby="basic-addon1" required name="numeroOrdem" id="numeroOrdem">
                                 </div>

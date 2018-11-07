@@ -229,7 +229,7 @@
           <div class="col-lg-4a">
             <div class="card mb-5 m-lg-3">
               <div class="card-body">
-                <h6 class="card-price text-center">XX.X€</h6>
+                <h6 class="card-price text-center">XX.XX€</h6>
                 <h5 class="card-title text-muted text-uppercase text-center">Coletivo</h5>
                 <hr>
                 <ul class="fa-ul">
@@ -251,7 +251,7 @@
           <div class="col-lg-4a">
             <div class="card mb-5 m-lg-3">
               <div class="card-body">
-                <h6 class="card-price text-center">XX.X€</h6>
+                <h6 class="card-price text-center">XX.XX€</h6>
                 <h5 class="card-title text-muted text-uppercase text-center">Médico</h5>
                 <hr>
                 <ul class="fa-ul">
@@ -278,12 +278,10 @@
 
                 <hr>
                 <ul class="fa-ul">
-                  <li><span class="fa-li "><i class="fa fa-check"></i></span>XXXXXXXXXXXXXXX</li>
+                  <li><span class="fa-li "><i class="fa fa-check"></i></span>Proximidade ao Médico</li>
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Gestão de Intervenções</li>
-                  <li><span class="fa-li "><i class="fa fa-check"></i></span>XXXXXXXXXXXXXXX</li>
+                  <li><span class="fa-li "><i class="fa fa-check"></i></span></li>
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Planos de Medicação</li>
-                  <li><span class="fa-li "><i class="fa fa-check"></i></span>XXXXXXXXXXXXXXX</li>
-                  <li><span class="fa-li "><i class="fa fa-check"></i></span>XXXXXXXXXXXXXXX</li>
                 </ul>
                 <hr>
                 <div class="text-center">
