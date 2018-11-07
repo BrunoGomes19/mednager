@@ -15,7 +15,7 @@
 
 	if($data->num_rows>0){
 		
-		header("Location: ../reset_pass/recuperacao.php?token=$token&email=$email&tipo=$tipo");
+		header("Location: recuperacao.php?token=$token&email=$email&tipo=$tipo");
 		
 		
 	}else{

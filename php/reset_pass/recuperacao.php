@@ -22,11 +22,11 @@ if(isset($_POST['submit'])){
 	
 	if($tipo == "c"){
 		
-		include "../../php/config.php";
+		include "../topos/config.php";
 		
 		$conn->query("UPDATE comprador set passComprador='$pass' WHERE emailComprador='$email'");	
 		
-		header("Location: authentication-login.php?signup=newpass");
+		header("Location: ../logins/authentication-login.php?signup=newpass");
 		
 		
 	}else{
@@ -34,11 +34,11 @@ if(isset($_POST['submit'])){
 		if($tipo == "u"){
 			
 			
-		include "../../php/config.php";
+		include "../topos/config.php";
 		
 		$conn->query("UPDATE utente set passUtente='$pass' WHERE emailUtente='$email'");	
 		
-		header("Location: authentication-login.php?signup=newpass");
+		header("Location: ../logins/authentication-login.php?signup=newpass");
 			
 			
 		}
@@ -68,7 +68,7 @@ if(isset($_POST['submit'])){
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/minilogo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../landingPage/img/logos/redondo.png">
     <link rel="stylesheet" type="text/css" href="../../assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
     <title>mednager</title>
     <!-- Custom CSS -->
