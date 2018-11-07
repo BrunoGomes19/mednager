@@ -4,7 +4,7 @@ include_once "config.php";
 $conn->set_charset("utf8");
 
 if(!(isset($_SESSION['login_user']) && $_SESSION['login_user'] != "")){
-  header('Location: ../html/ltr/authentication-login.php');
+  header('Location: ../logins/authentication-login.php');
 }
 
 

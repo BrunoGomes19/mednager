@@ -1,5 +1,5 @@
 <?php
-include('../php/topo_utente.php');
+include('../topos/topo_utente.php');
 
 
 ?>
@@ -20,8 +20,8 @@ include('../php/topo_utente.php');
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
-                    
-					
+
+
 					<div class="row">
                     <div class="col-md-8">
                         <div class="card">
@@ -32,48 +32,48 @@ include('../php/topo_utente.php');
                                 <form>
                                     <div class="row">
                                         <div class="col-md-5">
-                                            
+
                                         </div>
-										
-                                        
-													
+
+
+
 										<div class="col-md-5">
                                             <div class="form-group">
 											<label>&nbsp &nbsp Data de nascimento</label>
                                                 <form action="https://formden.com/post/MlKtmY4x/" class="form-horizontal" method="post">
-													 
-													  
+
+
 													  <div class="col-sm-10">
 													   <div class="input-group">
 														<div class="input-group-addon">
 														 <i class="fa fa-calendar">
 														 </i>
 														</div>
-														
+
 														<input class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" type="text"/>
 													   </div>
 													  </div>
-													
-													 
+
+
 								</form>
                                             </div>
 													</div>
-										
-										
+
+
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Nome completo</label>
                                                 <input type="email" class="form-control" placeholder="">
                                             </div>
                                         </div>
-										
+
 										<div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Endereço de email</label>
                                                 <input type="email" class="form-control" placeholder="">
                                             </div>
                                         </div>
-										
+
                                     </div>
 
                                     <div class="row">
@@ -95,7 +95,7 @@ include('../php/topo_utente.php');
                                             </div>
                                         </div>
                                     </div>
-									
+
 									<div class="row">
                                          <div class="col-md-4">
                                             <div class="form-group">
@@ -110,9 +110,9 @@ include('../php/topo_utente.php');
                                             </div>
                                         </div>
                                     </div>
-									
-									
-									
+
+
+
 									<div class="row">
                                          <div class="col-md-4">
                                             <div class="form-group">
@@ -150,7 +150,7 @@ include('../php/topo_utente.php');
                                                 <input type="text" class="form-control" placeholder="Country" value="Andrew">
                                             </div>
                                         </div>
-                                     
+
                                     </div>
 
                                     <div class="row">
@@ -161,22 +161,22 @@ include('../php/topo_utente.php');
                                             </div>
                                         </div>
                                     </div>
-									
-									
-									
-									
+
+
+
+
 									<label for="">Fotografia de perfil</label>
 									<div class="col-md-4">
-									
+
                                             <div class="form-group">
                                                 <input type="file" class="custom-file-input" id="validatedCustomFile">
                                             <label class="custom-file-label " for="validatedCustomFile">Escolher imagem...</label>
                                             <div class="invalid-feedback">Example invalid custom file feedback</div>
                                             </div>
                                         </div>
-									
 
-                              
+
+
 
                                     <button type="submit" class="btn btn-info btn-fill pull-right">Guardar</button>
                                     <div class="clearfix"></div>
@@ -184,10 +184,10 @@ include('../php/topo_utente.php');
                             </div>
                         </div>
                     </div>
-                    
+
 
                 </div>
-					
+
                 </div>
             </div>
             <!-- END MAIN CONTENT-->
@@ -197,30 +197,30 @@ include('../php/topo_utente.php');
     </div>
 
     <!-- Jquery JS-->
-    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <script src="../../Interior/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
-    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="../../Interior/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="../../Interior/vendor/bootstrap-4.1/bootstrap.min.js"></script>
     <!-- Vendor JS       -->
-    <script src="vendor/slick/slick.min.js">
+    <script src="../../Interior/vendor/slick/slick.min.js">
     </script>
-    <script src="vendor/wow/wow.min.js"></script>
-    <script src="vendor/animsition/animsition.min.js"></script>
-    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    <script src="../../Interior/vendor/wow/wow.min.js"></script>
+    <script src="../../Interior/vendor/animsition/animsition.min.js"></script>
+    <script src="../../Interior/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
     </script>
-    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="vendor/counter-up/jquery.counterup.min.js">
+    <script src="../../Interior/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="../../Interior/vendor/counter-up/jquery.counterup.min.js">
     </script>
-    <script src="vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="vendor/select2/select2.min.js">
+    <script src="../../Interior/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="../../Interior/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../../Interior/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="../../Interior/vendor/select2/select2.min.js">
     </script>
 
     <!-- Main JS-->
-    <script src="js/main.js"></script>
-	
-	
+    <script src="../../Interior/js/main.js"></script>
+
+
 <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
 <!-- Include jQuery -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -228,7 +228,7 @@ include('../php/topo_utente.php');
 <!-- Include Date Range Picker -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-	
+
 	<script>
 	$(document).ready(function(){
 		var date_input=$('input[name="date"]'); //our date input has the name "date"

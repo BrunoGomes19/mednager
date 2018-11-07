@@ -15,7 +15,7 @@ session_start();
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link href="../../redondo.png" rel="icon">
+    <link href="../../landingPage/img/logos/redondo.png" rel="icon">
     <link rel="stylesheet" type="text/css" href="../../assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
     <title>mednager</title>
     <!-- Custom CSS -->
@@ -33,11 +33,11 @@ session_start();
 <style>
 
 #erro{
-	
+
 	color:#f42c2c;
 	font-size:16px;
 	font-family:FontAwesome;
-	
+
 }
 
 
@@ -67,10 +67,10 @@ session_start();
             <div class="auth-box bg-light border-top border-secondary">
                 <div>
                     <div class="text-center p-t-20 p-b-20">
-                        <a href="../../TheEvent/index.php"><span class="db"><img style="width: 100%" src="../../assets/images/dindindin.png" alt="logo" /></span></a>
+                        <a href="../../TheEvent/index.php"><span class="db"><img style="width: 100%" src="../../landingPage/img/logos/logotipo.png" alt="logo" /></span></a>
                     </div>
                     <!-- Form -->
-                    <form name="myForm" class="form-horizontal m-t-20" onsubmit="return checkInp()" action="../../php/registarutente.php" method="post">
+                    <form name="myForm" class="form-horizontal m-t-20" onsubmit="return checkInp()" action="registarutente.php" method="post">
                         <div class="row p-b-30">
                             <div class="col-12">
                                 <div class="input-group mb-3">
@@ -79,7 +79,7 @@ session_start();
                                     </div>
                                     <input type="text" class="form-control form-control-lg" placeholder="Nome completo" aria-label="nomeUtente" aria-describedby="basic-addon1" required name="nome">
                                 </div>
-                                
+
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-quote-right"></i></span>
@@ -90,30 +90,30 @@ session_start();
 
 
 
-								
-								
-								
+
+
+
 
 								<div class="input-group mb-3">
-								
+
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-warning text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-									
+
 									 <select name="sexo" id="select" class="form-control form-control-lg" required>
                                                         <option selected hidden value="">Sexo</option>
                                                         <option value="Masculino">Masculino</option>
                                                         <option value="Feminino">Feminino</option>
                                                         <option value="Outro">Outro</option>
                                                     </select>
-									
-                                </div>
-								
 
-								
-								
-								
-								
+                                </div>
+
+
+
+
+
+
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon2"><i class="ti-email"></i></span>
@@ -135,72 +135,72 @@ session_start();
                                 </div>
                             </div>
                         </div>
-						
+
 						<?php
-				
-				
+
+
 					$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-					
+
 					if(strpos($fullUrl, "signup=pperror") == true){
-						
+
 						echo '<p id="erro">As palavra-passe não coincidem.<br><br></p>';
-						
-						
-					
+
+
+
 					}else{
-					
+
 						if(strpos($fullUrl, "signup=uerror") == true){
-						
+
 						echo '<p id="erro">Ocorreu um erro a registar o utente.<br><br></p>';
-						
-						
-					
+
+
+
 					}else{
-							
+
 							if(strpos($fullUrl, "signup=noerror") == true){
-							
+
 							echo '<p id="erro">Este cartão de cidadão é inválido.<br><br></p>';
-							
+
 						}else{
-							
+
 							if(strpos($fullUrl, "signup=emailerror") == true){
-							
+
 							echo '<p id="erro">Este e-mail já está associado a outra conta.<br><br></p>';
-							
+
 						}else{
-							
+
 							if(strpos($fullUrl, "signup=ccerror") == true){
-							
+
 							echo '<p id="erro">Este Cartão de cidadão já está associado a outra conta.<br><br></p>';
-							
+
 						}else{
-							
-							
-							
-							
+
+
+
+
 						}
-							
-							
+
+
 						}
-							
-							
+
+
 						}
-							
+
 						}
-						
-						
-						
+
+
+
 					}
-					
-					
-				
+
+
+
 				?>
-						
+
                         <div class="row border-top border-secondary">
                             <div class="col-12">
                                 <div class="form-group">
                                     <div class="p-t-20">
-                                        <input class="btn btn-block btn-info" type="submit" name="submit" value="Registar"></input>                                
+                                        <input class="btn btn-block btn-info" type="submit" name="submit" value="Registar"></input>
                                     </div>
                                 </div>
                             </div>
@@ -261,19 +261,19 @@ function checkInp(){
   {
     ccUtente.setCustomValidity("Este Cartão de cidadão é inválido!");
   }else{
-	  
+
 	    ccUtente.setCustomValidity("");
 
-	  
+
   }
-	
+
 }
 
 ccUtente.onchange = checkInp;
 ccUtente.onkeyup = checkInp;
-    
+
     </script>
-	
+
 </body>
 
 </html>

@@ -3,57 +3,57 @@
 	if(isset($_GET["email"]) && isset($_GET["token"]) && isset($_GET["tipo"])){
 
 	$email = $_GET["email"];
-	
+
 	$token = $_GET["token"];
-	
+
 	$tipo = $_GET["tipo"];
 
 
 if(isset($_POST['submit'])){
-	
 
-	
+
+
 	$pass = $_POST['password'];
-	
+
 	$pass = md5($pass);
-	
+
 	echo $pass;
-	
-	
+
+
 	if($tipo == "c"){
-		
+
 		include "../topos/config.php";
-		
-		$conn->query("UPDATE comprador set passComprador='$pass' WHERE emailComprador='$email'");	
-		
+
+		$conn->query("UPDATE comprador set passComprador='$pass' WHERE emailComprador='$email'");
+
 		header("Location: ../logins/authentication-login.php?signup=newpass");
-		
-		
+
+
 	}else{
-		
+
 		if($tipo == "u"){
-			
-			
+
+
 		include "../topos/config.php";
-		
-		$conn->query("UPDATE utente set passUtente='$pass' WHERE emailUtente='$email'");	
-		
+
+		$conn->query("UPDATE utente set passUtente='$pass' WHERE emailUtente='$email'");
+
 		header("Location: ../logins/authentication-login.php?signup=newpass");
-			
-			
+
+
 		}
-		
-		
+
+
 	}
-	
-	
-	
+
+
+
 }
 
 	}else{
-		
+
 		echo "ERRO!";
-		
+
 	}
 ?>
 
@@ -86,11 +86,11 @@ if(isset($_POST['submit'])){
 <style>
 
 #erro{
-	
+
 	color:#f42c2c;
 	font-size:16px;
 	font-family:FontAwesome;
-	
+
 }
 
 
@@ -120,13 +120,13 @@ if(isset($_POST['submit'])){
             <div class="auth-box bg-light border-top border-secondary">
                 <div>
                     <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img style="width: 100%" src="../../assets/images/dindindin.png" alt="logo" /></span>
+                        <span class="db"><img style="width: 100%" src="../../landingPage/img/logos/logotipo.png" alt="logo" /></span>
                     </div>
                     <!-- Form -->
                     <form class="form-horizontal m-t-20" action="recuperacao.php?token=<?php echo $token; ?>&email=<?php	echo $email;	?>&tipo=<?php	echo $tipo;	?>" method="post">
                         <div class="row p-b-30">
                             <div class="col-12">
-                                
+
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -142,72 +142,72 @@ if(isset($_POST['submit'])){
                                 </div>
                             </div>
                         </div>
-						
+
 						<?php
-				
-				
+
+
 					$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-					
+
 					if(strpos($fullUrl, "signup=pperror") == true){
-						
+
 						echo '<p id="erro">As palavra-passe não coincidem.<br><br></p>';
-						
-						
-					
+
+
+
 					}else{
-					
+
 						if(strpos($fullUrl, "signup=cerror") == true){
-						
+
 						echo '<p id="erro">Ocorreu um erro a registar o comprador.<br><br></p>';
-						
-						
-					
+
+
+
 					}else{
-							
+
 							if(strpos($fullUrl, "signup=noerror") == true){
-							
+
 							echo '<p id="erro">Este número de ordem é inválido.<br><br></p>';
-							
+
 						}else{
-							
+
 							if(strpos($fullUrl, "signup=emailerror") == true){
-							
+
 							echo '<p id="erro">Este e-mail já está associado a outra conta.<br><br></p>';
-							
+
 						}else{
-							
+
 							if(strpos($fullUrl, "signup=numeroordemerror") == true){
-							
+
 							echo '<p id="erro">Este número de ordem já está associado a outra conta.<br><br></p>';
-							
+
 						}else{
-							
-							
-							
-							
+
+
+
+
 						}
-							
-							
+
+
 						}
-							
-							
+
+
 						}
-							
+
 						}
-						
-						
-						
+
+
+
 					}
-					
-					
-				
+
+
+
 				?>
-						
+
                         <div class="row border-top border-secondary">
                             <div class="col-12">
                                 <div class="form-group">
                                     <div class="p-t-20">
-                                        <input class="btn btn-block btn-info" type="submit" name="submit" value="Alterar"></input>                                
+                                        <input class="btn btn-block btn-info" type="submit" name="submit" value="Alterar"></input>
                                     </div>
                                 </div>
                             </div>
@@ -245,7 +245,7 @@ if(isset($_POST['submit'])){
     <script>
     $('[data-toggle="tooltip"]').tooltip();
     $(".preloader").fadeOut();
-	
+
 	var password = document.getElementById("password")
   , confirm_password = document.getElementById("confirm_password");
 
@@ -260,9 +260,9 @@ function validatePassword(){
 password.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;
 
-    
+
     </script>
-	
+
 </body>
 
 </html>

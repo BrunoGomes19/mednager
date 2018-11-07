@@ -1,5 +1,5 @@
 <?php
-include('../php/header.php');
+include('header.php');
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +7,7 @@ include('../php/header.php');
 
 <head>
     <!-- Required meta tags-->
-	<link href="../TheEvent/img/redondo.png" rel="icon">
+		<link href="../../landingPage/img/logos/redondo.png" rel="icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="au theme template">
@@ -18,38 +18,38 @@ include('../php/header.php');
     <title>mednager</title>
 
     <!-- Fontfaces CSS-->
-    <link href="css/font-face.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="../../Interior/css/font-face.css" rel="stylesheet" media="all">
+    <link href="../../Interior/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="../../Interior/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="../../Interior/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="../../Interior/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="../../Interior/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="../../Interior/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="../../Interior/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="../../Interior/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="../../Interior/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="../../Interior/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="../../Interior/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="css/theme.css" rel="stylesheet" media="all">
+    <link href="../../Interior/css/theme.css" rel="stylesheet" media="all">
 
 </head>
 
 <body class="animsition">
-    <div class="page-wrapper">       
-	
+    <div class="page-wrapper">
+
 	<!-- HEADER MOBILE-->
         <header class="header-mobile d-block d-lg-none">
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
-                            <img src="../assets/images/logotipo.png" alt="mednager" width="179px" height="52px" />
+                        <a class="logo" href="../indexes/index-utente.php">
+                            <img src="../../landingPage/img/logos/logotipo.png" alt="mednager" width="179px" height="52px" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -65,14 +65,14 @@ include('../php/header.php');
                         <li class="active has-sub">
                             <a href="#">
                                 <i class="fa fa-home"></i>Início</a>
-                           
+
                         </li>
                         <li>
                             <a href="chart.html">
                                 <i class="fa fa-user-md"></i>Lista de Médicos</a>
-                        </li>                       
+                        </li>
 
-                        
+
 
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
@@ -91,7 +91,7 @@ include('../php/header.php');
                             <a href="form.html">
                                 <i class="fa fa-calendar-alt"></i>Plano de Medicação</a>
                         </li>
-                        
+
                         <li>
                             <a href="map.html">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
@@ -106,7 +106,7 @@ include('../php/header.php');
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img style="width: 100%" src="images/icon/logotipo.png" alt="Cool Admin" />
+                    <img style="width: 100%" src="../../landingPage/img/logos/logotipo.png" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
@@ -115,14 +115,14 @@ include('../php/header.php');
                         <li class="active has-sub">
                             <a href="#">
                                 <i class="fa fa-home"></i>Início</a>
-                           
+
                         </li>
                         <li>
                             <a href="chart.html">
                                 <i class="fa fa-user-md"></i>Lista de Médicos</a>
-                        </li>                       
+                        </li>
 
-                        
+
 
                         <li>
                             <a class="js-arrow" href="#">
@@ -130,10 +130,10 @@ include('../php/header.php');
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                     <a href="#">Gestão</a>
-                                </li>                                
+                                </li>
                                 <li>
                                     <a href="#">Histórico</a>
-                                </li>                                
+                                </li>
                             </ul>
                         </li>
 
@@ -141,12 +141,12 @@ include('../php/header.php');
                             <a href="form.html">
                                 <i class="fa fa-calendar-alt"></i>Plano de Medicação</a>
                         </li>
-                        
+
                         <li>
                             <a href="map.html">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
-                        
+
                     </ul>
                 </nav>
             </div>
@@ -161,12 +161,12 @@ include('../php/header.php');
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                                
+
                             </form>
                             <div class="header-button">
                                 <div class="noti-wrap">
-                                   
-                                    
+
+
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-notifications"></i>
                                         <span class="quantity">3</span>
@@ -210,7 +210,7 @@ include('../php/header.php');
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                            <img src="../../assets/images/users/1.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#"><?php $login_session=$_SESSION['login_user']; echo $login_session;?></a>
@@ -219,7 +219,7 @@ include('../php/header.php');
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                                        <img src="../../assets/images/users/1.jpg" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
@@ -244,7 +244,7 @@ include('../php/header.php');
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="../php/logout.php">
+                                                <a href="../logins/logout.php">
                                                     <i class="zmdi zmdi-power"></i>Sair</a>
                                             </div>
                                         </div>

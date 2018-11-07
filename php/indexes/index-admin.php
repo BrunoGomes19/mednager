@@ -1,5 +1,5 @@
 <?php
-include('../php/topo_admin.php');
+include('../topos /topo_admin.php');
 ?>
 
             <!-- MAIN CONTENT-->
@@ -10,7 +10,7 @@ include('../php/topo_admin.php');
                             <div class="col-md-12">
                                 <div class="overview-wrap">
                                     <h2 class="title-1">Olá, Administrador! <br><br><br></h2>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -26,7 +26,7 @@ include('../php/topo_admin.php');
                                                 <h2>420</h2>
                                                 <span>médicos registados</span>
                                             </div>
-                                        </div>                                        
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@ include('../php/topo_admin.php');
                                                 <span>utentes registados</span>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@ include('../php/topo_admin.php');
                                                 <h2>20</h2>
                                                 <span>intervenções hoje</span>
                                             </div>
-                                        </div>                                        
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -73,14 +73,14 @@ include('../php/topo_admin.php');
                                                 <span>intervenções esta semana</span>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
-                        
-                                        
+
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
@@ -98,28 +98,28 @@ include('../php/topo_admin.php');
     </div>
 
     <!-- Jquery JS-->
-    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <script src="../../Interior/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
-    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="../../Interior/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="../../Interior/vendor/bootstrap-4.1/bootstrap.min.js"></script>
     <!-- Vendor JS       -->
-    <script src="vendor/slick/slick.min.js">
+    <script src="../../Interior/vendor/slick/slick.min.js">
     </script>
-    <script src="vendor/wow/wow.min.js"></script>
-    <script src="vendor/animsition/animsition.min.js"></script>
-    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    <script src="../../Interior/vendor/wow/wow.min.js"></script>
+    <script src="../../Interior/vendor/animsition/animsition.min.js"></script>
+    <script src="../../Interior/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
     </script>
-    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="vendor/counter-up/jquery.counterup.min.js">
+    <script src="../../Interior/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="../../Interior/vendor/counter-up/jquery.counterup.min.js">
     </script>
-    <script src="vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="vendor/select2/select2.min.js">
+    <script src="../../Interior/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="../../Interior/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../../Interior/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="../../Interior/vendor/select2/select2.min.js">
     </script>
 
     <!-- Main JS-->
-    <script src="js/main.js"></script>
+    <script src="../../Interior/js/main.js"></script>
 
 </body>
 

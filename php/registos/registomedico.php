@@ -1,67 +1,67 @@
 <?php
-include('../php/topo_medico.php');
-			
+include('../topos/topo_medico.php');
+
 	$sql = "SELECT * from comprador where emailComprador like '$email'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        
+
 		$sexo = $row["sexoComprador"];
-		
+
 		$especialidadeInt = $row["codEspecialidade"];
-		
+
 		$especialidade = $row["codEspecialidade"];
-		
+
 		if($especialidade==1){
-			
+
 			$especialidade="";
-			
+
 		}else{
-			
+
 			if($especialidade==2){
-			
+
 			$especialidade="Pediatria";
-			
+
 		}else{
-			
+
 			if($especialidade==3){
-			
+
 			$especialidade="Cardiologia";
-			
+
 		}else{
-			
+
 			$especialidade="";
-			
+
 		}
-			
+
 		}
-			
+
 		}
-		
+
 		//sexo
-		
+
 		$date = $row["dataNascComprador"];
-		
+
 		$contacto1 = $row["contacto1Comprador"];
-		
+
 		$contacto2 = $row["contacto2Comprador"];
-		
+
 		$cc = $row["ccComprador"];
-		
+
 		$nif = $row["NIFComprador"];
-		
+
 		$nib = $row["NIBComprador"];
-		
+
 		$morada = $row["moradaComprador"];
-		
+
 		$cidade = $row["localidadeComprador"];
-		
+
 		$codigopostal = $row["codPostalComprador"];
-		
+
 		$sobremim = $row["formacaoCarreira"];
-		
+
     }
 } else {
     echo "0 results";
@@ -87,8 +87,8 @@ $conn->close();
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
-                    
-					
+
+
 					<div class="row">
                     <div class="col-md-8">
                         <div class="card">
@@ -96,25 +96,25 @@ $conn->close();
                                 <h4 class="title">Editar perfil</h4>
                             </div>
                             <div class="content">
-                                <form method="POST" action="../php/fimregistomedico.php">
+                                <form method="POST" action="fimregistomedico.php">
                                     <div class="row">
-                                        
-										
-										
+
+
+
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="nomecompleto">Nome completo</label>
                                                 <input type="text" class="form-control" value="<?php	echo $login_session;	?>" name="nomecompleto" required>
                                             </div>
                                         </div>
-										
+
 										<div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="email">Endereço de email</label>
                                                 <input type="email" class="form-control" value="<?php	echo $email;	?>" name="email" disabled>
                                             </div>
                                         </div>
-										
+
 										<div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="numeroOrdem">Número de ordem</label>
@@ -132,11 +132,11 @@ $conn->close();
                                                     </select>
                                             </div>
                                         </div>
-										
+
                                     </div>
 
                                     <div class="row">
-									
+
 										<div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Especialidade</label>
@@ -144,37 +144,37 @@ $conn->close();
                                                         <option selected hidden value="<?php	echo $especialidadeInt;	?>"><?php	echo $especialidade;	?></option>
                                                         <option value="2">Pediatria</option>
                                                         <option value="3">Cardiologia</option>
-                                                     
+
                                                     </select>
                                             </div>
                                         </div>
-										
-                                        
-													
+
+
+
 													<div class="col-md-5">
                                             <div class="form-group">
 											<label>&nbsp &nbsp Data de nascimento</label>
-                                               
-													 
-													  
+
+
+
 													  <div class="col-sm-10">
 													   <div class="input-group">
 														<div class="input-group-addon">
 														 <i class="fa fa-calendar">
 														 </i>
 														</div>
-														
+
 														<input class="form-control" id="date" name="date" placeholder="YYYY/MM/DD" type="text" value="<?php	echo $date;	?>" required>
 													   </div>
 													  </div>
-													
-													 
-												
+
+
+
                                             </div>
 												</div>
-                                         
+
                                     </div>
-									
+
 									<div class="row">
                                          <div class="col-md-4">
                                             <div class="form-group">
@@ -189,7 +189,7 @@ $conn->close();
                                             </div>
                                         </div>
                                     </div>
-									
+
 									<div class="row">
                                          <div class="col-md-4">
                                             <div class="form-group">
@@ -197,9 +197,9 @@ $conn->close();
                                                 <input type="text" class="form-control" placeholder="" required name="cc" value="<?php	echo $cc;	?>">
                                             </div>
                                         </div>
-                                        
+
                                     </div>
-									
+
 									<div class="row">
                                          <div class="col-md-4">
                                             <div class="form-group">
@@ -237,7 +237,7 @@ $conn->close();
                                                 <input type="text" class="form-control" placeholder="" required name="codigopostal" value="<?php	echo $codigopostal;	?>">
                                             </div>
                                         </div>
-                                     
+
                                     </div>
 
                                     <div class="row">
@@ -248,22 +248,22 @@ $conn->close();
                                             </div>
                                         </div>
                                     </div>
-									
-									
-									
-									
+
+
+
+
 									<label for="">Fotografia de perfil</label>
 									<div class="col-md-4">
-									
+
                                             <div class="form-group">
                                                 <input type="file" class="custom-file-input" id="validatedCustomFile" name="foto">
                                             <label class="custom-file-label " for="validatedCustomFile">Escolher imagem...</label>
                                             <div class="invalid-feedback">Example invalid custom file feedback</div>
                                             </div>
                                         </div>
-									
 
-                              
+
+
 
                                     <input type="submit" class="btn btn-info btn-fill pull-right">
                                     <div class="clearfix"></div>
@@ -271,10 +271,10 @@ $conn->close();
                             </div>
                         </div>
                     </div>
-                    
+
 
                 </div>
-					
+
                 </div>
             </div>
             <!-- END MAIN CONTENT-->
@@ -284,30 +284,30 @@ $conn->close();
     </div>
 
     <!-- Jquery JS-->
-    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <script src="../../Interior/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
-    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="../../Interior/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="../../Interior/vendor/bootstrap-4.1/bootstrap.min.js"></script>
     <!-- Vendor JS       -->
-    <script src="vendor/slick/slick.min.js">
+    <script src="../../Interior/vendor/slick/slick.min.js">
     </script>
-    <script src="vendor/wow/wow.min.js"></script>
-    <script src="vendor/animsition/animsition.min.js"></script>
-    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    <script src="../../Interior/vendor/wow/wow.min.js"></script>
+    <script src="../../Interior/vendor/animsition/animsition.min.js"></script>
+    <script src="../../Interior/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
     </script>
-    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="vendor/counter-up/jquery.counterup.min.js">
+    <script src="../../Interior/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="../../Interior/vendor/counter-up/jquery.counterup.min.js">
     </script>
-    <script src="vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="vendor/select2/select2.min.js">
+    <script src="../../Interior/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="../../Interior/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../../Interior/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="../../Interior/vendor/select2/select2.min.js">
     </script>
 
     <!-- Main JS-->
-    <script src="js/main.js"></script>
-	
-	
+    <script src="../../Interior/js/main.js"></script>
+
+
 <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
 <!-- Include jQuery -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -315,7 +315,7 @@ $conn->close();
 <!-- Include Date Range Picker -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-	
+
 	<script>
 	$(document).ready(function(){
 		var date_input=$('input[name="date"]'); //our date input has the name "date"
