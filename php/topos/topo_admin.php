@@ -71,7 +71,7 @@ include('header.php');
                                 <i class="fas fa-users"></i>Lista de Utente</a>
                         </li>
                         <li>
-                            <a href="chart.html">
+                            <a href="../listas/admin-lm.php">
                                 <i class="fas fa-user-md"></i>Lista de Médicos</a>
                         </li>
                         <li class="has-sub">
@@ -134,7 +134,7 @@ include('header.php');
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
                             <a href="#">
-                                <i class="fa fa-home"></i>Inicio</a>
+                                <i class="fa fa-home"></i>Início</a>
 
                         </li>
 
@@ -147,7 +147,7 @@ include('header.php');
                         </li>
 
                         <li>
-                            <a href="table.html">
+                            <a href="../listas/admin-lm.php">
                                 <i class="fa fa-user-md"></i>Lista de Médicos</a>
                         </li>
 
