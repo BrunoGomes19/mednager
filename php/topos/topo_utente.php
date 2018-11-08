@@ -88,7 +88,7 @@ if ($result->num_rows > 0) {
 
                         </li>
                         <li>
-                            <a href="chart.html">
+                            <a href="../listas/utente-lm.php">
                                 <i class="fa fa-user-md"></i>Lista de Médicos</a>
                         </li>
 
@@ -138,7 +138,7 @@ if ($result->num_rows > 0) {
 
                         </li>
                         <li>
-                            <a href="chart.html">
+                            <a href="../listas/utente-lm.php">
                                 <i class="fa fa-user-md"></i>Lista de Médicos</a>
                         </li>
 

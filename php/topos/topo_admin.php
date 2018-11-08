@@ -67,7 +67,7 @@ include('header.php');
                                 <i class="fas fa-home"></i>Início</a>
                         </li>
                         <li>
-                            <a href="chart.html">
+                            <a href="../listas/admin-lu.php">
                                 <i class="fas fa-users"></i>Lista de Utente</a>
                         </li>
                         <li>
@@ -142,7 +142,7 @@ include('header.php');
 
 
                         <li>
-                            <a href="table.html">
+                            <a href="../listas/admin-lu.php">
                                 <i class="fa fa-users"></i>Lista de Utentes</a>
                         </li>
 
