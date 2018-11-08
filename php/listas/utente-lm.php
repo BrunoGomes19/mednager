@@ -1,8 +1,5 @@
 <?php
 include('../topos/topo_utente.php');
-
-    
-
 ?>
 
 

@@ -4,6 +4,31 @@ include('../topos/topo_medico.php');
 ?>
 
 
+<script>
+function showUser(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","ajaxmedico-lu.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+</script>
+
+
 <!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
 <script type="text/javascript" src="https://formden.com/static/cdn/formden.js"></script>
 
@@ -41,7 +66,7 @@ include('../topos/topo_medico.php');
                                                             <i class="fa fa-search"></i>
                                                         </button>
                                                         
-                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="Username" class="form-control">
+                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="Username" class="form-control" onkeyup="showUser(this.value)">
                                                     </div>
 
 
@@ -86,31 +111,39 @@ include('../topos/topo_medico.php');
                                                 </tr>
                                             </thead>
                                             <tbody>
+
+                                                <div id="txtHint">
                                                 
-                                                <tr class="spacer"></tr>
-                                                <tr class="tr-shadow">
-                                                    <td>
-                                                        <label class="au-checkbox">
-                                                            <input type="checkbox">
-                                                            <span class="au-checkmark"></span>
-                                                        </label>
-                                                    </td>
-                                                    <td>Lori Lynch</td>
-                                                    <td>
-                                                        <span class="block-email">john@example.com</span>
-                                                    </td>
-                                                    <td class="desc">iPhone X 64Gb Grey</td>
-                                                    
-                                                    <td>
+                                                    <!--<tr class="spacer"></tr>
+                                                    <tr class="tr-shadow">
+                                                        <td>
+                                                            <label class="au-checkbox">
+                                                                <input type="checkbox">
+                                                                <span class="au-checkmark"></span>
+                                                            </label>
+                                                        </td>
+                                                        <td>Lori Lynch</td>
+                                                        <td>
+                                                            <span class="block-email">john@example.com</span>
+                                                        </td>
+                                                        <td class="desc">iPhone X 64Gb Grey</td>
                                                         
-                                                            <button type="button" class="btn btn-outline-primary">
-                                                                <i class="fa fa-user"></i>&nbsp;Perfil</button>
-                                                               
-                                                    </td>
-                                                </tr>
-                                                <tr class="spacer"></tr>
+                                                        <td>
+                                                            
+                                                                <button type="button" class="btn btn-outline-primary">
+                                                                    <i class="fa fa-user"></i>&nbsp;Perfil</button>
+                                                                   
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="spacer"></tr>-->
+
+                                                </div>
                                                 
                                                 
+
+
+
+
                                             </tbody>
                                         </table>
                                     </div>
