@@ -27,7 +27,7 @@ include('../topos/topo_utente.php');
                   }
 									}
 
-									?><?php $login_session=$_SESSION['login_user']; echo $nome;?>! <br><br><br></h2>
+									?><?php echo $nome;?>! <br><br><br></h2>
 
                                 </div>
                             </div>
