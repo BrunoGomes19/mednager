@@ -1,5 +1,7 @@
 <?php
 include('../topos/topo_utente.php');
+
+
 ?>
 
 		<!-- MAIN CONTENT-->
@@ -11,19 +13,21 @@ include('../topos/topo_utente.php');
                                 <div class="overview-wrap">
                                     <h2 class="title-1">Olá, <?php
 
-									$sexo=$_SESSION['sexo'];
-
 									if($sexo=="Masculino"){
 
 										echo "Sr. ";
 
 									}else{
-
+                    if($sexo=="Feminino"){
 										echo "Sra. ";
+                  }else{
 
+                    echo "Sr(a). ";
+
+                  }
 									}
 
-									?><?php $login_session=$_SESSION['login_user']; echo $login_session;?>! <br><br><br></h2>
+									?><?php $login_session=$_SESSION['login_user']; echo $nome;?>! <br><br><br></h2>
 
                                 </div>
                             </div>

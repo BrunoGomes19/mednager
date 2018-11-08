@@ -1,5 +1,25 @@
 <?php
 include('header.php');
+
+$email = $_SESSION['email'];
+
+$sqlrecuperacaoc = "SELECT * from utente where emailUtente = '$email'";
+$result = $conn->query($sqlrecuperacaoc);
+
+if ($result->num_rows > 0) {
+  while($row = $result->fetch_assoc()) {
+
+    $sexo = $row['sexoUtente'];
+
+    $nome = $row['nomeUtente'];
+
+		$email = $row['emailUtente'];
+
+
+  }
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -213,7 +233,7 @@ include('header.php');
                                             <img src="../../assets/images/users/1.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#"><?php $login_session=$_SESSION['login_user']; echo $login_session;?></a>
+                                            <a class="js-acc-btn" href="#"><?php echo $nome;?></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -224,9 +244,9 @@ include('header.php');
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#"><?php $login_session=$_SESSION['login_user']; echo $login_session;?></a>
+                                                        <a href="#"><?php echo $nome;?></a>
                                                     </h5>
-                                                    <span class="email"><?php $email=$_SESSION['email']; echo $email;?></span>
+                                                    <span class="email"><?php echo $email;?></span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">

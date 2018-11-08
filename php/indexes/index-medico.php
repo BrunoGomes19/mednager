@@ -2,9 +2,15 @@
 include('../topos/topo_medico.php');
 ?>
 
+
+
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
+
+
+
+
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
@@ -28,6 +34,24 @@ include('../topos/topo_medico.php');
                                 </div>
                             </div>
                         </div>
+
+                        <?php
+
+                        $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+                        if(strpos($fullUrl, "utente=add") == true){
+
+                        echo'<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                         <span style="color:white;">Obrigado por realizar o registo do utente ';echo $_GET['nome'];echo '!<br>Ser-lhe-á enviado um e-mail com as credenciais.</span>
+                        </div>';
+
+
+
+                        }
+
+                        ?>
+
                         <div class="row m-t-25">
                             <div class="col-sm-6 col-lg-3">
                                 <div class="overview-item overview-item--c1">
@@ -134,6 +158,16 @@ include('../topos/topo_medico.php');
 
     <!-- Main JS-->
     <script src="../../Interior/js/main.js"></script>
+
+<script>
+
+window.setTimeout(function() {
+ $(".alert").fadeTo(500, 0).slideUp(500, function(){
+     $(this).remove();
+ });
+}, 9000);
+
+</script>
 
 </body>
 
