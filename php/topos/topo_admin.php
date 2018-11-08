@@ -105,7 +105,7 @@ include('header.php');
                                 <i class="fas fa-tasks"></i>Registo de Utentes</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="index.html">Novo Registo</a>
+                                    <a href="../registos/medico-admin_registoutente.php">Novo Registo</a>
                                 </li>
                                 <li>
                                     <a href="index2.html">Associar Utente</a>
@@ -184,7 +184,7 @@ include('header.php');
                                 <i class="fa fa-plus"></i>Registo de Utentes</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="index.html">Novo registo</a>
+                                    <a href="../registos/medico-admin_registoutente.php">Novo registo</a>
                                 </li>
                                 <li>
                                     <a href="index2.html">Associar utente</a>

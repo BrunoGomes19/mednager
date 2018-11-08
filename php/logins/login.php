@@ -92,6 +92,8 @@ if(isset($_POST['submit'])){
 
 					$_SESSION['n_ordem']=$row["nrOrdem"]; //esta var.
 
+					$_SESSION['permissao']=$row["codPermissao"]; //esta var.
+
 				header("Location: ../indexes/index-admin.php");
 
 					exit();
@@ -107,6 +109,8 @@ if(isset($_POST['submit'])){
 						$_SESSION['sexo']=$row["sexoComprador"]; //esta var.
 
 						$_SESSION['n_ordem']=$row["nrOrdem"]; //esta var.
+
+						$_SESSION['permissao']=$row["codPermissao"]; //esta var.
 
 					header("Location: ../indexes/index-medico.php");
 
