@@ -108,7 +108,7 @@ if ($result->num_rows > 0) {
                         </li>
 
                         <li>
-                            <a href="table.html">
+                            <a href="../listas/medico-lu.php">
                                 <i class="fa fa-users"></i>Lista de Utentes</a>
                         </li>
 
@@ -177,7 +177,7 @@ if ($result->num_rows > 0) {
                         </li>
 
                         <li>
-                            <a href="table.html">
+                            <a href="../listas/medico-lu.php">
                                 <i class="fa fa-users"></i>Lista de Utentes</a>
                         </li>
 
