@@ -225,7 +225,7 @@ $conn->close();
 
 																												<div class="col-md-4">
 								                                            <div class="form-group">
-								                                                <label for="nrSubsistema">Número do cartão do subsistema de saúde</label>
+								                                                <label for="nrSubsistema">Número do cartão do sistema de saúde</label>
 								                                                <input type="text" class="form-control" placeholder="" required name="nrSubsistema" value="<?php	echo $nrSubsistema;	?>">
 								                                            </div>
 								                                        </div>

@@ -180,7 +180,7 @@ $conn->close();
                                                     </div>
                                                     <div class="col-md-6">
                                                       <div class="form-group">
-                                                          <label>Número do cartão do subsistema</label>
+                                                          <label>Número do cartão do sistema de saúde</label>
                                                           <input type="text" class="form-control" value="<?php echo $nrSubsistema; ?>" readonly>
                                                       </div>
                                                     </div>
