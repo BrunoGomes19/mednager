@@ -89,7 +89,7 @@ include('header.php');
                         </li>
 
                         <li>
-                            <a href="table.html">
+                            <a href="../listas/medico-lu.php">
                                 <i class="fa fa-users"></i>Lista de Utentes</a>
                         </li>
 
@@ -158,7 +158,7 @@ include('header.php');
                         </li>
 
                         <li>
-                            <a href="table.html">
+                            <a href="../listas/medico-lu.php">
                                 <i class="fa fa-users"></i>Lista de Utentes</a>
                         </li>
 
