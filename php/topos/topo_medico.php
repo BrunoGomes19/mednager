@@ -1,25 +1,6 @@
 <?php
 include('header.php');
 
-$email = $_SESSION['email'];
-
-$sqlrecuperacaoc = "SELECT * from comprador where emailComprador = '$email'";
-$result = $conn->query($sqlrecuperacaoc);
-
-if ($result->num_rows > 0) {
-  while($row = $result->fetch_assoc()) {
-
-    $sexo = $row['sexoComprador'];
-
-    $nome = $row['nomeComprador'];
-
-		$email = $row['emailComprador'];
-
-
-  }
-}
-
-
 ?>
 
 
@@ -274,7 +255,7 @@ if ($result->num_rows > 0) {
                                             <img src="../../assets/images/users/1.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#"><?php	 echo $nome;?></a>
+                                            <a class="js-acc-btn" href="#"><?php $login_session=$_SESSION['login_user'];	 echo $login_session;?></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -285,11 +266,11 @@ if ($result->num_rows > 0) {
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#"><?php echo $nome;?></a>
+                                                        <a href="#"><?php $login_session=$_SESSION['login_user']; echo $login_session;?></a>
                                                     </h5>
                                                     <span class="email"><?php $email=$_SESSION['email']; echo $email;?></span>
                                                 </div>
-                                            </div>
+                                            </div><?php $sexo=$_SESSION['sexo'];?><?php $n_ordem=$_SESSION['n_ordem'];?>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
                                                     <a href="../registos/registomedico.php">

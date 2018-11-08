@@ -33,7 +33,17 @@ if(isset($_POST['submit'])){
 
 			if( $row["passUtente"] == md5($pass)){
 
+				$_SESSION['login_user']=$row["nomeUtente"]; //esta var.
+				//
+				//echo $_SESSION['login_user'];
+
 				$_SESSION['email']=$row["emailUtente"]; //esta var.
+
+				//echo $_SESSION['email'];
+
+				$_SESSION['sexo']=$row["sexoUtente"]; //esta var.
+
+				//echo "<br><br>Login efetuado com sucesso - UTENTE" ;
 
 				header("Location: ../indexes/index-utente.php");
 
@@ -74,7 +84,13 @@ if(isset($_POST['submit'])){
 
 				if($row["codPermissao"] == 1){
 
+					$_SESSION['login_user']=$row["nomeComprador"]; //esta var.
+
 					$_SESSION['email']=$row["emailComprador"]; //esta var.
+
+					$_SESSION['sexo']=$row["sexoComprador"]; //esta var.
+
+					$_SESSION['n_ordem']=$row["nrOrdem"]; //esta var.
 
 					$_SESSION['permissao']=$row["codPermissao"]; //esta var.
 
@@ -86,7 +102,13 @@ if(isset($_POST['submit'])){
 
 					if($row["codPermissao"] == 2){
 
+						$_SESSION['login_user']=$row["nomeComprador"]; //esta var.
+
 						$_SESSION['email']=$row["emailComprador"]; //esta var.
+
+						$_SESSION['sexo']=$row["sexoComprador"]; //esta var.
+
+						$_SESSION['n_ordem']=$row["nrOrdem"]; //esta var.
 
 						$_SESSION['permissao']=$row["codPermissao"]; //esta var.
 

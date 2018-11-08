@@ -10,8 +10,6 @@ if ($result->num_rows > 0) {
 
 		$sexo = $row["sexoComprador"];
 
-		$n_ordem = $row["nrOrdem"];
-
 		$especialidadeInt = $row["codEspecialidade"];
 
 		$especialidade = $row["codEspecialidade"];
@@ -117,7 +115,7 @@ $conn->close();
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="nomecompleto">Nome completo</label>
-                                                <input type="text" class="form-control" value="<?php	echo $nome;	?>" name="nomecompleto" required>
+                                                <input type="text" class="form-control" value="<?php	echo $login_session;	?>" name="nomecompleto" required>
                                             </div>
                                         </div>
 

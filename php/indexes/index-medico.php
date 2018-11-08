@@ -17,23 +17,19 @@ include('../topos/topo_medico.php');
                                 <div class="overview-wrap">
                                     <h2 class="title-1">Olá, <?php
 
-								
+									$sexo=$_SESSION['sexo'];
 
 									if($sexo=="Masculino"){
 
 										echo "Dr. ";
 
 									}else{
-                    if($sexo=="Feminino"){
 
-                      echo "Dra. ";
+										echo "Dra. ";
 
-                    }else{
-										echo "Dr(a). ";
-                  }
 									}
 
-									?> <?php echo $nome;?>! <br><br><br></h2>
+									?> <?php $login_session=$_SESSION['login_user']; echo $login_session;?>! <br><br><br></h2>
 
                                 </div>
                             </div>
