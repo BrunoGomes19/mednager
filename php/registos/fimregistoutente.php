@@ -12,6 +12,10 @@
 
 	$date = $_POST['date'];
 
+	$nrSubsistema = $_POST["nrSubsistema"];
+
+	$Subsistema = $_POST["Subsistema"];
+
 	$contacto1 = $_POST['contacto1'];
 
 	$contacto2 = $_POST['contacto2'];
@@ -32,7 +36,7 @@
 
 	$foto = $_POST['foto'];
 
-	$sql = "UPDATE utente set dataNascUtente='$date',nomeUtente = '$nomecompleto',ObservacoesUtente='$sobremim',moradaUtente='$morada',codPostalUtente='$codigopostal',localidadeUtente='$cidade',NIBUtente='$nib',NIFUtente='$nif',contacto1Utente='$contacto1',contacto2Utente='$contacto2',ccUtente='$cc',sexoUtente='$sexo' WHERE emailUtente='$email'";
+	$sql = "UPDATE utente set codSubsistema = '$Subsistema', nrSubsistema='$nrSubsistema', dataNascUtente='$date',nomeUtente = '$nomecompleto',ObservacoesUtente='$sobremim',moradaUtente='$morada',codPostalUtente='$codigopostal',localidadeUtente='$cidade',NIBUtente='$nib',NIFUtente='$nif',contacto1Utente='$contacto1',contacto2Utente='$contacto2',ccUtente='$cc',sexoUtente='$sexo' WHERE emailUtente='$email'";
 
 	$conn->query($sql);
 

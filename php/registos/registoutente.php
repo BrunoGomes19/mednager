@@ -32,6 +32,38 @@ if ($result->num_rows > 0) {
 
 		$sobremim = $row["ObservacoesUtente"];
 
+		$codSubsistema = $row["codSubsistema"];
+
+		$Subsistema = $row["codSubsistema"];
+
+		$nrSubsistema = $row["nrSubSistema"];
+
+		if($Subsistema==1){
+
+			$Subsistema="";
+
+		}else{
+
+			if($Subsistema==2){
+
+			$Subsistema="ADSE";
+
+		}else{
+
+			if($Subsistema==3){
+
+			$Subsistema="Medis";
+
+		}else{
+
+			$Subsistema="";
+
+		}
+
+		}
+
+		}
+
     }
 } else {
     echo "0 results";
@@ -177,6 +209,28 @@ $conn->close();
                                             </div>
                                         </div>
                                     </div>
+
+																										<div class="row">
+																													<div class="col-md-4">
+																														<div class="form-group">
+																																<label>Sistema de saúde</label>
+																																<select name="Subsistema" id="select" class="form-control" required>
+																																				<option selected hidden value="<?php	echo $codSubsistema;	?>"><?php	echo $Subsistema;	?></option>
+																																				<option value="2">ADSE</option>
+																																				<option value="3">Medis</option>
+
+																																		</select>
+																														</div>
+																												</div>
+
+																												<div class="col-md-4">
+								                                            <div class="form-group">
+								                                                <label for="nrSubsistema">Número do cartão do subsistema de saúde</label>
+								                                                <input type="text" class="form-control" placeholder="" required name="nrSubsistema" value="<?php	echo $nrSubsistema;	?>">
+								                                            </div>
+								                                        </div>
+																											</div>
+
 
                                     <div class="row">
                                         <div class="col-md-12">

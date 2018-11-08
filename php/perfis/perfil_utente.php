@@ -17,6 +17,36 @@ if ($result->num_rows > 0) {
 
   $cc = $row["ccUtente"];
 
+  $nrSubsistema = $row["nrSubSistema"];
+
+  $Subsistema = $row["codSubsistema"];
+
+  if($Subsistema==1){
+
+    $Subsistema="";
+
+  }else{
+
+    if($Subsistema==2){
+
+    $Subsistema="ADSE";
+
+  }else{
+
+    if($Subsistema==3){
+
+    $Subsistema="Medis";
+
+  }else{
+
+    $Subsistema="";
+
+  }
+
+  }
+
+  }
+
   $date = $row["dataNascUtente"];
 
   $cidade = $row["localidadeUtente"];
@@ -139,6 +169,24 @@ $conn->close();
                                                       </div>
                                                     </div>
                                                 </div>
+
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                      <div class="form-group">
+                                                          <label>Sistema de saúde</label>
+                                                          <input type="text" class="form-control" value="<?php echo $Subsistema; ?>" readonly>
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                      <div class="form-group">
+                                                          <label>Número do cartão do subsistema</label>
+                                                          <input type="text" class="form-control" value="<?php echo $nrSubsistema; ?>" readonly>
+                                                      </div>
+                                                    </div>
+                                                </div>
+
+
                                                     <div class="row">
                                                 <div class="col-md-12">
                                                   <div class="form-group">
