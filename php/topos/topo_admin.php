@@ -20,7 +20,7 @@ include('header.php');
     <!-- Fontfaces CSS-->
     <link href="../../Interior/css/font-face.css" rel="stylesheet" media="all">
     <link href="../../Interior/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href=../../Interior/"vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="../../Interior/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="../../Interior/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
@@ -71,7 +71,7 @@ include('header.php');
                                 <i class="fas fa-users"></i>Lista de Utente</a>
                         </li>
                         <li>
-                            <a href="chart.html">
+                            <a href="../listas/admin-lm.php">
                                 <i class="fas fa-user-md"></i>Lista de Médicos</a>
                         </li>
                         <li class="has-sub">
@@ -105,7 +105,7 @@ include('header.php');
                                 <i class="fas fa-tasks"></i>Registo de Utentes</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="index.html">Novo Registo</a>
+                                    <a href="../registos/medico-admin_registoutente.php">Novo Registo</a>
                                 </li>
                                 <li>
                                     <a href="index2.html">Associar Utente</a>
@@ -134,7 +134,7 @@ include('header.php');
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
                             <a href="#">
-                                <i class="fa fa-home"></i>Inicio</a>
+                                <i class="fa fa-home"></i>Início</a>
 
                         </li>
 
@@ -147,7 +147,7 @@ include('header.php');
                         </li>
 
                         <li>
-                            <a href="table.html">
+                            <a href="../listas/admin-lm.php">
                                 <i class="fa fa-user-md"></i>Lista de Médicos</a>
                         </li>
 
@@ -184,7 +184,7 @@ include('header.php');
                                 <i class="fa fa-plus"></i>Registo de Utentes</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="index.html">Novo registo</a>
+                                    <a href="../registos/medico-admin_registoutente.php">Novo registo</a>
                                 </li>
                                 <li>
                                     <a href="index2.html">Associar utente</a>
