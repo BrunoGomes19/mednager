@@ -13,7 +13,7 @@ if ($result->num_rows > 0) {
   }
 }
 
-$sql2 = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and codPermissao=2 and servico.codComprador=$codComprador and servico.dataHoraServico between now() and concat(curdate(),' 23:59:59');";
+$sql2 = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and codPermissao=$codComprador and servico.codComprador=$codComprador and servico.dataHoraServico between now() and concat(curdate(),' 23:59:59');";
 $result = $conn->query($sql2);
 
 if ($result->num_rows > 0) {
@@ -38,7 +38,7 @@ if ($result->num_rows > 0) {
   }
 }
 
-$sql4 = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and codPermissao=2 and servico.codComprador=2 and servico.dataHoraServico between now() and concat((curdate() + INTERVAL 6 - weekday(curdate()) DAY),' 23:59:59');";
+$sql4 = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and codPermissao=$codPermissao and servico.codComprador=$codComprador and servico.dataHoraServico between now() and concat((curdate() + INTERVAL 6 - weekday(curdate()) DAY),' 23:59:59');";
 $result = $conn->query($sql4);
 
 if ($result->num_rows > 0) {
@@ -46,6 +46,20 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
 
     $intervencoesSemana = $row['quantidade'];
+
+  }
+}
+
+//
+
+$sql5 = "select count(quantidade) as quantidadetotal from (select count(DISTINCT codLocal) as quantidade FROM servico where codComprador=$codComprador and servico.dataHoraServico between now() and concat(curdate(),' 23:59:59') group by codLocal) as a;";
+$result = $conn->query($sql5);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+
+    $locaisdiferentes = $row['quantidadetotal'];
 
   }
 }
@@ -123,7 +137,7 @@ if ($result->num_rows > 0) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-lg-2">
+                            <div class="col-sm-6 col-lg-3">
                                 <div class="overview-item overview-item--c2">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
@@ -131,7 +145,7 @@ if ($result->num_rows > 0) {
                                                 <i class="fa fa-home"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>3</h2>
+                                                <h2><?php   echo $locaisdiferentes;    ?><?php</h2>
                                                 <span>locais diferentes de intervenções hoje</span>
                                             </div>
                                         </div>
