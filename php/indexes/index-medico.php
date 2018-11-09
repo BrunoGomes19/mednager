@@ -1,6 +1,8 @@
 <?php
 include('../topos/topo_medico.php');
 
+$codPermissao = $_SESSION['permissao'];
+
 $sql = "SELECT * from comprador where emailComprador like '$email'";
 $result = $conn->query($sql);
 
@@ -13,8 +15,17 @@ if ($result->num_rows > 0) {
   }
 }
 
-$sql2 = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and codPermissao=$codComprador and servico.codComprador=$codComprador and servico.dataHoraServico between now() and concat(curdate(),' 23:59:59');";
+
+
+
+
+
+$sql2 = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao='$codPermissao' and servico.codComprador='$codComprador' and servico.dataHoraServico between now() and concat(curdate(),' 23:59:59');";
 $result = $conn->query($sql2);
+
+if (!$result) {
+    trigger_error('Invalid query: ' . $conn->error);
+}
 
 if ($result->num_rows > 0) {
   // output data of each row
@@ -24,6 +35,9 @@ if ($result->num_rows > 0) {
 
   }
 }
+
+
+
 
 
 $sql3 = "SELECT distinct count(*) as quantidade from associados where associados.comprador_codComprador=$codComprador;";
@@ -38,8 +52,12 @@ if ($result->num_rows > 0) {
   }
 }
 
-$sql4 = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and codPermissao=$codPermissao and servico.codComprador=$codComprador and servico.dataHoraServico between now() and concat((curdate() + INTERVAL 6 - weekday(curdate()) DAY),' 23:59:59');";
+$sql4 = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao='$codPermissao' and servico.codComprador='$codComprador' and servico.dataHoraServico between now() and concat((curdate() + INTERVAL 6 - weekday(curdate()) DAY),' 23:59:59');";
 $result = $conn->query($sql4);
+
+if (!$result) {
+    trigger_error('Invalid query: ' . $conn->error);
+}
 
 if ($result->num_rows > 0) {
   // output data of each row
@@ -145,7 +163,7 @@ if ($result->num_rows > 0) {
                                                 <i class="fa fa-home"></i>
                                             </div>
                                             <div class="text">
-                                                <h2><?php   echo $locaisdiferentes;    ?><?php</h2>
+                                                <h2><?php   echo $locaisdiferentes;    ?></h2>
                                                 <span>locais diferentes de intervenções hoje</span>
                                             </div>
                                         </div>
