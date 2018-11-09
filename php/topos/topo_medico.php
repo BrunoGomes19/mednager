@@ -136,7 +136,7 @@ if ($result->num_rows > 0) {
                                 <i class="fas fa-calendar-alt"></i>Planos de medicação</a>
                         </li>
                         <li>
-                            <a href="map.html">
+                            <a href="../listas/medico-lmedicamentos.php">
                                 <i class="fa fa-medkit"></i>Medicamentos</a>
                         </li>
                     </ul>
@@ -206,7 +206,7 @@ if ($result->num_rows > 0) {
                                 <i class="fas fa-calendar-alt"></i>Planos de medicação</a>
                         </li>
                         <li>
-                            <a href="map.html">
+                            <a href="../listas/medico-lmedicamentos.php">
                                 <i class="fa fa-medkit"></i>Medicamentos</a>
                         </li>
 
