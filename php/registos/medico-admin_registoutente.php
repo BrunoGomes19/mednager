@@ -67,7 +67,7 @@ session_start();
             <div class="auth-box bg-light border-top border-secondary">
                 <div>
                     <div class="text-center p-t-20 p-b-20">
-                        <a href="../../TheEvent/index.php"><span class="db"><img style="width: 100%" src="../../landingPage/img/logos/logotipo.png" alt="logo" /></span></a>
+                        <a href="javascript:history.back()"><span class="db"><img style="width: 100%" src="../../landingPage/img/logos/logotipo.png" alt="logo" /></span></a>
                     </div>
                     <!-- Form -->
                     <form name="myForm" class="form-horizontal m-t-20" onsubmit="return checkInp()" action="medico-admin_registarutente.php" method="post">

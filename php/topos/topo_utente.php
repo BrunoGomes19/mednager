@@ -83,7 +83,7 @@ if ($result->num_rows > 0) {
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="active has-sub">
-                            <a href="#">
+                            <a href="../indexes/index-utente.php">
                                 <i class="fa fa-home"></i>Início</a>
 
                         </li>
@@ -125,7 +125,7 @@ if ($result->num_rows > 0) {
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
+                <a href="../indexes/index-utente.php">
                     <img style="width: 100%" src="../../landingPage/img/logos/logotipo.png" alt="Cool Admin" />
                 </a>
             </div>
@@ -133,7 +133,7 @@ if ($result->num_rows > 0) {
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a href="#">
+                            <a href="../indexes/index-utente.php">
                                 <i class="fa fa-home"></i>Início</a>
 
                         </li>

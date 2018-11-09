@@ -60,7 +60,7 @@ if ($result->num_rows > 0) {
     <!-- Main CSS-->
     <link href="../../Interior/css/theme.css" rel="stylesheet" media="all">
 
-    
+
 
 </head>
 
@@ -87,7 +87,7 @@ if ($result->num_rows > 0) {
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="active has-sub">
-                            <a href="#">
+                            <a href="../indexes/index-medico.php">
                                 <i class="fa fa-home"></i>Início</a>
 
                         </li>
@@ -148,7 +148,7 @@ if ($result->num_rows > 0) {
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
+                <a href="../indexes/index-medico.php">
                     <img style="width: 100%" src="../../landingPage/img/logos/logotipo.png" alt="Cool Admin" />
                 </a>
             </div>
@@ -156,7 +156,7 @@ if ($result->num_rows > 0) {
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a href="#">
+                            <a href="../indexes/index-medico.php">
                                 <i class="fa fa-home"></i>Início</a>
 
                         </li>
@@ -173,7 +173,7 @@ if ($result->num_rows > 0) {
                                     <a href="../registos/medico-admin_registoutente.php">Novo registo</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Associar utente</a>
+                                    <a href="../listas/medico-lu.php">Associar utente</a>
                                 </li>
                             </ul>
                         </li>

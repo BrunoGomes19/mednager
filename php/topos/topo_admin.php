@@ -63,7 +63,7 @@ include('header.php');
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li>
-                            <a href="chart.html">
+                            <a href="../indexes/index-admin.php">
                                 <i class="fas fa-home"></i>Início</a>
                         </li>
                         <li>
@@ -125,7 +125,7 @@ include('header.php');
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
+                <a href="../indexes/index-admin.php">
                     <img style="width: 100%" src="../../landingPage/img/logos/logotipo.png" alt="Cool Admin" />
                 </a>
             </div>
@@ -133,7 +133,7 @@ include('header.php');
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a href="#">
+                            <a href="../indexes/index-admin.php">
                                 <i class="fa fa-home"></i>Início</a>
 
                         </li>
@@ -187,7 +187,7 @@ include('header.php');
                                     <a href="../registos/medico-admin_registoutente.php">Novo registo</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Associar utente</a>
+                                    <a href="../listas/admin-lu.php">Associar utente</a>
                                 </li>
                             </ul>
                         </li>
