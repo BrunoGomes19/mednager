@@ -1,6 +1,37 @@
 <?php
 include('../topos/topo_utente.php');
+
 ?>
+
+
+<script>
+
+function verperfil($cc){
+window.location.replace('../perfis/perfil_medicolista.php?cc='+$cc);
+}
+
+function showUser(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "A lista de medicos será exibida aqui.";
+        return;
+    } else {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","ajaxutente-lm.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+</script>
 
 
 <!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
@@ -23,7 +54,7 @@ include('../topos/topo_utente.php');
 
                     <div class="row">
                         <div class="col-md-12">
-                            
+
 
 
 
@@ -32,94 +63,82 @@ include('../topos/topo_utente.php');
                                     <div class="table-data__tool">
                                         <div class="table-data__tool-left">
                                             <div class="rs-select2--light ">
-                                                    
-                                                    
+
+
                                                    <div class="input-group">
-                                                        
+
                                                         <button class="btn btn-primary" disabled>
                                                             <i class="fa fa-search"></i>
                                                         </button>
-                                                        
-                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="Username" class="form-control">
+
+                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="NIF" class="form-control" onkeyup="showUser(this.value)">
                                                     </div>
 
 
 
                                                 <div class="dropDownSelect2"></div>
                                             </div>
-                                            
-                                            
+
+
                                         </div>
                                         <div class="table-data__tool-right">
                                             <button class="au-btn au-btn-icon au-btn--green au-btn--small">
                                                 <i class="zmdi zmdi-plus"></i>adicionar utente</button>
-                                            
+
                                         </div>
 
                                         <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                           
-                                                        
+
+
                                                         <button class="btn btn-primary" disabled>
                                                             <i class="fa fa-search"></i> Associados
                                                         </button>
-                                                        
-                                                
+
+
                                                     </div>
                                         </div>
 
                                     </div>
                                     <div class="table-responsive table-responsive-data2">
-                                        <table class="table table-data2">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label class="au-checkbox">
-                                                            <input type="checkbox">
-                                                            <span class="au-checkmark"></span>
-                                                        </label>
-                                                    </th>
-                                                    <th>Nome</th>
-                                                    <th>Cartão de cidadão</th>
-                                                    <th>NIF</th>                                               
-                                                    <th></th>
-                                                 
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                
-                                                <tr class="spacer"></tr>
-                                                <tr class="tr-shadow">
-                                                    <td>
-                                                        <label class="au-checkbox">
-                                                            <input type="checkbox">
-                                                            <span class="au-checkmark"></span>
-                                                        </label>
-                                                    </td>
-                                                    <td>Lori Lynch</td>
-                                                    <td>
-                                                        <span class="block-email">john@example.com</span>
-                                                    </td>
-                                                    <td class="desc">iPhone X 64Gb Grey</td>
-                                                    
-                                                    <td>
-                                                        <button type="button" class="btn btn-outline-primary">
-                                                                <i class="fa fa-user"></i>&nbsp;Perfil</button>
-                                                    </td>
-                                                </tr>
-                                                <tr class="spacer"></tr>
-                                                
-                                                
-                                            </tbody>
-                                        </table>
+
+
+
+
+                                                <div id="txtHint"><b>A lista de médicos será exibida aqui.</b></div>
+
+                                                    <!--<tr class="spacer"></tr>
+                                                    <tr class="tr-shadow">
+                                                        <td>
+                                                            <label class="au-checkbox">
+                                                                <input type="checkbox">
+                                                                <span class="au-checkmark"></span>
+                                                            </label>
+                                                        </td>
+                                                        <td>Lori Lynch</td>
+                                                        <td>
+                                                            <span class="block-email">john@example.com</span>
+                                                        </td>
+                                                        <td class="desc">iPhone X 64Gb Grey</td>
+
+                                                        <td>
+
+                                                                <button type="button" class="btn btn-outline-primary">
+                                                                    <i class="fa fa-user"></i>&nbsp;Perfil</button>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="spacer"></tr>-->
+
+
                                     </div>
 
 
 
 
-                            
-                        </div>  
+
+                        </div>
                     </div>
-                </div>                
+                </div>
             </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->

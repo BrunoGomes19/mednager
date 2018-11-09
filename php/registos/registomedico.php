@@ -79,6 +79,8 @@ $conn->close();
 <!-- Special version of Bootstrap that is isolated to content wrapped in .bootstrap-iso -->
 <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 
 
 <!--Font Awesome (added because you use icons in your prepend/append)-->

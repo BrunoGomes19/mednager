@@ -30,7 +30,7 @@ if ($result->num_rows > 0) {
 <head>
     <!-- Required meta tags-->
 	<link href="../../landingPage/img/logos/redondo.png" rel="icon">
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
@@ -59,6 +59,8 @@ if ($result->num_rows > 0) {
 
     <!-- Main CSS-->
     <link href="../../Interior/css/theme.css" rel="stylesheet" media="all">
+
+    
 
 </head>
 

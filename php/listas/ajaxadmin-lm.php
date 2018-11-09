@@ -16,7 +16,7 @@ if (!$con) {
 }
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT * FROM utente WHERE NIFUtente like '".$q."%' ORDER BY nomeUtente";
+$sql="SELECT * FROM comprador WHERE NIFComprador like '".$q."%' ORDER BY nomeComprador";
 $result = mysqli_query($con,$sql);
 
 echo '
@@ -46,11 +46,11 @@ echo '
 
 while($row = mysqli_fetch_array($result)) {
 
-$nome = $row['nomeUtente'];
+$nome = $row['nomeComprador'];
 
-$cc = $row['ccUtente'];
+$cc = $row['ccComprador'];
 
-$nif = $row['NIFUtente'];
+$nif = $row['NIFComprador'];
 
 
 
@@ -73,6 +73,8 @@ echo '
 
               <button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
                   <i class="fa fa-user"></i>&nbsp;Perfil</button>
+                  <button type="button" class="btn btn-outline-danger">
+                       <i class="fa fa-trash"></i>&nbsp; Remover</button>
 
       </td>
   </tr>

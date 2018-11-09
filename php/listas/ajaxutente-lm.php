@@ -16,7 +16,7 @@ if (!$con) {
 }
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT * FROM utente WHERE NIFUtente like '".$q."%' ORDER BY nomeUtente";
+$sql="SELECT * FROM comprador WHERE NIFComprador like '".$q."%' ORDER BY nomeComprador";
 $result = mysqli_query($con,$sql);
 
 echo '
@@ -46,11 +46,11 @@ echo '
 
 while($row = mysqli_fetch_array($result)) {
 
-$nome = $row['nomeUtente'];
+$nome = $row['nomeComprador'];
 
-$cc = $row['ccUtente'];
+$cc = $row['ccComprador'];
 
-$nif = $row['NIFUtente'];
+$nif = $row['NIFComprador'];
 
 
 

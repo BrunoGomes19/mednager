@@ -73,6 +73,8 @@ echo '
 
               <button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
                   <i class="fa fa-user"></i>&nbsp;Perfil</button>
+                  <button type="button" class="btn btn-outline-danger">
+                       <i class="fa fa-trash"></i>&nbsp; Remover</button>
 
       </td>
   </tr>

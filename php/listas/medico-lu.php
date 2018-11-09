@@ -5,6 +5,11 @@ include('../topos/topo_medico.php');
 
 
 <script>
+
+function verperfil($cc){
+window.location.replace('../perfis/perfil_utentelista.php?cc='+$cc);
+}
+
 function showUser(str) {
     if (str == "") {
         document.getElementById("txtHint").innerHTML = "A lista de utentes será exibida aqui.";
@@ -66,7 +71,7 @@ function showUser(str) {
                                                             <i class="fa fa-search"></i>
                                                         </button>
 
-                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="Username" class="form-control" onkeyup="showUser(this.value)">
+                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="NIF" class="form-control" onkeyup="showUser(this.value)">
                                                     </div>
 
 
@@ -119,6 +124,8 @@ function showUser(str) {
 
                                                                 <button type="button" class="btn btn-outline-primary">
                                                                     <i class="fa fa-user"></i>&nbsp;Perfil</button>
+                                                                <button type="button" class="btn btn-outline-danger">
+                                                                     <i class="fa fa-trash"></i>&nbsp; Remover</button>
 
                                                         </td>
                                                     </tr>
