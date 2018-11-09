@@ -1,5 +1,38 @@
 <?php
 include('../topos /topo_admin.php');
+
+$sql1 = "SELECT count(*) as quantidade from comprador where codPermissao=2";
+$result = $conn->query($sql1);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+
+
+    $medicosRegistados = $row['quantidade'];
+
+
+  }
+}
+
+$sql2 = "SELECT count(*) as quantidade from utente where codPermissao=3";
+$result = $conn->query($sql2);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+
+
+    $utentesRegistados = $row['quantidade'];
+
+
+  }
+}
+
+
+
+
+
 ?>
 
             <!-- MAIN CONTENT-->
@@ -44,7 +77,7 @@ include('../topos /topo_admin.php');
                                                 <i class="fa fa-user-md"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>420</h2>
+                                                <h2><?php  echo $medicosRegistados;  ?></h2>
                                                 <span>médicos registados</span>
                                             </div>
                                         </div>

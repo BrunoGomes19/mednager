@@ -1,5 +1,57 @@
 <?php
 include('../topos/topo_medico.php');
+
+$sql = "SELECT * from comprador where emailComprador like '$email'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+
+  $codComprador = $row["codComprador"];
+
+  }
+}
+
+$sql2 = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and codPermissao=2 and servico.codComprador=$codComprador and servico.dataHoraServico between now() and concat(curdate(),' 23:59:59');";
+$result = $conn->query($sql2);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+
+    $intervencoesHoje = $row['quantidade'];
+
+  }
+}
+
+
+$sql3 = "SELECT distinct count(*) as quantidade from associados where associados.comprador_codComprador=$codComprador;";
+$result = $conn->query($sql3);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+
+    $utentesAssociados = $row['quantidade'];
+
+  }
+}
+
+$sql4 = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and codPermissao=2 and servico.codComprador=2 and servico.dataHoraServico between now() and concat((curdate() + INTERVAL 6 - weekday(curdate()) DAY),' 23:59:59');";
+$result = $conn->query($sql4);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+
+    $intervencoesSemana = $row['quantidade'];
+
+  }
+}
+
+
+
 ?>
 
 
@@ -64,7 +116,7 @@ include('../topos/topo_medico.php');
                                                 <i class="fa fa-group"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>420</h2>
+                                                <h2><?php   echo $utentesAssociados;   ?></h2>
                                                 <span>utentes associados</span>
                                             </div>
                                         </div>
@@ -95,7 +147,7 @@ include('../topos/topo_medico.php');
                                                 <i class="zmdi zmdi-calendar-note"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>20</h2>
+                                                <h2><?php   echo $intervencoesHoje;   ?></h2>
                                                 <span>intervenções hoje</span>
                                             </div>
                                         </div>
@@ -110,7 +162,7 @@ include('../topos/topo_medico.php');
                                                 <i class="zmdi zmdi-calendar-note"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>200</h2>
+                                                <h2><?php  echo $intervencoesSemana;  ?></h2>
                                                 <span>intervenções esta semana</span>
                                             </div>
                                         </div>
