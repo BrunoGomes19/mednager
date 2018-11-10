@@ -167,7 +167,7 @@ $conn->close();
 														 </i>
 														</div>
 
-														<input class="form-control" id="date" name="date" placeholder="YYYY/MM/DD" type="text" value="<?php	echo $date;	?>" required>
+														<input class="form-control" id="date" name="date" placeholder="YYYY/MM/DD" type="text" value="<?php	echo $date;	?>" required autocomplete="off">
 													   </div>
 													  </div>
 
