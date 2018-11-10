@@ -1,6 +1,62 @@
 <?php
 include('../topos/topo_utente.php');
 
+$sql = "SELECT * from utente where emailUtente like '$email'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+
+  $ccUtente = $row["ccUtente"];
+
+  }
+}
+
+$sql1 = "SELECT distinct count(*) as quantidade from associados where associados.utente_ccUtente=$ccUtente;";
+$result = $conn->query($sql1);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+
+    $medicosAssociados = $row['quantidade'];
+
+  }
+}
+
+$sql2 = "SELECT count(*) as quantidade from servico where servico.ccUtente=$ccUtente and servico.dataHoraServico between now() and concat(curdate(),' 23:59:59');";
+$result = $conn->query($sql2);
+
+if (!$result) {
+    trigger_error('Invalid query: ' . $conn->error);
+}
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+
+    $intervencoesHoje = $row['quantidade'];
+
+  }
+}
+
+$sql3 = "SELECT count(*) as quantidade from servico where servico.ccUtente=$ccUtente and servico.dataHoraServico > now();";
+$result = $conn->query($sql3);
+
+if (!$result) {
+    trigger_error('Invalid query: ' . $conn->error);
+}
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+
+    $intervencoesFuturas = $row['quantidade'];
+
+  }
+}
+
 
 ?>
 
@@ -41,7 +97,7 @@ include('../topos/topo_utente.php');
                                                 <i class="fa fa-user-md"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>420</h2>
+                                                <h2><?php   echo $medicosAssociados;    ?> </h2>
                                                 <span>médicos associados</span>
                                             </div>
                                         </div>
@@ -57,7 +113,7 @@ include('../topos/topo_utente.php');
                                                 <i class="zmdi zmdi-calendar-note"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>20</h2>
+                                                <h2><?php  echo $intervencoesHoje;   ?></h2>
                                                 <span>intervenções hoje</span>
                                             </div>
                                         </div>
@@ -72,7 +128,7 @@ include('../topos/topo_utente.php');
                                                 <i class="zmdi zmdi-calendar-note"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>20</h2>
+                                                <h2><?php   echo $intervencoesFuturas;    ?></h2>
                                                 <span>intervenções futuras</span>
                                             </div>
                                         </div>

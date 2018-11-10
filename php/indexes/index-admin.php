@@ -92,7 +92,7 @@ if ($result->num_rows > 0) {
                                                 <i class="fa fa-group"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>3</h2>
+                                                <h2><?php echo $utentesRegistados; ?></h2>
                                                 <span>utentes registados</span>
                                             </div>
                                         </div>
