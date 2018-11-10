@@ -113,7 +113,7 @@ include('header.php');
                             </ul>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="../registos/admin_registomedico.php">
                                 <i class="fas fa-plus"></i>Registo de Médicos</a>
                         </li>
                     </ul>
@@ -193,7 +193,7 @@ include('header.php');
                         </li>
 
                         <li>
-                            <a href="map.html">
+                            <a href="../registos/admin_registomedico.php">
                                 <i class="fa fa-plus"></i>Registo de Médicos</a>
                         </li>
 
