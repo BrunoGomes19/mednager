@@ -82,20 +82,14 @@ function showUser(str) {
 
                                         </div>
                                         <div class="table-data__tool-right">
-                                            <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                          <form method="get" action="../registos/medico-admin_registoutente.php">
+                                            <button type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small">
                                                 <i class="zmdi zmdi-plus"></i>adicionar utente</button>
+                                              </form>
 
                                         </div>
 
-                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
 
-
-                                                        <button class="btn btn-primary" disabled>
-                                                            <i class="fa fa-search"></i> Associados
-                                                        </button>
-
-
-                                                    </div>
                                         </div>
 
                                     </div>

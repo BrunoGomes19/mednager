@@ -38,6 +38,22 @@
 				$findemailu = false;
 				$findcc = false;
 
+//ver infos
+
+$emailA = $_SESSION['email'];
+
+$sql = "SELECT * from comprador where emailComprador like '$emailA'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+	// output data of each row
+	while($row = $result->fetch_assoc()) {
+
+	$codComprador = $row['codComprador'];
+
+	}
+}
+
 		//Comparar o email com o email dos utentes
 
 			$sql5 = "SELECT emailUtente from utente";
@@ -200,49 +216,62 @@
 
 				if($permissao == 2){
 
-					require '../../PHPMailerAutoload.php';
-					require '../../credential.php';
+					$sql2 = "INSERT into associados(comprador_codComprador	, utente_ccUtente	) values('$codComprador','$ccUtente');";
 
-						$mail = new PHPMailer;
+					$query2 = mysqli_query($conn,$sql2);
 
-						$mail->SMTPDebug = 4;                               // Enable verbose debug output
-
-						$mail->SMTPOptions = array( 'ssl' => array( 'verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true ) );                                     // Set mailer to use SMTP
-						$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-						$mail->SMTPAuth = true;                               // Enable SMTP authentication
-						$mail->Username = EMAIL;                 // SMTP username
-						$mail->Password = 'PASS';                           // SMTP password
-						$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-						$mail->Port = 587;                                    // TCP port to connect to
-
-						$mail->setFrom(EMAIL, 'mednager');
-						$mail->addAddress($email);     // Add a recipient
-
-						$mail->addReplyTo(EMAIL);
+					if($query2){
 
 
-						//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-						$mail->isHTML(true);                                  // Set email format to HTML
+						require '../../PHPMailerAutoload.php';
+						require '../../credential.php';
 
-						$mail->Subject = 'Bem-vindo ao mednager!';
-						$mail->Body    = $nomeEnvia.' registou a sua conta na plataforma mednager!<br>
-						<br>As suas credenciais:
-						<br>Identificacao: '.$ccUtente.'
-						<br>Palavra-passe: '.$passNoChange.'
-						<br><br>Para entrar na plataforma clique no seguinte link: localhost/mednager/php/logins/authentication-login.php';
-						$mail->AltBody = '';
+							$mail = new PHPMailer;
 
-						if(!$mail->send()) {
-							echo 'Message could not be sent.';
-							echo 'Mailer Error: ' . $mail->ErrorInfo;
-						}
+							$mail->SMTPDebug = 4;                               // Enable verbose debug output
 
-			header("Location: ../indexes/index-medico.php?utente=add&nome=$nome");
+							$mail->SMTPOptions = array( 'ssl' => array( 'verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true ) );                                     // Set mailer to use SMTP
+							$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+							$mail->SMTPAuth = true;                               // Enable SMTP authentication
+							$mail->Username = EMAIL;                 // SMTP username
+							$mail->Password = 'PASS';                           // SMTP password
+							$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+							$mail->Port = 587;                                    // TCP port to connect to
 
-			exit();
-		}
+							$mail->setFrom(EMAIL, 'mednager');
+							$mail->addAddress($email);     // Add a recipient
 
-}
+							$mail->addReplyTo(EMAIL);
+
+
+							//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+							$mail->isHTML(true);                                  // Set email format to HTML
+
+							$mail->Subject = 'Bem-vindo ao mednager!';
+							$mail->Body    = $nomeEnvia.' registou a sua conta na plataforma mednager!<br>
+							<br>As suas credenciais:
+							<br>Identificacao: '.$ccUtente.'
+							<br>Palavra-passe: '.$passNoChange.'
+							<br><br>Para entrar na plataforma clique no seguinte link: localhost/mednager/php/logins/authentication-login.php';
+							$mail->AltBody = '';
+
+							if(!$mail->send()) {
+								echo 'Message could not be sent.';
+								echo 'Mailer Error: ' . $mail->ErrorInfo;
+							}
+
+				header("Location: ../indexes/index-medico.php?utente=add&nome=$nome");
+
+				exit();
+			}
+
+	}
+
+
+					}
+
+
+
 
 		}else{
 

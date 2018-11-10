@@ -83,7 +83,7 @@ function showUser(str) {
                                         </div>
                                         <div class="table-data__tool-right">
                                             <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                                <i class="zmdi zmdi-plus"></i>adicionar utente</button>
+                                                <i class="zmdi zmdi-plus"></i>adicionar médico</button>
 
                                         </div>
 
