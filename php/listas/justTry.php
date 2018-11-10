@@ -5,14 +5,26 @@ include('../topos/topo_medico.php');
 
 
 <script>
+
+    
+
     function mostrapesquisatodos(){
         document.getElementById("todospesquisa").style.display = "block";
         document.getElementById("pediatriapesquisa").style.display = "none";
+        document.getElementById("cardiologiapesquisa").style.display = "none";
     }
 
     function mostrapesquisapediatria(){
         document.getElementById("pediatriapesquisa").style.display = "block";
         document.getElementById("todospesquisa").style.display = "none";
+        document.getElementById("cardiologiapesquisa").style.display = "none";
+        
+    }
+
+    function mostrapesquisacardiologia(){
+        document.getElementById("cardiologiapesquisa").style.display = "block";
+        document.getElementById("todospesquisa").style.display = "none";
+        document.getElementById("pediatriapesquisa").style.display = "none";
         
     }
 
@@ -51,13 +63,13 @@ include('../topos/topo_medico.php');
 
 
                                 <!--TODOS-->
-                                <div id="todospesquisa">
+                                <div id="todospesquisa" style="display: block">
                                     <div class="table-data__tool" >
                                         <div class="table-data__tool-left">
                                             <div class="rs-select2--light ">
 
 
-                                                   <div class="input-group" >
+                                                    <div class="input-group" >
 
                                                         <button class="btn btn-primary" disabled>
                                                             <i class="fa fa-search"></i>
@@ -73,15 +85,15 @@ include('../topos/topo_medico.php');
 
 
                                         </div>
-                                        <div class="btn-group">
+                                        <div class="btn-group" id="opcaoTodos">
                                             <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-primary">Agrupar por especialidade</button>
 
                                             <div tabindex="-1" aria-hidden="true" role="menu" class="dropdown-menu">
-                                                <button type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisatodos()">Todas</button>
+                                                <button  type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisatodos()">Todas</button>
 
                                                 <div tabindex="-1" class="dropdown-divider"></div>
-                                                <button type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisacardiologia()">Cardiologia</button>
-                                                <button type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisapediatria()">Pediatria</button>
+                                                <button  type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisacardiologia()">Cardiologia</button>
+                                                <button  type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisapediatria()">Pediatria</button>
                                             </div>
                                         </div>
 
@@ -92,7 +104,7 @@ include('../topos/topo_medico.php');
 
 
                                 <!--Pediatria-->
-                                <div id="todospesquisa" style="display: none">
+                                <div id="pediatriapesquisa" style="display: none">
                                     <div class="table-data__tool" >
                                         <div class="table-data__tool-left">
                                             <div class="rs-select2--light ">
@@ -115,7 +127,7 @@ include('../topos/topo_medico.php');
 
                                         </div>
                                         <div class="btn-group">
-                                            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-primary">Agrupar por especialidade</button>
+                                            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-primary">Pediatria</button>
 
                                             <div tabindex="-1" aria-hidden="true" role="menu" class="dropdown-menu">
                                                 <button type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisatodos()">Todas</button>
@@ -130,6 +142,49 @@ include('../topos/topo_medico.php');
                                         </div>
                                     </div>
                                 </div>
+
+
+
+                                <!--Cardiologia-->
+                                <div id="cardiologiapesquisa" style="display: none">
+                                    <div class="table-data__tool" >
+                                        <div class="table-data__tool-left">
+                                            <div class="rs-select2--light ">
+
+
+                                                   <div class="input-group">
+
+                                                        <button class="btn btn-primary" disabled>
+                                                            <i class="fa fa-search"></i>
+                                                        </button>
+
+                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="nome do medicamento de cardiologia" class="form-control" onkeyup="todosMedicamentos(this.value)">
+                                                    </div>                                            
+                                                    
+
+                                                    <!--só para ocupar o espaço-->
+                                                <div class="dropDownSelect2"></div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="btn-group">
+                                            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-primary">Cardiologia</button>
+
+                                            <div tabindex="-1" aria-hidden="true" role="menu" class="dropdown-menu">
+                                                <button type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisatodos()">Todas</button>
+
+                                                <div tabindex="-1" class="dropdown-divider"></div>
+                                                <button type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisacardiologia()">Cardiologia</button>
+                                                <button type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisapediatria()">Pediatria</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">                                                            
+                                        </div>
+                                    </div>
+                                </div>
+
 
 
 
