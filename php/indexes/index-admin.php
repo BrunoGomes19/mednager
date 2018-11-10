@@ -1,6 +1,20 @@
 <?php
 include('../topos /topo_admin.php');
 
+
+$sql = "SELECT * from comprador where emailComprador like '$email'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+
+  $LEIComprador = $row['LEIComprador'];
+
+  }
+}
+
+
 $sql1 = "SELECT count(*) as quantidade from comprador where codPermissao=2";
 $result = $conn->query($sql1);
 
@@ -25,6 +39,40 @@ if ($result->num_rows > 0) {
 
     $utentesRegistados = $row['quantidade'];
 
+
+  }
+}
+
+//SELECT count(*) from servico, comprador where servico.codComprador = comprador.codComprador and LEIComprador=1;
+
+$sql3 = "SELECT count(*) as quantidade from servico, comprador where servico.codComprador = comprador.codComprador and LEIComprador=$LEIComprador and servico.dataHoraServico between now() and concat(curdate(),' 23:59:59');";
+$result = $conn->query($sql3);
+
+if (!$result) {
+    trigger_error('Invalid query: ' . $conn->error);
+}
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+
+    $intervencoesHojeTodos = $row['quantidade'];
+
+  }
+}
+
+$sql3 = "SELECT count(*) as quantidade from servico, comprador where servico.codComprador = comprador.codComprador and LEIComprador=$LEIComprador and servico.dataHoraServico between now() and concat((curdate() + INTERVAL 6 - weekday(curdate()) DAY),' 23:59:59');";
+$result = $conn->query($sql3);
+
+if (!$result) {
+    trigger_error('Invalid query: ' . $conn->error);
+}
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+
+    $intervencoesSemanaTodos = $row['quantidade'];
 
   }
 }
@@ -108,7 +156,7 @@ if ($result->num_rows > 0) {
                                                 <i class="zmdi zmdi-calendar-note"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>20</h2>
+                                                <h2><?php   echo $intervencoesHojeTodos;   ?></h2>
                                                 <span>intervenções hoje</span>
                                             </div>
                                         </div>
@@ -123,7 +171,7 @@ if ($result->num_rows > 0) {
                                                 <i class="zmdi zmdi-calendar-note"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>200</h2>
+                                                <h2><?php   echo $intervencoesSemanaTodos;   ?></h2>
                                                 <span>intervenções esta semana</span>
                                             </div>
                                         </div>
