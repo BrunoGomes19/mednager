@@ -7,9 +7,9 @@ include('../topos/topo_medico.php');
 <script>
 
 function todosMedicamentos(str) {
-    document.getElementById("todos").style.display = "block";
-    document.getElementById("pediatria").style.display = "none";
-    document.getElementById("cardiologia").style.display = "none";
+    //document.getElementById("todos").style.display = "block";
+    //document.getElementById("pediatria").style.display = "none";
+    //document.getElementById("cardiologia").style.display = "none";
     if (str == "") {
         document.getElementById("txtHint").innerHTML = "A lista de utentes será exibida aqui.";
         return;
@@ -30,6 +30,7 @@ function todosMedicamentos(str) {
         xmlhttp.send();
     }
 }
+/*
 
 function pediatriaMedicamentos(str) {
     document.getElementById("todos").style.display = "none";
@@ -77,6 +78,7 @@ function cardiologiaMedicamentos(str) {
         xmlhttp.send();
     }
 }
+*/
 </script>
 
 
@@ -120,6 +122,7 @@ function cardiologiaMedicamentos(str) {
 
                                                         <input type="text" id="input1-group2" name="input1-group2" placeholder="nome do medicamento" class="form-control" onkeyup="todosMedicamentos(this.value)">
                                                     </div> 
+                                                    <!--
                                                     <div class="input-group" style="display:none" id="pediatria">
 
                                                         <button class="btn btn-primary" disabled>
@@ -137,7 +140,7 @@ function cardiologiaMedicamentos(str) {
                                                         <input type="text" id="input1-group2" name="input1-group2" placeholder="CaRdiologia" class="form-control" onkeyup="cardiologiaMedicamentos(this.value)">
                                                     </div>
 
-
+                                                    -->
 
                                                     <!--só para ocupar o espaço-->
                                                 <div class="dropDownSelect2"></div>
