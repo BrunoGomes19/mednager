@@ -27,7 +27,7 @@ function showUser(str) {
                 document.getElementById("txtHint").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET","ajaxadmin-lm.php?q="+str,true);
+        xmlhttp.open("GET","ajaxadmin-lmAssociados.php?q="+str,true);
         xmlhttp.send();
     }
 }
@@ -90,11 +90,11 @@ function showUser(str) {
 
                                         <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
 
-                                          <form action="admin-lmAssociados.php" >
+                                          <form action="admin-lm.php">
                                                         <button class="btn btn-primary">
-                                                            <i class="fa fa-search"></i> Associados
+                                                            <i class="fa fa-search"></i> Todos
                                                         </button>
-                                                      </form>
+                                            </form>
 
                                                     </div>
                                         </div>

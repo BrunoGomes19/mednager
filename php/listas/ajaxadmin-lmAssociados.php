@@ -16,7 +16,24 @@ if (!$con) {
 }
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT * FROM comprador WHERE NIFComprador like '".$q."%' and comprador.codPermissao=2 ORDER BY nomeComprador";
+
+session_start();
+
+  $emailA = $_SESSION['email'];
+
+  $sql = "SELECT * from comprador where emailComprador like '$emailA'";
+  $result = $con->query($sql);
+
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+
+    $LEIComprador = $row['LEIComprador'];
+
+    }
+  }
+
+$sql="SELECT * FROM comprador WHERE NIFComprador like '".$q."%' and comprador.codPermissao=2 and comprador.LEIComprador = $LEIComprador ORDER BY nomeComprador;";
 $result = mysqli_query($con,$sql);
 
 echo '
@@ -52,7 +69,7 @@ $cc = $row['ccComprador'];
 
 $nif = $row['NIFComprador'];
 
-
+$email = $row['emailComprador'];
 
 echo '
   <tr class="spacer"></tr>
