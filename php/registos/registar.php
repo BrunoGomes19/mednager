@@ -167,7 +167,7 @@
 
 					$_SESSION['sexo']=$sexo; //esta var.
 
-					$_SESSION['permissao']=$row["codPermissao"];
+					$_SESSION['permissao']=2;
 
 
 			//Variaveis de sessão
