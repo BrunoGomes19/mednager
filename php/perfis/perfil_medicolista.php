@@ -72,16 +72,12 @@ $conn->close();
                                 <div class="col-md-8">
                                     <div class="card">
                                       <div class="card-footer">
-                                        <form action="../perfis/perfil_medico.php" method="GET" style ='float: left; padding: 5px;'>
+                                        <form action="../listas/utente-lm.php" method="GET" style ='float: left; padding: 5px;'>
             																			<button type="submit" class="btn btn-primary btn-sm" style="font-size:16px">
-            																					<i class="fa fa-dot-circle-o"></i> Ver
+            																					<i class="fa fa-arrow-left"></i> Voltar
             																			</button>&nbsp
                                         </form>
-                                        <form action="../registos/registomedico.php" method="GET" style ='float: left; padding: 5px;'>
-            																			<button type="submit" class="btn btn-danger btn-sm" style="font-size:16px">
-            																					<i class="fa fa-dot-circle-o"></i> Editar
-            																			</button>
-                                         </form>
+
             																	</div>
                                         <div class="content">
                                             <form>

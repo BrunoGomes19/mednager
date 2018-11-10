@@ -27,7 +27,7 @@ function showUser(str) {
                 document.getElementById("txtHint").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET","ajaxutente-lm.php?q="+str,true);
+        xmlhttp.open("GET","ajaxutente-lmAssociados.php?q="+str,true);
         xmlhttp.send();
     }
 }
@@ -85,9 +85,9 @@ function showUser(str) {
 
                                         <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
 
-                                          <form action="utente-lmAssociados.php" method="POST">
+                                          <form action="utente-lm.php" method="POST">
                                                         <button class="btn btn-primary" type="submit">
-                                                            <i class="fa fa-search"></i> Associados
+                                                            <i class="fa fa-search"></i> Todos
                                                         </button>
                                           </form>
 
@@ -100,7 +100,7 @@ function showUser(str) {
 
 
 
-                                                <div id="txtHint"><b>A lista de todos os médicos será exibida aqui.</b></div>
+                                                <div id="txtHint"><b>A lista de médicos associados será exibida aqui.</b></div>
 
                                                     <!--<tr class="spacer"></tr>
                                                     <tr class="tr-shadow">
