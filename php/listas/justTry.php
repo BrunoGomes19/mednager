@@ -57,7 +57,7 @@ include('../topos/topo_medico.php');
                                             <div class="rs-select2--light ">
 
 
-                                                   <div class="input-group" id="todospesquisa">
+                                                   <div class="input-group" >
 
                                                         <button class="btn btn-primary" disabled>
                                                             <i class="fa fa-search"></i>
@@ -98,7 +98,7 @@ include('../topos/topo_medico.php');
                                             <div class="rs-select2--light ">
 
 
-                                                   <div class="input-group" id="todospesquisa">
+                                                   <div class="input-group">
 
                                                         <button class="btn btn-primary" disabled>
                                                             <i class="fa fa-search"></i>
@@ -130,19 +130,6 @@ include('../topos/topo_medico.php');
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
