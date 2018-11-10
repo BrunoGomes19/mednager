@@ -671,7 +671,6 @@ pre code {
 	flex-wrap: wrap;
 	margin-right: -10px;
 	margin-left: -10px;
-	padding-top: 5%;
 
 }
 
@@ -10394,7 +10393,7 @@ html[dir=ltr] body .p-t-20 {
 }
 
 html[dir=ltr] body .p-b-20 {
-	padding-bottom: 20px
+
 }
 
 html[dir=ltr] body .p-r-20 {

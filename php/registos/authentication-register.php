@@ -87,6 +87,14 @@ session_start();
                                     <input type="text" class="form-control form-control-lg" placeholder="Número de Ordem" aria-label="nrOrdem" aria-describedby="basic-addon1" required name="numeroOrdem" id="numeroOrdem">
                                 </div>
 
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-quote-right"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-lg" placeholder="Cartão de cidadão" aria-label="ccUtente" aria-describedby="basic-addon1" required name="cc" id="cc">
+                                </div>
+
+
 
 
 
@@ -174,7 +182,15 @@ session_start();
 							echo '<p id="erro">Este número de ordem já está associado a outra conta.<br><br></p>';
 
 						}else{
+if(strpos($fullUrl, "signup=ccerror") == true){
 
+
+echo '<p id="erro">Este cartão de cidadão já está associado a outra conta.<br><br></p>';
+
+}else{
+
+
+}
 
 
 
@@ -271,6 +287,26 @@ function checkInp(){
 
 numeroOrdem.onchange = checkInp;
 numeroOrdem.onkeyup = checkInp;
+
+
+function checkInp(){
+	var ccUtente = document.getElementById("ccUtente");
+	var x=document.forms["myForm"]["ccUtente"].value;
+  var regex=/^[a-zA-Z]+$/;
+    if (isNaN(x))
+  {
+    ccUtente.setCustomValidity("Este Cartão de cidadão é inválido!");
+  }else{
+
+	    ccUtente.setCustomValidity("");
+
+
+  }
+
+}
+
+ccUtente.onchange = checkInp;
+ccUtente.onkeyup = checkInp;
 
     </script>
 

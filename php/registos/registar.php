@@ -12,6 +12,8 @@
 
 	$numeroOrdem = $_POST["numeroOrdem"];
 
+	$cc = $_POST["cc"];
+
 	$confirmPassword = $_POST["confirmPassword"];
 
 	session_start();
@@ -59,6 +61,10 @@
 		$findemailc = false;
 
 		$findno = false;
+
+		$findccU = false;
+
+		$findccC = false;
 
 		//Comparar o email com o email dos utentes
 
@@ -131,6 +137,46 @@
 				}
 			}
 
+			//Comparar o numero de cc com outros utente
+
+			$sql13 = "SELECT ccUtente from utente";
+			$result = $conn->query($sql13);
+
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) {
+
+
+					if( $row["ccUtente"] == $cc){
+
+					$findccU = true;
+
+					}
+
+
+				}
+			}
+
+			//Comparar o numero de cc com outros comprador
+
+			$sql14 = "SELECT ccComprador from comprador";
+			$result = $conn->query($sql14);
+
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) {
+
+
+					if( $row["ccComprador"] == $cc){
+
+					$findccC = true;
+
+					}
+
+
+				}
+			}
+
 			//se encontrar o email na tabela dos utentes ou compradores dar erro
 
 			if($findemailc || $findemailu){
@@ -149,9 +195,17 @@
 
 			}else{
 
+				if($findccU || $findccC){
+
+					header("Location: authentication-register.php?signup=ccerror");
+
+					exit();
+
+				}else{
+
 				//INSERIR NA BD
 
-		$sql = "INSERT into comprador(emailComprador,passComprador,nrOrdem,nomeComprador,sexoComprador,codEspecialidade,codPermissao,codAlertaComprador,estadoComprador) values('$email',md5('$pass'),$numeroOrdem,'$nome','$sexo',1,2,1,0);";
+		$sql = "INSERT into comprador(emailComprador,ccComprador,passComprador,nrOrdem,nomeComprador,sexoComprador,codEspecialidade,codPermissao,codAlertaComprador,estadoComprador) values('$email','$cc',md5('$pass'),$numeroOrdem,'$nome','$sexo',1,2,1,0);";
 
 		//Criar especialidade 1 - novo | O comprador só insere a sua "especialidade" após a página de registo
 
@@ -186,6 +240,7 @@
 		}
 
 			}
+		}
 
 			}
 
