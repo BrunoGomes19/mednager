@@ -87,12 +87,22 @@ session_start();
                                     <input type="text" class="form-control form-control-lg" placeholder="Cartão de cidadão" aria-label="ccUtente" aria-describedby="basic-addon1" required name="ccUtente" id="ccUtente">
                                 </div>
 
+                                
+
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon2"><i class="ti-email"></i></span>
                                     </div>
                                     <input type="email" class="form-control form-control-lg" placeholder="E-mail" aria-label="email" aria-describedby="basic-addon1" required name="email">
+                                </div>
+
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-lg" placeholder="NIF" aria-label="NIFUtente" aria-describedby="basic-addon1" required name="nif">
                                 </div>
 
 
@@ -116,24 +126,26 @@ session_start();
 
 						echo '<p id="erro">Este endereço de e-mail já se encontra associado a outra conta!<br><br></p>';
 
+                    } else if (strpos($fullUrl, "rutente=nif") == true){
 
+                        echo '<p id="erro">Este nif já se encontra associado a outra conta!<br><br></p>';
 
-          }else{
+                      }else{
 
-            if(strpos($fullUrl, "rutente=ccinvalido") == true){
+                        if(strpos($fullUrl, "rutente=ccinvalido") == true){
 
-              echo '<p id="erro">Este número de cartão de cidadão é inválido!<br><br></p>';
+                          echo '<p id="erro">Este número de cartão de cidadão é inválido!<br><br></p>';
 
-            }else{
+                        }else{
 
-              if(strpos($fullUrl, "rutente=erro") == true){
+                          if(strpos($fullUrl, "rutente=erro") == true){
 
-                echo '<p id="erro">Ocorreu um erro a registar este utente!<br><br></p>';
-              }
+                            echo '<p id="erro">Ocorreu um erro a registar este utente!<br><br></p>';
+                          }
 
-            }
+                        }
 
-          }
+                      }
 					}
 
 

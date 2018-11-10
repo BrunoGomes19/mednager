@@ -8,6 +8,8 @@
 
 	$ccUtente = $_POST["ccUtente"];
 
+	$nif = $_POST["nif"];
+
 	session_start();
 
 	$nomeEnvia = $_SESSION['login_user'];
@@ -37,6 +39,7 @@
 				$findemailc = false;
 				$findemailu = false;
 				$findcc = false;
+				$findnifu = false;
 
 //ver infos
 
@@ -103,7 +106,7 @@ if ($result->num_rows > 0) {
 				}
 			}
 
-			//Comparar o numero de ordem com outros
+			//Comparar o numero de ordem com outros where
 
 			$sql7 = "SELECT ccUtente from utente";
 			$result = $conn->query($sql7);
@@ -115,9 +118,9 @@ if ($result->num_rows > 0) {
 
 					if( $row["ccUtente"] == $ccUtente){
 
-				echo "Este cartão de cidadão já está registado noutro médico." ;
+						echo "Este cartão de cidadão já está registado noutro médico." ;
 
-					$findcc = true;
+						$findcc = true;
 
 					}
 
@@ -125,12 +128,33 @@ if ($result->num_rows > 0) {
 				}
 			}
 
+			//Comparar o email com o email dos compradores
+
+			$sql8 = "SELECT NIFUtente from utente";
+			$result = $conn->query($sql8);
+
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) {
+
+
+					if( $row["NIFUtente"] == $nif){
+
+						echo "Este nif já existe no UTENTE" ;
+
+						$findnifu = true;
+
+					}
+
+
+				}
+			}
 
 			//se encontrar o email na tabela dos utentes ou compradores dar erro
 
 			if($findemailc || $findemailu){
 
-				header("Location: medico-admin_registoutente?rutente=email");
+				header("Location: medico-admin_registoutente.php?rutente=email");
 
 				exit();
 
@@ -138,9 +162,15 @@ if ($result->num_rows > 0) {
 				//se já houver um cc
 				if($findcc){
 
-				header("Location: medico-admin_registoutente?rutente=cc");
+				header("Location: medico-admin_registoutente.php?rutente=cc");
 
 				exit();
+
+			} else if ($findnifu) {
+
+				header("Location: medico-admin_registoutente.php?rutente=nif");
+				exit();
+
 
 			}else{
 
@@ -157,7 +187,7 @@ if ($result->num_rows > 0) {
 				$passNoChange = $pass;
 
 
-		$sql = "INSERT into utente(ccUtente, emailUtente, passUtente, nomeUtente, sexoUtente,codPermissao,codAlertaUtente, codSubsistema) values('$ccUtente','$email',md5('$pass'),'$nome',' ',3,1,1);";
+		$sql = "INSERT into utente(ccUtente, emailUtente, passUtente, nomeUtente, sexoUtente,codPermissao,codAlertaUtente, codSubsistema, NIFUtente) values('$ccUtente','$email',md5('$pass'),'$nome',' ',3,1,1, '$nif');";
 
 		//Criar especialidade 1 - novo | O comprador só insere a sua "especialidade" após a página de registo
 
