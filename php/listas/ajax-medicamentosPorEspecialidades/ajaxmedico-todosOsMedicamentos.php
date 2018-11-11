@@ -16,7 +16,8 @@ if (!$con) {
 }
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT * FROM medicamento WHERE codMedicamento like '".$q."%'";
+$sql="SELECT medicamento.descriMedicamento, especialidade.descriEspecialidade from medicamento, especialidade, medicamentoespecialidade where medicamento.codMedicamento=medicamentoespecialidade.codMedicamento and especialidade.codEspecialidade=medicamentoespecialidade.codEspecialidade and descriMedicamento like '".$q."%'";
+
 $result = mysqli_query($con,$sql);
 
 echo '
