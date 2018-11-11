@@ -10,6 +10,18 @@ function verperfil($cc){
 window.location.replace('../perfis/perfil_utentelista.php?cc='+$cc);
 }
 
+function associar($cc,$codComprador){
+
+  window.location.replace('../associacao/associacao_medico-lu.php?cc='+$cc+'&cod='+$codComprador);
+
+
+
+}
+
+function desassociar($cc,$codComprador){
+  window.location.replace('../associacao/desassociacao_medico-lu.php?cc='+$cc+'&cod='+$codComprador);
+}
+
 function showUser(str) {
     if (str == "") {
         document.getElementById("txtHint").innerHTML = "A lista de utentes será exibida aqui.";
