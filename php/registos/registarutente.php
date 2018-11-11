@@ -8,6 +8,8 @@
 
 	$sexo = $_POST["sexo"];
 
+	$nif = $_POST["nif"];
+
 	$nome = $_POST["nome"];
 
 	$ccUtente = $_POST["ccUtente"];
@@ -58,7 +60,13 @@
 
 		$findemailc = false;
 
-		$findcc = false;
+		$findccU = false;
+
+		$findccC = false;
+
+		$findNIFU = false;
+
+		$findNIFC = false;
 
 		//Comparar o email com o email dos utentes
 
@@ -109,7 +117,7 @@
 				}
 			}
 
-			//Comparar o numero de ordem com outros
+			//Comparar o CC com outros utentes
 
 			$sql7 = "SELECT ccUtente from utente";
 			$result = $conn->query($sql7);
@@ -121,15 +129,81 @@
 
 					if( $row["ccUtente"] == $ccUtente){
 
-				echo "Este cartão de cidadão já está registado noutro médico." ;
+				echo "Este cartão de cidadão já está registado noutra pessoa." ;
 
-					$findcc = true;
+					$findccU = true;
 
 					}
 
 
 				}
 			}
+
+			//Comparar o CC com outros medicos
+
+			$sql8 = "SELECT ccComprador from comprador";
+			$result = $conn->query($sql8);
+
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) {
+
+
+					if( $row["ccComprador"] == $ccUtente){
+
+				echo "Este cartão de cidadão já está registado noutra pessoa." ;
+
+					$findccC = true;
+
+					}
+
+
+				}
+			}
+
+
+
+			//nif
+			//Comparar o nif com outros utente
+
+			$sql13 = "SELECT NIFUtente from utente";
+			$result = $conn->query($sql13);
+
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) {
+
+
+					if( $row["NIFUtente"] == $nif){
+
+					$findNIFU = true;
+
+					}
+
+
+				}
+			}
+
+			//Comparar o nif com outros comprador
+
+			$sql14 = "SELECT NIFComprador from comprador";
+			$result = $conn->query($sql14);
+
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) {
+
+
+					if( $row["NIFComprador"] == $nif){
+
+					$findNIFC = true;
+
+					}
+
+
+				}
+			}
+
 
 			//se encontrar o email na tabela dos utentes ou compradores dar erro
 
@@ -141,7 +215,7 @@
 
 			}else{
 				//se já houver um numero de ordem
-				if($findcc){
+				if($findccC || $findccU){
 
 				header("Location: auth-reg-utente.php?signup=ccerror");
 
@@ -149,9 +223,17 @@
 
 			}else{
 
+				if($findNIFC || $findNIFU){
+
+				header("Location: auth-reg-utente.php?signup=niferror");
+
+				exit();
+
+			}else{
+
 				//INSERIR NA BD
 
-		$sql = "INSERT into utente(ccUtente, emailUtente, passUtente, nomeUtente, sexoUtente,codPermissao,codAlertaUtente, codSubsistema) values('$ccUtente','$email',md5('$pass'),'$nome','$sexo',3,1,1);";
+		$sql = "INSERT into utente(nifUtente,ccUtente, emailUtente, passUtente, nomeUtente, sexoUtente,codPermissao,codAlertaUtente, codSubsistema) values('$nif','$ccUtente','$email',md5('$pass'),'$nome','$sexo',3,1,1);";
 
 		//Criar especialidade 1 - novo | O comprador só insere a sua "especialidade" após a página de registo
 
@@ -180,7 +262,7 @@
 		}
 
 			}
-
+}
 			}
 
 

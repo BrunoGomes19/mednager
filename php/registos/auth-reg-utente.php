@@ -67,7 +67,7 @@ session_start();
             <div class="auth-box bg-light border-top border-secondary">
                 <div>
                     <div class="text-center p-t-20 p-b-20">
-                        <a href="../../TheEvent/index.php"><span class="db"><img style="width: 100%" src="../../landingPage/img/logos/logotipo.png" alt="logo" /></span></a>
+                        <a href="../indexes/index.php"><span class="db"><img style="width: 100%" src="../../landingPage/img/logos/logotipo.png" alt="logo" /></span></a>
                     </div>
                     <!-- Form -->
                     <form name="myForm" class="form-horizontal m-t-20" onsubmit="return checkInp()" action="registarutente.php" method="post">
@@ -87,7 +87,12 @@ session_start();
                                     <input type="text" class="form-control form-control-lg" placeholder="Cartão de cidadão" aria-label="ccUtente" aria-describedby="basic-addon1" required name="ccUtente" id="ccUtente">
                                 </div>
 
-
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-quote-right"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-lg" placeholder="NIF" aria-label="nif" aria-describedby="basic-addon1" required name="nif" id="nif">
+                                </div>
 
 
 
@@ -175,6 +180,12 @@ session_start();
 
 						}else{
 
+              if(strpos($fullUrl, "signup=niferror") == true){
+
+                echo '<p id="erro">Este NIF já está associado a outra conta.<br><br></p>';
+
+
+              }
 
 
 
@@ -267,10 +278,28 @@ function checkInp(){
 
   }
 
+
+  var nif = document.getElementById("nif");
+	var y=document.forms["myForm"]["nif"].value;
+  var regex=/^[a-zA-Z]+$/;
+    if (isNaN(y))
+  {
+    nif.setCustomValidity("Este NIF é inválido!");
+  }else{
+
+	    nif.setCustomValidity("");
+
+
+  }
+
+
 }
 
 ccUtente.onchange = checkInp;
 ccUtente.onkeyup = checkInp;
+
+nif.onchange = checkInp;
+nif.onkeyup = checkInp;
 
     </script>
 
