@@ -17,7 +17,9 @@ if (!$con) {
 }
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT * FROM medicamento WHERE codMedicamento like '".$q."%'";
+$sql="SELECT especialidade.descriEspecialidade, medicamento.descriMedicamento from medicamento, medicamentoespecialidade, especialidade where medicamento.codMedicamento=medicamentoespecialidade.codMedicamento and especialidade.codEspecialidade=medicamentoespecialidade.codEspecialidade and descriMedicamento like '".$q."%'";
+
+
 $result = mysqli_query($con,$sql);
 
 echo '
@@ -46,7 +48,8 @@ echo '
 
 while($row = mysqli_fetch_array($result)) {
 
-$nome = $row['codMedicamento'];
+$nome = $row['medicamento.descriMedicamento'];
+$descri = $row['especialidade.descriEspecialidade']
 
 
 
@@ -62,6 +65,7 @@ echo '
           </label>
       </td>
       <td>'.$nome.'</td>
+      <td>'.$descri.'</td>
       
   </tr>
   <tr class="spacer"></tr>
