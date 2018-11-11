@@ -84,17 +84,22 @@ session_start();
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-danger text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Número de Ordem" aria-label="nrOrdem" aria-describedby="basic-addon1" required name="numeroOrdem" id="numeroOrdem">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Número de Ordem" aria-label="nrOrdem" aria-describedby="basic-addon1" required name="nrOrdem" id="nrOrdem">
                                 </div>
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-quote-right"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Cartão de cidadão" aria-label="ccUtente" aria-describedby="basic-addon1" required name="cc" id="cc">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Cartão de cidadão" aria-label="cc" aria-describedby="basic-addon1" required name="cc" id="cc">
                                 </div>
 
-
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-quote-right"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-lg" placeholder="NIF" aria-label="nif" aria-describedby="basic-addon1" required name="nif" id="nif">
+                                </div>
 
 
 
@@ -182,15 +187,20 @@ session_start();
 							echo '<p id="erro">Este número de ordem já está associado a outra conta.<br><br></p>';
 
 						}else{
-if(strpos($fullUrl, "signup=ccerror") == true){
+              if(strpos($fullUrl, "signup=ccerror") == true){
 
 
-echo '<p id="erro">Este cartão de cidadão já está associado a outra conta.<br><br></p>';
+              echo '<p id="erro">Este cartão de cidadão já está associado a outra conta.<br><br></p>';
 
-}else{
+              }else{
+                if(strpos($fullUrl, "signup=niferror") == true){
+
+                  echo '<p id="erro">Este NIF já está associado a outra conta.<br><br></p>';
+
+                }
 
 
-}
+              }
 
 
 
@@ -269,44 +279,56 @@ function validatePassword(){
 password.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;
 
+
 function checkInp(){
-	var numeroOrdem = document.getElementById("numeroOrdem")
-	var x=document.forms["myForm"]["numeroOrdem"].value;
+	var cc = document.getElementById("cc");
+	var x=document.forms["myForm"]["cc"].value;
   var regex=/^[a-zA-Z]+$/;
     if (isNaN(x))
   {
-    numeroOrdem.setCustomValidity("Este número de ordem é inválido!");
+    cc.setCustomValidity("Este Cartão de cidadão é inválido!");
   }else{
 
-	    numeroOrdem.setCustomValidity("");
+	    cc.setCustomValidity("");
+
+
+  }
+
+
+  var nrOrdem = document.getElementById("nrOrdem");
+	var y=document.forms["myForm"]["nrOrdem"].value;
+  var regex=/^[a-zA-Z]+$/;
+    if (isNaN(y))
+  {
+    nrOrdem.setCustomValidity("Este número de ordem é inválido!");
+  }else{
+
+	    nrOrdem.setCustomValidity("");
+
+
+  }
+
+  var nif = document.getElementById("nif");
+  var z=document.forms["myForm"]["nif"].value;
+  var regex=/^[a-zA-Z]+$/;
+    if (isNaN(z))
+  {
+    nif.setCustomValidity("Este NIF é inválido!");
+  }else{
+
+      nif.setCustomValidity("");
 
 
   }
 
 }
 
-numeroOrdem.onchange = checkInp;
-numeroOrdem.onkeyup = checkInp;
-
-
-function checkInp(){
-	var ccUtente = document.getElementById("ccUtente");
-	var x=document.forms["myForm"]["ccUtente"].value;
-  var regex=/^[a-zA-Z]+$/;
-    if (isNaN(x))
-  {
-    ccUtente.setCustomValidity("Este Cartão de cidadão é inválido!");
-  }else{
-
-	    ccUtente.setCustomValidity("");
-
-
-  }
-
-}
-
-ccUtente.onchange = checkInp;
-ccUtente.onkeyup = checkInp;
+cc.onchange = checkInp;
+cc.onkeyup = checkInp;
+nrOrdem.onchange = checkInp;
+nrOrdem.onkeyup = checkInp;
+nif.onchange = checkInp;
+nif.onkeyup = checkInp;
 
     </script>
 

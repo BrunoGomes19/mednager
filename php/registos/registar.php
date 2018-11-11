@@ -10,9 +10,11 @@
 
 	$nome = $_POST["nome"];
 
-	$numeroOrdem = $_POST["numeroOrdem"];
+	$numeroOrdem = $_POST["nrOrdem"];
 
 	$cc = $_POST["cc"];
+
+	$nif = $_POST["nif"];
 
 	$confirmPassword = $_POST["confirmPassword"];
 
@@ -65,6 +67,10 @@
 		$findccU = false;
 
 		$findccC = false;
+
+		$findNIFU = false;
+
+		$findNIFC = false;
 
 		//Comparar o email com o email dos utentes
 
@@ -177,6 +183,47 @@
 				}
 			}
 
+			//nif
+			//Comparar o nif com outros utente
+
+			$sql13 = "SELECT NIFUtente from utente";
+			$result = $conn->query($sql13);
+
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) {
+
+
+					if( $row["NIFUtente"] == $nif){
+
+					$findNIFU = true;
+
+					}
+
+
+				}
+			}
+
+			//Comparar o nif com outros comprador
+
+			$sql14 = "SELECT NIFComprador from comprador";
+			$result = $conn->query($sql14);
+
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) {
+
+
+					if( $row["NIFComprador"] == $nif){
+
+					$findNIFC = true;
+
+					}
+
+
+				}
+			}
+
 			//se encontrar o email na tabela dos utentes ou compradores dar erro
 
 			if($findemailc || $findemailu){
@@ -203,9 +250,17 @@
 
 				}else{
 
+					if($findNIFU || $findNIFC){
+
+						header("Location: authentication-register.php?signup=niferror");
+
+						exit();
+
+					}else{
+
 				//INSERIR NA BD
 
-		$sql = "INSERT into comprador(emailComprador,ccComprador,passComprador,nrOrdem,nomeComprador,sexoComprador,codEspecialidade,codPermissao,codAlertaComprador,estadoComprador) values('$email','$cc',md5('$pass'),$numeroOrdem,'$nome','$sexo',1,2,1,0);";
+		$sql = "INSERT into comprador(NIFComprador,emailComprador,ccComprador,passComprador,nrOrdem,nomeComprador,sexoComprador,codEspecialidade,codPermissao,codAlertaComprador,estadoComprador) values('$nif','$email','$cc',md5('$pass'),$numeroOrdem,'$nome','$sexo',1,2,1,0);";
 
 		//Criar especialidade 1 - novo | O comprador só insere a sua "especialidade" após a página de registo
 
@@ -233,12 +288,15 @@
 
 		}else{
 
+			echo mysqli_error($conn);
+
 			header("Location: authentication-register.php?signup=cerror");
 
 			exit();
 
 		}
 
+}
 			}
 		}
 
