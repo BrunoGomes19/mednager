@@ -1,3 +1,4 @@
+
 <?php
 include('../topos/topo_medico.php');
 
@@ -29,70 +30,126 @@ include('../topos/topo_medico.php');
     }
 
 
-    function todosMedicamentos(str) {    
+    function todosMedicamentos(str, nr) {    
+
     if (str == "") {
-        document.getElementById("txtHint").innerHTML = "A lista de utentes será exibida aqui.";
+        document.getElementById("txtHint").innerHTML = "A lista de medicamentos será exibida aqui.";
         return;
     } else {
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+        if (nr==1){
+            if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("txtHint").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-todosOsMedicamentos.php?q="+str,true);
+                xmlhttp.send();
+
+        } else if (nr==2){
+            if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("txtHint").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-pediatriaMedicamentos.php?q="+str,true);
+                xmlhttp.send();
+
+        } else if (nr==3){
+            if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("txtHint").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-cardiologiaMedicamentos.php?q="+str,true);
+                xmlhttp.send();
+
+        } else{
+            document.getElementById("txtHint").innerHTML = "merda";
         }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-todosOsMedicamentos.php?q="+str,true);
-        xmlhttp.send();
+
+
+
+
+/*
+        switch(nr){
+
+            case 1:
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("txtHint").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-todosOsMedicamentos.php?q="+str,true);
+                xmlhttp.send();
+            case 2:
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("txtHint").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-pediatriaMedicamentos.php?q="+str,true);
+                xmlhttp.send();
+
+            case 3:
+
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("txtHint").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-cardiologiaMedicamentos.php?q="+str,true);
+                xmlhttp.send();
+
+            default:
+                document.getElementById("txtHint").innerHTML = "merda";
+
+
+        }*/
     }
 
-
-    function pediatriaMedicamentos(str) {    
-    if (str == "") {
-        document.getElementById("txtHint").innerHTML = "A lista de utentes será exibida aqui.";
-        return;
-    } else {
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-pediariaMedicamentos.php?q="+str,true);
-        xmlhttp.send();
-    }
-
-
-    function cardiologiaMedicamentos(str) {    
-    if (str == "") {
-        document.getElementById("txtHint").innerHTML = "A lista de utentes será exibida aqui.";
-        return;
-    } else {
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-cardiologiaMedicamentos.php?q="+str,true);
-        xmlhttp.send();
-    }
 
 
     
@@ -145,7 +202,7 @@ include('../topos/topo_medico.php');
                                                             <i class="fa fa-search"></i>
                                                         </button>
 
-                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="nome do medicamento" class="form-control" onkeyup="todosMedicamentos(this.value)">
+                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="nome do medicamento" class="form-control" onkeyup="todosMedicamentos(this.value, 1)">
                                                     </div>                                            
                                                     
 
@@ -156,7 +213,7 @@ include('../topos/topo_medico.php');
 
                                         </div>
                                         <div class="btn-group" id="opcaoTodos">
-                                            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-primary">Agrupar por especialidade</button>
+                                            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-primary">Todas as especialidades</button>
 
                                             <div tabindex="-1" aria-hidden="true" role="menu" class="dropdown-menu">
                                                 <button  type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisatodos()">Todas</button>
@@ -186,7 +243,7 @@ include('../topos/topo_medico.php');
                                                             <i class="fa fa-search"></i>
                                                         </button>
 
-                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="nome do medicamento de pediatria" class="form-control" onkeyup="pediatriaMedicamentos(this.value)">
+                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="nome do medicamento de pediatria" class="form-control" onkeyup="todosMedicamentos(this.value, 2)">
                                                     </div>                                            
                                                     
 
@@ -228,7 +285,7 @@ include('../topos/topo_medico.php');
                                                             <i class="fa fa-search"></i>
                                                         </button>
 
-                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="nome do medicamento de cardiologia" class="form-control" onkeyup="cardiologiaMedicamentos(this.value)">
+                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="nome do medicamento de cardiologia" class="form-control" onkeyup="todosMedicamentos(this.value, 3)">
                                                     </div>                                            
                                                     
 
@@ -261,7 +318,7 @@ include('../topos/topo_medico.php');
 
                                 <div class="table-responsive table-responsive-data2">
 
-                                    <div id="txtHint"><b>A lista de utentes será exibida aqui.</b></div>
+                                    <div id="txtHint"><b>A lista de medicamentos será exibida aqui.</b></div>
 
                                         <!--<tr class="spacer"></tr>
                                         <tr class="tr-shadow">
