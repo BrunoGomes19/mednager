@@ -73,6 +73,18 @@ $conn->close();
 ?>
 
 
+<style>
+
+#erro{
+
+	color:#f42c2c;
+	font-size:16px;
+	font-family:FontAwesome;
+
+}
+
+</style>
+
 <!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
 <script type="text/javascript" src="https://formden.com/static/cdn/formden.js"></script>
 
@@ -150,6 +162,21 @@ $conn->close();
 
                                     </div>
 
+																		<?php
+
+
+																	$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+																	if(strpos($fullUrl, "noerror") == true){
+
+																		echo '<p id="erro">Este número de ordem já está associado a outra conta.<br><br></p>';
+
+
+
+																	}
+
+																	?>
+
                                     <div class="row">
 
 										<div class="col-md-4">
@@ -215,6 +242,18 @@ $conn->close();
 
                                     </div>
 
+																		<?php
+
+																	if(strpos($fullUrl, "ccerror") == true){
+
+																		echo '<p id="erro">Este cartão de cidadão já está associado a outra conta.<br><br></p>';
+
+
+
+																	}
+
+																	?>
+
 									<div class="row">
                                          <div class="col-md-4">
                                             <div class="form-group">
@@ -229,6 +268,18 @@ $conn->close();
                                             </div>
                                         </div>
                                     </div>
+
+																		<?php
+
+																	if(strpos($fullUrl, "niferror") == true){
+
+																		echo '<p id="erro">Este cartão de cidadão já está associado a outra conta.<br><br></p>';
+
+
+
+																	}
+
+																	?>
 
                                     <div class="row">
                                         <div class="col-md-12">

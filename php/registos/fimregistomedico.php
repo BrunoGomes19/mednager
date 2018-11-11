@@ -34,18 +34,160 @@
 
 	$foto = $_POST['foto'];
 
-	$sql = "UPDATE comprador set nrOrdem='$numeroOrdem',dataNascComprador='$date',nomeComprador = '$nomecompleto',formacaoCarreira='$sobremim',moradaComprador='$morada',codPostalComprador='$codigopostal',localidadeComprador='$cidade',NIBComprador='$nib',NIFComprador='$nif',contacto1Comprador='$contacto1',contacto2Comprador='$contacto2',ccComprador='$cc',sexoComprador='$sexo',codEspecialidade='$especialidade' WHERE emailComprador='$email'";
+	//Verificar os campos: CC, Nif e número de ordem
 
-	$conn->query($sql);
+	$findccU = false;
 
-	echo "Perfil atualizado com sucesso!";
+	$findccC = false;
 
-	if ($conn->query($sql) === TRUE) {
+	$findNIFU = false;
 
-	header("Location: ../indexes/index-medico.php");
+	$findNIFC = false;
 
-} else {
-    echo "Error updating record: " . $conn->error;
+	$findno = false;
+
+	//Comparar o numero de cc com outros utente
+
+	$sql11 = "SELECT ccUtente from utente where emailUtente!='$email';";
+	$result = $conn->query($sql11);
+
+	if ($result->num_rows > 0) {
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+
+					//$oldcc = $row["ccUtente"];
+
+			if( $row["ccUtente"] == $cc){
+
+			$findccU = true;
+
+
+
+			}
+
+
+		}
+	}
+
+	//Comparar o numero de cc com outros comprador
+
+	$sql12 = "SELECT ccComprador from comprador where emailComprador!='$email'";
+	$result = $conn->query($sql12);
+
+	if ($result->num_rows > 0) {
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+
+
+			if( $row["ccComprador"] == $cc){
+
+			$findccC = true;
+
+			}
+
+
+		}
+	}
+
+	//nif
+	//Comparar o nif com outros utente
+
+	$sql13 = "SELECT NIFUtente from utente where emailUtente!='$email';";
+	$result = $conn->query($sql13);
+
+	if ($result->num_rows > 0) {
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+
+
+			if( $row["NIFUtente"] == $nif){
+
+			$findNIFU = true;
+
+			}
+
+
+		}
+	}
+
+	//Comparar o nif com outros comprador
+
+	$sql14 = "SELECT NIFComprador from comprador where emailComprador!='$email'";
+	$result = $conn->query($sql14);
+
+	if ($result->num_rows > 0) {
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+
+
+			if( $row["NIFComprador"] == $nif){
+
+			$findNIFC = true;
+
+			}
+
+
+		}
+	}
+
+	//Comparar o numero de ordem com o dos outros medicos
+
+	$sql14 = "SELECT nrOrdem from comprador where emailComprador!='$email'";
+	$result = $conn->query($sql14);
+
+	if ($result->num_rows > 0) {
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+
+
+			if( $row["nrOrdem"] == $numeroOrdem){
+
+			$findno = true;
+
+			}
+
+
+		}
+	}
+
+	//if nao encontrar nenhum dos 5 dá update
+
+	if($findccC || $findccU){
+
+		header("Location: registomedico.php?ccerror");
+
+		exit();
+
+	}else if($findNIFC || $findNIFU){
+
+		header("Location: registomedico.php?niferror");
+
+		exit();
+
+
+	}else if($findno){
+
+		header("Location: registomedico.php?noerror");
+
+		exit();
+
+
+	}else{
+
+
+		$sql = "UPDATE comprador set nrOrdem='$numeroOrdem',dataNascComprador='$date',nomeComprador = '$nomecompleto',formacaoCarreira='$sobremim',moradaComprador='$morada',codPostalComprador='$codigopostal',localidadeComprador='$cidade',NIBComprador='$nib',NIFComprador='$nif',contacto1Comprador='$contacto1',contacto2Comprador='$contacto2',ccComprador='$cc',sexoComprador='$sexo',codEspecialidade='$especialidade' WHERE emailComprador='$email'";
+
+		$conn->query($sql);
+
+		echo "Perfil atualizado com sucesso!";
+
+		if ($conn->query($sql) === TRUE) {
+
+		header("Location: ../indexes/index-medico.php");
+
+	} else {
+	    echo "Error updating record: " . $conn->error;
+	}
 }
 
 $conn->close();
