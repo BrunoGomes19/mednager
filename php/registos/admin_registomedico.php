@@ -87,6 +87,8 @@ session_start();
                                     <input type="text" class="form-control form-control-lg" placeholder="Número de ordem" aria-label="ccUtente" aria-describedby="basic-addon1" required name="numeroOrdem" id="numeroOrdem">
                                 </div>
 
+                                
+
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -94,6 +96,23 @@ session_start();
                                     </div>
                                     <input type="email" class="form-control form-control-lg" placeholder="E-mail" aria-label="email" aria-describedby="basic-addon1" required name="email">
                                 </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-quote-right"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-lg" placeholder="NIF" aria-label="nif" aria-describedby="basic-addon1" required name="nif" id="nif">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-quote-right"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control form-control-lg" placeholder="Cartão de cidadão" aria-label="cc" aria-describedby="basic-addon1" required name="cc" id="cc">
+                                </div>
+
+
+
 
 
                             </div>
@@ -116,24 +135,29 @@ session_start();
 
 						echo '<p id="erro">Este endereço de e-mail já se encontra associado a outra conta!<br><br></p>';
 
+                    } else if(strpos($fullUrl, "rmedico=nif") == true){ 
 
+                        echo '<p id="erro">Este NIF já se encontra associado a outra conta!<br><br></p>';
 
-          }else{
+                    } else if(strpos($fullUrl, "rmedico=cc") == true){ 
+                        echo '<p id="erro">Este Cartão de cidadão já se encontra associado a outra conta!<br><br></p>';
 
-            if(strpos($fullUrl, "rmedico=noinvalido") == true){
+                      }else{
 
-              echo '<p id="erro">Este número de ordem é inválido!<br><br></p>';
+                        if(strpos($fullUrl, "rmedico=noinvalido") == true){
 
-            }else{
+                          echo '<p id="erro">Este número de ordem é inválido!<br><br></p>';
 
-              if(strpos($fullUrl, "rmedico=erro") == true){
+                        }else{
 
-                echo '<p id="erro">Ocorreu um erro no registo do médico!<br><br></p>';
-              }
+                          if(strpos($fullUrl, "rmedico=erro") == true){
 
-            }
+                            echo '<p id="erro">Ocorreu um erro no registo do médico!<br><br></p>';
+                          }
 
-          }
+                        }
+
+                      }
 					}
 
 

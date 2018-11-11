@@ -9,6 +9,9 @@
 
 	$numeroOrdem = $_POST["numeroOrdem"];
 
+	$nif = $_POST["nif"];
+
+	$cc = $_POST["cc"];
 
 
 
@@ -53,6 +56,8 @@
 
 				$findemailc = false;
 				$findemailu = false;
+				$findcc = false;
+				$findnif = false;
 				$findcc = false;
 
 		//Comparar o email com o email dos utentes
@@ -127,11 +132,52 @@
 			}
 
 
+			$sql8 = "SELECT NIFComprador from comprador";
+			$result = $conn->query($sql8);
+
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) {
+
+
+					if( $row["NIFComprador"] == $nif){
+
+				echo "Este NIF já está registado." ;
+
+					$findnif = true;
+
+					}
+
+
+				}
+			}
+
+			$sql9 = "SELECT ccComprador from comprador";
+			$result = $conn->query($sql9);
+
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) {
+
+
+					if( $row["ccComprador"] == $cc){
+
+				echo "Este Cartão de cidadão  já está registado." ;
+
+					$findcc = true;
+
+					}
+
+
+				}
+			}
+
+
 			//se encontrar o email na tabela dos utentes ou compradores dar erro
 
 			if($findemailc || $findemailu){
 
-				header("Location: admin_registomedico?rmedico=email");
+				header("Location: admin_registomedico.php?rmedico=email");
 
 				exit();
 
@@ -139,7 +185,18 @@
 				//se já houver um cc
 				if($findcc){
 
-				header("Location: admin_registomedico?rmedico=no");
+				header("Location: admin_registomedico.php?rmedico=no");
+
+				exit();
+
+			} else if($findcc){ 
+				header("Location: admin_registomedico.php?rmedico=cc");
+
+				exit();
+
+			} else if ($findnif){
+
+				header("Location: admin_registomedico.php?rmedico=nif");
 
 				exit();
 
@@ -158,7 +215,7 @@
 				$passNoChange = $pass;
 
 
-		$sql = "INSERT into COMPRADOR(nrOrdem, emailComprador, passComprador, nomeComprador, sexoComprador,codPermissao,codAlertaComprador, codEspecialidade, LEIComprador,estadoComprador) values('$numeroOrdem','$email',md5('$pass'),'$nome',' ',2,1,1,'$LEIComprador',0);";
+		$sql = "INSERT into COMPRADOR(nrOrdem, emailComprador, passComprador, nomeComprador, sexoComprador,codPermissao,codAlertaComprador, codEspecialidade, LEIComprador,estadoComprador, NIFComprador, ccComprador) values('$numeroOrdem','$email',md5('$pass'),'$nome',' ',2,1,1,'$LEIComprador',0, '$nif', '$cc');";
 
 		//Criar especialidade 1 - novo | O comprador só insere a sua "especialidade" após a página de registo
 

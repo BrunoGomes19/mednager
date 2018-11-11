@@ -73,7 +73,7 @@ $conn->close();
 ?>
 
 
-
+<meta charset="UTF-8">
 <!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
 <script type="text/javascript" src="https://formden.com/static/cdn/formden.js"></script>
 

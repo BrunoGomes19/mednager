@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
+
 </head>
 <body>
 
@@ -16,7 +17,7 @@ if (!$con) {
 }
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT * FROM utente WHERE NIFUtente like '".$q."%' ORDER BY nomeUtente limit 4";
+$sql="SELECT * FROM medicamento WHERE codMedicamento like '".$q."%'";
 $result = mysqli_query($con,$sql);
 
 echo '
@@ -32,9 +33,8 @@ echo '
                 </label>
             </th>
             <th>Nome</th>
-            <th>Cartão de cidadão</th>
-            <th>NIF</th>
-            <th></th>
+            <th>Especialidade</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -46,11 +46,9 @@ echo '
 
 while($row = mysqli_fetch_array($result)) {
 
-$nome = $row['nomeUtente'];
+$nome = $row['codMedicamento'];
 
-$cc = $row['ccUtente'];
 
-$nif = $row['NIFUtente'];
 
 
 
@@ -64,17 +62,7 @@ echo '
           </label>
       </td>
       <td>'.$nome.'</td>
-      <td>
-          <span class="block-email">'.$cc.'</span>
-      </td>
-      <td class="desc">'.$nif.'</td>
-
-      <td>
-
-              <button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
-                  <i class="fa fa-user"></i>&nbsp;Perfil</button>
-
-      </td>
+      
   </tr>
   <tr class="spacer"></tr>
 ';
@@ -101,10 +89,7 @@ echo '
 if ($result->num_rows == 0) {
 
   echo '<br>
-    <tr>Sem resultados!</tr>
-
-
-  ';
+  <tr><td>Sem resultados!<td></tr>';
 
 }
 

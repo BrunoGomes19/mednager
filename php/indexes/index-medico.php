@@ -86,7 +86,7 @@ if ($result->num_rows > 0) {
 
 ?>
 
-
+<meta charset="UTF-8">
 
             <!-- MAIN CONTENT-->
             <div class="main-content">

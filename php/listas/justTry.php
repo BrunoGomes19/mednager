@@ -2,7 +2,7 @@
 include('../topos/topo_medico.php');
 
 ?>
-
+<meta charset="UTF-8">
 
 <script>
 
@@ -27,6 +27,32 @@ include('../topos/topo_medico.php');
         document.getElementById("pediatriapesquisa").style.display = "none";
         
     }
+
+
+    function todosMedicamentos(str) {    
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "A lista de utentes será exibida aqui.";
+        return;
+    } else {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-todosOsMedicamentos.php?q="+str,true);
+        xmlhttp.send();
+    }
+
+
+    
+}
 
 
 </script>

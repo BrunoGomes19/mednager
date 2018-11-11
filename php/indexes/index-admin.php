@@ -83,6 +83,8 @@ if ($result->num_rows > 0) {
 
 ?>
 
+<meta charset="UTF-8">
+
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">

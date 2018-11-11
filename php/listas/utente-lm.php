@@ -3,7 +3,7 @@ include('../topos/topo_utente.php');
 
 ?>
 
-
+<meta charset="UTF-8">
 <script>
 
 function verperfil($cc){
