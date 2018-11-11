@@ -4,6 +4,17 @@ include('../topos/topo_medico.php');
 ?>
 
 <meta charset="UTF-8">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+
+    <script src="bootbox.min.js"></script>
+
+    <script>
+
+
+    </script>
+
 <script>
 
 function verperfil($cc){
@@ -12,14 +23,62 @@ window.location.replace('../perfis/perfil_utentelista.php?cc='+$cc);
 
 function associar($cc,$codComprador){
 
-  window.location.replace('../associacao/associacao_medico-lu.php?cc='+$cc+'&cod='+$codComprador);
 
+
+  bootbox.confirm({
+    message: "Tem a certeza que quer associar este utente?",
+    buttons: {
+        confirm: {
+            label: 'Sim',
+            className: 'btn-success'
+        },
+        cancel: {
+            label: 'Não',
+            className: 'btn-danger'
+        }
+    },
+    callback: function (result) {
+      if(result==true){
+          window.location.replace('../associacao/associacao_medico-lu.php?cc='+$cc+'&cod='+$codComprador);
+
+      }else{
+
+
+      }
+
+    }
+  });
 
 
 }
 
 function desassociar($cc,$codComprador){
-  window.location.replace('../associacao/desassociacao_medico-lu.php?cc='+$cc+'&cod='+$codComprador);
+
+  bootbox.confirm({
+    message: "Tem a certeza que quer desassociar este utente?",
+    buttons: {
+        confirm: {
+            label: 'Sim',
+            className: 'btn-success'
+        },
+        cancel: {
+            label: 'Não',
+            className: 'btn-danger'
+        }
+    },
+    callback: function (result) {
+      if(result==true){
+          window.location.replace('../associacao/desassociacao_medico-lu.php?cc='+$cc+'&cod='+$codComprador);
+
+      }else{
+
+
+      }
+
+    }
+  });
+
+
 }
 
 function showUser(str) {
@@ -120,6 +179,44 @@ function showUser(str) {
 
 
                                                 <div id="txtHint"><b>A lista de todos os utentes será exibida aqui.</b></div>
+
+
+
+
+                                <?php
+                                                $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+                                      					if(strpos($fullUrl, "alertassociado") == true){
+
+                                      						echo '<script>
+
+                                                  bootbox.alert("Utente associado com sucesso!");
+
+
+                                                  </script>';
+
+
+
+                                      					}else{
+
+                                                  if(strpos($fullUrl, "alertdesassociado") == true){
+
+                                        						echo '<script>
+
+                                                    bootbox.alert("Utente desassociado com sucesso!");
+
+
+                                                    </script>';
+
+
+
+                                        					}
+
+                                                }
+                                  ?>
+
+
+
 
                                                     <!--<tr class="spacer"></tr>
                                                     <tr class="tr-shadow">

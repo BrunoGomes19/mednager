@@ -12,7 +12,7 @@ $query = mysqli_query($conn,$sql);
 
 if($query){
 
-  header("Location: ../listas/medico-lu.php");
+  header("Location: ../listas/medico-lu.php?alertdesassociado");
 
   exit();
 }
