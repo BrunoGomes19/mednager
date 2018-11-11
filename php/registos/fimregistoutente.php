@@ -145,9 +145,9 @@ if($findccC || $findccU){
 
 }else{
 
-	$sql2 = "UPDATE associados set utente_ccUtente = '$cc' where utente_ccUtente='$oldcc'";
+	//$sql2 = "UPDATE associados set utente_ccUtente = '$cc' where utente_ccUtente='$oldcc'";
 
-	$conn->query($sql2);
+	//$conn->query($sql2);
 
 	$sql = "UPDATE utente set codSubsistema = '$Subsistema', nrSubsistema='$nrSubsistema', dataNascUtente='$date',nomeUtente = '$nomecompleto',ObservacoesUtente='$sobremim',moradaUtente='$morada',codPostalUtente='$codigopostal',localidadeUtente='$cidade',NIBUtente='$nib',NIFUtente='$nif',contacto1Utente='$contacto1',contacto2Utente='$contacto2',ccUtente='$cc',sexoUtente='$sexo' WHERE emailUtente='$email'";
 
