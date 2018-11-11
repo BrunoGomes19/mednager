@@ -121,7 +121,7 @@ $conn->close();
 														 </form>
 																	</div>
                             <div class="content">
-                                <form method="POST" action="fimregistoutente.php">
+                                <form name="myForm" onsubmit="return checkInp()" method="POST" action="fimregistoutente.php">
                                     <div class="row">
 
 
@@ -129,7 +129,7 @@ $conn->close();
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="nomecompleto">Nome completo</label>
-                                                <input type="text" class="form-control" value="<?php	echo $nome;	?>" name="nomecompleto" required>
+                                                <input type="text" class="form-control" value="<?php	echo $nome;	?>" name="nomecompleto" id="nomecompleto" required>
                                             </div>
                                         </div>
 
@@ -143,7 +143,7 @@ $conn->close();
 										<div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="cc">Número CC</label>
-                                                <input type="text" class="form-control" value="<?php	echo $cc;	?>" required name="cc">
+                                                <input type="text" class="form-control" value="<?php	echo $cc;	?>" required name="cc" id="cc">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -209,13 +209,13 @@ $conn->close();
                                          <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="contacto1">Contacto 1</label>
-                                                <input type="tel" class="form-control" placeholder="" required name="contacto1" value="<?php	echo $contacto1;	?>">
+                                                <input type="tel" class="form-control" placeholder="" required name="contacto1" id="contacto1" value="<?php	echo $contacto1;	?>">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="contacto2">Contacto 2</label>
-                                                <input type="tel" class="form-control" placeholder="" name="contacto2" value="<?php	echo $contacto2;	?>">
+                                                <input type="tel" class="form-control" placeholder="" name="contacto2" id="contacto2" value="<?php	echo $contacto2;	?>">
                                             </div>
                                         </div>
                                     </div>
@@ -226,7 +226,7 @@ $conn->close();
                                          <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="nif">Número de identificação fiscal (NIF)</label>
-                                                <input type="text" class="form-control" placeholder="" required name="nif" value="<?php	echo $nif;	?>">
+                                                <input type="text" class="form-control" placeholder="" required name="nif" id="nif" value="<?php	echo $nif;	?>">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -385,6 +385,97 @@ $conn->close();
 			autoclose: true,
 		})
 	})
+
+	function checkInp(){
+		var cc = document.getElementById("cc");
+		var x=document.forms["myForm"]["cc"].value;
+	  var regex=/^[a-zA-Z]+$/;
+	    if (isNaN(x))
+	  {
+	    cc.setCustomValidity("Este Cartão de cidadão é inválido!");
+	  }else{
+
+		    cc.setCustomValidity("");
+
+
+	  }
+
+	  var nif = document.getElementById("nif");
+	  var z=document.forms["myForm"]["nif"].value;
+	  var regex=/^[a-zA-Z]+$/;
+	    if (isNaN(z))
+	  {
+	    nif.setCustomValidity("Este NIF é inválido!");
+	  }else{
+
+	      nif.setCustomValidity("");
+
+
+	  }
+
+		//nomecompleto
+
+		var nomecompleto = document.getElementById("nomecompleto");
+	  var x1=document.forms["myForm"]["nomecompleto"].value;
+	  var regex=/^[a-zA-Z]+$/;
+	    if (!isNaN(x1))
+	  {
+	    nomecompleto.setCustomValidity("Este nome é inválido!");
+	  }else{
+
+	      nomecompleto.setCustomValidity("");
+
+
+	  }
+
+		//contacto 1
+
+		var contacto1 = document.getElementById("contacto1");
+		var x2=document.forms["myForm"]["contacto1"].value;
+		var regex=/^[a-zA-Z]+$/;
+			if (isNaN(x2))
+		{
+			contacto1.setCustomValidity("Este contacto é inválido!");
+		}else{
+
+				contacto1.setCustomValidity("");
+
+
+		}
+
+		//contacto 2
+
+		var contacto2 = document.getElementById("contacto2");
+		var x3=document.forms["myForm"]["contacto2"].value;
+		var regex=/^[a-zA-Z]+$/;
+			if (isNaN(x3))
+		{
+			contacto2.setCustomValidity("Este contacto é inválido!");
+		}else{
+
+				contacto2.setCustomValidity("");
+
+
+		}
+
+
+	}
+
+	cc.onchange = checkInp;
+	cc.onkeyup = checkInp;
+
+	nif.onchange = checkInp;
+	nif.onkeyup = checkInp;
+
+	nomecompleto.onchange = checkInp;
+	nomecompleto.onkeyup = checkInp;
+
+	contacto1.onchange = checkInp;
+	contacto1.onkeyup = checkInp;
+
+	contacto2.onchange = checkInp;
+	contacto2.onkeyup = checkInp;
+
 </script>
 
 </body>

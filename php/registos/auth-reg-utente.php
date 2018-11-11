@@ -77,7 +77,7 @@ session_start();
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Nome completo" aria-label="nomeUtente" aria-describedby="basic-addon1" required name="nome">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Nome completo" aria-label="nomeUtente" aria-describedby="basic-addon1" required name="nome" id="nomecompleto">
                                 </div>
 
                                 <div class="input-group mb-3">
@@ -292,6 +292,21 @@ function checkInp(){
 
   }
 
+  //nomecompleto
+
+  var nomecompleto = document.getElementById("nomecompleto");
+  var x1=document.forms["myForm"]["nomecompleto"].value;
+  var regex=/^[a-zA-Z]+$/;
+    if (!isNaN(x1))
+  {
+    nomecompleto.setCustomValidity("Este nome é inválido!");
+  }else{
+
+      nomecompleto.setCustomValidity("");
+
+
+  }
+
 
 }
 
@@ -300,6 +315,9 @@ ccUtente.onkeyup = checkInp;
 
 nif.onchange = checkInp;
 nif.onkeyup = checkInp;
+
+nomecompleto.onchange = checkInp;
+nomecompleto.onkeyup = checkInp;
 
     </script>
 
