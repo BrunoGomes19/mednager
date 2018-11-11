@@ -84,10 +84,10 @@ session_start();
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-quote-right"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Número de ordem" aria-label="ccUtente" aria-describedby="basic-addon1" required name="numeroOrdem" id="numeroOrdem">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Número de ordem" aria-label="numeroOrdem" aria-describedby="basic-addon1" required name="numeroOrdem" id="numeroOrdem">
                                 </div>
 
-                                
+
 
 
                                 <div class="input-group mb-3">
@@ -135,11 +135,11 @@ session_start();
 
 						echo '<p id="erro">Este endereço de e-mail já se encontra associado a outra conta!<br><br></p>';
 
-                    } else if(strpos($fullUrl, "rmedico=nif") == true){ 
+                    } else if(strpos($fullUrl, "rmedico=nif") == true){
 
                         echo '<p id="erro">Este NIF já se encontra associado a outra conta!<br><br></p>';
 
-                    } else if(strpos($fullUrl, "rmedico=cc") == true){ 
+                    } else if(strpos($fullUrl, "rmedico=cc") == true){
                         echo '<p id="erro">Este Cartão de cidadão já se encontra associado a outra conta!<br><br></p>';
 
                       }else{
@@ -213,10 +213,36 @@ function checkInp(){
   var regex=/^[a-zA-Z]+$/;
     if (isNaN(x))
   {
-    ccUtente.setCustomValidity("Este número de ordem é inválido!");
+    numeroOrdem.setCustomValidity("Este número de ordem é inválido!");
   }else{
 
-	    ccUtente.setCustomValidity("");
+	    numeroOrdem.setCustomValidity("");
+
+
+  }
+
+  var cc = document.getElementById("cc");
+	var y=document.forms["myForm"]["cc"].value;
+  var regex=/^[a-zA-Z]+$/;
+    if (isNaN(y))
+  {
+    cc.setCustomValidity("Este cartão de cidadão é inválido!");
+  }else{
+
+	    cc.setCustomValidity("");
+
+
+  }
+
+  var nif = document.getElementById("nif");
+	var z=document.forms["myForm"]["nif"].value;
+  var regex=/^[a-zA-Z]+$/;
+    if (isNaN(z))
+  {
+    nif.setCustomValidity("Este NIF é inválido!");
+  }else{
+
+	    nif.setCustomValidity("");
 
 
   }
@@ -225,6 +251,12 @@ function checkInp(){
 
 numeroOrdem.onchange = checkInp;
 numeroOrdem.onkeyup = checkInp;
+
+cc.onchange = checkInp;
+cc.onkeyup = checkInp;
+
+nif.onchange = checkInp;
+nif.onkeyup = checkInp;
 
     </script>
 

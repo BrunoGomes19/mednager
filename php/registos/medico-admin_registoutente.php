@@ -87,7 +87,7 @@ session_start();
                                     <input type="text" class="form-control form-control-lg" placeholder="Cartão de cidadão" aria-label="ccUtente" aria-describedby="basic-addon1" required name="ccUtente" id="ccUtente">
                                 </div>
 
-                                
+
 
 
                                 <div class="input-group mb-3">
@@ -102,7 +102,7 @@ session_start();
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="NIF" aria-label="NIFUtente" aria-describedby="basic-addon1" required name="nif">
+                                    <input type="text" class="form-control form-control-lg" placeholder="NIF" aria-label="NIFUtente" aria-describedby="basic-addon1" required name="nif" id="nif">
                                 </div>
 
 
@@ -209,10 +209,28 @@ function checkInp(){
 
   }
 
+
+
+  var nif = document.getElementById("nif");
+	var y=document.forms["myForm"]["nif"].value;
+  var regex=/^[a-zA-Z]+$/;
+    if (isNaN(y))
+  {
+    nif.setCustomValidity("Este NIF é inválido!");
+  }else{
+
+	    nif.setCustomValidity("");
+
+
+  }
+
 }
 
 ccUtente.onchange = checkInp;
 ccUtente.onkeyup = checkInp;
+
+nif.onchange = checkInp;
+nif.onkeyup = checkInp;
 
     </script>
 
