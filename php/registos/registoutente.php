@@ -72,6 +72,15 @@ $conn->close();
 
 ?>
 
+<style>
+
+#erro{
+
+	color:#f42c2c;
+	font-size:16px;
+	font-family:FontAwesome;
+
+}
 
 <meta charset="UTF-8">
 <!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
@@ -148,6 +157,22 @@ $conn->close();
                                         </div>
 
                                     </div>
+																		<!--CC JÁ EM USO<br><br>-->
+
+																		<?php
+
+
+																	$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+																	if(strpos($fullUrl, "ccerror") == true){
+
+																		echo '<p id="erro">Este cartão de cidadão já está associado a outra conta.<br><br></p>';
+
+
+
+																	}
+
+																	?>
 
                                     <div class="row">
 
@@ -209,6 +234,20 @@ $conn->close();
                                             </div>
                                         </div>
                                     </div>
+
+																		<!--NIF JÁ EM USO<br><br>-->
+
+																		<?php
+
+																	if(strpos($fullUrl, "niferror") == true){
+
+																		echo '<p id="erro">Este NIF já está associado a outra conta.<br><br></p>';
+
+
+
+																	}
+
+																	?>
 
 																										<div class="row">
 																													<div class="col-md-4">

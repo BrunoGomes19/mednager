@@ -8,8 +8,6 @@
 
 	$sexo = $_POST['sexo'];
 
-	$especialidade = $_POST['especialidade'];
-
 	$date = $_POST['date'];
 
 	$nrSubsistema = $_POST["nrSubsistema"];
@@ -36,6 +34,121 @@
 
 	$foto = $_POST['foto'];
 
+	//Verificar os campos: CC, Nif
+
+	$findccU = false;
+
+	$findccC = false;
+
+	$findNIFU = false;
+
+	$findNIFC = false;
+
+	//Comparar o numero de cc com outros utente
+
+	$sql11 = "SELECT ccUtente from utente where emailUtente!='$email';";
+	$result = $conn->query($sql11);
+
+	if ($result->num_rows > 0) {
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+
+					$oldcc = $row["ccUtente"];
+
+			if( $row["ccUtente"] == $cc){
+
+			$findccU = true;
+
+
+
+			}
+
+
+		}
+	}
+
+	//Comparar o numero de cc com outros comprador
+
+	$sql12 = "SELECT ccComprador from comprador";
+	$result = $conn->query($sql12);
+
+	if ($result->num_rows > 0) {
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+
+
+			if( $row["ccComprador"] == $cc){
+
+			$findccC = true;
+
+			}
+
+
+		}
+	}
+
+	//nif
+	//Comparar o nif com outros utente
+
+	$sql13 = "SELECT NIFUtente from utente where emailUtente!='$email';";
+	$result = $conn->query($sql13);
+
+	if ($result->num_rows > 0) {
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+
+
+			if( $row["NIFUtente"] == $nif){
+
+			$findNIFU = true;
+
+			}
+
+
+		}
+	}
+
+	//Comparar o nif com outros comprador
+
+	$sql14 = "SELECT NIFComprador from comprador";
+	$result = $conn->query($sql14);
+
+	if ($result->num_rows > 0) {
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+
+
+			if( $row["NIFComprador"] == $nif){
+
+			$findNIFC = true;
+
+			}
+
+
+		}
+	}
+
+	//if nao encontrar nenhum dos 4 dá update
+
+if($findccC || $findccU){
+
+	header("Location: registoutente.php?ccerror");
+
+	exit();
+
+}else if($findNIFC || $findNIFU){
+
+	header("Location: registoutente.php?niferror");
+
+	exit();
+
+
+}else{
+
+	$sql2 = "UPDATE associados set utente_ccUtente = '$cc' where utente_ccUtente='$oldcc'";
+
+	$conn->query($sql2);
+
 	$sql = "UPDATE utente set codSubsistema = '$Subsistema', nrSubsistema='$nrSubsistema', dataNascUtente='$date',nomeUtente = '$nomecompleto',ObservacoesUtente='$sobremim',moradaUtente='$morada',codPostalUtente='$codigopostal',localidadeUtente='$cidade',NIBUtente='$nib',NIFUtente='$nif',contacto1Utente='$contacto1',contacto2Utente='$contacto2',ccUtente='$cc',sexoUtente='$sexo' WHERE emailUtente='$email'";
 
 	$conn->query($sql);
@@ -49,6 +162,11 @@
 } else {
     echo "Error updating record: " . $conn->error;
 }
+
+}
+
+
+
 
 $conn->close();
 
