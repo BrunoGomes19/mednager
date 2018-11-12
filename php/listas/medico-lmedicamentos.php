@@ -158,14 +158,53 @@ include('../topos/topo_medico.php');
 
                                         </div>
                                         <div class="btn-group" id="opcaoTodos">
+
                                             <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-primary">Todas as especialidades</button>
 
                                             <div tabindex="-1" aria-hidden="true" role="menu" class="dropdown-menu">
                                                 <button  type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisatodos()">Todas</button>
 
-                                                <div tabindex="-1" class="dropdown-divider"></div>
-                                                <button  type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisacardiologia()">Cardiologia</button>
-                                                <button  type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisapediatria()">Pediatria</button>
+
+                                                <?php  
+                                                $con = mysqli_connect('localhost','admin','Sutas4Ever2018','mydb');
+                                                if (!$con) {
+                                                    die('Could not connect: ' . mysqli_error($con));
+                                                }
+
+                                                    $sql = "SELECT descriEspecialidade from especialidade";
+                                                    $result = $conn->query($sql);
+
+                                                    if ($result->num_rows > 0) {
+                                                        // output data of each row
+                                                        while($row = $result->fetch_assoc()) {
+
+                                                            $especialidade = $row["descriEspecialidade"];                                                          
+                                                            echo '
+
+
+                                                                <div tabindex="-1" class="dropdown-divider"></div>
+                                                                    <button  type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisacardiologia()">'.$especialidade.'</button>
+
+
+                                                                ';
+
+                                                        }
+                                                    } else {
+                                                        echo "0 results";
+                                                    }
+                                                    $conn->close();
+
+
+
+
+
+
+
+
+                                                ?>
+
+
+                                            
                                             </div>
                                         </div>
 
@@ -175,87 +214,10 @@ include('../topos/topo_medico.php');
                                 </div>
 
 
-                                <!--Pediatria-->
-                                <div id="pediatriapesquisa" style="display: none">
-                                    <div class="table-data__tool" >
-                                        <div class="table-data__tool-left">
-                                            <div class="rs-select2--light ">
-
-
-                                                   <div class="input-group">
-
-                                                        <button class="btn btn-primary" disabled>
-                                                            <i class="fa fa-search"></i>
-                                                        </button>
-
-                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="nome do medicamento de pediatria" class="form-control" onkeyup="todosMedicamentos(this.value, 2)">
-                                                    </div>                                            
-                                                    
-
-                                                    <!--só para ocupar o espaço-->
-                                                <div class="dropDownSelect2"></div>
-                                            </div>
-
-
-                                        </div>
-                                        <div class="btn-group">
-                                            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-primary">Pediatria</button>
-
-                                            <div tabindex="-1" aria-hidden="true" role="menu" class="dropdown-menu">
-                                                <button type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisatodos()">Todas</button>
-
-                                                <div tabindex="-1" class="dropdown-divider"></div>
-                                                <button type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisacardiologia()">Cardiologia</button>
-                                                <button type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisapediatria()">Pediatria</button>
-                                            </div>
-                                        </div>
-
-                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">                                                            
-                                        </div>
-                                    </div>
-                                </div>
+                                
 
 
 
-                                <!--Cardiologia-->
-                                <div id="cardiologiapesquisa" style="display: none">
-                                    <div class="table-data__tool" >
-                                        <div class="table-data__tool-left">
-                                            <div class="rs-select2--light ">
-
-
-                                                   <div class="input-group">
-
-                                                        <button class="btn btn-primary" disabled>
-                                                            <i class="fa fa-search"></i>
-                                                        </button>
-
-                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="nome do medicamento de cardiologia" class="form-control" onkeyup="todosMedicamentos(this.value, 3)">
-                                                    </div>                                            
-                                                    
-
-                                                    <!--só para ocupar o espaço-->
-                                                <div class="dropDownSelect2"></div>
-                                            </div>
-
-
-                                        </div>
-                                        <div class="btn-group">
-                                            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-primary">Cardiologia</button>
-
-                                            <div tabindex="-1" aria-hidden="true" role="menu" class="dropdown-menu">
-                                                <button type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisatodos()">Todas</button>
-
-                                                <div tabindex="-1" class="dropdown-divider"></div>
-                                                <button type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisacardiologia()">Cardiologia</button>
-                                                <button type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisapediatria()">Pediatria</button>
-                                            </div>
-                                        </div>
-
-                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">                                                            
-                                        </div>
-                                    </div>
-                                </div>
 
 
 
