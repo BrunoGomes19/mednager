@@ -8,11 +8,11 @@ include('../topos/topo_medico.php');
 
 
 
-    function guardaEspecialidade(cod,nome){
+    function guardaEspecialidade(nome){
         //todosMedicamentos()
-     
 
-       
+
+
 
         if(nome==1){
 
@@ -23,7 +23,7 @@ include('../topos/topo_medico.php');
 
         }
 
-        
+
 
 
 
@@ -101,6 +101,8 @@ include('../topos/topo_medico.php');
 
                                                 <?php
 
+                                                $a = "";
+
                                                 echo '
                                                     <!--TODOS-->
                                                         <div id="todospesquisa" style="display: block" >
@@ -115,7 +117,7 @@ include('../topos/topo_medico.php');
                                                                                     <i class="fa fa-search"></i>
                                                                                 </button>
 
-                                                                                <input id="string" type="text" id="input1-group2" name="input1-group2" placeholder="nome do medicamento" class="form-control" onkeyup="todosMedicamentos(this.value, 0)">
+                                                                                <input id="string" type="text" id="input1-group2" name="input1-group2" placeholder="nome do medicamento" class="form-control" onkeyup="todosMedicamentos(this.value, \''.$a.'\')">
                                                                             </div>
 
 
@@ -163,6 +165,8 @@ include('../topos/topo_medico.php');
                                                                     <button type="button" onclick="guardaEspecialidade('.$codEspDinamica.',\''.$espDinamica.'\')" tabindex="0" class="dropdown-item" >'.$espDinamica.'</button>
 
 
+
+
                                                                 ';
 
 
@@ -187,6 +191,8 @@ include('../topos/topo_medico.php');
 
 
                                                     $conn->close();
+
+
 
                                                 ?>
 
@@ -213,6 +219,8 @@ include('../topos/topo_medico.php');
                                 <div class="table-responsive table-responsive-data2">
 
                                     <div id="txtHint"><b>A lista de medicamentos será exibida aqui.</b></div>
+
+
 
                                         <!--<tr class="spacer"></tr>
                                         <tr class="tr-shadow">
@@ -249,6 +257,7 @@ include('../topos/topo_medico.php');
         </div>
 
     </div>
+
 
     <!-- Jquery JS-->
     <script src="../../Interior/vendor/jquery-3.2.1.min.js"></script>

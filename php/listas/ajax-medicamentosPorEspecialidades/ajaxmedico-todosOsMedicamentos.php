@@ -11,6 +11,10 @@
 $q = $_REQUEST['q'];
 $e = $_REQUEST['e'];
 
+echo $e;
+
+echo $q; 
+
 $con = mysqli_connect('localhost','admin','Sutas4Ever2018','mydb');
 if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
@@ -34,10 +38,10 @@ echo '
 <table class="table table-data2">
     <thead>
         <tr>
-            
+
             <th>Nome</th>
             <th>Especialidade</th>
-            
+
         </tr>
     </thead>
     <tbody>
@@ -59,10 +63,10 @@ $esp = $row['descriEspecialidade'];
 echo '
   <tr class="spacer"></tr>
   <tr class="tr-shadow">
-      
+
       <td>'.$nome.'</td>
       <td>'.$esp.'</td>
-      
+
   </tr>
   <tr class="spacer"></tr>
 ';
