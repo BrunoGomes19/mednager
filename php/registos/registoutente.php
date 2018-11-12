@@ -68,6 +68,10 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
+
+$sqlsubs = "SELECT * from subsistemas";
+$resultsubs = $conn->query($sqlsubs);
+
 $conn->close();
 
 ?>
@@ -254,13 +258,54 @@ $conn->close();
 																										<div class="row">
 																													<div class="col-md-4">
 																														<div class="form-group">
-																																<label>Sistema de saúde</label>
-																																<select name="Subsistema" id="select" class="form-control" required>
-																																				<option selected hidden value="<?php	echo $codSubsistema;	?>"><?php	echo $Subsistema;	?></option>
-																																				<option value="2">ADSE</option>
-																																				<option value="3">Medis</option>
 
-																																		</select>
+																																<label>Sistema de saúde</label>
+																																		<select name="Subsistema" id="select" class="form-control" required>
+																																			<?php
+
+
+
+
+																																			if ($resultsubs->num_rows > 0) {
+																																				// output data of each row
+																																				while($row = $resultsubs->fetch_assoc()) {
+
+																																					$codSubsistema2 = $row['codSubsistema'];
+
+																																				  $descriSubsistema2 = $row['descriSubsistema'];
+
+																																					if($codSubsistema == $codSubsistema2){
+
+																																						echo '<option value="'.$codSubsistema2.'" hidden selected>'.  $descriSubsistema2 .'</option>';
+
+
+																																					}else{
+
+																																						if($codSubsistema2==1){
+
+
+																																						}else{
+
+																																							echo '<option value="'.$codSubsistema2.'">'.  $descriSubsistema2 .'</option>';
+										}
+																																					}
+
+
+
+
+																																				}
+																																			}else{
+
+																																				echo '<option value="erro">Nenhuma inserida</option>';
+
+																																			}
+
+																																			 ?>
+
+
+
+
+										                                                    </select>
 																														</div>
 																												</div>
 

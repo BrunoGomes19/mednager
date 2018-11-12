@@ -6,7 +6,7 @@ $cc = $_GET['cc'];
 
 include('../topos/topo_admin.php');
 
-$sql = "SELECT * from utente where ccUtente like '$cc'";
+$sql = "SELECT * from utente,subsistemas where utente.codSubsistema = subsistemas.codSubsistema and ccUtente like '$cc'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -23,33 +23,7 @@ if ($result->num_rows > 0) {
 
   $nrSubsistema = $row["nrSubSistema"];
 
-  $Subsistema = $row["codSubsistema"];
-
-  if($Subsistema==1){
-
-    $Subsistema="";
-
-  }else{
-
-    if($Subsistema==2){
-
-    $Subsistema="ADSE";
-
-  }else{
-
-    if($Subsistema==3){
-
-    $Subsistema="Medis";
-
-  }else{
-
-    $Subsistema="";
-
-  }
-
-  }
-
-  }
+  $descriSubsistema = $row["descriSubsistema"];
 
   $date = $row["dataNascUtente"];
 
@@ -174,7 +148,7 @@ $conn->close();
                                                     <div class="col-md-6">
                                                       <div class="form-group">
                                                           <label>Sistema de saúde</label>
-                                                          <input type="text" class="form-control" value="<?php echo $Subsistema; ?>" readonly>
+                                                          <input type="text" class="form-control" value="<?php echo $descriSubsistema; ?>" readonly>
                                                       </div>
                                                     </div>
                                                     <div class="col-md-6">

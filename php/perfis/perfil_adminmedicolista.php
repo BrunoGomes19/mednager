@@ -4,7 +4,7 @@ $cc = $_GET['cc'];
 
 include('../topos/topo_admin.php');
 
-$sql = "SELECT * from comprador where ccComprador like '$cc'";
+$sql = "SELECT * from comprador,especialidade where especialidade.codEspecialidade = comprador.codEspecialidade and ccComprador like '$cc'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -19,33 +19,7 @@ if ($result->num_rows > 0) {
 
   $especialidadeInt = $row["codEspecialidade"];
 
-  $especialidade = $row["codEspecialidade"];
-
-  if($especialidade==1){
-
-    $especialidade="";
-
-  }else{
-
-    if($especialidade==2){
-
-    $especialidade="Pediatria";
-
-  }else{
-
-    if($especialidade==3){
-
-    $especialidade="Cardiologia";
-
-  }else{
-
-    $especialidade="";
-
-  }
-
-  }
-
-  }
+  $descriEspecialidade = $row["descriEspecialidade"];
 
   //sexo
 
@@ -105,7 +79,7 @@ $conn->close();
                                                     <div class="col-md-6">
                                                       <div class="form-group">
                                                           <label>Especialidade</label>
-                                                          <input type="text" class="form-control" value="<?php echo $especialidade; ?>" readonly>
+                                                          <input type="text" class="form-control" value="<?php echo $descriEspecialidade; ?>" readonly>
                                                       </div>
                                                     </div>
                                                 </div>

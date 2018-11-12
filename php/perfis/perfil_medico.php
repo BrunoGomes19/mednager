@@ -16,31 +16,20 @@ if ($result->num_rows > 0) {
 
   $especialidade = $row["codEspecialidade"];
 
-  if($especialidade==1){
+  $emailA = $_SESSION['email'];
 
-    $especialidade="";
+  $sqlesp = "select descriEspecialidade from comprador, especialidade where comprador.codEspecialidade = especialidade.codEspecialidade and emailComprador = '$emailA';";
+  $resultesp = $conn->query($sqlesp);
 
-  }else{
+  if ($resultesp->num_rows > 0) {
+    // output data of each row
+    while($row = $resultesp->fetch_assoc()) {
 
-    if($especialidade==2){
+      $descriEspecialidade = $row['descriEspecialidade'];
 
-    $especialidade="Pediatria";
-
-  }else{
-
-    if($especialidade==3){
-
-    $especialidade="Cardiologia";
-
-  }else{
-
-    $especialidade="";
-
+    }
   }
 
-  }
-
-  }
 
   //sexo
 
@@ -105,7 +94,7 @@ $conn->close();
                                                     <div class="col-md-6">
                                                       <div class="form-group">
                                                           <label>Especialidade</label>
-                                                          <input type="text" class="form-control" value="<?php echo $especialidade; ?>" readonly>
+                                                          <input type="text" class="form-control" value="<?php echo $descriEspecialidade; ?>" readonly>
                                                       </div>
                                                     </div>
                                                 </div>
