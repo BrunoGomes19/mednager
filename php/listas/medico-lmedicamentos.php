@@ -114,6 +114,7 @@ include('../topos/topo_medico.php');
                                                                     <div tabindex="-1" aria-hidden="true" role="menu" class="dropdown-menu">
                                                                         <button  type="button" tabindex="0" class="dropdown-item" >Todas</button>
 
+
                                                                 ';
 
 
@@ -154,6 +155,8 @@ include('../topos/topo_medico.php');
                                                         return -1;
                                                         
                                                     }
+
+
 
 
                                                     
