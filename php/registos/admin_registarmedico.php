@@ -189,7 +189,7 @@
 
 				exit();
 
-			} else if($findcc){ 
+			} else if($findcc){
 				header("Location: admin_registomedico.php?rmedico=cc");
 
 				exit();

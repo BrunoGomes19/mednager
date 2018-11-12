@@ -68,6 +68,10 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
+
+$sqlesp = "SELECT * from especialidade";
+$resultesp = $conn->query($sqlesp);
+
 $conn->close();
 
 ?>
@@ -183,9 +187,49 @@ $conn->close();
                                             <div class="form-group">
                                                 <label>Especialidade</label>
                                                 <select name="especialidade" id="select" class="form-control" required>
-                                                        <option selected hidden value="<?php	echo $especialidadeInt;	?>"><?php	echo $especialidade;	?></option>
-                                                        <option value="2">Pediatria</option>
-                                                        <option value="3">Cardiologia</option>
+																									<?php
+
+																									echo '  <option selected hidden value=""></option>';
+
+
+																									if ($resultesp->num_rows > 0) {
+																										// output data of each row
+																										while($row = $resultesp->fetch_assoc()) {
+
+																											$codEspecialidade = $row['codEspecialidade'];
+
+																										  $descriEspecialidade = $row['descriEspecialidade'];
+
+																											if($codEspecialidade == $especialidadeInt){
+
+																												echo '<option value="'.$codEspecialidade.'" hidden selected>'.  $descriEspecialidade .'</option>';
+
+
+																											}else{
+
+																												if($codEspecialidade==1){
+
+
+																												}else{
+
+																													echo '<option value="'.$codEspecialidade.'">'.  $descriEspecialidade .'</option>';
+}
+																											}
+
+
+
+
+																										}
+																									}else{
+
+																										echo '<option value="erro">Nenhuma inserida</option>';
+
+																									}
+
+																									 ?>
+
+
+
 
                                                     </select>
                                             </div>
@@ -300,7 +344,7 @@ $conn->close();
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Código postal</label>
-                                                <input type="text" class="form-control" placeholder="" required name="codigopostal" value="<?php	echo $codigopostal;	?>">
+                                                <input type="text" class="form-control" placeholder="" required pattern="\d{4}-\d{3}"/ name="codigopostal" value="<?php	echo $codigopostal;	?>">
                                             </div>
                                         </div>
 

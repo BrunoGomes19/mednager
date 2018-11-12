@@ -12,6 +12,8 @@
 
 	$especialidade = $_POST['especialidade'];
 
+	$codEspecialidade = $_POST['especialidade'];
+
 	$date = $_POST['date'];
 
 	$contacto1 = $_POST['contacto1'];
@@ -175,7 +177,7 @@
 	}else{
 
 
-		$sql = "UPDATE comprador set nrOrdem='$numeroOrdem',dataNascComprador='$date',nomeComprador = '$nomecompleto',formacaoCarreira='$sobremim',moradaComprador='$morada',codPostalComprador='$codigopostal',localidadeComprador='$cidade',NIBComprador='$nib',NIFComprador='$nif',contacto1Comprador='$contacto1',contacto2Comprador='$contacto2',ccComprador='$cc',sexoComprador='$sexo',codEspecialidade='$especialidade' WHERE emailComprador='$email'";
+		$sql = "UPDATE comprador set nrOrdem='$numeroOrdem',dataNascComprador='$date',nomeComprador = '$nomecompleto',formacaoCarreira='$sobremim',moradaComprador='$morada',codPostalComprador='$codigopostal',localidadeComprador='$cidade',NIBComprador='$nib',NIFComprador='$nif',contacto1Comprador='$contacto1',contacto2Comprador='$contacto2',ccComprador='$cc',sexoComprador='$sexo',codEspecialidade='$codEspecialidade' WHERE emailComprador='$email'";
 
 		$conn->query($sql);
 
