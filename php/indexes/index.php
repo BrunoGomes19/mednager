@@ -375,7 +375,7 @@
               <div class="validation"></div>
             </div>
             <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Por favor escreva qualquer coisa para nós" placeholder="Mensagem. Caso queira inscrever-se como coletivo, envie-nos os seguintes dados: Nome, LEI (Legal Entity Identifier), email e número de médicos aderentes à plataforma."></textarea>
+              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Por favor escreva qualquer coisa para nós" placeholder="Caso queira inscrever-se como coletivo, envie-nos os seguintes dados: &#10;- Nome; &#10;- LEI (Legal Entity Identifier); &#10;- Email; &#10;- Quantidade de médicos a aderir à plataforma."></textarea>
               <div class="validation"></div>
             </div>
             <div class="text-center"><button type="submit">Enviar mensagem</button></div>
