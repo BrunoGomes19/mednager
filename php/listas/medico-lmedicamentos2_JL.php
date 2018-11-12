@@ -6,7 +6,7 @@ include('../topos/topo_medico.php');
 
 <script>
 
-   
+
 
     function guardaEspecialidade(cod,nome){
         //todosMedicamentos()
@@ -14,14 +14,16 @@ include('../topos/topo_medico.php');
 
         document.getElementById("main").innerHTML=nome;
 
+        alert(nome);
+
 
 
     }
 
-   
 
 
-    function todosMedicamentos(str, esp) {    
+
+    function todosMedicamentos(str, esp) {
 
         if (str == "") {
             document.getElementById("txtHint").innerHTML = "A lista de medicamentos será exibida aqui.";
@@ -43,12 +45,12 @@ include('../topos/topo_medico.php');
                     xmlhttp.open("GET","ajax-medicamentosPorEspecialidades/ajaxmedico-todosOsMedicamentos.php?q="+str+"&e="+esp,true);
                     xmlhttp.send();
 
-           
+
         }
 
 
 
-    
+
 }
 
 
@@ -85,10 +87,10 @@ include('../topos/topo_medico.php');
 
 
 
-                                
 
 
-                                                <?php  
+
+                                                <?php
 
                                                 echo '
                                                     <!--TODOS-->
@@ -105,8 +107,8 @@ include('../topos/topo_medico.php');
                                                                                 </button>
 
                                                                                 <input id="string" type="text" id="input1-group2" name="input1-group2" placeholder="nome do medicamento" class="form-control" onkeyup="todosMedicamentos(this.value)">
-                                                                            </div>                                            
-                                                                            
+                                                                            </div>
+
 
                                                                             <!--só para ocupar o espaço-->
                                                                         <div class="dropDownSelect2"></div>
@@ -136,8 +138,8 @@ include('../topos/topo_medico.php');
                                                     $result = $conn->query($sql);
 
                                                     if ($result->num_rows > 0) {
-                                                       
-                                                        
+
+
                                                         // output data of each row
                                                         while($row = $result->fetch_assoc()) {
 
@@ -149,24 +151,24 @@ include('../topos/topo_medico.php');
 
 
                                                                     <div id="espDinamica" tabindex="-1" class="dropdown-divider"></div>
-                                                                    <button type="button" onclick="guardaEspecialidade('.$codEspDinamica.')" tabindex="0" class="dropdown-item" >'.$espDinamica.'</button>
+                                                                    <button type="button" onclick="guardaEspecialidade('.$codEspDinamica.',\''.$espDinamica.'\')" tabindex="0" class="dropdown-item" >'.$espDinamica.'</button>
 
 
                                                                 ';
 
 
-                                                            }  
+                                                            }
                                                         }
                                                     } else {
                                                         echo "0 resultados";
                                                         return -1;
-                                                        
+
                                                     }
 
 
 
 
-                                                    
+
 
 
 
@@ -180,17 +182,17 @@ include('../topos/topo_medico.php');
                                                 ?>
 
 
-                                            
+
                                             </div>
                                         </div>
 
-                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">                                                            
+                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                                         </div>
                                     </div>
                                 </div>
 
 
-                                
+
 
 
 
