@@ -8,7 +8,7 @@
 
 <?php
 
-$q = intval($_GET['q']);
+$q = $_REQUEST['q'];
 
 $con = mysqli_connect('localhost','admin','Sutas4Ever2018','mydb');
 if (!$con) {
