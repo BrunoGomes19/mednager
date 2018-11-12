@@ -9,6 +9,7 @@
 <?php
 
 $q = $_REQUEST['q'];
+$e = $_REQUEST['e'];
 
 $con = mysqli_connect('localhost','admin','Sutas4Ever2018','mydb');
 if (!$con) {
@@ -16,7 +17,14 @@ if (!$con) {
 }
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT medicamento.descriMedicamento, especialidade.descriEspecialidade from medicamento, especialidade, medicamentoespecialidade where medicamento.codMedicamento=medicamentoespecialidade.codMedicamento and especialidade.codEspecialidade=medicamentoespecialidade.codEspecialidade and descriMedicamento like '".$q."%'";
+
+if($e = ''){
+  $sql="SELECT medicamento.descriMedicamento, especialidade.descriEspecialidade from medicamento, especialidade, medicamentoespecialidade where medicamento.codMedicamento=medicamentoespecialidade.codMedicamento and especialidade.codEspecialidade=medicamentoespecialidade.codEspecialidade and descriMedicamento like '".$q."%'";
+} else{
+  $sql="SELECT medicamento.descriMedicamento, especialidade.descriEspecialidade from medicamento, especialidade, medicamentoespecialidade where medicamento.codMedicamento=medicamentoespecialidade.codMedicamento and especialidade.codEspecialidade=medicamentoespecialidade.codEspecialidade and especialidade.descriEspecialidade like '".$e."'
+   and descriMedicamento like '".$q."%'";
+}
+
 
 $result = mysqli_query($con,$sql);
 

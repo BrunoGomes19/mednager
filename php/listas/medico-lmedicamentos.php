@@ -6,37 +6,20 @@ include('../topos/topo_medico.php');
 
 <script>
 
-    
+   
 
-    function mostrapesquisatodos(){
-        document.getElementById("todospesquisa").style.display = "block";
-        document.getElementById("pediatriapesquisa").style.display = "none";
-        document.getElementById("cardiologiapesquisa").style.display = "none";
-    }
+    function guardaEspecialidade(esp){
+        //todosMedicamentos()
 
-    function mostrapesquisapediatria(){
-        document.getElementById("pediatriapesquisa").style.display = "block";
-        document.getElementById("todospesquisa").style.display = "none";
-        document.getElementById("cardiologiapesquisa").style.display = "none";
-        
-    }
-
-    function mostrapesquisacardiologia(){
-        document.getElementById("cardiologiapesquisa").style.display = "block";
-        document.getElementById("todospesquisa").style.display = "none";
-        document.getElementById("pediatriapesquisa").style.display = "none";
-        
     }
 
 
-    function todosMedicamentos(str, nr) {    
+    function todosMedicamentos(str, esp) {    
 
         if (str == "") {
             document.getElementById("txtHint").innerHTML = "A lista de medicamentos será exibida aqui.";
             return;
         } else {
-
-            if (nr==1){
                 document.getElementById("txtHint").innerHTML = "todos";
                 if (window.XMLHttpRequest) {
                         // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -50,49 +33,10 @@ include('../topos/topo_medico.php');
                             document.getElementById("txtHint").innerHTML = this.responseText;
                         }
                     };
-                    xmlhttp.open("GET","ajax-medicamentosPorEspecialidades/ajaxmedico-todosOsMedicamentos.php?q="+str,true);
+                    xmlhttp.open("GET","ajax-medicamentosPorEspecialidades/ajaxmedico-todosOsMedicamentos.php?q="+str+"&e="+esp,true);
                     xmlhttp.send();
 
-            } else if (nr==2){
-                document.getElementById("txtHint").innerHTML = "pediatria";
-                if (window.XMLHttpRequest) {
-                        // code for IE7+, Firefox, Chrome, Opera, Safari
-                        xmlhttp = new XMLHttpRequest();
-                    } else {
-                        // code for IE6, IE5
-                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                    }
-                    xmlhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("txtHint").innerHTML = this.responseText;
-                        }
-                    };
-                    xmlhttp.open("GET","ajax-medicamentosPorEspecialidades/ajaxmedico-pediatriaMedicamentos.php?q="+str,true);
-                    xmlhttp.send();
-
-            } else if (nr==3){
-                document.getElementById("txtHint").innerHTML = "cardiologia";
-                if (window.XMLHttpRequest) {
-                        // code for IE7+, Firefox, Chrome, Opera, Safari
-                        xmlhttp = new XMLHttpRequest();
-                    } else {
-                        // code for IE6, IE5
-                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                    }
-                    xmlhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("txtHint").innerHTML = this.responseText;
-                        }
-                    };
-                    xmlhttp.open("GET","ajax-medicamentosPorEspecialidades/ajaxmedico-cardiologiaMedicamentos.php?q="+str,true);
-                    xmlhttp.send();
-
-            } else{
-                document.getElementById("txtHint").innerHTML = "erro";
-            }
-
-
-
+           
         }
 
 
@@ -134,72 +78,94 @@ include('../topos/topo_medico.php');
 
 
 
-                                <!--TODOS-->
-                                <div id="todospesquisa" style="display: block" >
-                                    <div class="table-data__tool" >
-                                        <div class="table-data__tool-left">
-                                            <div class="rs-select2--light ">
-
-
-                                                    <div class="input-group" >
-
-                                                        <button class="btn btn-primary" disabled>
-                                                            <i class="fa fa-search"></i>
-                                                        </button>
-
-                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="nome do medicamento" class="form-control" onkeyup="todosMedicamentos(this.value, 1)">
-                                                    </div>                                            
-                                                    
-
-                                                    <!--só para ocupar o espaço-->
-                                                <div class="dropDownSelect2"></div>
-                                            </div>
-
-
-                                        </div>
-                                        <div class="btn-group" id="opcaoTodos">
-
-                                            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-primary">Todas as especialidades</button>
-
-                                            <div tabindex="-1" aria-hidden="true" role="menu" class="dropdown-menu">
-                                                <button  type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisatodos()">Todas</button>
+                                
 
 
                                                 <?php  
+
+                                                echo '
+                                                    <!--TODOS-->
+                                                        <div id="todospesquisa" style="display: block" >
+                                                            <div class="table-data__tool" >
+                                                                <div class="table-data__tool-left">
+                                                                    <div class="rs-select2--light ">
+
+
+                                                                            <div class="input-group" >
+
+                                                                                <button class="btn btn-primary" disabled>
+                                                                                    <i class="fa fa-search"></i>
+                                                                                </button>
+
+                                                                                <input type="text" id="input1-group2" name="input1-group2" placeholder="nome do medicamento" class="form-control" onkeyup="todosMedicamentos(this.value)">
+                                                                            </div>                                            
+                                                                            
+
+                                                                            <!--só para ocupar o espaço-->
+                                                                        <div class="dropDownSelect2"></div>
+                                                                    </div>
+
+
+                                                                </div>
+                                                                <div class="btn-group" id="opcaoTodos">
+
+                                                                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle btn btn-primary">Todas as especialidades</button>
+
+                                                                    <div tabindex="-1" aria-hidden="true" role="menu" class="dropdown-menu">
+                                                                        <button  type="button" tabindex="0" class="dropdown-item" >Todas</button>
+
+                                                                ';
+
+
+                                                $espDinamica='';
                                                 $con = mysqli_connect('localhost','admin','Sutas4Ever2018','mydb');
                                                 if (!$con) {
                                                     die('Could not connect: ' . mysqli_error($con));
                                                 }
 
+
+                                                    //lista de especialidades dinâmica
                                                     $sql = "SELECT descriEspecialidade from especialidade";
                                                     $result = $conn->query($sql);
 
                                                     if ($result->num_rows > 0) {
+                                                       
+                                                        
                                                         // output data of each row
                                                         while($row = $result->fetch_assoc()) {
 
-                                                            $especialidade = $row["descriEspecialidade"];                                                          
-                                                            echo '
+                                                            $espDinamica = $row["descriEspecialidade"];
+
+                                                            if($espDinamica != ""){
+                                                                echo '
 
 
-                                                                <div tabindex="-1" class="dropdown-divider"></div>
-                                                                    <button  type="button" tabindex="0" class="dropdown-item" onclick="mostrapesquisacardiologia()">'.$especialidade.'</button>
+                                                                    <div id="espDinamica" tabindex="-1" class="dropdown-divider"></div>
+                                                                    <button  type="button" tabindex="0" class="dropdown-item" >'.$espDinamica.'</button>
 
 
                                                                 ';
 
+
+                                                            }  
                                                         }
                                                     } else {
-                                                        echo "0 results";
+                                                        echo "0 resultados";
+                                                        return -1;
+                                                        
                                                     }
+
+
+                                                    
+
+
+
+
+
+
+
+
                                                     $conn->close();
-
-
-
-
-
-
-
 
                                                 ?>
 
