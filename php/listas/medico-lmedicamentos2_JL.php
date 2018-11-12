@@ -10,11 +10,20 @@ include('../topos/topo_medico.php');
 
     function guardaEspecialidade(cod,nome){
         //todosMedicamentos()
-        alert(cod);
+     
 
-        document.getElementById("main").innerHTML=nome;
+       
 
-        alert(nome);
+        if(nome==1){
+
+            document.getElementById("main").innerHTML="Todos";
+
+        }else{
+             document.getElementById("main").innerHTML=nome;
+
+        }
+
+        
 
 
 
@@ -106,7 +115,7 @@ include('../topos/topo_medico.php');
                                                                                     <i class="fa fa-search"></i>
                                                                                 </button>
 
-                                                                                <input id="string" type="text" id="input1-group2" name="input1-group2" placeholder="nome do medicamento" class="form-control" onkeyup="todosMedicamentos(this.value)">
+                                                                                <input id="string" type="text" id="input1-group2" name="input1-group2" placeholder="nome do medicamento" class="form-control" onkeyup="todosMedicamentos(this.value, 0)">
                                                                             </div>
 
 
@@ -120,7 +129,7 @@ include('../topos/topo_medico.php');
                                                                     <button id="main"  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  class="dropdown-toggle btn btn-primary">Todas as especialidades</button>
 
                                                                     <div tabindex="-1" aria-hidden="true" role="menu" class="dropdown-menu">
-                                                                        <button  type="button" tabindex="0" class="dropdown-item" >Todas</button>
+                                                                        <button  type="button" tabindex="0" class="dropdown-item" onclick="guardaEspecialidade(1,1)">Todas</button>
 
 
                                                                 ';
