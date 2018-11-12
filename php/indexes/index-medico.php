@@ -140,7 +140,7 @@ if ($result->num_rows > 0) {
                         ?>
 
                         <div class="row m-t-25">
-                            <div class="col-sm-6 col-lg-3">
+                            <div class="col-sm-6 col-lg-2">
                                 <div class="overview-item overview-item--c1">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
@@ -155,7 +155,7 @@ if ($result->num_rows > 0) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-lg-3">
+                            <div class="col-sm-6 col-lg-2">
                                 <div class="overview-item overview-item--c2">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
@@ -164,14 +164,14 @@ if ($result->num_rows > 0) {
                                             </div>
                                             <div class="text">
                                                 <h2><?php   echo $locaisdiferentes;    ?></h2>
-                                                <span>locais diferentes de intervenções hoje</span>
+                                                <span>locais de intervenções hoje</span>
                                             </div>
                                         </div>
 
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-lg-3">
+                            <div class="col-sm-8 col-lg-2">
                                 <div class="overview-item overview-item--c3">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
@@ -180,14 +180,15 @@ if ($result->num_rows > 0) {
                                             </div>
                                             <div class="text">
                                                 <h2><?php   echo $intervencoesHoje;   ?></h2>
+                                                <span style="visibility: hidden">mednager</span>
                                                 <span>intervenções hoje</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c3">
+                            <div class="col-sm-6 col-lg-2">
+                                <div class="overview-item overview-item--c4">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">

@@ -19,18 +19,28 @@ mysqli_select_db($con,"ajax_demo");
 $sql="SELECT * FROM comprador WHERE NIFComprador like '".$q."%' and comprador.codPermissao=2 ORDER BY nomeComprador";
 $result = mysqli_query($con,$sql);
 
+session_start();
+
+$emailA = $_SESSION['email'];
+
+$sql3 = "Select * from comprador where emailComprador='$emailA'";
+$result2 = $con->query($sql3);
+
+if ($result2->num_rows > 0) {
+    // output data of each row
+    while($row = $result2->fetch_assoc()) {
+        $codComprador = $row['codComprador'];
+        $LEIComprador = $row['LEIComprador'];
+    }
+}
+
 echo '
 
 
 <table class="table table-data2">
     <thead>
         <tr>
-            <th>
-                <label class="au-checkbox">
-                    <input type="checkbox">
-                    <span class="au-checkmark"></span>
-                </label>
-            </th>
+            <th>Associar</th>
             <th>Nome</th>
             <th>Cartão de cidadão</th>
             <th>NIF</th>
@@ -52,17 +62,35 @@ $cc = $row['ccComprador'];
 
 $nif = $row['NIFComprador'];
 
-
+$sql2 = "Select * from comprador where comprador.LEIComprador = '$LEIComprador' and ccComprador = '$cc';";
+$result3 = $con->query($sql2);
 
 echo '
   <tr class="spacer"></tr>
   <tr class="tr-shadow">
-      <td>
-          <label class="au-checkbox">
-              <input type="checkbox">
-              <span class="au-checkmark"></span>
-          </label>
-      </td>
+      <td>';
+
+      if ($result3->num_rows > 0) {
+          // output data of each row
+          while($row = $result3->fetch_assoc()) {
+
+
+            echo '
+            <button class="btn btn-danger btn-sm" style="font-size:16px" title="Clique para desassociar" onclick="desassociar('.$cc.','.$LEIComprador.')";>
+              <i class="fas fa-times"></i>
+            </button>&nbsp';
+
+          }
+      } else {
+
+        echo '<button class="btn btn-primary btn-sm" style="font-size:16px" title="Clique para associar" onclick="associar('.$cc.','.$LEIComprador.')";>
+            <i class="fas fa-check"></i>
+        </button>&nbsp';
+
+      }
+
+
+    echo'  </td>
       <td>'.$nome.'</td>
       <td>
           <span class="block-email">'.$cc.'</span>

@@ -5,6 +5,8 @@ $cc = $_GET['cc'];
 
 include('../topos/topo_medico.php');
 
+$emailA = $_SESSION['email'];
+
 $sql = "SELECT * from utente where ccUtente like '$cc'";
 $result = $conn->query($sql);
 
@@ -76,9 +78,33 @@ if ($result->num_rows > 0) {
 } else {
   echo "Error";
 }
+
+$sql = "SELECT * from comprador where emailComprador='$emailA'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+
+      $codComprador = $row['codComprador'];
+
+    }
+} else {
+    echo "0 results";
+}
+
 $conn->close();
 
 ?>
+
+<?php
+
+
+
+
+
+
+ ?>
 
             <!-- MAIN CONTENT-->
 
@@ -90,7 +116,21 @@ $conn->close();
                                 <div class="col-md-8">
                                     <div class="card">
                                       <div class="card-footer">
-                                        <form action="javascript:history.back();" method="GET" style ='float: left; padding: 5px;'>
+                                        <form action="
+
+
+                                        <?php
+
+                                        if($codComprador==1){
+                                          echo '../listas/admin-lu.php';
+                                        }elseif ($codComprador==2) {
+                                          echo '../listas/medico-lu.php';
+                                        }
+
+                                         ?>
+
+
+                                        " method="GET" style ='float: left; padding: 5px;'>
             																			<button type="submit" class="btn btn-primary btn-sm" style="font-size:16px">
             																					<i class="fa fa-arrow-left"></i> Voltar
             																			</button>&nbsp

@@ -8,7 +8,7 @@
 
 <?php
 
-$q = intval($_GET['q']);
+$q = $_REQUEST['q'];
 
 $con = mysqli_connect('localhost','admin','Sutas4Ever2018','mydb');
 if (!$con) {
@@ -26,12 +26,7 @@ echo '
 <table class="table table-data2">
     <thead>
         <tr>
-            <th>
-                <label class="au-checkbox">
-                    <input type="checkbox">
-                    <span class="au-checkmark"></span>
-                </label>
-            </th>
+            
             <th>Nome</th>
             <th>Especialidade</th>
             
@@ -46,7 +41,8 @@ echo '
 
 while($row = mysqli_fetch_array($result)) {
 
-$nome = $row['codMedicamento'];
+$nome = $row['descriMedicamento'];
+$esp = $row['descriEspecialidade'];
 
 
 
@@ -55,13 +51,9 @@ $nome = $row['codMedicamento'];
 echo '
   <tr class="spacer"></tr>
   <tr class="tr-shadow">
-      <td>
-          <label class="au-checkbox">
-              <input type="checkbox">
-              <span class="au-checkmark"></span>
-          </label>
-      </td>
+      
       <td>'.$nome.'</td>
+      <td>'.$esp.'</td>
       
   </tr>
   <tr class="spacer"></tr>

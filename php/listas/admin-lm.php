@@ -4,10 +4,76 @@ include('../topos/topo_admin.php');
 ?>
 
 <meta charset="UTF-8">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+
+    <script src="../../assets/js/bootbox.min.js"></script>
+
 <script>
 
 function verperfil($cc){
 window.location.replace('../perfis/perfil_adminmedicolista.php?cc='+$cc);
+}
+
+function associar($cc,$LEIComprador){
+
+
+
+  bootbox.confirm({
+    message: "Tem a certeza que quer associar este utente?",
+    buttons: {
+        confirm: {
+            label: 'Sim',
+            className: 'btn-success'
+        },
+        cancel: {
+            label: 'Não',
+            className: 'btn-danger'
+        }
+    },
+    callback: function (result) {
+      if(result==true){
+          window.location.replace('../associacao/associacao_admin-lm.php?cc='+$cc+'&lei='+$LEIComprador);
+
+      }else{
+
+
+      }
+
+    }
+  });
+
+
+}
+
+function desassociar($cc,$LEIComprador){
+
+  bootbox.confirm({
+    message: "Tem a certeza que quer desassociar este utente?",
+    buttons: {
+        confirm: {
+            label: 'Sim',
+            className: 'btn-success'
+        },
+        cancel: {
+            label: 'Não',
+            className: 'btn-danger'
+        }
+    },
+    callback: function (result) {
+      if(result==true){
+          window.location.replace('../associacao/desassociacao_admin-lm.php?cc='+$cc+'&lei='+$LEIComprador);
+
+      }else{
+
+
+      }
+
+    }
+  });
+
+
 }
 
 function showUser(str) {
@@ -106,6 +172,38 @@ function showUser(str) {
 
 
                                                 <div id="txtHint"><b>A lista de médicos será exibida aqui.</b></div>
+
+                                                <?php
+                                                                $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+                                                      					if(strpos($fullUrl, "alertassociado") == true){
+
+                                                      						echo '<script>
+
+                                                                  bootbox.alert("Médico associado com sucesso!");
+
+
+                                                                  </script>';
+
+
+
+                                                      					}else{
+
+                                                                  if(strpos($fullUrl, "alertdesassociado") == true){
+
+                                                        						echo '<script>
+
+                                                                    bootbox.alert("Médico desassociado com sucesso!");
+
+
+                                                                    </script>';
+
+
+
+                                                        					}
+
+                                                                }
+                                                  ?>
 
                                                     <!--<tr class="spacer"></tr>
                                                     <tr class="tr-shadow">

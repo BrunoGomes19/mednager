@@ -128,7 +128,7 @@ if ($result->num_rows > 0) {
                         </li>
 
                         <li>
-                            <a href="form.html">
+                            <a href="../pages_medico/charts.php">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
                         <li>
