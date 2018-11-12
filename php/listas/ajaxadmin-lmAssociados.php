@@ -44,10 +44,7 @@ echo '
     <thead>
         <tr>
             <th>
-                <label class="au-checkbox">
-                    <input type="checkbox">
-                    <span class="au-checkmark"></span>
-                </label>
+
             </th>
             <th>Nome</th>
             <th>Cartão de cidadão</th>
@@ -76,10 +73,7 @@ echo '
   <tr class="spacer"></tr>
   <tr class="tr-shadow">
       <td>
-          <label class="au-checkbox">
-              <input type="checkbox">
-              <span class="au-checkmark"></span>
-          </label>
+        
       </td>
       <td>'.$nome.'</td>
       <td>

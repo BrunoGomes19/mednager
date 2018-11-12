@@ -6,9 +6,9 @@ include('../topos/topo_medico.php');
 <meta charset="UTF-8">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="bootstrap.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
 
-    <script src="bootbox.min.js"></script>
+    <script src="../../assets/js/bootbox.min.js"></script>
 
     <script>
 
