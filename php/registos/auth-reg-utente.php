@@ -89,7 +89,7 @@ session_start();
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-quote-right"></i></span>
+                                        <span class="input-group-text bg-warning text-white" id="basic-addon1"><i class="ti-quote-right"></i></span>
                                     </div>
                                     <input type="text" class="form-control form-control-lg" placeholder="NIF" aria-label="nif" aria-describedby="basic-addon1" required name="nif" id="nif">
                                 </div>
@@ -102,7 +102,7 @@ session_start();
 								<div class="input-group mb-3">
 
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-warning text-white" id="basic-addon1"><i class="ti-user"></i></span>
+                                        <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
 
 									 <select name="sexo" id="select" class="form-control form-control-lg" required>
@@ -121,20 +121,20 @@ session_start();
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-success text-white" id="basic-addon2"><i class="ti-email"></i></span>
+                                        <span class="input-group-text bg-danger text-white" id="basic-addon2"><i class="ti-email"></i></span>
                                     </div>
                                     <input type="email" class="form-control form-control-lg" placeholder="E-mail" aria-label="email" aria-describedby="basic-addon1" required name="email">
                                 </div>
 
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-danger text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
+                                        <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
                                     <input type="password" class="form-control form-control-lg" placeholder="Palavra-passe" aria-label="Password" aria-describedby="basic-addon1" required name="password" id="password">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
+                                        <span class="input-group-text bg-sucess text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
                                     <input type="password" class="form-control form-control-lg" placeholder="Confirmar palavra-passe" aria-label="Password" aria-describedby="basic-addon1" required name="confirmPassword" id="confirm_password">
                                 </div>

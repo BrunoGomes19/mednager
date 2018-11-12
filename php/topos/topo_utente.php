@@ -251,7 +251,7 @@ if ($result->num_rows > 0) {
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="../registos/registoutente.php">
+                                                    <a href="../perfis/perfil_utente.php">
                                                         <i class="zmdi zmdi-account"></i>Perfil</a>
                                                 </div>
                                                 <div class="account-dropdown__item">

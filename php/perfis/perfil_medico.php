@@ -67,7 +67,7 @@ $conn->close();
                                 <div class="col-md-8">
                                     <div class="card">
                                       <div class="card-footer">
-                                        <form action="../perfis/perfil_medico.php" method="GET" style ='float: left; padding: 5px;'>
+                                        <form action="../perfis/perfil_medico.php" method="GET" style ='float: left; padding: 5px; display: none'>
             																			<button type="submit" class="btn btn-primary btn-sm" style="font-size:16px">
             																					<i class="fa fa-dot-circle-o"></i> Ver
             																			</button>&nbsp
