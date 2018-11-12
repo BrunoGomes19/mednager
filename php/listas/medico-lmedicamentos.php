@@ -1,4 +1,3 @@
-
 <?php
 include('../topos/topo_medico.php');
 
@@ -32,123 +31,69 @@ include('../topos/topo_medico.php');
 
     function todosMedicamentos(str, nr) {    
 
-    if (str == "") {
-        document.getElementById("txtHint").innerHTML = "A lista de medicamentos será exibida aqui.";
-        return;
-    } else {
+        if (str == "") {
+            document.getElementById("txtHint").innerHTML = "A lista de medicamentos será exibida aqui.";
+            return;
+        } else {
 
-        if (nr==1){
-            if (window.XMLHttpRequest) {
-                    // code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                } else {
-                    // code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("txtHint").innerHTML = this.responseText;
+            if (nr==1){
+                document.getElementById("txtHint").innerHTML = "todos";
+                if (window.XMLHttpRequest) {
+                        // code for IE7+, Firefox, Chrome, Opera, Safari
+                        xmlhttp = new XMLHttpRequest();
+                    } else {
+                        // code for IE6, IE5
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
                     }
-                };
-                xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-todosOsMedicamentos.php?q="+str,true);
-                xmlhttp.send();
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("txtHint").innerHTML = this.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET","ajax-medicamentosPorEspecialidades/ajaxmedico-todosOsMedicamentos.php?q="+str,true);
+                    xmlhttp.send();
 
-        } else if (nr==2){
-            if (window.XMLHttpRequest) {
-                    // code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                } else {
-                    // code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("txtHint").innerHTML = this.responseText;
+            } else if (nr==2){
+                document.getElementById("txtHint").innerHTML = "pediatria";
+                if (window.XMLHttpRequest) {
+                        // code for IE7+, Firefox, Chrome, Opera, Safari
+                        xmlhttp = new XMLHttpRequest();
+                    } else {
+                        // code for IE6, IE5
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
                     }
-                };
-                xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-pediatriaMedicamentos.php?q="+str,true);
-                xmlhttp.send();
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("txtHint").innerHTML = this.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET","ajax-medicamentosPorEspecialidades/ajaxmedico-pediatriaMedicamentos.php?q="+str,true);
+                    xmlhttp.send();
 
-        } else if (nr==3){
-            if (window.XMLHttpRequest) {
-                    // code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                } else {
-                    // code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("txtHint").innerHTML = this.responseText;
+            } else if (nr==3){
+                document.getElementById("txtHint").innerHTML = "cardiologia";
+                if (window.XMLHttpRequest) {
+                        // code for IE7+, Firefox, Chrome, Opera, Safari
+                        xmlhttp = new XMLHttpRequest();
+                    } else {
+                        // code for IE6, IE5
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
                     }
-                };
-                xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-cardiologiaMedicamentos.php?q="+str,true);
-                xmlhttp.send();
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("txtHint").innerHTML = this.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET","ajax-medicamentosPorEspecialidades/ajaxmedico-cardiologiaMedicamentos.php?q="+str,true);
+                    xmlhttp.send();
 
-        } else{
-            document.getElementById("txtHint").innerHTML = "merda";
+            } else{
+                document.getElementById("txtHint").innerHTML = "erro";
+            }
+
+
+
         }
-
-
-
-
-/*
-        switch(nr){
-
-            case 1:
-                if (window.XMLHttpRequest) {
-                    // code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                } else {
-                    // code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("txtHint").innerHTML = this.responseText;
-                    }
-                };
-                xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-todosOsMedicamentos.php?q="+str,true);
-                xmlhttp.send();
-            case 2:
-                if (window.XMLHttpRequest) {
-                    // code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                } else {
-                    // code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("txtHint").innerHTML = this.responseText;
-                    }
-                };
-                xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-pediatriaMedicamentos.php?q="+str,true);
-                xmlhttp.send();
-
-            case 3:
-
-                if (window.XMLHttpRequest) {
-                    // code for IE7+, Firefox, Chrome, Opera, Safari
-                    xmlhttp = new XMLHttpRequest();
-                } else {
-                    // code for IE6, IE5
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-                }
-                xmlhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("txtHint").innerHTML = this.responseText;
-                    }
-                };
-                xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-cardiologiaMedicamentos.php?q="+str,true);
-                xmlhttp.send();
-
-            default:
-                document.getElementById("txtHint").innerHTML = "merda";
-
-
-        }*/
-    }
 
 
 
@@ -190,7 +135,7 @@ include('../topos/topo_medico.php');
 
 
                                 <!--TODOS-->
-                                <div id="todospesquisa" style="display: block">
+                                <div id="todospesquisa" style="display: block" >
                                     <div class="table-data__tool" >
                                         <div class="table-data__tool-left">
                                             <div class="rs-select2--light ">
