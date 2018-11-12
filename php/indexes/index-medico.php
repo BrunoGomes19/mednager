@@ -180,8 +180,10 @@ if ($result->num_rows > 0) {
                                             </div>
                                             <div class="text">
                                                 <h2><?php   echo $intervencoesHoje;   ?></h2>
-                                                <span style="visibility: hidden">mednager</span>
-                                                <span>intervenções hoje</span>
+                                                <span>
+                                                    <div>intervenções</div>
+                                                    <div>hoje</div>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>

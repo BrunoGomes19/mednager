@@ -294,7 +294,7 @@ if ($result->num_rows > 0) {
                                             </div><?php $n_ordem=$_SESSION['n_ordem'];?>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="../registos/registomedico.php">
+                                                    <a href="../perfis/perfil_medico.php">
                                                         <i class="zmdi zmdi-account"></i>Perfil</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
