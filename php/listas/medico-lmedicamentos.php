@@ -50,10 +50,11 @@ include('../topos/topo_medico.php');
                             document.getElementById("txtHint").innerHTML = this.responseText;
                         }
                     };
-                    xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-todosOsMedicamentos.php?q="+str,true);
+                    xmlhttp.open("GET","ajax-medicamentosPorEspecialidades/ajaxmedico-todosOsMedicamentos.php?q="+str,true);
                     xmlhttp.send();
 
             } else if (nr==2){
+                document.getElementById("txtHint").innerHTML = "pediatria";
                 if (window.XMLHttpRequest) {
                         // code for IE7+, Firefox, Chrome, Opera, Safari
                         xmlhttp = new XMLHttpRequest();
@@ -66,10 +67,11 @@ include('../topos/topo_medico.php');
                             document.getElementById("txtHint").innerHTML = this.responseText;
                         }
                     };
-                    xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-pediatriaMedicamentos.php?q="+str,true);
+                    xmlhttp.open("GET","ajax-medicamentosPorEspecialidades/ajaxmedico-pediatriaMedicamentos.php?q="+str,true);
                     xmlhttp.send();
 
             } else if (nr==3){
+                document.getElementById("txtHint").innerHTML = "cardiologia";
                 if (window.XMLHttpRequest) {
                         // code for IE7+, Firefox, Chrome, Opera, Safari
                         xmlhttp = new XMLHttpRequest();
@@ -82,7 +84,7 @@ include('../topos/topo_medico.php');
                             document.getElementById("txtHint").innerHTML = this.responseText;
                         }
                     };
-                    xmlhttp.open("GET","ajax-medicamentosPorEspecialidade/ajaxmedico-cardiologiaMedicamentos.php?q="+str,true);
+                    xmlhttp.open("GET","ajax-medicamentosPorEspecialidades/ajaxmedico-cardiologiaMedicamentos.php?q="+str,true);
                     xmlhttp.send();
 
             } else{
