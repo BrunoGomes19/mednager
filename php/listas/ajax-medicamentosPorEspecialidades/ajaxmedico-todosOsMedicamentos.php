@@ -18,10 +18,10 @@ if (!$con) {
 
 mysqli_select_db($con,"ajax_demo");
 
-if($e = ''){
+if($e == ''){
   $sql="SELECT medicamento.descriMedicamento, especialidade.descriEspecialidade from medicamento, especialidade, medicamentoespecialidade where medicamento.codMedicamento=medicamentoespecialidade.codMedicamento and especialidade.codEspecialidade=medicamentoespecialidade.codEspecialidade and descriMedicamento like '".$q."%'";
 } else{
-  $sql="SELECT medicamento.descriMedicamento, especialidade.descriEspecialidade from medicamento, especialidade, medicamentoespecialidade where medicamento.codMedicamento=medicamentoespecialidade.codMedicamento and especialidade.codEspecialidade=medicamentoespecialidade.codEspecialidade and especialidade.descriEspecialidade like '".$e."'
+  $sql="SELECT medicamento.descriMedicamento, especialidade.descriEspecialidade from medicamento, especialidade, medicamentoespecialidade where medicamento.codMedicamento=medicamentoespecialidade.codMedicamento and especialidade.codEspecialidade=medicamentoespecialidade.codEspecialidade and especialidade.descriEspecialidade like ".$e."
    and descriMedicamento like '".$q."%'";
 }
 
