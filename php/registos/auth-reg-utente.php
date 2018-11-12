@@ -134,7 +134,7 @@ session_start();
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-sucess text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
+                                        <span class="input-group-text bg-success text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
                                     <input type="password" class="form-control form-control-lg" placeholder="Confirmar palavra-passe" aria-label="Password" aria-describedby="basic-addon1" required name="confirmPassword" id="confirm_password">
                                 </div>
