@@ -292,7 +292,7 @@ $conn->close();
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Código postal</label>
-                                                <input type="text" class="form-control" placeholder="" required name="codigopostal" value="<?php	echo $codigopostal;	?>">
+                                                <input type="text" class="form-control" placeholder="" required pattern="\d{4}-\d{3}"/ name="codigopostal" value="<?php	echo $codigopostal;	?>">
                                             </div>
                                         </div>
 
