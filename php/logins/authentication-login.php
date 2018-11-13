@@ -253,7 +253,7 @@
 							?>
 
                             <!-- pwd -->
-                            <div class="row m-t-20 p-t-20 border-top border-secondary">
+                            <div class="row m-t-20 p-t-20 border-top border-secondary" style="padding-top:5%">
                                 <div class="col-12">
                                     <a class="btn btn-info" href="#" id="to-login" name="action">Regressar ao Login</a>
                                     <input class="btn btn-info float-right" type="submit" name="submit" value="Recuperar"></input>
