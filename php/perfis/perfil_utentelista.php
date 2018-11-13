@@ -109,8 +109,12 @@ $conn->close();
             																					<i class="fa fa-arrow-left"></i> Voltar
             																			</button>&nbsp
                                         </form>
-                                         </form>
-            																	</div>
+                                        <form action="../../exemplopdf/index.php" style ='float: right; padding: 5px'>
+                                                    <button type="submit" class="btn btn-warning btn-sm" style="font-size:16px">
+                                                      <i class="fas fa-print"></i> Imprimir
+                                                    </button>&nbsp
+                                        </form>
+            													</div>
                                         <div class="content">
                                             <form>
                                               <div class="row">
