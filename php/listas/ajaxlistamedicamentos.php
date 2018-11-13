@@ -8,7 +8,7 @@
 
 <?php
 
-if(isset($_GET['cod'])) {
+
 
 $codEspecialidade = intval($_GET['cod']);
 
@@ -21,7 +21,6 @@ if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
 }
 
-if(isset($_GET['str'])) {
 
   if($codEspecialidade==1){
 
@@ -30,7 +29,7 @@ if(isset($_GET['str'])) {
 
   }else{
 
-    $sql="SELECT * from medicamento, especialidade, medicamentoespecialidade where medicamento.codMedicamento=medicamentoespecialidade.codMedicamento and especialidade.codEspecialidade=medicamentoespecialidade.codEspecialidade and especialidade.descriEspecialidade like ".$descriEspecialidade."
+    $sql="SELECT * from medicamento, especialidade, medicamentoespecialidade where medicamento.codMedicamento=medicamentoespecialidade.codMedicamento and especialidade.codEspecialidade=medicamentoespecialidade.codEspecialidade and especialidade.descriEspecialidade like '".$descriEspecialidade."'
      and descriMedicamento like '".$str."%'";
 
   }
@@ -110,8 +109,8 @@ if(isset($_GET['str'])) {
 
   }
 
-}mysqli_close($con);
-}
+mysqli_close($con);
+
 
 
 
