@@ -1,13 +1,17 @@
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
-<link href='fullcalendar.css' rel='stylesheet' />
-<link href='fullcalendar.print.css' rel='stylesheet' media='print' />
+<link href='../../x_full_calendar/fullcalendar.css' rel='stylesheet' />
+<link href='../../x_full_calendar/fullcalendar.print.css' rel='stylesheet' media='print' />
 
-<script src='jquery/jquery-1.10.2.js'></script>
-<script src='jquery/jquery-ui.custom.min.js'></script>
+<script src='../../x_full_calendar/jquery/jquery-1.10.2.js'></script>
+<script src='../../x_full_calendar/jquery/jquery-ui.custom.min.js'></script>
 
-<script src='fullcalendar.js'></script>
+<script src='../../x_full_calendar/fullcalendar.js'></script>
 <script>
 
 	$(document).ready(function() {
@@ -227,6 +231,7 @@
 </style>
 </head>
 <body>
+<div id='wrap'>
 
 <div id='calendar'></div>
 

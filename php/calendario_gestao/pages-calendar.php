@@ -152,9 +152,9 @@ include('../topos/topo_medico.php');
                                                                     <!-- checkbox -->
                                                                     <div class="custom-control custom-checkbox">
                                                                         <input type="checkbox" class="custom-control-input" id="drop-remove">
-                                                                        <label class="custom-control-label" for="drop-remove">Remove after drop</label>
+                                                                        <label class="custom-control-label" for="drop-remove">Remove after drop</label><br><br>
                                                                     </div>
-                                                                    <button id="myBtn">Open Modal</button>
+                                                                    <button style="border: 3px solid #5fbace; border-radius: 5px; background-color: #98c0fe"  id="myBtn"> &nbsp Nova intervenção &nbsp </button>
                                                                     
                                                                 </div>
                                                             </div>
