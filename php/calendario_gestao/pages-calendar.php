@@ -45,7 +45,7 @@ include('../topos/topo_medico.php');
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 200px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -84,7 +84,7 @@ include('../topos/topo_medico.php');
 /* The Close Button */
 .close {
     color: white;
-    float: right;
+    float: auto;
     font-size: 28px;
     font-weight: bold;
 }
@@ -98,15 +98,16 @@ include('../topos/topo_medico.php');
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #3f75cc;
     color: white;
+    text-align: center;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {padding: 20px 60px;}
 
 .modal-footer {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #3f75cc;
     color: white;
 }
 
@@ -199,7 +200,7 @@ include('../topos/topo_medico.php');
                                         </div>
                                         <div class="modal-body">
                                           <p>Some text in the Modal Body</p>
-                                          <p>Some other text...</p>
+                                          <input type="text" id="obs" placeholder="Observações da consulta" style="border: 1px solid">
                                         </div>
                                         <div class="modal-footer">
                                           <h3>Modal Footer</h3>
