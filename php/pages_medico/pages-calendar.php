@@ -1,9 +1,16 @@
 <?php
 include('../topos/topo_medico.php');
 
-    
-
 ?>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
@@ -29,9 +36,91 @@ include('../topos/topo_medico.php');
 <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
 
 <!-- Inline CSS based on choices in "Settings" tab -->
-<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
+<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}
 
 
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+
+</style>
+
+
+
+
+
+
+
+</head>
+<body>
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
@@ -68,7 +157,7 @@ include('../topos/topo_medico.php');
                                                 <div class="row">
                                                     <div class="col-lg-3 border-right p-r-0">
                                                         <div class="card-body border-bottom">
-                                                            <h4 class="card-title m-t-10">Arraste os seus eventos</h4>
+                                                            <h4 class="card-title m-t-10">Agenda pessoal</h4>
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="row">
@@ -84,9 +173,8 @@ include('../topos/topo_medico.php');
                                                                         <input type="checkbox" class="custom-control-input" id="drop-remove">
                                                                         <label class="custom-control-label" for="drop-remove">Remove after drop</label>
                                                                     </div>
-                                                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#add-new-event" class="btn m-t-20 btn-info btn-block waves-effect waves-light">
-                                                                            <i class="ti-plus"></i> + nova intervenção
-                                                                        </a>
+                                                                    <button id="myBtn">Open Modal</button>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -102,60 +190,27 @@ include('../topos/topo_medico.php');
                                     </div>
                                 </div>
                                 <!-- BEGIN MODAL -->
-                                <div class="modal none-border" id="my-event">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title"><strong>+ Intervenção</strong></h4>
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            </div>
-                                            <div class="modal-body"></div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-success save-event waves-effect waves-light">Create event</button>
-                                                <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Delete</button>
-                                            </div>
-                                        </div>
+                                <div>
+                                <div id="myModal" class="modal">
+
+                                  <!-- Modal content -->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <span class="close">&times;</span>
+                                      <h2>Modal Header</h2>
                                     </div>
-                                </div>
-                                <!-- Modal Add Category -->
-                                <div class="modal fade none-border" id="add-new-event">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title"><strong>Add</strong> a category</h4>
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <label class="control-label">Category Name</label>
-                                                            <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name" />
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <label class="control-label">Choose Category Color</label>
-                                                            <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
-                                                                <option value="success">Success</option>
-                                                                <option value="danger">Danger</option>
-                                                                <option value="info">Info</option>
-                                                                <option value="primary">Primary</option>
-                                                                <option value="warning">Warning</option>
-                                                                <option value="inverse">Inverse</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Guardar</button>
-                                                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Fechar</button>
-                                            </div>
-                                        </div>
+                                    <div class="modal-body">
+                                      <p>Some text in the Modal Body</p>
+                                      <p>Some other text...</p>
                                     </div>
+                                    <div class="modal-footer">
+                                      <h3>Modal Footer</h3>
+                                    </div>
+                                  </div>
+
                                 </div>
 
-
+                                </div>
                                 </body>
 
 
@@ -212,6 +267,40 @@ include('../topos/topo_medico.php');
         </div>
 
     </div>
+
+
+
+
+    <script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+
+
 
     <!-- Jquery JS-->
     <script src="../../Interior/vendor/jquery-3.2.1.min.js"></script>
