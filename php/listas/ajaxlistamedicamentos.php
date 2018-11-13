@@ -24,18 +24,44 @@ if (!$con) {
 
   if($codEspecialidade==1){
 
-    $sql="SELECT * from medicamento, especialidade, medicamentoespecialidade where medicamento.codMedicamento=medicamentoespecialidade.codMedicamento and especialidade.codEspecialidade=medicamentoespecialidade.codEspecialidade and nomeMedicamento like '".$str."%'";
+    $sql="SELECT * from medicamento where nomeMedicamento like '".$str."%' limit 50";
 
+    mysqli_select_db($con,"ajax_demo");
+    $result = mysqli_query($con,$sql);
+
+    if ($result->num_rows == 0) {
+
+      $sql="SELECT * from medicamento where nomeGenerico like '".$str."%' limit 50";
+
+       mysqli_select_db($con,"ajax_demo");
+       $result = mysqli_query($con,$sql);
+
+    }
 
   }else{
 
     $sql="SELECT * from medicamento, especialidade, medicamentoespecialidade where medicamento.codMedicamento=medicamentoespecialidade.codMedicamento and especialidade.codEspecialidade=medicamentoespecialidade.codEspecialidade and especialidade.descriEspecialidade like '".$descriEspecialidade."'
      and nomeMedicamento like '".$str."%'";
 
+     mysqli_select_db($con,"ajax_demo");
+     $result = mysqli_query($con,$sql);
+
+     if ($result->num_rows == 0) {
+
+       $sql="SELECT * from medicamento, especialidade, medicamentoespecialidade where medicamento.codMedicamento=medicamentoespecialidade.codMedicamento and especialidade.codEspecialidade=medicamentoespecialidade.codEspecialidade and especialidade.descriEspecialidade like '".$descriEspecialidade."'
+        and nomeGenerico like '".$str."%'";
+
+        mysqli_select_db($con,"ajax_demo");
+        $result = mysqli_query($con,$sql);
+
+     }
+
   }
 
   mysqli_select_db($con,"ajax_demo");
   $result = mysqli_query($con,$sql);
+
+
 
   echo '
 
