@@ -207,19 +207,7 @@ $conn->close();
                                         <div class="content">
                                             <div class="author">
                                                  <a href="#">
-
-                                                  <?php
-
-                                                    if($linkimagem == null){
-
-                                                      echo '  <img class="avatar border-gray" src="../../assets/images/users/1.jpg" alt="..."/>';
-
-                                                    }else{
-
-                                                      echo '  <img class="avatar border-gray" src="'.$linkimagem.'" alt="..."/>';
-
-                                                    }
-                                                    ?>
+                                                <img class="avatar border-gray" src="../../assets/images/users/1.jpg" alt="..."/>
 
                                                   <h4 class="title"><?php echo $nome; ?><br />
                                                      <br>

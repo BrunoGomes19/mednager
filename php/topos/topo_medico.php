@@ -9,8 +9,6 @@ $result = $conn->query($sqlrecuperacaoc);
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
 
-    $linkimagem = $row['linkimagem'];
-
     $sexo = $row['sexoComprador'];
 
     $nome = $row['nomeComprador'];
@@ -275,21 +273,7 @@ if ($result->num_rows > 0) {
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-
-
-                                            <?php
-
-                                              if($linkimagem == null){
-
-                                                echo '  <img src="../../assets/images/users/1.jpg" alt="John Doe" />';
-
-                                              }else{
-
-                                                echo '<img src="'.$linkimagem.'" alt="John Doe" />';
-
-                                              }
-                                              ?>
-
+                                            <img src="../../assets/images/users/1.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#"><?php	 echo $nome;?></a>
@@ -298,21 +282,7 @@ if ($result->num_rows > 0) {
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-
-
-                                                        <?php
-
-                                                          if($linkimagem == null){
-
-                                                            echo '  <img src="../../assets/images/users/1.jpg" alt="John Doe" />';
-
-                                                          }else{
-
-                                                            echo '<img src="'.$linkimagem.'" alt="John Doe" />';
-
-                                                          }
-                                                          ?>
-
+                                                        <img src="../../assets/images/users/1.jpg" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">

@@ -15,8 +15,6 @@ if ($result->num_rows > 0) {
 
 		$email = $row['emailUtente'];
 
-    $linkimagem = $row['linkimagem'];
-
 
   }
 }
@@ -232,22 +230,7 @@ if ($result->num_rows > 0) {
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-
-
-                                        <?php
-
-                                          if($linkimagem == null){
-
-                                            echo '<img src="../../assets/images/users/1.jpg" alt="John Doe" />';
-
-                                          }else{
-
-                                            echo '<img src="'.$linkimagem.'" alt="John Doe" />';
-
-                                          }
-                                          ?>
-
-
+                                            <img src="../../assets/images/users/1.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#"><?php echo $nome;?></a>
@@ -256,22 +239,7 @@ if ($result->num_rows > 0) {
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-
-
-                                                      <?php
-
-                                                        if($linkimagem == null){
-
-                                                          echo '<img src="../../assets/images/users/1.jpg" alt="John Doe" />';
-
-                                                        }else{
-
-                                                          echo '<img src="'.$linkimagem.'" alt="John Doe" />';
-
-                                                        }
-                                                        ?>
-
-
+                                                        <img src="../../assets/images/users/1.jpg" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">

@@ -362,17 +362,20 @@ $conn->close();
 
 
 
-
+									<label for="">Fotografia de perfil</label>
 									<div class="col-md-4">
 
-										<label>Fotografia de perfil</label>
-										<input type='file' id='upload' onchange="uploadImg(document.getElementById("upload").files)";>
+                                            <div class="form-group">
+                                                <input type="file" class="custom-file-input" id="validatedCustomFile" name="foto">
+                                            <label class="custom-file-label " for="validatedCustomFile">Escolher imagem...</label>
+                                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                            </div>
                                         </div>
 
 
 
 
-                                    <input type="submit" class="btn btn-info btn-fill pull-right" onclick='uploadImg(document.getElementById("upload").files)'>
+                                    <input type="submit" class="btn btn-info btn-fill pull-right">
                                     <div class="clearfix"></div>
                                 </form>
                             </div>
@@ -544,82 +547,6 @@ $conn->close();
 
 
 </script>
-
-<script>
-
-
-	function uploadImg(file){
-		alert();
-	  var nome = "a";
-	  var url = "uploadmedico.php?op=5&nome="+nome;
-	  var xhr = new XMLHttpRequest();
-	  var fd = new FormData();
-	  xhr.open("POST", url, true);
-	  xhr.onreadystatechange = function() {
-	      if (xhr.readyState == 4 && xhr.status == 200) {
-	          var res = JSON.parse(xhr.responseText);
-	          if(parseInt(res['val']) == 1){
-	              alert(res['msg']);
-	              loadList()
-	          }else{
-	              alert(res['msg']);
-	          }
-	      }
-	  };
-	  fd.append('file0', file[0]);
-	  //fd.append('file', file);
-	  xhr.send(fd);
-	}
-	function loadList(){
-		if (window.XMLHttpRequest) {
-	        // code for IE7+, Firefox, Chrome, Opera, Safari
-	        xmlhttp2 = new XMLHttpRequest();
-	    } else {
-	        // code for IE6, IE5
-	        xmlhttp2 = new ActiveXObject("Microsoft.XMLHTTP");
-	    }
-	    xmlhttp2.onreadystatechange = function() {
-	        if (xmlhttp2.readyState == 4 && xmlhttp2.status == 200) {
-	        	var info = JSON.parse(xmlhttp2.responseText)
-	            document.getElementById('tab').innerHTML = info['msg'];
-	        }
-	    };
-	    xmlhttp2.open("GET","upload.php?op=1",true);
-	    xmlhttp2.send();
-	}
-	function remUser(id){
-		if (window.XMLHttpRequest) {
-	        // code for IE7+, Firefox, Chrome, Opera, Safari
-	        xmlhttp3 = new XMLHttpRequest();
-	    } else {
-	        // code for IE6, IE5
-	        xmlhttp3 = new ActiveXObject("Microsoft.XMLHTTP");
-	    }
-	    xmlhttp3.onreadystatechange = function() {
-	        if (xmlhttp3.readyState == 4 && xmlhttp3.status == 200) {
-	        	var info = JSON.parse(xmlhttp3.responseText)
-	            if(parseInt(info['val']) == 1){
-	              	alert(info['msg']);
-	              	loadList()
-	          	}else{
-	              	alert(info['msg']);
-	          	}
-	        }
-	    };
-	    xmlhttp3.open("GET","upload.php?op=3&id="+id,true);
-	    xmlhttp3.send();
-	}
-	document.addEventListener("DOMContentLoaded", function(event) {
-		loadList();
-	});
-</script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-
 
 </body>
 
