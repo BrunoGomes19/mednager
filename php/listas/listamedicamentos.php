@@ -18,32 +18,30 @@ $conn->close();
 
 <script>
 
-function verperfil($cc){
-window.location.replace('../perfis/perfil_utentelista.php?cc='+$cc);
-}
-
-function associar($cc,$codComprador){
-
-
-}
-
-function desassociar($cc,$codComprador){
-
-
-}
-
 
 //
 
 function escolherEspecialidade(esp,str) {
 
+//if was onclick do:
+//  document.getElementById("input1-group2").value="";
+
+var yes = document.getElementById("dropdown-especialidades");
+
+yes.onchange = function(){
+
+   document.getElementById("input1-group2").value = "";
+
+    document.getElementById("txtHint").innerHTML = "A lista de medicamentos será exibida aqui.";
+
+}
+
+
+
+
     var selectBox = document.getElementById("dropdown-especialidades");
     var codEspecialidade = selectBox.options[selectBox.selectedIndex].value;
     var descriEspecialidade = selectBox.options[selectBox.selectedIndex].text;
-
-    var selectBox2 = document.getElementById("input1-group2");
-    var codEspecialidade2 = selectBox.options[selectBox.selectedIndex].value;
-    var descriEspecialidade2 = selectBox.options[selectBox.selectedIndex].text;
 
     if (esp == "") {
         document.getElementById("txtHint").innerHTML = "A lista de medicamentos será exibida aqui.";
