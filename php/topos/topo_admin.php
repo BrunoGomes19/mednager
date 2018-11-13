@@ -96,7 +96,7 @@ include('header.php');
                                 <i class="fas fa-calendar-alt"></i>Planos de Medicação</a>
                         </li>
                         <li>
-                            <a href="form.html">
+                            <a href="../listas/listamedicamentos.php">
                                 <i class="far fa-medkit"></i>Medicamentos</a>
                         </li>
 
