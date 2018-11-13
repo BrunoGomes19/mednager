@@ -1,17 +1,16 @@
 <?php
 include('../topos/topo_medico.php');
 
+    
+
 ?>
 
-
-
-<!DOCTYPE html>
-<html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>        
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+ 
 
-<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,6 +24,9 @@ include('../topos/topo_medico.php');
     <link href="../../assets/extra-libs/calendar/calendar.css" rel="stylesheet" />
     
 
+
+
+
 <meta charset="UTF-8">
 <!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
 <script type="text/javascript" src="https://formden.com/static/cdn/formden.js"></script>
@@ -36,91 +38,9 @@ include('../topos/topo_medico.php');
 <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
 
 <!-- Inline CSS based on choices in "Settings" tab -->
-<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}
+<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
 
 
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
-}
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-}
-
-/* The Close Button */
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
-
-.modal-body {padding: 2px 16px;}
-
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
-
-
-</style>
-
-
-
-
-
-
-
-</head>
-<body>
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
@@ -157,7 +77,7 @@ include('../topos/topo_medico.php');
                                                 <div class="row">
                                                     <div class="col-lg-3 border-right p-r-0">
                                                         <div class="card-body border-bottom">
-                                                            <h4 class="card-title m-t-10">Agenda pessoal</h4>
+                                                            <h4 class="card-title m-t-10">Arraste os seus eventos</h4>
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="row">
@@ -173,8 +93,44 @@ include('../topos/topo_medico.php');
                                                                         <input type="checkbox" class="custom-control-input" id="drop-remove">
                                                                         <label class="custom-control-label" for="drop-remove">Remove after drop</label>
                                                                     </div>
-                                                                    <button id="myBtn">Open Modal</button>
+
+
                                                                     
+
+                                                                    <a  href="javascript:void(0)" data-toggle="modal"  data-target="#ModalContact"> Add Contact</a>
+
+
+                                                                    <!-- Modal Contato -->
+                                                                    <div class="modal fade " id="ModalContact" role="dialog">
+                                                                        <div class="modal-dialog">
+
+                                                                            <!-- Modal content-->
+                                                                            <div class="modal-content">
+
+                                                                                <div class="modal-header">
+                                                                                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                                                                                    <h4 id="exampleModalLabel" class="modal-title">
+                                                                                      Contato
+                                                                                    </h4>
+
+                                                                                </div>
+
+                                                                                <div class="modal-body" id="CamposAddContato">
+                                                                                  <p>Lorem ipsum dolor sit amet ....</p>
+                                                                                </div>
+
+                                                                                <div class="modal-footer">
+
+                                                                                    <button type="button" class="btn btn-default  BotaoPadrao" data-dismiss="modal">Cancelar</button>
+                                                                                    <button type="button" id="AddContact" class="btn btn-success  BotaoPadrao">Salvar</button>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -190,27 +146,60 @@ include('../topos/topo_medico.php');
                                     </div>
                                 </div>
                                 <!-- BEGIN MODAL -->
-                                <div>
-                                <div id="myModal" class="modal">
-
-                                  <!-- Modal content -->
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <span class="close">&times;</span>
-                                      <h2>Modal Header</h2>
+                                <div class="modal none-border" id="my-event">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title"><strong>+ Intervenção</strong></h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            </div>
+                                            <div class="modal-body"></div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-success save-event waves-effect waves-light">Create event</button>
+                                                <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Delete</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="modal-body">
-                                      <p>Some text in the Modal Body</p>
-                                      <p>Some other text...</p>
+                                </div>
+                                <!-- Modal Add Category -->
+                                <div class="modal fade none-border" id="add-new-event">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title"><strong>Add</strong> a category</h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label class="control-label">Category Name</label>
+                                                            <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name" />
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label class="control-label">Choose Category Color</label>
+                                                            <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
+                                                                <option value="success">Success</option>
+                                                                <option value="danger">Danger</option>
+                                                                <option value="info">Info</option>
+                                                                <option value="primary">Primary</option>
+                                                                <option value="warning">Warning</option>
+                                                                <option value="inverse">Inverse</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Guardar</button>
+                                                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Fechar</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="modal-footer">
-                                      <h3>Modal Footer</h3>
-                                    </div>
-                                  </div>
-
                                 </div>
 
-                                </div>
+
                                 </body>
 
 
@@ -268,40 +257,6 @@ include('../topos/topo_medico.php');
 
     </div>
 
-
-
-
-    <script>
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
-
-
-
-
     <!-- Jquery JS-->
     <script src="../../Interior/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
@@ -348,6 +303,8 @@ window.onclick = function(event) {
     })
     </script>
 
+   
+
     <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="../../dist/js/jquery.ui.touch-punch-improved.js"></script>
     <script src="../../dist/js/jquery-ui.min.js"></script>
@@ -367,10 +324,12 @@ window.onclick = function(event) {
     <script src="../../assets/libs/moment/min/moment.min.js"></script>
     <script src="../../assets/libs/fullcalendar/dist/fullcalendar.min.js"></script>
     <script src="../../dist/js/pages/calendar/cal-init.js"></script>
-    </script
+    
 </script>
 
 </body>
+                    
+
 
 </html>
 <!-- end document-->

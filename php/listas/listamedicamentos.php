@@ -19,6 +19,7 @@ $conn->close();
 <script>
 
 
+
 //
 
 function escolherEspecialidade(esp,str) {
@@ -92,7 +93,7 @@ yes.onchange = function(){
 
 
 
-                            <h3 class="title-5 m-b-35">Lista de utentes</h3>
+                            <h3 class="title-5 m-b-35">Lista de medicamentos</h3>
                                     <div class="table-data__tool">
                                         <div class="table-data__tool-left">
                                             <div class="rs-select2--light ">
