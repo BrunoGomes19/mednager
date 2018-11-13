@@ -68,7 +68,7 @@ include('../topos/topo_medico.php');
                                                 <div class="row">
                                                     <div class="col-lg-3 border-right p-r-0">
                                                         <div class="card-body border-bottom">
-                                                            <h4 class="card-title m-t-10">Drag & Drop Event</h4>
+                                                            <h4 class="card-title m-t-10">Arraste os seus eventos</h4>
                                                         </div>
                                                         <div class="card-body">
                                                             <div class="row">
@@ -85,7 +85,7 @@ include('../topos/topo_medico.php');
                                                                         <label class="custom-control-label" for="drop-remove">Remove after drop</label>
                                                                     </div>
                                                                     <a href="javascript:void(0)" data-toggle="modal" data-target="#add-new-event" class="btn m-t-20 btn-info btn-block waves-effect waves-light">
-                                                                            <i class="ti-plus"></i> Add New Event
+                                                                            <i class="ti-plus"></i> + nova intervenção
                                                                         </a>
                                                                 </div>
                                                             </div>
@@ -106,7 +106,7 @@ include('../topos/topo_medico.php');
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title"><strong>Add Event</strong></h4>
+                                                <h4 class="modal-title"><strong>+ Intervenção</strong></h4>
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                             </div>
                                             <div class="modal-body"></div>
@@ -148,8 +148,8 @@ include('../topos/topo_medico.php');
                                                 </form>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
-                                                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Guardar</button>
+                                                <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Fechar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -196,7 +196,7 @@ include('../topos/topo_medico.php');
 
 
 
-                                <h4 class="title">Editar perfil</h4>
+                                
                             </div>
                             
                                 
