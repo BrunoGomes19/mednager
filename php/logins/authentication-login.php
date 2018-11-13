@@ -223,7 +223,7 @@
 
 
                 <div id="recoverform">
-                    <div class="text-center">
+                    <div class="text-center" style="padding-bottom:3%;">
                         <span class="text-black">Insira o seu e-mail para recuperar a password.</span>
                     </div>
                     <div class="row m-t-20">
