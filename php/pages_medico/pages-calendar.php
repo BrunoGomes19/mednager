@@ -16,7 +16,7 @@ include('../topos/topo_medico.php');
     <!-- Custom CSS -->
     <link href="../../assets/libs/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
     <link href="../../assets/extra-libs/calendar/calendar.css" rel="stylesheet" />
-    <link href="../../dist/css/style.min.css" rel="stylesheet">
+    
 
 <meta charset="UTF-8">
 <!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
@@ -271,7 +271,7 @@ include('../topos/topo_medico.php');
     <!--Wave Effects -->
     <script src="../../dist/js/waves.js"></script>
     <!--Menu sidebar -->
-    <script src="../../dist/js/sidebarmenu.js"></script>
+    
     <!--Custom JavaScript -->
     <script src="../../dist/js/custom.min.js"></script>
      <!-- this page js -->
