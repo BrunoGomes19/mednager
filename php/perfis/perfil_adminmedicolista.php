@@ -12,6 +12,9 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
 
   $sexo = $row["sexoComprador"];
+
+  $linkimagem = $row["linkimagem"];
+
 //asda
   $nome = $row["nomeComprador"];
 
@@ -123,7 +126,20 @@ $conn->close();
                                         <div class="content">
                                             <div class="author">
                                                  <a href="#">
-                                                <img class="avatar border-gray" src="../../assets/images/users/1.jpg" alt="..."/>
+
+
+                                                <?php
+
+                                                  if($linkimagem == null){
+
+                                                    echo ' <img class="avatar border-gray" src="../../assets/images/users/1.jpg" alt="..."/>';
+
+                                                  }else{
+
+                                                    echo '     <img class="avatar border-gray" src="'.$linkimagem.'" alt="..."/>';
+
+                                                  }
+                                                  ?>
 
                                                   <h4 class="title"><?php echo $nome; ?><br />
                                                      <br>

@@ -7,14 +7,14 @@ session_start();
 
 $emailA = $_SESSION['email'];
 $numero=0;
-$sql = "SELECT * from utente where emailUtente='$emailA'";
+$sql = "SELECT * from comprador where emailComprador='$emailA'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
 
-			$numero = $row['ccUtente'];
+			$numero = $row['ccComprador'];
 
     }
 } else {
@@ -41,7 +41,7 @@ if ($result->num_rows > 0) {
 
 				//	$sql = "UPDATE utente set codSubsistema = '$Subsistema', nrSubsistema='$nrSubsistema', dataNascUtente='$date',nomeUtente = '$nomecompleto',ObservacoesUtente='$sobremim',moradaUtente='$morada',codPostalUtente='$codigopostal',localidadeUtente='$cidade',NIBUtente='$nib',NIFUtente='$nif',contacto1Utente='$contacto1',contacto2Utente='$contacto2',ccUtente='$cc',sexoUtente='$sexo' WHERE emailUtente='$email'";
 
-				$sql = "UPDATE utente set linkimagem='$link' where emailUtente='$emailA';";
+				$sql = "UPDATE comprador set linkimagem='$link' where emailComprador='$emailA';";
 
 		    if (mysqli_query($conn,$sql) === TRUE) {
 		      $msg = "Fotografia atualizada com sucesso.";

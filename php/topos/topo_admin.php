@@ -7,7 +7,7 @@ include('header.php');
 
 <head>
     <!-- Required meta tags-->
-    
+
 	<link href="../../landingPage/img/logos/redondo.png" rel="icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -174,7 +174,7 @@ include('header.php');
                                 <i class="fas fa-calendar-alt"></i>Planos de medicação</a>
                         </li>
                         <li>
-                            <a href="map.html">
+                            <a href="../listas/listamedicamentos.php">
                                 <i class="fa fa-medkit"></i>Medicamentos</a>
                         </li>
                         <br>
