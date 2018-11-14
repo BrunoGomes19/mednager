@@ -6,148 +6,201 @@
 </head>
 <body>
 
+
 <?php
 
-$q = intval($_GET['q']);
-
-
-
-$con = mysqli_connect('localhost','admin','Sutas4Ever2018','mydb');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-}
-
-mysqli_select_db($con,"ajax_demo");
-$sql="SELECT * FROM utente WHERE NIFUtente like '".$q."%' ORDER BY nomeUtente limit 4";
-$result = mysqli_query($con,$sql);
-
-session_start();
+include('../topos/header.php');
 
 $emailA = $_SESSION['email'];
 
-$sql3 = "Select * from comprador where emailComprador='$emailA'";
-$result2 = $con->query($sql3);
+$op = $_GET['op'];
 
-if ($result2->num_rows > 0) {
-    // output data of each row
-    while($row = $result2->fetch_assoc()) {
-        $codComprador = $row['codComprador'];
-    }
-}
+if($op==1){
 
-echo '
+  $sql = "SELECT * FROM utente where emailUtente='$emailA'";
+  $result = $conn->query($sql);
 
+  if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
 
-<table class="table table-data2">
-    <thead>
-        <tr>
-            <th>
-            Associar
-            </th>
-            <th>Nome</th>
-            <th>Cartão de cidadão</th>
-            <th>NIF</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+        $cc = $row['ccUtente'];
 
 
-';
+      }
+  } else {
+      echo "0 results";
+  }
 
-if($q=="" || $q == null){
+  $sql2 = "select servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador from comprador, servico where servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico<now();";
+  $result2 = $conn->query($sql2);
 
-echo "asda";
+
+
+
+  echo '
+
+
+  <table class="table table-data2">
+      <thead>
+      <tr>
+          <th></th>
+          <th>Serviço</th>
+          <th>Data e hora</th>
+          <th>Médico</th>
+          <th></th>
+      </tr>
+      </thead>
+      <tbody>
+
+
+  ';
+
+  while($row = $result2->fetch_assoc()) {
+
+    $descriServico = $row['descriServico'];
+
+    $dataHoraServico = $row['dataHoraServico'];
+
+    $nomeMedico = $row['nomeComprador'];
+
+    $codServico = $row['codServico'];
+
+
+
+
+
+
+    echo '<tr class="tr-shadow">
+        <td></td>
+        <td>'.$descriServico.'</td>
+        <td>
+            <span class="block-email">'.$dataHoraServico.'</span>
+        </td>
+        <td class="desc">'.$nomeMedico.'</td>
+
+        <td title="Ver mais informações">
+
+                <button class="btn btn-outline-primary" onclick="modal('.$codServico.');">
+                    <i class="fas fa-info"></i></button>
+
+        </td>
+    </tr>
+    <tr class="spacer"></tr>';
+  }
+
+
+
+
+  echo '
+
+  </div>
+
+
+
+
+
+
+  </tbody>
+  </table>
+
+  ';
 
 }else{
 
-echo "asdadsasdadsa";
+  if($op==2){
 
-}
+    $q = $_GET["q"];
 
-while($row = mysqli_fetch_array($result)) {
+      $sql = "SELECT * FROM utente where emailUtente='$emailA'";
+      $result = $conn->query($sql);
 
-$nome = $row['nomeUtente'];
-
-$cc = $row['ccUtente'];
-
-$nif = $row['NIFUtente'];
-
-
-
-
-$sql2 = "Select * from associados where associados.utente_ccUtente = '$cc' and associados.comprador_codComprador = '$codComprador';";
-$result3 = $con->query($sql2);
-
-
-
-
-echo '
-  <tr class="spacer"></tr>
-  <tr class="tr-shadow">
-      <td>';
-
-
-      if ($result3->num_rows > 0) {
+      if ($result->num_rows > 0) {
           // output data of each row
-          while($row = $result3->fetch_assoc()) {
+          while($row = $result->fetch_assoc()) {
 
+            $cc = $row['ccUtente'];
 
-            echo '
-            <button class="btn btn-danger btn-sm" style="font-size:16px" title="Clique para desassociar" onclick="desassociar('.$cc.','.$codComprador.')";>
-              <i class="fas fa-times"></i>
-            </button>&nbsp';
 
           }
       } else {
+          echo "0 results";
+      }
 
-        echo '<button class="btn btn-primary btn-sm" style="font-size:16px" title="Clique para associar" onclick="associar('.$cc.','.$codComprador.')";>
-            <i class="fas fa-check"></i>
-        </button>&nbsp';
+      $sql2 = "select servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador from comprador, servico where servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico between concat('".$q."',' 00:00:00') and concat('".$q."',' 23:59:59');";
+      $result2 = $conn->query($sql2);
 
+
+      echo '
+
+
+      <table class="table table-data2">
+          <thead>
+          <tr>
+              <th></th>
+              <th>Serviço</th>
+              <th>Data e hora</th>
+              <th>Médico</th>
+              <th></th>
+          </tr>
+          </thead>
+          <tbody>
+
+
+      ';
+
+      while($row = $result2->fetch_assoc()) {
+
+        $descriServico = $row['descriServico'];
+
+        $dataHoraServico = $row['dataHoraServico'];
+
+        $nomeMedico = $row['nomeComprador'];
+
+        $codServico = $row['codServico'];
+
+
+
+        echo '<tr class="tr-shadow">
+            <td></td>
+            <td>'.$descriServico.'</td>
+            <td>
+                <span class="block-email">'.$dataHoraServico.'</span>
+            </td>
+            <td class="desc">'.$nomeMedico.'</td>
+
+            <td title="Ver mais informações">
+
+                    <button class="btn btn-outline-primary" onclick="modal('.$codServico.');">
+                        <i class="fas fa-info"></i></button>
+
+            </td>
+        </tr>
+        <tr class="spacer"></tr>';
       }
 
 
 
 
+      echo '
+
+      </div>
 
 
 
 
-      echo ' </td>
-      <td>'.$nome.'</td>
-      <td>
-          <span class="block-email">'.$cc.'</span>
-      </td>
-      <td class="desc">'.$nif.'</td>
 
-      <td>
 
-              <button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
-                  <i class="fa fa-user"></i>&nbsp;Perfil</button>
+      </tbody>
+      </table>
 
-      </td>
-  </tr>
-  <tr class="spacer"></tr>
-';
+      ';
+
+  }
+
 }
 
 
-
-
-echo '
-
-</div>
-
-
-
-
-
-
-</tbody>
-</table>
-
-';
 
 
 if ($result->num_rows == 0) {
@@ -158,9 +211,13 @@ if ($result->num_rows == 0) {
 
   ';
 
+
 }
 
-mysqli_close($con);
+
+
+
+mysqli_close($conn);
 ?>
 </body>
 </html>
