@@ -92,21 +92,7 @@ $conn->close();
                                 <div class="col-md-8">
                                     <div class="card">
                                       <div class="card-footer">
-                                        <form action="
-
-
-                                        <?php
-
-                                        if($codComprador==1){
-                                          echo '../listas/admin-lu.php';
-                                        }elseif ($codComprador==2) {
-                                          echo '../listas/medico-lu.php';
-                                        }
-
-                                         ?>
-
-
-                                        " method="GET" style ='float: left; padding: 5px;'>
+                                        <form action="../listas/medico-lu.php" method="GET" style ='float: left; padding: 5px;'>
             																			<button type="submit" class="btn btn-primary btn-sm" style="font-size:16px">
             																					<i class="fa fa-arrow-left"></i> Voltar
             																			</button>&nbsp
@@ -252,7 +238,7 @@ $conn->close();
                                         <div class="content">
                                             <div class="author">
                                                  <a href="#">
-                                      
+
 
                                                 <?php
 

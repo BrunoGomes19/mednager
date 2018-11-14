@@ -20,6 +20,12 @@ if ($result->num_rows > 0) {
 
   $emailA = $_SESSION['email'];
 
+  $date = $row["dataNascComprador"];
+
+  $cidade = $row["localidadeComprador"];
+
+  $sobremim = $row["formacaoCarreira"];
+
   $sqlesp = "select descriEspecialidade from comprador, especialidade where comprador.codEspecialidade = especialidade.codEspecialidade and emailComprador = '$emailA';";
   $resultesp = $conn->query($sqlesp);
 
@@ -35,11 +41,7 @@ if ($result->num_rows > 0) {
 
   //sexo
 
-  $date = $row["dataNascComprador"];
 
-  $cidade = $row["localidadeComprador"];
-
-  $sobremim = $row["formacaoCarreira"];
 
   }
 } else {

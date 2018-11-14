@@ -1,5 +1,26 @@
 <?php
-include('../topos/topo_medico.php');
+include('../topos/topo_utente.php');
+
+$emailA = $_SESSION['email'];
+
+$sql = "SELECT * FROM utente where emailUtente='$emailA'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+
+      $cc = $row['ccUtente'];
+
+    }
+} else {
+    echo "0 results";
+}
+
+$sql2 = "select servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador from comprador, servico where servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc';";
+$result2 = $conn->query($sql2);
+
+
 
 ?>
 
@@ -21,70 +42,14 @@ function verperfil($cc){
 window.location.replace('../perfis/perfil_utentelista.php?cc='+$cc);
 }
 
-function associar($cc,$codComprador){
-
-
-
-  bootbox.confirm({
-    message: "Tem a certeza que quer associar este utente?",
-    buttons: {
-        confirm: {
-            label: 'Sim',
-            className: 'btn-success'
-        },
-        cancel: {
-            label: 'Não',
-            className: 'btn-danger'
-        }
-    },
-    callback: function (result) {
-      if(result==true){
-          window.location.replace('../associacao/associacao_medico-lu.php?cc='+$cc+'&cod='+$codComprador);
-
-      }else{
-
-
-      }
-
-    }
-  });
-
-
-}
-
-function desassociar($cc,$codComprador){
-
-  bootbox.confirm({
-    message: "Tem a certeza que quer desassociar este utente?",
-    buttons: {
-        confirm: {
-            label: 'Sim',
-            className: 'btn-success'
-        },
-        cancel: {
-            label: 'Não',
-            className: 'btn-danger'
-        }
-    },
-    callback: function (result) {
-      if(result==true){
-          window.location.replace('../associacao/desassociacao_medico-lu.php?cc='+$cc+'&cod='+$codComprador);
-
-      }else{
-
-
-      }
-
-    }
-  });
-
-
-}
-
 function showUser(str) {
     if (str == "") {
-        document.getElementById("txtHint").innerHTML = "A lista de utentes será exibida aqui.";
-        return;
+
+      document.getElementById(txtHint).style.display="inline";
+
+/* If str=="" entao faz tudo do else e passa op=1 senão faz tudo do else e passa op=2 */
+
+
     } else {
         if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -130,7 +95,7 @@ function showUser(str) {
 
 
 
-                            <h3 class="title-5 m-b-35">Lista de utentes</h3>
+                            <h3 class="title-5 m-b-35">Histórico de intervenções</h3>
                                     <div class="table-data__tool">
                                         <div class="table-data__tool-left">
                                             <div class="rs-select2--light ">
@@ -142,7 +107,10 @@ function showUser(str) {
                                                             <i class="fa fa-search"></i>
                                                         </button>
 
-                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="NIF" class="form-control" onkeyup="showUser(this.value)">
+                                                        <input type="text" class="form-control" name="date" placeholder="YYYY/MM/DD"  id="input1-group2" name="input1-group2" placeholder="Data da intervenção" class="form-control" onchange="showUser(this.value)" autocomplete="off">
+
+
+
                                                     </div>
 
 
@@ -155,21 +123,12 @@ function showUser(str) {
                                         <div class="table-data__tool-right">
                                           <form method="get" action="../registos/medico-admin_registoutente.php">
                                             <button type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                                <i class="zmdi zmdi-plus"></i>adicionar utente</button>
+                                                <i class="zmdi zmdi-plus"></i>Nova intervenção</button>
                                               </form>
 
                                         </div>
 
-                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
 
-                                                  <form action="medico-luAssociados.php" method="POST">
-                                                        <button type="submit" class="btn btn-primary" >
-                                                            <i class="fa fa-search"></i> Associados
-                                                        </button>
-                                                      </form>
-
-
-                                                    </div>
                                         </div>
 
                                     </div>
@@ -178,7 +137,97 @@ function showUser(str) {
 
 
 
-                                                <div id="txtHint"><b>A lista de todos os utentes será exibida aqui.</b></div>
+                                                <div id="txtHint">
+
+
+
+<?php
+
+
+
+
+
+                                                  echo '
+
+
+                                                  <table class="table table-data2">
+                                                      <thead>
+                                                          <tr>
+                                                              <th></th>
+                                                              <th>Serviço</th>
+                                                              <th>Data e hora</th>
+                                                              <th>Médico</th>
+                                                              <th></th>
+                                                          </tr>
+                                                      </thead>
+                                                      <tbody>
+
+
+
+                                                    <tr class="spacer"></tr>
+                                                    ';
+
+                                                    if ($result2->num_rows > 0) {
+                                                        // output data of each row
+                                                        while($row = $result2->fetch_assoc()) {
+
+                                                          $descriServico = $row['descriServico'];
+
+                                                          $dataHoraServico = $row['dataHoraServico'];
+
+                                                          $nomeMedico = $row['nomeComprador'];
+
+                                                          $codServico = $row['codServico'];
+
+
+                                                          echo '<tr class="tr-shadow">
+                                                              <td></td>
+                                                              <td>'.$descriServico.'</td>
+                                                              <td>
+                                                                  <span class="block-email">'.$dataHoraServico.'</span>
+                                                              </td>
+                                                              <td class="desc">'.$nomeMedico.'</td>
+
+                                                              <td title="Ver mais informações">
+
+                                                                      <button class="btn btn-outline-primary" onclick="modal('.$codServico.');">
+                                                                          <i class="fas fa-info"></i></button>
+
+                                                              </td>
+                                                          </tr>
+                                                          <tr class="spacer"></tr>';
+}
+} else {
+    echo "0 results";
+}
+                                                        echo '</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                                  </tbody>
+                                                  </table>';
+
+
+
+
+?>
+
+
+
+
+
+
+
+                                                </div>
 
 
 
