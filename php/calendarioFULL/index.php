@@ -105,7 +105,6 @@ session_start();
                                 <dt class="col-sm-3">Fim do Evento</dt>
                                 <dd id="end" class="col-sm-9"></dd>
                             </dl>
-                            <button class="btn btn-canc-vis btn-warning">Editar</button>
                             <a href="" id="apagar_evento" class="btn btn-danger" role="button">Apagar</a>
                         </div>   
                         <div class="form">
@@ -148,7 +147,6 @@ session_start();
                                 </div>
                                 <input type="hidden" name="id" id="id">
                                 <div class="form-group col-md-12">
-                                    <button type="button" class="btn btn-canc-edit btn-primary">Cancelar</button>
                                     <button type="submit" class="btn btn-warning">Salvar Alterações</button>
 
                                 </div>
