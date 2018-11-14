@@ -8,6 +8,7 @@ session_start();
 <html dir="ltr">
 
 <head>
+
     <link href="../../landingPage/img/logos/redondo.png" rel="icon">
     <!-- Required meta tags-->
     <meta charset="UTF-8">
@@ -39,10 +40,25 @@ session_start();
 
     <!-- Main CSS-->
     <link href="../../Interior/css/theme.css" rel="stylesheet" media="all">
+
+    <style>
+        #centro {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align:center;
+  background-color: rgba(10,23,55,0.7);
+  color: white;
+  
+  /* pura mágica */
+  position: absolute;
+  top: 50%; /* posiciona na metade da tela */
+  margin-top: -25px; /* e retrocede metade da altura */
+}
+    </style>
 </head>
 
 <body>
-    <br><br><br>
     <div class="main-wrapper">
         <!-- ============================================================== -->
         <!-- Preloader - style you can find in spinners.css -->
@@ -62,15 +78,67 @@ session_start();
         <div class="error-box">
             <div class="error-body text-center">
                 <h1 class="error-title text-danger"></h1>
+                <br><br>
+                <img src="../../assets/images/logos/logotipo.png" style="width: 25%"></img>
 
-                <img src="../../assets/images/error.png"></img>
-                <br><br>
 
-                <h3 class="text-uppercase error-subtitle">A sua conta encontra-se inativa!</h3>
-                <br><br>
-                <p class="text-muted m-t-30 m-b-30">Para ativar a sua conta clique no email recebido após o seu registo.<br><br>Não recebeu o email de confirmação? Clique aqui!</p>
-                <br><br>
-                <a href="../logins/logout.php" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Sair</a> </div>
+                <div class="row" style="width: 100%; height: 100%; display: flex; flex-direction: row; justify-content: center; align-items: center;">
+                            <div class="col-lg-6">
+
+                <p class="text-muted m-t-30 m-b-30"><b style="color: #5FBACE">Para ativar a sua conta por favor realize o pagamento.</b>
+                <br>
+                                <div class="card">
+
+                                    <div class="card-header">Dados relativos ao pagamento</div>
+                                    <div class="card-body">
+
+                                        
+                                        <form action="" method="post" novalidate="novalidate">
+                                            <div class="form-group">                                                
+                                                <h1>133,44€</h1>
+                                                <label for="cc-payment" class="control-label mb-1">(c/ IVA)</label>
+                                            </div>                                           
+                                            
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <img src="../../assets/images/multibanco.png" style="width: 40%"></img>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    
+                                                    <label for="x_card_code" class="control-label mb-1"></label>
+                                                    <div class="input-group">
+                                                        
+                                                    </div>
+                                                    <label for="x_card_code" class="control-label mb-1">Entidade: 222334</label>
+                                                    <div class="input-group">
+                                                        
+                                                    </div>
+                                                    <label for="x_card_code" class="control-label mb-1">Referência: 234567890</label>
+                                                    <div class="input-group">
+                                                        
+                                                    </div>
+                                                    <label for="x_card_code" class="control-label mb-1">Valor: 133, 44€</label>
+                                                    <div class="input-group">
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                
+                
+                <a href="../logins/logout.php" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Sair</a> 
+
+
+
+                                        
+            </div>
         </div>
         <!-- ============================================================== -->
         <!-- Login box.scss -->
@@ -91,6 +159,7 @@ session_start();
     <!-- ============================================================== -->
     <!-- All Required js -->
     <!-- ============================================================== -->
+    <!-- Jquery JS-->
     <script src="../../Interior/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
     <script src="../../Interior/vendor/bootstrap-4.1/popper.min.js"></script>
