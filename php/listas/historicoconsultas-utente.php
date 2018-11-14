@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-$sql2 = "select servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador from comprador, servico where servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc';";
+$sql2 = "select servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador from comprador, servico where servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico<now();";
 $result2 = $conn->query($sql2);
 
 
@@ -31,10 +31,31 @@ $result2 = $conn->query($sql2);
 
     <script src="../../assets/js/bootbox.min.js"></script>
 
-    <script>
 
+      <script>
 
-    </script>
+      function modal(str) {
+
+        alert();
+
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("txtHint").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET","ajaxhistoricoconsultas-utente?q="+str+"&op=1",true);
+            xmlhttp.send();
+
+        }
+
+      </script>
 
 <script>
 
@@ -45,9 +66,20 @@ window.location.replace('../perfis/perfil_utentelista.php?cc='+$cc);
 function showUser(str) {
     if (str == "") {
 
-      document.getElementById(txtHint).style.display="inline";
-
-/* If str=="" entao faz tudo do else e passa op=1 senão faz tudo do else e passa op=2 */
+      if (window.XMLHttpRequest) {
+          // code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp = new XMLHttpRequest();
+      } else {
+          // code for IE6, IE5
+          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("txtHint").innerHTML = this.responseText;
+          }
+      };
+      xmlhttp.open("GET","ajaxhistoricoconsultas-utente?q="+str+"&op=1",true);
+      xmlhttp.send();
 
 
     } else {
@@ -63,7 +95,7 @@ function showUser(str) {
                 document.getElementById("txtHint").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET","ajaxmedico-lu.php?q="+str,true);
+        xmlhttp.open("GET","ajaxhistoricoconsultas-utente.php?q="+str+"&op=2",true);
         xmlhttp.send();
     }
 }
@@ -107,7 +139,7 @@ function showUser(str) {
                                                             <i class="fa fa-search"></i>
                                                         </button>
 
-                                                        <input type="text" class="form-control" name="date" placeholder="YYYY/MM/DD"  id="input1-group2" name="input1-group2" placeholder="Data da intervenção" class="form-control" onchange="showUser(this.value)" autocomplete="off">
+                                                        <input type="text" class="form-control" name="date" placeholder="YYYY-MM-DD"  id="input1-group2" name="input1-group2" placeholder="Data da intervenção" class="form-control" onchange="showUser(this.value)" autocomplete="off">
 
 
 
@@ -198,7 +230,7 @@ function showUser(str) {
                                                           <tr class="spacer"></tr>';
 }
 } else {
-    echo "0 results";
+  echo 'Sem resultados...';
 }
                                                         echo '</div>
 
@@ -347,7 +379,7 @@ function showUser(str) {
         var date_input=$('input[name="date"]'); //our date input has the name "date"
         var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
         date_input.datepicker({
-            format: 'yyyy/mm/dd',
+            format: 'yyyy-mm-dd',
             container: container,
             todayHighlight: true,
             autoclose: true,
