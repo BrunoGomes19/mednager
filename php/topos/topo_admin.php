@@ -83,7 +83,7 @@ include('header.php');
                                     <a href="index.html">Gestão</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Histórico</a>
+                                    <a href="../listas/historicoconsultas-admin.php">Histórico</a>
                                 </li>
                             </ul>
                         </li>
@@ -160,7 +160,7 @@ include('header.php');
                                     <a href="#">Gestão</a>
                                 </li>
                                 <li>
-                                    <a href="#">Histórico</a>
+                                    <a href="../listas/historicoconsultas-admin.php">Histórico</a>
                                 </li>
                             </ul>
                         </li>
