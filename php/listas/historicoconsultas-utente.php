@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-$sql2 = "select servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador from comprador, servico where servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico<now();";
+$sql2 = "select servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico<now();";
 $result2 = $conn->query($sql2);
 
 
@@ -27,33 +27,32 @@ $result2 = $conn->query($sql2);
 <meta charset="UTF-8">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="../../assets/js/bootstrap.min.js"></script>
 
-    <script src="../../assets/js/bootbox.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 
 
       <script>
 
-      function modal(str) {
+      function x(a,b,c,d,e,f,g){
 
-        alert();
+        document.getElementById('cod').innerHTML = "Informações da intervenção #"+a;
 
-            if (window.XMLHttpRequest) {
-                // code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp = new XMLHttpRequest();
-            } else {
-                // code for IE6, IE5
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("txtHint").innerHTML = this.responseText;
-                }
-            };
-            xmlhttp.open("GET","ajaxhistoricoconsultas-utente?q="+str+"&op=1",true);
-            xmlhttp.send();
+        document.getElementById('descricao').innerHTML = b;
 
-        }
+        document.getElementById('datahora').innerHTML = c;
+
+        document.getElementById('preco').innerHTML = d+" €";
+
+        document.getElementById('duracao').innerHTML = e+" h";
+
+        document.getElementById('nomemedico').innerHTML = f;
+
+        document.getElementById('local').innerHTML = g;
+
+      }
+
 
       </script>
 
@@ -203,13 +202,19 @@ function showUser(str) {
                                                         // output data of each row
                                                         while($row = $result2->fetch_assoc()) {
 
+                                                          $codServico = $row['codServico'];
+
                                                           $descriServico = $row['descriServico'];
 
                                                           $dataHoraServico = $row['dataHoraServico'];
 
+                                                          $pvpServico = $row['pvpServico'];
+
+                                                          $duracaoServico = $row['duracaoServico'];
+
                                                           $nomeMedico = $row['nomeComprador'];
 
-                                                          $codServico = $row['codServico'];
+                                                          $descriLocal = $row['descriLocal'];
 
 
                                                           echo '<tr class="tr-shadow">
@@ -222,7 +227,8 @@ function showUser(str) {
 
                                                               <td title="Ver mais informações">
 
-                                                                      <button class="btn btn-outline-primary" onclick="modal('.$codServico.');">
+
+                                                                      <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" onclick="x('.$codServico.',\'' . str_replace("'", "\'", $descriServico) . '\',\'' . str_replace("'", "\'", $dataHoraServico) . '\','.$pvpServico.','.$duracaoServico.',\'' . str_replace("'", "\'", $nomeMedico) . '\',\'' . str_replace("'", "\'", $descriLocal) . '\');">
                                                                           <i class="fas fa-info"></i></button>
 
                                                               </td>
@@ -323,8 +329,6 @@ function showUser(str) {
                                                         </td>
                                                     </tr>
                                                     <tr class="spacer"></tr>-->
-
-
                                     </div>
 
 
@@ -333,11 +337,83 @@ function showUser(str) {
 
                         </div>
                     </div>
+
+                    <!-- Button trigger modal
+<button type="button" class="btn btn-danger btn-lg" >
+  Modal with multiple actions
+</button>
+-->
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="cod">Informações da intervenção</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title" id="myModalLabel"></h4>
+      </div>
+      <div class="modal-body">
+        <div class="row m-t-30">
+                            <div class="col-md-12">
+                                <!-- DATA TABLE-->
+                                <div class="table-responsive m-b-40">
+                                    <table class="table table-borderless table-data3">
+
+                                        <tbody>
+                                            <tr>
+                                                <td>Descrição</td>
+                                                <td id="descricao"></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Data e hora</td>
+                                                <td id="datahora"></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Preço</td>
+                                                <td id="preco"></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Duração</td>
+                                                <td id="duracao"></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Nome do médico</td>
+                                                <td id="nomemedico"></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Local</td>
+                                                <td id="local"></td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- END DATA TABLE-->
+                            </div>
+                        </div>
+
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
                 </div>
             </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
         </div>
+
+
 
     </div>
 

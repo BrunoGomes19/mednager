@@ -6,6 +6,27 @@
 </head>
 <body>
 
+  <script>
+
+  function x(a,b,c,d,e,f,g){
+
+    document.getElementById('cod').innerHTML = "Informações da intervenção #"+a;
+
+    document.getElementById('descricao').innerHTML = b;
+
+    document.getElementById('datahora').innerHTML = c;
+
+    document.getElementById('preco').innerHTML = d+" €";
+
+    document.getElementById('duracao').innerHTML = e+" h";
+
+    document.getElementById('nomemedico').innerHTML = f;
+
+    document.getElementById('local').innerHTML = g;
+
+  }
+  </script>
+
 
 <?php
 
@@ -32,7 +53,7 @@ if($op==1){
       echo "0 results";
   }
 
-  $sql2 = "select servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador from comprador, servico where servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico<now();";
+  $sql2 = "select servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico<now();";
   $result2 = $conn->query($sql2);
 
 
@@ -58,17 +79,19 @@ if($op==1){
 
   while($row = $result2->fetch_assoc()) {
 
+    $codServico = $row['codServico'];
+
     $descriServico = $row['descriServico'];
 
     $dataHoraServico = $row['dataHoraServico'];
 
+    $pvpServico = $row['pvpServico'];
+
+    $duracaoServico = $row['duracaoServico'];
+
     $nomeMedico = $row['nomeComprador'];
 
-    $codServico = $row['codServico'];
-
-
-
-
+    $descriLocal = $row['descriLocal'];
 
 
     echo '<tr class="tr-shadow">
@@ -81,7 +104,8 @@ if($op==1){
 
         <td title="Ver mais informações">
 
-                <button class="btn btn-outline-primary" onclick="modal('.$codServico.');">
+
+                <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" onclick="x('.$codServico.',\'' . str_replace("'", "\'", $descriServico) . '\',\'' . str_replace("'", "\'", $dataHoraServico) . '\','.$pvpServico.','.$duracaoServico.',\'' . str_replace("'", "\'", $nomeMedico) . '\',\'' . str_replace("'", "\'", $descriLocal) . '\');">
                     <i class="fas fa-info"></i></button>
 
         </td>
@@ -126,8 +150,8 @@ if($op==1){
       } else {
           echo "0 results";
       }
-
-      $sql2 = "select servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador from comprador, servico where servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico between concat('".$q."',' 00:00:00') and concat('".$q."',' 23:59:59');";
+//select servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico<now();
+      $sql2 = "select servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local where local.codLocal = servico.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico between concat('".$q."',' 00:00:00') and concat('".$q."',' 23:59:59');";
       $result2 = $conn->query($sql2);
 
 
@@ -151,14 +175,19 @@ if($op==1){
 
       while($row = $result2->fetch_assoc()) {
 
+        $codServico = $row['codServico'];
+
         $descriServico = $row['descriServico'];
 
         $dataHoraServico = $row['dataHoraServico'];
 
+        $pvpServico = $row['pvpServico'];
+
+        $duracaoServico = $row['duracaoServico'];
+
         $nomeMedico = $row['nomeComprador'];
 
-        $codServico = $row['codServico'];
-
+        $descriLocal = $row['descriLocal'];
 
 
         echo '<tr class="tr-shadow">
@@ -171,7 +200,8 @@ if($op==1){
 
             <td title="Ver mais informações">
 
-                    <button class="btn btn-outline-primary" onclick="modal('.$codServico.');">
+
+                    <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" onclick="x('.$codServico.',\'' . str_replace("'", "\'", $descriServico) . '\',\'' . str_replace("'", "\'", $dataHoraServico) . '\','.$pvpServico.','.$duracaoServico.',\'' . str_replace("'", "\'", $nomeMedico) . '\',\'' . str_replace("'", "\'", $descriLocal) . '\');">
                         <i class="fas fa-info"></i></button>
 
             </td>
