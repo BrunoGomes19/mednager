@@ -263,7 +263,7 @@
                 </ul>
                 <hr>
                 <div class="text-center">
-                  <a href="../registos/authentication-register.php" style="color:white"><button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="pro-access">Adquirir</button></a>
+                  <a href="../erros/termoscondicoesmedico.php" style="color:white"><button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="pro-access">Adquirir</button></a>
                 </div>
               </div>
             </div>
@@ -286,7 +286,7 @@
                 </ul>
                 <hr>
                 <div class="text-center">
-                  <a href="../registos/auth-reg-utente.php" style="color:white"><button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="premium-access">Registar</button></a>
+                  <a href="../erros/termoscondicoesutente.php" style="color:white"><button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="premium-access">Registar</button></a>
                 </div>
 
               </div>
