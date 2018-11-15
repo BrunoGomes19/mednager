@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-$sql2 = "select comprador.ccComprador,servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico<now();";
+$sql2 = "select comprador.ccComprador,servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico<now() order by servico.dataHoraServico desc;";
 $result2 = $conn->query($sql2);
 
 
@@ -240,8 +240,6 @@ function showUser(str) {
                                                           </tr>
                                                           <tr class="spacer"></tr>';
 }
-} else {
-  echo 'Sem resultados...';
 }
                                                         echo '</div>
 
@@ -259,7 +257,16 @@ function showUser(str) {
                                                   </tbody>
                                                   </table>';
 
+                                                  if ($result->num_rows == 0 || $result2->num_rows == 0) {
 
+                                                    echo '<br>
+                                                      <tr>Sem resultados!</tr>
+
+
+                                                    ';
+
+
+                                                  }
 
 
 ?>

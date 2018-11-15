@@ -55,7 +55,7 @@ if($op==1){
       echo "0 results";
   }
 
-  $sql2 = "select comprador.ccComprador,servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico<now();";
+  $sql2 = "select comprador.ccComprador,servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico<now() order by servico.dataHoraServico desc;";
   $result2 = $conn->query($sql2);
 
 
@@ -132,7 +132,20 @@ if($op==1){
   </tbody>
   </table>
 
+
+
   ';
+
+  if ($result->num_rows == 0 || $result2->num_rows == 0) {
+
+    echo '<br>
+      <tr>Sem resultados!</tr>
+
+
+    ';
+
+
+  }
 
 }else{
 
@@ -155,7 +168,7 @@ if($op==1){
           echo "0 results";
       }
 //select servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico<now();
-      $sql2 = "select comprador.ccComprador,servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local where local.codLocal = servico.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico between concat('".$q."',' 00:00:00') and concat('".$q."',' 23:59:59');";
+      $sql2 = "select comprador.ccComprador,servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local where local.codLocal = servico.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico between concat('".$q."',' 00:00:00') and concat('".$q."',' 23:59:59') order by servico.dataHoraServico desc;";
       $result2 = $conn->query($sql2);
 
 
@@ -231,6 +244,17 @@ if($op==1){
       </table>
 
       ';
+
+      if ($result->num_rows == 0 || $result2->num_rows == 0) {
+
+        echo '<br>
+          <tr>Sem resultados!</tr>
+
+
+        ';
+
+
+      }
 
   }
 
