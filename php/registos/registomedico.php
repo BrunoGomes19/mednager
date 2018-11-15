@@ -12,35 +12,8 @@ if ($result->num_rows > 0) {
 
 		$especialidadeInt = $row["codEspecialidade"];
 
-		$especialidade = $row["codEspecialidade"];
-
 		$numeroOrdem = $row["nrOrdem"];
 
-		if($especialidade==1){
-
-			$especialidade="";
-
-		}else{
-
-			if($especialidade==2){
-
-			$especialidade="Pediatria";
-
-		}else{
-
-			if($especialidade==3){
-
-			$especialidade="Cardiologia";
-
-		}else{
-
-			$especialidade="";
-
-		}
-
-		}
-
-		}
 
 		//sexo
 
@@ -344,7 +317,7 @@ $conn->close();
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Código postal</label>
-                                                <input type="text" class="form-control" placeholder="" required name="codigopostal" value="<?php	echo $codigopostal;	?>">
+                                                <input type="text" class="form-control" placeholder="" required name="codigopostal" value="<?php	echo $codigopostal;	?>" pattern="\d{4}-\d{3}"/>
                                             </div>
                                         </div>
 

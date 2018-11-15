@@ -124,7 +124,7 @@ if ($result->num_rows > 0) {
                                     <a href="index.html">Gestão</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Histórico</a>
+                                    <a href="../listas/historicoconsultas-medico.php">Histórico</a>
                                 </li>
                             </ul>
                         </li>
@@ -194,7 +194,7 @@ if ($result->num_rows > 0) {
                                 </li>
 
                                 <li>
-                                    <a href="#">Histórico</a>
+                                    <a href="../listas/historicoconsultas-medico.php">Histórico</a>
                                 </li>
                             </ul>
                         </li>

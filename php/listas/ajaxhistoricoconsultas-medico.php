@@ -26,6 +26,7 @@
 
     document.getElementById("hiperl").href="../perfis/perfil_utentelista.php?cc="+h;
 
+
   }
   </script>
 
@@ -40,14 +41,14 @@ $op = $_GET['op'];
 
 if($op==1){
 
-  $sql = "SELECT * FROM utente where emailUtente='$emailA'";
+  $sql = "SELECT * FROM comprador where emailComprador='$emailA'";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
       // output data of each row
       while($row = $result->fetch_assoc()) {
 
-        $cc = $row['ccUtente'];
+      $codComprador = $row['codComprador'];
 
 
       }
@@ -55,7 +56,7 @@ if($op==1){
       echo "0 results";
   }
 
-  $sql2 = "select comprador.ccComprador,servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico<now();";
+  $sql2 = "select servico.codServico,servico.descriServico,servico.dataHoraServico,utente.ccUtente,utente.nomeUtente,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local, utente where utente.ccUtente = servico.ccUtente and servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.codComprador = '$codComprador' and servico.dataHoraServico<now();";
   $result2 = $conn->query($sql2);
 
 
@@ -70,7 +71,7 @@ if($op==1){
           <th></th>
           <th>Serviço</th>
           <th>Data e hora</th>
-          <th>Médico</th>
+          <th>Utente</th>
           <th></th>
       </tr>
       </thead>
@@ -91,11 +92,11 @@ if($op==1){
 
     $duracaoServico = $row['duracaoServico'];
 
-    $nomeMedico = $row['nomeComprador'];
+    $nomeUtente = $row['nomeUtente'];
 
     $descriLocal = $row['descriLocal'];
 
-    $ccComprador = $row['ccComprador'];
+    $ccutente = $row['ccUtente'];
 
 
     echo '<tr class="tr-shadow">
@@ -104,12 +105,12 @@ if($op==1){
         <td>
             <span class="block-email">'.$dataHoraServico.'</span>
         </td>
-        <td class="desc">'.$nomeMedico.'</td>
+        <td class="desc">'.$nomeUtente.'</td>
 
         <td title="Ver mais informações">
 
 
-                <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" onclick="x('.$codServico.',\'' . str_replace("'", "\'", $descriServico) . '\',\'' . str_replace("'", "\'", $dataHoraServico) . '\','.$pvpServico.','.$duracaoServico.',\'' . str_replace("'", "\'", $nomeMedico) . '\',\'' . str_replace("'", "\'", $descriLocal) . '\','.$ccComprador.');">
+                <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" onclick="x('.$codServico.',\'' . str_replace("'", "\'", $descriServico) . '\',\'' . str_replace("'", "\'", $dataHoraServico) . '\','.$pvpServico.','.$duracaoServico.',\'' . str_replace("'", "\'", $nomeUtente) . '\',\'' . str_replace("'", "\'", $descriLocal) . '\','.$ccutente.');">
                     <i class="fas fa-info"></i></button>
 
         </td>
@@ -140,14 +141,14 @@ if($op==1){
 
     $q = $_GET["q"];
 
-      $sql = "SELECT * FROM utente where emailUtente='$emailA'";
+      $sql = "SELECT * FROM comprador where emailComprador='$emailA'";
       $result = $conn->query($sql);
 
       if ($result->num_rows > 0) {
           // output data of each row
           while($row = $result->fetch_assoc()) {
 
-            $cc = $row['ccUtente'];
+            $codComprador = $row['codComprador'];
 
 
           }
@@ -155,7 +156,11 @@ if($op==1){
           echo "0 results";
       }
 //select servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico<now();
-      $sql2 = "select comprador.ccComprador,servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local where local.codLocal = servico.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico between concat('".$q."',' 00:00:00') and concat('".$q."',' 23:59:59');";
+      $sql2 = "select servico.codServico,servico.descriServico,servico.dataHoraServico,utente.nomeUtente,comprador.nomeComprador,servico.pvpServico,servico.duracaoServico,descriLocal,utente.ccUtente from utente,comprador, servico, local where utente.ccUtente = servico.ccUtente and local.codLocal = servico.codLocal and servico.codComprador = comprador.codComprador and servico.codComprador = '$codComprador' and NIFUtente like '".$q."%';";
+
+      //  //$sql="SELECT * FROM utente WHERE NIFUtente like '".$q."%' ORDER BY nomeUtente limit 4";
+
+
       $result2 = $conn->query($sql2);
 
 
@@ -168,7 +173,7 @@ if($op==1){
               <th></th>
               <th>Serviço</th>
               <th>Data e hora</th>
-              <th>Médico</th>
+              <th>Utente</th>
               <th></th>
           </tr>
           </thead>
@@ -189,11 +194,11 @@ if($op==1){
 
         $duracaoServico = $row['duracaoServico'];
 
-        $nomeMedico = $row['nomeComprador'];
+        $nomeUtente = $row['nomeUtente'];
 
         $descriLocal = $row['descriLocal'];
 
-        $ccComprador = $row['ccComprador'];
+        $ccutente = $row['ccUtente'];
 
 
         echo '<tr class="tr-shadow">
@@ -202,12 +207,12 @@ if($op==1){
             <td>
                 <span class="block-email">'.$dataHoraServico.'</span>
             </td>
-            <td class="desc">'.$nomeMedico.'</td>
+            <td class="desc">'.$nomeUtente.'</td>
 
             <td title="Ver mais informações">
 
 
-                    <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" onclick="x('.$codServico.',\'' . str_replace("'", "\'", $descriServico) . '\',\'' . str_replace("'", "\'", $dataHoraServico) . '\','.$pvpServico.','.$duracaoServico.',\'' . str_replace("'", "\'", $nomeMedico) . '\',\'' . str_replace("'", "\'", $descriLocal) . '\','.$ccComprador.');">
+                    <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" onclick="x('.$codServico.',\'' . str_replace("'", "\'", $descriServico) . '\',\'' . str_replace("'", "\'", $dataHoraServico) . '\','.$pvpServico.','.$duracaoServico.',\'' . str_replace("'", "\'", $nomeUtente) . '\',\'' . str_replace("'", "\'", $descriLocal) . '\','.$ccutente.');">
                         <i class="fas fa-info"></i></button>
 
             </td>
@@ -239,7 +244,7 @@ if($op==1){
 
 
 
-if ($result->num_rows == 0) {
+if ($result->num_rows == 0 || $result2->num_rows == 0) {
 
   echo '<br>
     <tr>Sem resultados!</tr>

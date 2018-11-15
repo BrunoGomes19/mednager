@@ -1,23 +1,23 @@
 <?php
-include('../topos/topo_utente.php');
+include('../topos/topo_medico.php');
 
 $emailA = $_SESSION['email'];
 
-$sql = "SELECT * FROM utente where emailUtente='$emailA'";
+$sql = "SELECT * FROM comprador where emailComprador='$emailA'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
 
-      $cc = $row['ccUtente'];
+      $codComprador = $row['codComprador'];
 
     }
 } else {
     echo "0 results";
 }
 
-$sql2 = "select comprador.ccComprador,servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico<now();";
+$sql2 = "select servico.codServico,servico.descriServico,servico.dataHoraServico,utente.ccUtente,utente.nomeUtente,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local, utente where utente.ccUtente = servico.ccUtente and servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.codComprador = '$codComprador' and servico.dataHoraServico<now();";
 $result2 = $conn->query($sql2);
 
 
@@ -47,12 +47,11 @@ $result2 = $conn->query($sql2);
 
         document.getElementById('duracao').innerHTML = e+" h";
 
-        document.getElementById('nomemedico').innerHTML = f;
+        document.getElementById('nomeutente').innerHTML = f;
 
         document.getElementById('local').innerHTML = g;
 
-        document.getElementById("hiperl").href="../perfis/perfil_medicolista.php?cc="+h;
-
+        document.getElementById("hiperl").href="../perfis/perfil_utentelista.php?cc="+h;
 
       }
 
@@ -80,7 +79,7 @@ function showUser(str) {
               document.getElementById("txtHint").innerHTML = this.responseText;
           }
       };
-      xmlhttp.open("GET","ajaxhistoricoconsultas-utente?q="+str+"&op=1",true);
+      xmlhttp.open("GET","ajaxhistoricoconsultas-medico?q="+str+"&op=1",true);
       xmlhttp.send();
 
 
@@ -97,7 +96,7 @@ function showUser(str) {
                 document.getElementById("txtHint").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET","ajaxhistoricoconsultas-utente.php?q="+str+"&op=2",true);
+        xmlhttp.open("GET","ajaxhistoricoconsultas-medico.php?q="+str+"&op=2",true);
         xmlhttp.send();
     }
 }
@@ -141,7 +140,7 @@ function showUser(str) {
                                                             <i class="fa fa-search"></i>
                                                         </button>
 
-                                                        <input type="text" class="form-control" name="date" placeholder="YYYY-MM-DD"  id="input1-group2" name="input1-group2" placeholder="Data da intervenção" class="form-control" onchange="showUser(this.value)" autocomplete="off">
+                                                        <input type="text" id="input1-group2" name="input1-group2" placeholder="NIF" class="form-control" onkeyup="showUser(this.value)">
 
 
 
@@ -190,7 +189,7 @@ function showUser(str) {
                                                               <th></th>
                                                               <th>Serviço</th>
                                                               <th>Data e hora</th>
-                                                              <th>Médico</th>
+                                                              <th>Utente</th>
                                                               <th></th>
                                                           </tr>
                                                       </thead>
@@ -215,11 +214,11 @@ function showUser(str) {
 
                                                           $duracaoServico = $row['duracaoServico'];
 
-                                                          $nomeMedico = $row['nomeComprador'];
+                                                          $nomeUtente = $row['nomeUtente'];
 
                                                           $descriLocal = $row['descriLocal'];
 
-                                                          $ccComprador = $row['ccComprador'];
+                                                          $ccutente = $row['ccUtente'];
 
 
                                                           echo '<tr class="tr-shadow">
@@ -228,20 +227,18 @@ function showUser(str) {
                                                               <td>
                                                                   <span class="block-email">'.$dataHoraServico.'</span>
                                                               </td>
-                                                              <td class="desc">'.$nomeMedico.'</td>
+                                                              <td class="desc">'.$nomeUtente.'</td>
 
                                                               <td title="Ver mais informações">
 
 
-                                                                      <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" onclick="x('.$codServico.',\'' . str_replace("'", "\'", $descriServico) . '\',\'' . str_replace("'", "\'", $dataHoraServico) . '\','.$pvpServico.','.$duracaoServico.',\'' . str_replace("'", "\'", $nomeMedico) . '\',\'' . str_replace("'", "\'", $descriLocal) . '\','.$ccComprador.');">
+                                                                      <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" onclick="x('.$codServico.',\'' . str_replace("'", "\'", $descriServico) . '\',\'' . str_replace("'", "\'", $dataHoraServico) . '\','.$pvpServico.','.$duracaoServico.',\'' . str_replace("'", "\'", $nomeUtente) . '\',\'' . str_replace("'", "\'", $descriLocal) . '\','.$ccutente.');">
                                                                           <i class="fas fa-info"></i></button>
 
                                                               </td>
                                                           </tr>
                                                           <tr class="spacer"></tr>';
 }
-} else {
-  echo 'Sem resultados...';
 }
                                                         echo '</div>
 
@@ -259,7 +256,16 @@ function showUser(str) {
                                                   </tbody>
                                                   </table>';
 
+                                                  if ($result->num_rows == 0 || $result2->num_rows == 0) {
 
+                                                    echo '<br>
+                                                      <tr>Sem resultados!</tr>
+
+
+                                                    ';
+
+
+                                                  }
 
 
 ?>
@@ -386,8 +392,8 @@ function showUser(str) {
 
                                             </tr>
                                             <tr>
-                                                <td>Nome do médico</td>
-                                                <td><a href="" id="hiperl"><p id="nomemedico"> </p></a></td>
+                                                <td>Nome do utente</td>
+                                                <td><a href="" id="hiperl"><p id="nomeutente"> </p></a></td>
 
                                             </tr>
                                             <tr>

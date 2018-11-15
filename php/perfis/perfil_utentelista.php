@@ -92,11 +92,49 @@ $conn->close();
                                 <div class="col-md-8">
                                     <div class="card">
                                       <div class="card-footer">
-                                        <form action="../listas/medico-lu.php" method="GET" style ='float: left; padding: 5px;'>
+                                        <form action="
+
+<?php
+
+//Caso aceda ao perfil pela lista de médicos o voltar vai redirecionar para lá novamente
+
+//Caso aceda ao perfil pelo historico de intervenções vai redirecionar para lá novamente
+
+//Caso aceda ao perfil pelo URL em qualquer lugar vai redirecionar para o index-medico.php
+
+if(empty($_SERVER['HTTP_REFERER'])){
+
+echo "http://localhost/mednager/php/indexes/index-medico.php";
+
+}else{
+
+  $last = $_SERVER['HTTP_REFERER'];
+
+  if($last == 'http://localhost/mednager/php/listas/medico-lu.php'){
+
+  echo $last;
+
+  }else{
+
+  echo "http://localhost/mednager/php/listas/historicoconsultas-medico.php";
+
+  }
+
+}
+
+
+
+
+ ?>
+
+
+                                        " method="GET" style ='float: left; padding: 5px;'>
             																			<button type="submit" class="btn btn-primary btn-sm" style="font-size:16px">
             																					<i class="fa fa-arrow-left"></i> Voltar
             																			</button>&nbsp
                                         </form>
+
+
                                         <form action="../../exemplopdf/index.php" style ='float: right; padding: 5px'>
                                                     <button type="submit" class="btn btn-warning btn-sm" style="font-size:16px">
                                                       <i class="fas fa-print"></i> Imprimir
