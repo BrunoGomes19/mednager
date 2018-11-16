@@ -25,19 +25,13 @@
 <script>
 
 
-window.onload = function() {
-
-  document.getElementById("aceito").disabled = true;
-
-
-
-};
-
 function aceito(){
 
-  document.getElementById("aceito").disabled = false;
+  document.getElementById("termos").style.display = "block";
+
 
 }
+
 
 
 
@@ -116,7 +110,7 @@ function aceito(){
 
                                     </div>
 
-                  <textarea rows="17" cols="55" readonly style="padding:2%;border-radius:3px" onclick="aceito();">
+                  <textarea rows="17" cols="55" readonly style="padding:2%;border-radius:3px" onscroll="aceito();" id="textarea" name="textarea" class="textarea">
                     TERMOS E CONDIÇÕES
 Política de privacidade e Termos e Condições
 
@@ -229,7 +223,7 @@ Data de publicação deste aviso legal: Outubro 2011.
                             <div class="col-12">
                                 <div class="form-group">
 
-                                    <div class="p-t-20">
+                                    <div class="p-t-20" id="termos" style="display:none;">
                                         <a href="../registos/authentication-register.php">
                                         <input class="btn btn-info float-right" type="submit" name="submit" value="Aceito" id="aceito">
                                         </a>
