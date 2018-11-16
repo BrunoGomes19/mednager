@@ -233,7 +233,7 @@
 
 				//INSERIR NA BD
 
-		$sql = "INSERT into utente(nifUtente,ccUtente, emailUtente, passUtente, nomeUtente, sexoUtente,codPermissao,codAlertaUtente, codSubsistema) values('$nif','$ccUtente','$email',md5('$pass'),'$nome','$sexo',3,1,1);";
+		$sql = "INSERT into utente(nifUtente,ccUtente, emailUtente, passUtente, nomeUtente, sexoUtente,codPermissao,codAlertaUtente, codSubsistema, emailconfirmUtente) values('$nif','$ccUtente','$email',md5('$pass'),'$nome','$sexo',3,1,1,0);";
 
 		//Criar especialidade 1 - novo | O comprador só insere a sua "especialidade" após a página de registo
 
@@ -241,15 +241,72 @@
 
 		if($query){
 
-					$_SESSION['login_user']= $nome; //esta var.
+//Enviar email com link
 
-					$_SESSION['email']=$email; //esta var.
+		$str = "0123456789qwertyuiopasdfghjklzxcvbnm";
+
+		$str = str_shuffle($str);
+
+		$str = substr($str,0,12);
+
+		$url = "http://localhost/mednager/php/registos/emailConfirmUtente.php?codeEmailConfirm=$str&email=$email&tipo=u";
+
+		echo $url;
+
+		//CODIGO PHPMAILER
 
 
-			//Variaveis de sessão
+		require '../../PHPMailerAutoload.php';
+		require '../../credential.php';
+
+			$mail = new PHPMailer;
+
+			$mail->SMTPDebug = 4;                               // Enable verbose debug output
+
+			$mail->SMTPOptions = array( 'ssl' => array( 'verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true ) );                                     // Set mailer to use SMTP
+			$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+			$mail->SMTPAuth = true;                               // Enable SMTP authentication
+			$mail->Username = EMAIL;                 // SMTP username
+			$mail->Password = 'PASS';                           // SMTP password
+			$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+			$mail->Port = 587;                                    // TCP port to connect to
+
+			$mail->setFrom(EMAIL, 'mednager');
+			$mail->addAddress($email);     // Add a recipient
+
+			$mail->addReplyTo(EMAIL);
 
 
-			header("Location: registoutente.php");
+			//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+			$mail->isHTML(true);                                  // Set email format to HTML
+
+			$mail->Subject = 'Confirmacao de email';
+			$mail->Body    = 'Para terminar a confirmacao de email clique no seguinte link: <br>'.$url;
+			$mail->AltBody = '';
+
+			if(!$mail->send()) {
+				echo 'Message could not be sent.';
+				echo 'Mailer Error: ' . $mail->ErrorInfo;
+			} else {
+
+				header("Location: ../logins/authentication-login.php?signup=ee");
+
+			}
+
+
+		//
+
+
+		//mail($email,"Reset password","To reset your password, please click here: ola","From: bgomes18.1999@gmail.com\r\n");
+
+		$conn->query("UPDATE utente set codeEmailConfirm='$str' WHERE emailUtente='$email'");
+
+
+
+//Fim do email com link
+
+
+			header("Location: ../logins/authentication-login.php?signup=emailregisto");
 
 			exit();
 

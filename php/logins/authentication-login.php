@@ -185,7 +185,32 @@
 							   <span style="color:white;">E-mail enviado com sucesso!</span>
 								</div>';
 
-							}
+							}else{
+
+                if(strpos($fullUrl, "signup=emailregisto") == true){
+
+                  echo'<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
+  							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  							   <span style="color:white;">Obrigado por efetuar o seu registo.<br>Por favor verifique o seu email para confirmar a sua conta!</span>
+  								</div>';
+
+                }else{
+
+                  if(strpos($fullUrl, "signup=emailconfirmado") == true){
+
+                    echo'<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                     <span style="color:white;">Email confirmado com sucesso!</span>
+                    </div>';
+
+
+                  }
+
+
+
+                }
+
+              }
 
 							}
 

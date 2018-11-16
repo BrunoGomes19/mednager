@@ -260,7 +260,7 @@
 
 				//INSERIR NA BD
 
-		$sql = "INSERT into comprador(NIFComprador,emailComprador,ccComprador,passComprador,nrOrdem,nomeComprador,sexoComprador,codEspecialidade,codPermissao,codAlertaComprador,estadoComprador) values('$nif','$email','$cc',md5('$pass'),$numeroOrdem,'$nome','$sexo',1,2,1,0);";
+		$sql = "INSERT into comprador(NIFComprador,emailComprador,ccComprador,passComprador,nrOrdem,nomeComprador,sexoComprador,codEspecialidade,codPermissao,codAlertaComprador,estadoComprador,emailConfirmComprador) values('$nif','$email','$cc',md5('$pass'),$numeroOrdem,'$nome','$sexo',1,2,1,0,0);";
 
 		//Criar especialidade 1 - novo | O comprador só insere a sua "especialidade" após a página de registo
 
@@ -268,21 +268,67 @@
 
 		if($query){
 
-					$_SESSION['login_user']= $nome; //esta var.
+			$str = "0123456789qwertyuiopasdfghjklzxcvbnm";
 
-					$_SESSION['email']=$email; //esta var.
+			$str = str_shuffle($str);
 
-					$_SESSION['n_ordem']=$numeroOrdem; //esta var.
+			$str = substr($str,0,12);
 
-					$_SESSION['sexo']=$sexo; //esta var.
+			$url = "http://localhost/mednager/php/registos/emailConfirmComprador.php?codeEmailConfirm=$str&email=$email&tipo=c";
 
-					$_SESSION['permissao']=2;
+			echo $url;
+
+			//CODIGO PHPMAILER
 
 
-			//Variaveis de sessão
+			require '../../PHPMailerAutoload.php';
+			require '../../credential.php';
+
+				$mail = new PHPMailer;
+
+				$mail->SMTPDebug = 4;                               // Enable verbose debug output
+
+				$mail->SMTPOptions = array( 'ssl' => array( 'verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true ) );                                     // Set mailer to use SMTP
+				$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+				$mail->SMTPAuth = true;                               // Enable SMTP authentication
+				$mail->Username = EMAIL;                 // SMTP username
+				$mail->Password = 'PASS';                           // SMTP password
+				$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+				$mail->Port = 587;                                    // TCP port to connect to
+
+				$mail->setFrom(EMAIL, 'mednager');
+				$mail->addAddress($email);     // Add a recipient
+
+				$mail->addReplyTo(EMAIL);
 
 
-			header("Location: registomedico.php");
+				//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+				$mail->isHTML(true);                                  // Set email format to HTML
+
+				$mail->Subject = 'Confirmacao de email';
+				$mail->Body    = 'Para terminar a confirmacao de email clique no seguinte link: <br>'.$url;
+				$mail->AltBody = '';
+
+				if(!$mail->send()) {
+					echo 'Message could not be sent.';
+					echo 'Mailer Error: ' . $mail->ErrorInfo;
+				} else {
+
+					header("Location: ../logins/authentication-login.php?signup=ee");
+
+				}
+
+
+			//
+
+
+			//mail($email,"Reset password","To reset your password, please click here: ola","From: bgomes18.1999@gmail.com\r\n");
+
+			$conn->query("UPDATE comprador set codeEmailConfirm='$str' WHERE emailComprador='$email'");
+
+
+
+	//Fim do email com link
 
 			exit();
 

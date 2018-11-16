@@ -49,7 +49,7 @@ session_start();
   text-align:center;
   background-color: rgba(10,23,55,0.7);
   color: white;
-  
+
   /* pura mágica */
   position: absolute;
   top: 50%; /* posiciona na metade da tela */
@@ -85,20 +85,20 @@ session_start();
                 <div class="row" style="width: 100%; height: 100%; display: flex; flex-direction: row; justify-content: center; align-items: center;">
                             <div class="col-lg-6">
 
-                <p class="text-muted m-t-30 m-b-30"><b style="color: #5FBACE">Para ativar a sua conta por favor realize o pagamento.</b>
+                <p class="text-muted m-t-30 m-b-30"><b style="color: #5FBACE">Para ativar a sua conta por favor realize o pagamento e envie um email para <a href="mailto:mednager@outlook.pt">mednager@outlook.pt</a>  com o comprovativo e identificação da identidade.</b>
                 <br>
                                 <div class="card">
 
                                     <div class="card-header">Dados relativos ao pagamento</div>
                                     <div class="card-body">
 
-                                        
+
                                         <form action="" method="post" novalidate="novalidate">
-                                            <div class="form-group">                                                
+                                            <div class="form-group">
                                                 <h1>133,44€</h1>
                                                 <label for="cc-payment" class="control-label mb-1">(c/ IVA)</label>
-                                            </div>                                           
-                                            
+                                            </div>
+
                                             <div class="row">
                                                 <div class="col-6">
                                                     <div class="form-group">
@@ -106,38 +106,38 @@ session_start();
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
-                                                    
+
                                                     <label for="x_card_code" class="control-label mb-1"></label>
                                                     <div class="input-group">
-                                                        
+
                                                     </div>
                                                     <label for="x_card_code" class="control-label mb-1">Entidade: 222334</label>
                                                     <div class="input-group">
-                                                        
+
                                                     </div>
                                                     <label for="x_card_code" class="control-label mb-1">Referência: 234567890</label>
                                                     <div class="input-group">
-                                                        
+
                                                     </div>
                                                     <label for="x_card_code" class="control-label mb-1">Valor: 133, 44€</label>
                                                     <div class="input-group">
-                                                        
+
                                                     </div>
                                                 </div>
-                                            </div>                                            
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                
-                
-                <a href="../logins/logout.php" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Sair</a> 
+
+
+                <a href="../logins/logout.php" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Sair</a>
 
 
 
-                                        
+
             </div>
         </div>
         <!-- ============================================================== -->

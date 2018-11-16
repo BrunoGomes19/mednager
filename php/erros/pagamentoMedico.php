@@ -50,7 +50,7 @@ session_start();
 
                 <img src="../../assets/images/error.png"></img>
 
-                <h3 class="text-uppercase error-subtitle">A sua conta encontra-se inativa!</h3>
+                <h3 class="text-uppercase error-subtitle">Pay!</h3>
                 <p class="text-muted m-t-30 m-b-30">Para ativar a sua conta clique no email recebido após o seu registo.<br><br>Não recebeu o email de confirmação? Clique aqui!</p>
                 <a href="../logins/logout.php" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Sair</a> </div>
         </div>

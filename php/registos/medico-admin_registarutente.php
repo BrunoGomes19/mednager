@@ -187,7 +187,7 @@ if ($result->num_rows > 0) {
 				$passNoChange = $pass;
 
 
-		$sql = "INSERT into utente(ccUtente, emailUtente, passUtente, nomeUtente, sexoUtente,codPermissao,codAlertaUtente, codSubsistema, NIFUtente) values('$ccUtente','$email',md5('$pass'),'$nome',' ',3,1,1, '$nif');";
+		$sql = "INSERT into utente(ccUtente, emailUtente, passUtente, nomeUtente, sexoUtente,codPermissao,codAlertaUtente, codSubsistema, NIFUtente, emailConfirmUtente) values('$ccUtente','$email',md5('$pass'),'$nome',' ',3,1,1, '$nif',0);";
 
 		//Criar especialidade 1 - novo | O comprador só insere a sua "especialidade" após a página de registo
 
@@ -252,6 +252,17 @@ if ($result->num_rows > 0) {
 
 					if($query2){
 
+						$str = "0123456789qwertyuiopasdfghjklzxcvbnm";
+
+						$str = str_shuffle($str);
+
+						$str = substr($str,0,12);
+
+						$url = "http://localhost/mednager/php/registos/emailConfirmUtente.php?codeEmailConfirm=$str&email=$email&tipo=u";
+
+						echo $url;
+
+						//CODIGO PHPMAILER
 
 						require '../../PHPMailerAutoload.php';
 						require '../../credential.php';
@@ -282,13 +293,15 @@ if ($result->num_rows > 0) {
 							<br>As suas credenciais:
 							<br>Identificacao: '.$ccUtente.'
 							<br>Palavra-passe: '.$passNoChange.'
-							<br><br>Para entrar na plataforma clique no seguinte link: localhost/mednager/php/logins/authentication-login.php';
+							<br><br>Para entrar na plataforma clique no seguinte link:<br>'.$url;
 							$mail->AltBody = '';
 
 							if(!$mail->send()) {
 								echo 'Message could not be sent.';
 								echo 'Mailer Error: ' . $mail->ErrorInfo;
 							}
+
+									$conn->query("UPDATE utente set codeEmailConfirm='$str' WHERE emailUtente='$email'");
 
 				header("Location: ../indexes/index-medico.php?utente=add&nome=$nome");
 

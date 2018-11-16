@@ -9,7 +9,6 @@ if(isset($_POST['submit'])){
 	$conn = mysqli_connect($servername, $username, $password, $bd);
 
 
-		session_start(); //fundamental para configurar para 'o futuro' a variavel de sessao
 
 	$user = $_POST["username"];
 	$pass = $_POST["password"];
@@ -33,6 +32,17 @@ if(isset($_POST['submit'])){
 
 			if( $row["passUtente"] == md5($pass)){
 
+				$emailconfirmUtente = $row["emailconfirmUtente"];
+
+				if($emailconfirmUtente == 0){
+
+					header("Location: ../erros/contaSuspensa.php");
+
+				}else{
+
+					session_start(); //fundamental para configurar para 'o futuro' a variavel de sessao
+
+
 				$_SESSION['login_user']=$row["nomeUtente"]; //esta var.
 				//
 				//echo $_SESSION['login_user'];
@@ -50,7 +60,7 @@ if(isset($_POST['submit'])){
 				//
 
 					exit();
-
+				}
 			}else{
 
 					//echo "<br><br>Password errada - UTENTE" ;
@@ -82,7 +92,25 @@ if(isset($_POST['submit'])){
 
 				echo "<br><br>Login efetuado com sucesso - COMPRADOR" ;
 
+				$emailconfirmComprador = $row["emailconfirmComprador"];
+
+				if($emailconfirmComprador == 0){
+
+					header("Location: ../erros/contaSuspensa.php");
+
+				}else{
+
+
+					session_start(); //fundamental para configurar para 'o futuro' a variavel de sessao
+
+
 				if($row["codPermissao"] == 1){
+
+					if($row["estadoComprador"] == 0){
+
+						header("Location: ../erros/pagamento.php");
+
+					}else{
 
 					$_SESSION['login_user']=$row["nomeComprador"]; //esta var.
 
@@ -98,9 +126,17 @@ if(isset($_POST['submit'])){
 
 					exit();
 
+				}
+
 				}else{
 
 					if($row["codPermissao"] == 2){
+
+						if($row["estadoComprador"] == 0){
+
+							header("Location: ../erros/pagamentoMedico.php");
+
+						}else{
 
 						$_SESSION['login_user']=$row["nomeComprador"]; //esta var.
 
@@ -117,8 +153,12 @@ if(isset($_POST['submit'])){
 					exit();
 
 				}
+				}
 
 				}
+			}
+
+
 
 			}else{
 
