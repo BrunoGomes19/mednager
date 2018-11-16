@@ -55,6 +55,8 @@ if(isset($_POST['submit'])){
 
 				//echo "<br><br>Login efetuado com sucesso - UTENTE" ;
 
+				$_SESSION['permissao'] = $row["codPermissao"];
+
 				header("Location: ../indexes/index-utente.php");
 
 				//
