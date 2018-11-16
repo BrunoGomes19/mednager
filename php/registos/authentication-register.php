@@ -64,7 +64,7 @@ session_start();
         <!-- Login box.scss -->
         <!-- ============================================================== -->
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-light">
-            <div class="auth-box bg-light border-top border-secondary">
+            <div class="auth-box bg-light border-secondary">
                 <div>
                     <div class="text-center p-t-20 p-b-20">
                         <a href="../indexes/index.php"><span class="db"><img style="width: 100%" src="../../landingPage/img/logos/logotipo.png" alt="logo" /></span></a>

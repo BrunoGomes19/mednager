@@ -10388,9 +10388,9 @@ html[dir=ltr] body .m-l-20 {
 	margin-left: 20px
 }
 
-html[dir=ltr] body .p-t-20 {
+/*html[dir=ltr] body .p-t-20 {
 	padding-top: 20px
-}
+}*/
 
 html[dir=ltr] body .p-b-20 {
 
@@ -10472,9 +10472,9 @@ html[dir=ltr] body .p-t-30 {
 	padding-top: 30px
 }
 
-html[dir=ltr] body .p-b-30 {
+/*html[dir=ltr] body .p-b-30 {
 	padding-bottom: 30px
-}
+}*/
 
 html[dir=ltr] body .p-r-30 {
 	padding-right: 30px
@@ -15580,7 +15580,7 @@ label {
 
 .auth-wrapper .auth-box {
 	background: #fff;
-	padding: 20px;
+	padding: 5px;
 	max-width: 400px;
 	width: 90%;
 }
