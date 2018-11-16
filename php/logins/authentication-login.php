@@ -84,7 +84,7 @@
             <div class="auth-box bg-light border-top border-secondary">
                 <div id="loginform">
                     <div class="text-center p-t-20 p-b-20">
-                        <a href="../indexes/index.php"><span class="db"><img style="width: 100%" src="../../assets/images/logos/dindindin.png" alt="logo" /></span></a>
+                        <a href="../indexes/index.php"><span class="db"><img style="width: 100%;padding-top:5%;" src="../../assets/images/logos/dindindin.png" alt="logo" /></span></a>
                     </div>
                     <!-- Form -->
                     <form class="form-horizontal m-t-20" id="loginform" action="login.php" method="post">
