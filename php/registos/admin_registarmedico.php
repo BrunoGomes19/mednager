@@ -215,13 +215,23 @@
 				$passNoChange = $pass;
 
 
-		$sql = "INSERT into COMPRADOR(nrOrdem, emailComprador, passComprador, nomeComprador, sexoComprador,codPermissao,codAlertaComprador, codEspecialidade, LEIComprador,estadoComprador, NIFComprador, ccComprador) values('$numeroOrdem','$email',md5('$pass'),'$nome',' ',2,1,1,'$LEIComprador',0, '$nif', '$cc');";
+		$sql = "INSERT into COMPRADOR(nrOrdem, emailComprador, passComprador, nomeComprador, sexoComprador,codPermissao,codAlertaComprador, codEspecialidade, LEIComprador,estadoComprador, NIFComprador, ccComprador, emailconfirmComprador) values('$numeroOrdem','$email',md5('$pass'),'$nome',' ',2,1,1,'$LEIComprador',0, '$nif', '$cc',0);";
 
 		//Criar especialidade 1 - novo | O comprador só insere a sua "especialidade" após a página de registo
 
 		$query = mysqli_query($conn,$sql);
 
 		if($query){
+
+			$str = "0123456789qwertyuiopasdfghjklzxcvbnm";
+
+			$str = str_shuffle($str);
+
+			$str = substr($str,0,12);
+
+			$url = "http://localhost/mednager/php/registos/emailConfirmComprador.php?codeEmailConfirm=$str&email=$email&tipo=c";
+
+			echo $url;
 
 				require '../../PHPMailerAutoload.php';
 				require '../../credential.php';
@@ -252,13 +262,15 @@
 					<br>As suas credenciais:
 					<br>Identificacao: '.$email.'
 					<br>Palavra-passe: '.$passNoChange.'
-					<br><br>Para entrar na plataforma clique no seguinte link: localhost/mednager/php/logins/authentication-login.php';
+					<br><br>Para entrar na plataforma clique no seguinte link:<br>'.$url;
 					$mail->AltBody = '';
 
 					if(!$mail->send()) {
 						echo 'Message could not be sent.';
 						echo 'Mailer Error: ' . $mail->ErrorInfo;
 					}
+
+					$conn->query("UPDATE comprador set codeEmailConfirm='$str' WHERE emailComprador='$email'");
 
 				header("Location: ../indexes/index-admin.php?medico=add&nome=$nome");
 
