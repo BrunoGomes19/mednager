@@ -8,6 +8,12 @@ $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
 $color = filter_input(INPUT_POST, 'color', FILTER_SANITIZE_STRING);
 $start = filter_input(INPUT_POST, 'start', FILTER_SANITIZE_STRING);
 $end = filter_input(INPUT_POST, 'end', FILTER_SANITIZE_STRING);
+$pvpServico = filter_input(INPUT_POST, 'pvpServico', FILTER_SANITIZE_NUMBER_FLOAT);
+$nSala = filter_input(INPUT_POST, 'nSala', FILTER_SANITIZE_NUMBER_INT);
+//ir buscar codComprador ao session
+//ir buscar utente com ajax??
+$codTipoServico = filter_input(INPUT_POST, 'nSala', FILTER_SANITIZE_NUMBER_INT);
+//codAlertas a 0
 
 if(!empty($title) && !empty($color) && !empty($start) && !empty($end)){
 	//Converter a data e hora do formato brasileiro para o formato do Banco de Dados
@@ -23,7 +29,7 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end)){
 	$data_sem_barra = implode("-", $data_sem_barra);
 	$end_sem_barra = $data_sem_barra . " " . $hora;
 	
-	$result_events = "INSERT INTO events (title, color, start, end) VALUES ('$title', '$color', '$start_sem_barra', '$end_sem_barra')";
+	$result_events = "INSERT INTO servico (title, color, start, end) VALUES ('$title', '$color', '$start_sem_barra', '$end_sem_barra')";
 	$resultado_events = mysqli_query($conn, $result_events);
 	
 	//Verificar se salvou no banco de dados através "mysqli_insert_id" o qual verifica se existe o ID do último dado inserido
@@ -31,11 +37,11 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end)){
 		$_SESSION['msg'] = "<div class='alert alert-success' role='alert'>O Evento Cadastrado com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 		header("Location: index.php");
 	}else{
-		$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro ao cadastrar o evento <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+		$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro1 ao cadastrar o evento <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 		header("Location: index.php");
 	}
 	
 }else{
-	$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro ao cadastrar o evento <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+	$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro2 ao cadastrar o evento <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 	header("Location: index.php");
 }

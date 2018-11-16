@@ -8,7 +8,7 @@ include_once("conexao.php");
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
 if (!empty($id)) {
-    $result_events = "DELETE FROM events WHERE id = $id";
+    $result_events = "DELETE FROM servico WHERE id = $id";
     $resultado_events = mysqli_query($conn, $result_events);
 
     //Verificar se alterou no banco de dados através "mysqli_affected_rows"

@@ -10,6 +10,7 @@ $color = filter_input(INPUT_POST, 'color', FILTER_SANITIZE_STRING);
 $start = filter_input(INPUT_POST, 'start', FILTER_SANITIZE_STRING);
 $end = filter_input(INPUT_POST, 'end', FILTER_SANITIZE_STRING);
 
+
 if(!empty($id) && !empty($title) && !empty($color) && !empty($start) && !empty($end)){
 	//Converter a data e hora do formato brasileiro para o formato do Banco de Dados
 	$data = explode(" ", $start);
@@ -24,7 +25,7 @@ if(!empty($id) && !empty($title) && !empty($color) && !empty($start) && !empty($
 	$data_sem_barra = implode("-", $data_sem_barra);
 	$end_sem_barra = $data_sem_barra . " " . $hora;
 	
-	$result_events = "UPDATE events SET title='$title', color='$color', start='$start_sem_barra', end='$end_sem_barra' WHERE id='$id'"; 
+	$result_events = "UPDATE servico SET title='$title', color='$color', start='$start_sem_barra', codAlertaComprador = 0, codAlertaUtente = 0, end='$end_sem_barra' WHERE id='$id'"; 
 	$resultado_events = mysqli_query($conn, $result_events);
 	
 	//Verificar se alterou no banco de dados através "mysqli_affected_rows"
