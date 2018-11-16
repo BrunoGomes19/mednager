@@ -21,6 +21,12 @@ if ($result->num_rows > 0) {
   }
 }
 
+if($_SESSION['permissao'] != 3){
+
+  header("Location: ../logins/logout.php");
+
+}
+
 
 ?>
 

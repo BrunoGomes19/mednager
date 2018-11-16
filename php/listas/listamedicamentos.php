@@ -118,6 +118,8 @@ yes.onchange = function(){
 
                                         </div>
                                         <div class="table-data__tool-right">
+                                          <h5>Especialidade</h5>
+                                          <h4>&nbsp</h4>
 <?php
                                           echo '<select id="dropdown-especialidades" onchange="escolherEspecialidade();">';
 ?>

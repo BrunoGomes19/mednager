@@ -17,15 +17,6 @@ if ($result->num_rows > 0) {
   }
 }
 
-if($codPermissao != 2){
-
-  echo "<script>window.history.back();</script>";
-
-}
-
-
-
-
 $sql2 = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao='$codPermissao' and servico.codComprador='$codComprador' and servico.dataHoraServico between now() and concat(curdate(),' 23:59:59');";
 $result = $conn->query($sql2);
 

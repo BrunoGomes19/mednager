@@ -16,12 +16,6 @@ if ($result->num_rows > 0) {
   }
 }
 
-if($codPermissao != 1){
-
-  echo "<script>window.history.back();</script>";
-
-}
-
 $sql1 = "SELECT count(*) as quantidade from comprador where codPermissao=2";
 $result = $conn->query($sql1);
 
