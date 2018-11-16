@@ -10,8 +10,20 @@ if ($result->num_rows > 0) {
 
   $ccUtente = $row["ccUtente"];
 
+  $codPermissao = $row["codPermissao"];
+
   }
 }
+
+//ver a permissao
+
+if($codPermissao != 3){
+
+  echo "<script>window.history.back();</script>";
+
+}
+
+
 
 $sql1 = "SELECT distinct count(*) as quantidade from associados where associados.utente_ccUtente=$ccUtente;";
 $result = $conn->query($sql1);

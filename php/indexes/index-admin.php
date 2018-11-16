@@ -11,9 +11,16 @@ if ($result->num_rows > 0) {
 
   $LEIComprador = $row['LEIComprador'];
 
+  $codPermissao = $row["codPermissao"];
+
   }
 }
 
+if($codPermissao != 1){
+
+  echo "<script>window.history.back();</script>";
+
+}
 
 $sql1 = "SELECT count(*) as quantidade from comprador where codPermissao=2";
 $result = $conn->query($sql1);

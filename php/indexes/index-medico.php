@@ -12,10 +12,16 @@ if ($result->num_rows > 0) {
 
   $codComprador = $row["codComprador"];
 
+  $codPermissao = $row["codPermissao"];
+
   }
 }
 
+if($codPermissao != 2){
 
+  echo "<script>window.history.back();</script>";
+
+}
 
 
 
