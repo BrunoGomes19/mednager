@@ -33,3 +33,6 @@ php/calendarFULL
                                         ?> 
 
 *****PAT, 17/nov, 7:11pm**********
+
+
+SECÇÃO DE NOTAS PESSOAIS/ETC

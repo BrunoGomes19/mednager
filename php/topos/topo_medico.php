@@ -99,9 +99,17 @@ if($_SESSION['permissao'] != 2){
                                 <i class="fa fa-home"></i>Início</a>
 
                         </li>
-                        <li>
-                            <a href="../pages_medico/pages-calendar.php">
-                                <i class="fa fa-book"></i>Agenda Pessoal</a>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-book"></i>Agenda</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="index.html">Gestão de intervenções</a>
+                                </li>
+                                <li>
+                                    <a href="../listas/historicoconsultas-medico.php">Histórico</a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li class="has-sub">
@@ -122,18 +130,7 @@ if($_SESSION['permissao'] != 2){
                                 <i class="fa fa-users"></i>Lista de Utentes</a>
                         </li>
 
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-tasks"></i>Intervenções</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="index.html">Gestão</a>
-                                </li>
-                                <li>
-                                    <a href="../listas/historicoconsultas-medico.php">Histórico</a>
-                                </li>
-                            </ul>
-                        </li>
+                        
 
                         <li>
                             <a href="../pages_medico/charts.php">
@@ -168,9 +165,17 @@ if($_SESSION['permissao'] != 2){
                                 <i class="fa fa-home"></i>Início</a>
 
                         </li>
-                        <li>
-                            <a href="../pages_medico/pages-calendar.php">
-                                <i class="fa fa-book"></i>Agenda Pessoal</a>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-book"></i>Agenda</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="index.html">Gestão de intervenções</a>
+                                </li>
+                                <li>
+                                    <a href="../listas/historicoconsultas-medico.php">Histórico de intervenções</a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li >
@@ -191,19 +196,7 @@ if($_SESSION['permissao'] != 2){
                                 <i class="fa fa-users"></i>Lista de Utentes</a>
                         </li>
 
-                        <li>
-                            <a class="js-arrow" href="#">
-                                <i class="fa fa-tasks"></i>Intervenções</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="#">Gestão</a>
-                                </li>
-
-                                <li>
-                                    <a href="../listas/historicoconsultas-medico.php">Histórico</a>
-                                </li>
-                            </ul>
-                        </li>
+                        
 
                         <li>
                             <a href="form.html">

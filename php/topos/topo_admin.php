@@ -83,6 +83,7 @@ if($_SESSION['permissao'] != 1){
                                 <i class="fas fa-user-md"></i>Lista de Médicos</a>
                         </li>
                         <li class="has-sub">
+                            <!--MUDAR PARA GERIR CAMPOS DE ESPECIALIDADES-->
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-tasks"></i>Intervenções</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
