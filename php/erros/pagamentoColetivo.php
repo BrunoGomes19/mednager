@@ -78,7 +78,7 @@ session_start();
         <div class="error-box">
             <div class="error-body text-center">
                 <h1 class="error-title text-danger"></h1>
-                <br><br>
+                <br>
                 <img src="../../assets/images/logos/logotipo.png" style="width: 25%"></img>
 
 
@@ -98,7 +98,7 @@ session_start();
                                                 <div class="col-6">
                                                     <label for="cc-payment" class="control-label mb-1"></label>
                                                     <p>14x49,99€</p>
-                                                
+
                                                 </div>
                                                 <div class="col-6">
                                                     <h1>699,86€</h1>

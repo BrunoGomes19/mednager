@@ -110,7 +110,7 @@ if(isset($_POST['submit'])){
 
 					if($row["estadoComprador"] == 0){
 
-						header("Location: ../erros/pagamento.php");
+						header("Location: ../erros/pagamentoColetivo.php");
 
 					}else{
 

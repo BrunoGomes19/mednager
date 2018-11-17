@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-$sql2 = "select comprador.ccComprador,servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico<now() order by servico.dataHoraServico desc;";
+$sql2 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start<now() order by servico.start desc;";
 $result2 = $conn->query($sql2);
 
 
@@ -35,24 +35,25 @@ $result2 = $conn->query($sql2);
 
       <script>
 
-      function x(a,b,c,d,e,f,g,h){
+      function x(a,b,c,d,e,f,g,h,i){
 
         document.getElementById('cod').innerHTML = "Informações da intervenção #"+a;
 
         document.getElementById('descricao').innerHTML = b;
 
-        document.getElementById('datahora').innerHTML = c;
+        document.getElementById('start').innerHTML = c;
 
-        document.getElementById('preco').innerHTML = d+" €";
+        document.getElementById('end').innerHTML = d;
 
-        document.getElementById('duracao').innerHTML = e+" h";
+        document.getElementById('preco').innerHTML = e+" €";
 
         document.getElementById('nomemedico').innerHTML = f;
 
         document.getElementById('local').innerHTML = g;
 
-        document.getElementById("hiperl").href="../perfis/perfil_medicolista.php?cc="+h;
+        document.getElementById("hiperl").href="../perfis/perfil_utentelista.php?cc="+h;
 
+        document.getElementById('observacoes').innerHTML = i;
 
       }
 
@@ -189,7 +190,7 @@ function showUser(str) {
                                                           <tr>
                                                               <th></th>
                                                               <th>Serviço</th>
-                                                              <th>Data e hora</th>
+                                                              <th>Data e hora do início</th>
                                                               <th>Médico</th>
                                                               <th></th>
                                                           </tr>
@@ -205,15 +206,15 @@ function showUser(str) {
                                                         // output data of each row
                                                         while($row = $result2->fetch_assoc()) {
 
-                                                          $codServico = $row['codServico'];
+                                                          $codServico = $row['id'];
 
-                                                          $descriServico = $row['descriServico'];
+                                                          $descriServico = $row['title'];
 
-                                                          $dataHoraServico = $row['dataHoraServico'];
+                                                          $start = $row['start'];
+
+                                                          $end = $row['end'];
 
                                                           $pvpServico = $row['pvpServico'];
-
-                                                          $duracaoServico = $row['duracaoServico'];
 
                                                           $nomeMedico = $row['nomeComprador'];
 
@@ -221,19 +222,21 @@ function showUser(str) {
 
                                                           $ccComprador = $row['ccComprador'];
 
+                                                          $observacoes = $row['observacoes'];
+
 
                                                           echo '<tr class="tr-shadow">
                                                               <td></td>
                                                               <td>'.$descriServico.'</td>
                                                               <td>
-                                                                  <span class="block-email">'.$dataHoraServico.'</span>
+                                                                  <span class="block-email">'.$start.'</span>
                                                               </td>
                                                               <td class="desc">'.$nomeMedico.'</td>
 
                                                               <td title="Ver mais informações">
 
 
-                                                                      <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" onclick="x('.$codServico.',\'' . str_replace("'", "\'", $descriServico) . '\',\'' . str_replace("'", "\'", $dataHoraServico) . '\','.$pvpServico.','.$duracaoServico.',\'' . str_replace("'", "\'", $nomeMedico) . '\',\'' . str_replace("'", "\'", $descriLocal) . '\','.$ccComprador.');">
+                                                                      <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" onclick="x('.$codServico.',\'' . str_replace("'", "\'", $descriServico) . '\',\'' . str_replace("'", "\'", $start) . '\',\'' . str_replace("'", "\'", $end) . '\','.$pvpServico.',\'' . str_replace("'", "\'", $nomeMedico) . '\',\'' . str_replace("'", "\'", $descriLocal) . '\','.$ccComprador.',\'' . str_replace("'", "\'", $observacoes) . '\');">
                                                                           <i class="fas fa-info"></i></button>
 
                                                               </td>
@@ -369,42 +372,63 @@ function showUser(str) {
                             <div class="col-md-12">
                                 <!-- DATA TABLE-->
                                 <div class="table-responsive m-b-40">
-                                    <table class="table table-borderless table-data3">
+                                <table class="table table-borderless table-data3">
 
-                                        <tbody>
-                                            <tr>
-                                                <td>Descrição</td>
-                                                <td id="descricao"></td>
+                                    <tbody>
+                                        <tr>
+                                            <td>Descrição</td>
+                                            <td id="descricao"></td>
 
-                                            </tr>
-                                            <tr>
-                                                <td>Data e hora</td>
-                                                <td id="datahora"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Data e hora do início</td>
+                                            <td id="start"></td>
 
-                                            </tr>
-                                            <tr>
-                                                <td>Preço</td>
-                                                <td id="preco"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Data e hora do fim</td>
+                                            <td id="end"></td>
 
-                                            </tr>
-                                            <tr>
-                                                <td>Duração</td>
-                                                <td id="duracao"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Preço</td>
+                                            <td id="preco"></td>
 
-                                            </tr>
-                                            <tr>
-                                                <td>Nome do médico</td>
-                                                <td><a href="" id="hiperl"><p id="nomemedico"> </p></a></td>
+                                        </tr>
 
-                                            </tr>
-                                            <tr>
-                                                <td>Local</td>
-                                                <td id="local"></td>
+                                        <tr>
+                                            <td>Nome do utente</td>
+                                            <td><a href="" id="hiperl"><p id="nomemedico"> </p></a></td>
 
-                                            </tr>
+                                        </tr>
+                                        <tr>
+                                            <td>Local</td>
+                                            <td id="local"></td>
 
-                                        </tbody>
-                                    </table>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+
+                                <table class="a table table-borderless table-data3">
+
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align:left;">Observações</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:left" id="observacoes"></td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                  </table>
+
+
                                 </div>
                                 <!-- END DATA TABLE-->
                             </div>
