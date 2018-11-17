@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-$sql2 = "select servico.codServico,servico.descriServico,servico.dataHoraServico,utente.ccUtente,utente.nomeUtente,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local, utente where utente.ccUtente = servico.ccUtente and servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.codComprador = '$codComprador' and servico.dataHoraServico<now() order by servico.dataHoraServico desc;";
+$sql2 = "select servico.id,servico.title,servico.start,servico.end,utente.ccUtente,utente.nomeUtente,servico.pvpServico,descriLocal from comprador, servico, local, utente where utente.ccUtente = servico.ccUtente and servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.codComprador = '$codComprador' and servico.end<now() order by servico.end desc;";
 $result2 = $conn->query($sql2);
 
 
@@ -41,17 +41,19 @@ $result2 = $conn->query($sql2);
 
         document.getElementById('descricao').innerHTML = b;
 
-        document.getElementById('datahora').innerHTML = c;
+        document.getElementById('start').innerHTML = c;
 
-        document.getElementById('preco').innerHTML = d+" €";
+        document.getElementById('end').innerHTML = d;
 
-        document.getElementById('duracao').innerHTML = e+" h";
+        document.getElementById('preco').innerHTML = e+" €";
 
-        document.getElementById('nomeutente').innerHTML = f;
+        document.getElementById('duracao').innerHTML = f+" h";
 
-        document.getElementById('local').innerHTML = g;
+        document.getElementById('nomeutente').innerHTML = g;
 
-        document.getElementById("hiperl").href="../perfis/perfil_utentelista.php?cc="+h;
+        document.getElementById('local').innerHTML = h;
+
+        document.getElementById("hiperl").href="../perfis/perfil_utentelista.php?cc="+i;
 
       }
 
@@ -188,7 +190,7 @@ function showUser(str) {
                                                           <tr>
                                                               <th></th>
                                                               <th>Serviço</th>
-                                                              <th>Data e hora</th>
+                                                              <th>Data e hora do início</th>
                                                               <th>Utente</th>
                                                               <th></th>
                                                           </tr>
@@ -204,15 +206,15 @@ function showUser(str) {
                                                         // output data of each row
                                                         while($row = $result2->fetch_assoc()) {
 
-                                                          $codServico = $row['codServico'];
+                                                          $codServico = $row['id'];
 
-                                                          $descriServico = $row['descriServico'];
+                                                          $descriServico = $row['title'];
 
-                                                          $dataHoraServico = $row['dataHoraServico'];
+                                                          $start = $row['start'];
+
+                                                          $end = $row['end'];
 
                                                           $pvpServico = $row['pvpServico'];
-
-                                                          $duracaoServico = $row['duracaoServico'];
 
                                                           $nomeUtente = $row['nomeUtente'];
 
@@ -225,14 +227,14 @@ function showUser(str) {
                                                               <td></td>
                                                               <td>'.$descriServico.'</td>
                                                               <td>
-                                                                  <span class="block-email">'.$dataHoraServico.'</span>
+                                                                  <span class="block-email">'.$start.'</span>
                                                               </td>
                                                               <td class="desc">'.$nomeUtente.'</td>
 
                                                               <td title="Ver mais informações">
 
 
-                                                                      <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" onclick="x('.$codServico.',\'' . str_replace("'", "\'", $descriServico) . '\',\'' . str_replace("'", "\'", $dataHoraServico) . '\','.$pvpServico.','.$duracaoServico.',\'' . str_replace("'", "\'", $nomeUtente) . '\',\'' . str_replace("'", "\'", $descriLocal) . '\','.$ccutente.');">
+                                                                      <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" onclick="x('.$codServico.',\'' . str_replace("'", "\'", $descriServico) . '\',\'' . str_replace("'", "\'", $start) . '\',\'' . str_replace("'", "\'", $end) . '\','.$pvpServico.',\'' . str_replace("'", "\'", $nomeUtente) . '\',\'' . str_replace("'", "\'", $descriLocal) . '\','.$ccutente.');">
                                                                           <i class="fas fa-info"></i></button>
 
                                                               </td>
@@ -377,8 +379,13 @@ function showUser(str) {
 
                                             </tr>
                                             <tr>
-                                                <td>Data e hora</td>
-                                                <td id="datahora"></td>
+                                                <td>Data e hora do início</td>
+                                                <td id="start"></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Data e hora do fim</td>
+                                                <td id="end"></td>
 
                                             </tr>
                                             <tr>
@@ -399,6 +406,11 @@ function showUser(str) {
                                             <tr>
                                                 <td>Local</td>
                                                 <td id="local"></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Observações</td>
+                                                <td id="observacoes"></td>
 
                                             </tr>
 
