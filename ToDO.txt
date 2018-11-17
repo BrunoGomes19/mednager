@@ -1,0 +1,11 @@
+php/calendarFULL
+
+-cadastrar: falta ser dinâmico a procurar o ccUtente ou a dar a possibilidade de registá-lo na hora
+	falta ser dinâmico no Local e na intervenção, ou seja, os values vão ser printados automaticamente por cada tipoServico (nao sei se vale a pena perder tempo pq podemos adicionar uns quantos e uma opçao q seja Outro)
+
+-editar: falta dar fix nos selects Local e Tipo intervençao que não estão a aparecer, mas acho q de resto está chill
+
+-remover: Está certo
+
+
+*****PAT, 17/nov, 7:11pm**********
