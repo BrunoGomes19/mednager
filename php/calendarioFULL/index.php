@@ -156,7 +156,7 @@ session_start();
                                             <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
                                             <option style="color:#0071C5;" value="#0071c5">Azul Turquesa</option>
                                             <option style="color:#FF4500;" value="#FF4500">Laranja</option>
-                                            <option style="color:#8B4513;" value="#8B4513">Marrom</option>	
+                                            <option style="color:#5fbace;" value="#5fbace">Mednager</option>	
                                             <option style="color:#1C1C1C;" value="#1C1C1C">Preto</option>
                                             <option style="color:#436EEE;" value="#436EEE">Royal Blue</option>
                                             <option style="color:#A020F0;" value="#A020F0">Roxo</option>
@@ -191,7 +191,7 @@ session_start();
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Preço</label>
-                                    <input type="number" step="0.01" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção">
+                                    <input type="number" min="0" step="0.01" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -264,7 +264,7 @@ session_start();
                         <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
                             <div class="form-group">
                                 <div class="form-group col-md-12">
-                                    <label>Titulo</label>
+                                    <label>Título</label>
                                     <input type="text" class="form-control" name="title" id="title" placeholder="Título da intervenção">
                                 </div>
                             </div>
@@ -277,7 +277,7 @@ session_start();
                                         <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
                                         <option style="color:#0071C5;" value="#0071c5">Azul Turquesa</option>
                                         <option style="color:#FF4500;" value="#FF4500">Laranja</option>
-                                        <option style="color:#8B4513;" value="#8B4513">Marrom</option>	
+                                        <option style="color:#5fbace;" value="#5fbace">Mednager</option>	
                                         <option style="color:#1C1C1C;" value="#1C1C1C">Preto</option>
                                         <option style="color:#436EEE;" value="#436EEE">Royal Blue</option>
                                         <option style="color:#A020F0;" value="#A020F0">Roxo</option>
@@ -308,7 +308,7 @@ session_start();
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Preço</label>
-                                    <input type="number" step="0.01" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção">
+                                    <input type="number" min="0" step="0.01" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção">
                                 </div>
                             </div>
                             <div class="form-group">

@@ -7,5 +7,7 @@ php/calendarFULL
 
 -remover: Está certo
 
+-visualizar: preço não poe decimais (p.e 132,33€ fica 12333)
+	local e tipoServico aparecem as pks ids e não as descris
 
 *****PAT, 17/nov, 7:11pm**********
