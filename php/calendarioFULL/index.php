@@ -51,6 +51,21 @@ session_start();
                         $('#visualizar #end').text(event.end.format('DD/MM/YYYY HH:mm:ss'));
                         $('#visualizar #end').val(event.end.format('DD/MM/YYYY HH:mm:ss'));
                         $('#visualizar #color').val(event.color);
+                        $('#visualizar #pvpServico').text(event.pvpServico);
+                        $('#visualizar #pvpServico').val(event.pvpServico);
+                        $('#visualizar #nSala').text(event.nSala);
+                        $('#visualizar #nSala').val(event.nSala);
+                        $('#visualizar #observacoes').text(event.observacoes);
+                        $('#visualizar #observacoes').val(event.observacoes);
+                        $('#visualizar #ccUtente').text(event.ccUtente);
+                        $('#visualizar #ccUtente').val(event.ccUtente);
+                        //ver How do I get the text value of a selected option?
+                        $('#visualizar #codTipoServico').text(event.codTipoServico);
+                        $('#visualizar #codTipoServico').val(event.codTipoServico);
+                        $('#visualizar #codLocal').text(event.codLocal);
+                        $('#visualizar #codLocal').val(event.codLocal);
+
+
                         $('#visualizar').modal('show');
                         return false;
 
@@ -107,6 +122,19 @@ session_start();
                                 <dd id="start" class="col-sm-9"></dd>
                                 <dt class="col-sm-3">Fim</dt>
                                 <dd id="end" class="col-sm-9"></dd>
+                                <dt class="col-sm-3">Preço</dt>
+                                <dd id="pvpServico" class="col-sm-9"></dd>
+                                <dt class="col-sm-3">Sala</dt>
+                                <dd id="nSala" class="col-sm-9"></dd>
+                                <dt class="col-sm-3">Observações</dt>
+                                <dd id="observacoes" class="col-sm-9"></dd>
+                                <dt class="col-sm-3">CC Utente</dt>
+                                <dd id="ccUtente" class="col-sm-9"></dd>
+                                <dt class="col-sm-3">Tipo de intervenção</dt>
+                                <dd id="codTipoServico" class="col-sm-9"></dd>
+                                <dt class="col-sm-3">Local</dt>
+                                <dd id="codLocal" class="col-sm-9"></dd>
+
                             </dl>
                             <!--Talvez de shit-->
                             <button class="btn btn-canc-vis btn-warning">Editar</button>
@@ -138,6 +166,9 @@ session_start();
                                         </select>
                                     </div>
                                 </div>
+
+                                
+
                                 <div class="form-group">
                                     <div class="form-group col-md-12">
                                         <label>Data Inicial</label>
@@ -150,6 +181,62 @@ session_start();
                                         <input type="text" class="form-control" name="end" id="end" onKeyPress="DataHora(event, this)">
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                <div class="form-group col-md-12">
+                                    <label>CC Utente</label>
+                                    <input type="number" class="form-control" name="ccUtente" id="ccUtente" placeholder="CC do utente">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group col-md-12">
+                                    <label>Preço</label>
+                                    <input type="number" step="0.01" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group col-md-12">
+                                    <label>Sala</label>
+                                    <input type="number" class="form-control" name="nSala" id="nSala" placeholder="Sala">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group col-md-12">
+                                    <label>Observações</label>
+                                    <input type="text" class="form-control" name="observacoes" id="observacoes" placeholder="Observações">
+                                </div>
+                            </div>
+
+                            
+
+                            <div class="form-group">
+                                <div class="form-group col-md-12">
+                                    <label>Local</label>
+                                    <select name="codLocal" class="form-control" id="codLocal">
+                                        <option value="">Selecione</option>         
+                                        <option value="1">Cuf</option>
+                                        <option value="2">Misericordia</option>
+                                        <option value="3">Outro</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-group col-md-12">
+                                    <label>Tipo de intervenção</label>
+                                    <select name="codTipoServico" class="form-control" id="codTipoServico">
+                                        <option value="">Selecione</option>         
+                                        <option value="1">Consulta</option>
+                                        <option value="2">Cirurgia</option>
+                                        <option value="3">Outro</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+
                                 <input type="hidden" name="id" id="id">
                                 <div class="form-group col-md-12">
                                     <!--Talvez de shit-->
@@ -242,8 +329,8 @@ session_start();
                                     <label>Tipo de intervenção</label>
                                     <select name="codTipoServico" class="form-control" id="codTipoServico">
                                         <option value="">Selecione</option>         
-                                        <option value="1">Consulta</option>
-                                        <option value="2">Cirurgia</option>
+                                        <option value="1" >Consulta</option>
+                                        <option value="2" >Cirurgia</option>
                                         <option value="3">Outro</option>
                                     </select>
                                 </div>
