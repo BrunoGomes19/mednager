@@ -46,7 +46,7 @@ if ($result->num_rows > 0) {
 
 //SELECT count(*) from servico, comprador where servico.codComprador = comprador.codComprador and LEIComprador=1;
 
-$sql3 = "SELECT count(*) as quantidade from servico, comprador where servico.codComprador = comprador.codComprador and LEIComprador='$LEIComprador' and servico.dataHoraServico between now() and concat(curdate(),' 23:59:59');";
+$sql3 = "SELECT count(*) as quantidade from servico, comprador where servico.codComprador = comprador.codComprador and LEIComprador='$LEIComprador' and servico.start between now() and concat(curdate(),' 23:59:59');";
 $result = $conn->query($sql3);
 
 if (!$result) {
@@ -62,7 +62,7 @@ if ($result->num_rows > 0) {
   }
 }
 
-$sql3 = "SELECT count(*) as quantidade from servico, comprador where servico.codComprador = comprador.codComprador and LEIComprador='$LEIComprador' and servico.dataHoraServico between now() and concat((curdate() + INTERVAL 6 - weekday(curdate()) DAY),' 23:59:59');";
+$sql3 = "SELECT count(*) as quantidade from servico, comprador where servico.codComprador = comprador.codComprador and LEIComprador='$LEIComprador' and servico.start between now() and concat((curdate() + INTERVAL 6 - weekday(curdate()) DAY),' 23:59:59');";
 $result = $conn->query($sql3);
 
 if (!$result) {

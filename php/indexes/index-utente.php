@@ -25,7 +25,7 @@ if ($result->num_rows > 0) {
   }
 }
 
-$sql2 = "SELECT count(*) as quantidade from servico where servico.ccUtente=$ccUtente and servico.dataHoraServico between now() and concat(curdate(),' 23:59:59');";
+$sql2 = "SELECT count(*) as quantidade from servico where servico.ccUtente=$ccUtente and servico.start between now() and concat(curdate(),' 23:59:59');";
 $result = $conn->query($sql2);
 
 if (!$result) {
@@ -41,7 +41,7 @@ if ($result->num_rows > 0) {
   }
 }
 
-$sql3 = "SELECT count(*) as quantidade from servico where servico.ccUtente=$ccUtente and servico.dataHoraServico > now();";
+$sql3 = "SELECT count(*) as quantidade from servico where servico.ccUtente=$ccUtente and servico.start > now();";
 $result = $conn->query($sql3);
 
 if (!$result) {
