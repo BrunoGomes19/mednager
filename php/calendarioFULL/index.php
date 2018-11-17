@@ -328,7 +328,8 @@ session_start();
                                 <div class="form-group col-md-12">
                                     <label>Tipo de intervenção</label>
                                     <select name="codTipoServico" class="form-control" id="codTipoServico">
-                                        <option value="">Selecione</option>         
+                                        <option value="">Selecione</option>  
+                                              
                                         <option value="1" >Consulta</option>
                                         <option value="2" >Cirurgia</option>
                                         <option value="3">Outro</option>

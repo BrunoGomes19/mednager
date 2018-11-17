@@ -10,4 +10,26 @@ php/calendarFULL
 -visualizar: preço não poe decimais (p.e 132,33€ fica 12333)
 	local e tipoServico aparecem as pks ids e não as descris
 
+
+<?php   
+                                            
+                                            $sql = "SELECT id, title FROM servico";
+                                            $result = $conn->query($sql);
+
+                                            if ($result->num_rows > 0) {
+                                                // output data of each row
+                                                while($row = $result->fetch_assoc()) {
+
+                                                    $id = $row['id'];
+                                                    $title = $row['title'];
+
+                                                  echo "
+                                                    <option value="$id" >"$title"</option>
+                                                  ";
+
+
+                                                }
+                                            } 
+                                        ?> 
+
 *****PAT, 17/nov, 7:11pm**********
