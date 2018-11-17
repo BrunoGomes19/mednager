@@ -1,9 +1,8 @@
 <?php
 session_start();
-
 ?>
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
     <head>
         <meta charset='utf-8'>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -19,7 +18,7 @@ session_start();
         <link href='css/personalizado.css' rel='stylesheet'>
         <script src='js/moment.min.js'></script>
         <script src='js/fullcalendar.min.js'></script>
-        <script src='locale/pt.js'></script>
+        <script src='locale/pt-br.js'></script>
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
 
@@ -37,8 +36,6 @@ session_start();
                     navLinks: true, // can click day/week names to navigate views
                     editable: true,
                     eventLimit: true, // allow "more" link when too many events
-
-                    
                     eventClick: function (event) {
                         $("#apagar_evento").attr("href", "proc_apagar_evento.php?id=" + event.id);
 
@@ -91,7 +88,7 @@ session_start();
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title text-center">Dados da intervenção</h4>
+                        <h4 class="modal-title text-center">Dados do Evento</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -99,16 +96,15 @@ session_start();
                     <div class="modal-body">
                         <div class="visualizar">
                             <dl class="row">
-                                <dt class="col-sm-3">ID da intervenção</dt>
+                                <dt class="col-sm-3">ID do Evento</dt>
                                 <dd id="id" class="col-sm-9"></dd>
-                                <dt class="col-sm-3">Título</dt>
+                                <dt class="col-sm-3">Titulo do Evento</dt>
                                 <dd id="title" class="col-sm-9"></dd>
-                                <dt class="col-sm-3">Início</dt>
+                                <dt class="col-sm-3">Inicio do Evento</dt>
                                 <dd id="start" class="col-sm-9"></dd>
-                                <dt class="col-sm-3">Fim</dt>
+                                <dt class="col-sm-3">Fim do Evento</dt>
                                 <dd id="end" class="col-sm-9"></dd>
                             </dl>
-                            <!--Talvez de shit-->
                             <button class="btn btn-canc-vis btn-warning">Editar</button>
                             <a href="" id="apagar_evento" class="btn btn-danger" role="button">Apagar</a>
                         </div>   
@@ -116,8 +112,8 @@ session_start();
                             <form method="POST" action="proc_edit_evento.php">
                                 <div class="form-group">
                                     <div class="form-group col-md-12">
-                                        <label>Título</label>
-                                        <input type="text" class="form-control" name="title" id="title" placeholder="Título da intervenção">
+                                        <label>Titulo</label>
+                                        <input type="text" class="form-control" name="title" id="title" placeholder="Titulo do Evento">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -152,9 +148,8 @@ session_start();
                                 </div>
                                 <input type="hidden" name="id" id="id">
                                 <div class="form-group col-md-12">
-                                    <!--Talvez de shit-->
                                     <button type="button" class="btn btn-canc-edit btn-primary">Cancelar</button>
-                                    <button type="submit" class="btn btn-warning">Guardar Alterações</button>
+                                    <button type="submit" class="btn btn-warning">Salvar Alterações</button>
 
                                 </div>
                             </form>
@@ -168,7 +163,7 @@ session_start();
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title text-center">Registar intervenção</h4>
+                        <h4 class="modal-title text-center">Cadastrar Evento</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -178,7 +173,7 @@ session_start();
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Titulo</label>
-                                    <input type="text" class="form-control" name="title" id="title" placeholder="Título da intervenção">
+                                    <input type="text" class="form-control" name="title" id="title" placeholder="Titulo do Evento">
                                 </div>
                             </div>
 
@@ -213,59 +208,8 @@ session_start();
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="form-group col-md-12">
-                                    <label>CC Utente</label>
-                                    <input type="number" class="form-control" name="ccUtente" id="ccUtente" placeholder="CC do utente">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-group col-md-12">
-                                    <label>Preço</label>
-                                    <input type="number" step="0.01" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-group col-md-12">
-                                    <label>Sala</label>
-                                    <input type="number" class="form-control" name="nSala" id="nSala" placeholder="Sala">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-group col-md-12">
-                                    <label>Observações</label>
-                                    <input type="text" class="form-control" name="observacoes" id="observacoes" placeholder="Observações">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="form-group col-md-12">
-                                    <label>Tipo de intervenção</label>
-                                    <select name="codTipoServico" class="form-control" id="codTipoServico">
-                                        <option value="">Selecione</option>         
-                                        <option value="1">Consulta</option>
-                                        <option value="2">Cirurgia</option>
-                                        <option value="3">Outro</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="form-group col-md-12">
-                                    <label>Local</label>
-                                    <select name="codLocal" class="form-control" id="codLocal">
-                                        <option value="">Selecione</option>         
-                                        <option value="1">Cuf</option>
-                                        <option value="2">Misericordia</option>
-                                        <option value="3">Outro</option>
-
-                                    </select>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-success">Registar</button>
+                                    <button type="submit" class="btn btn-success">Cadastrar</button>
                                 </div>
                             </div>
                         </form>
