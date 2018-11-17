@@ -10,12 +10,14 @@ $start = filter_input(INPUT_POST, 'start', FILTER_SANITIZE_STRING);
 $end = filter_input(INPUT_POST, 'end', FILTER_SANITIZE_STRING);
 $pvpServico = filter_input(INPUT_POST, 'pvpServico', FILTER_SANITIZE_NUMBER_FLOAT);
 $nSala = filter_input(INPUT_POST, 'nSala', FILTER_SANITIZE_NUMBER_INT);
+$observacoes = filter_input(INPUT_POST, 'observacoes', FILTER_SANITIZE_STRING);
 //ir buscar codComprador ao session
 //ir buscar utente com ajax??
-$codTipoServico = filter_input(INPUT_POST, 'nSala', FILTER_SANITIZE_NUMBER_INT);
+$codTipoServico = filter_input(INPUT_POST, 'codTipoServico', FILTER_SANITIZE_NUMBER_INT);
+$codLocal = filter_input(INPUT_POST, 'codLocal', FILTER_SANITIZE_NUMBER_INT);
 //codAlertas a 0
 
-if(!empty($title) && !empty($color) && !empty($start) && !empty($end)){
+if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty($pvpServico) && !empty($nSala) && !empty($codTipoServico) && !empty($codLocal)) {
 	//Converter a data e hora do formato brasileiro para o formato do Banco de Dados
 	$data = explode(" ", $start);
 	list($date, $hora) = $data;
@@ -29,7 +31,8 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end)){
 	$data_sem_barra = implode("-", $data_sem_barra);
 	$end_sem_barra = $data_sem_barra . " " . $hora;
 	
-	$result_events = "INSERT INTO servico (title, color, start, end) VALUES ('$title', '$color', '$start_sem_barra', '$end_sem_barra')";
+	$result_events = "INSERT INTO servico (title, color, start, end, pvpServico, nSala, observacoes, codComprador, ccUtente, codTipoServico, codLocal, codAlertaUtente, codAlertaComprador) VALUES ('$title', '$color', '$start_sem_barra', '$end_sem_barra', $pvpServico, $nSala, '$observacoes', 2, 12345, $codTipoServico, $codLocal, 1, 1 )";
+
 	$resultado_events = mysqli_query($conn, $result_events);
 	
 	//Verificar se salvou no banco de dados através "mysqli_insert_id" o qual verifica se existe o ID do último dado inserido

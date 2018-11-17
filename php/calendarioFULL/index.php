@@ -111,7 +111,7 @@ session_start();
                             <form method="POST" action="proc_edit_evento.php">
                                 <div class="form-group">
                                     <div class="form-group col-md-12">
-                                        <label>Titulo</label>
+                                        <label>Título</label>
                                         <input type="text" class="form-control" name="title" id="title" placeholder="Titulo do Evento">
                                     </div>
                                 </div>
@@ -205,6 +205,48 @@ session_start();
                                     <input type="text" class="form-control" name="end" id="end" onKeyPress="DataHora(event, this)">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="form-group col-md-12">
+                                    <label>Preço</label>
+                                    <input type="number" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group col-md-12">
+                                    <label>Sala</label>
+                                    <input type="number" class="form-control" name="nSala" id="nSala" placeholder="Sala">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group col-md-12">
+                                    <label>Observações</label>
+                                    <input type="text" class="form-control" name="observacoes" id="observacoes" placeholder="Observações">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-group col-md-12">
+                                    <label>Tipo de serviço</label>
+                                    <select name="codTipoServico" class="form-control" id="codTipoServico">
+                                        <option value="">Selecione</option>         
+                                        <option value="1">Consulta</option>
+                                        <option value="2">Cirurgia</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-group col-md-12">
+                                    <label>Local</label>
+                                    <select name="codLocal" class="form-control" id="codLocal">
+                                        <option value="">Selecione</option>         
+                                        <option value="1">Cuf</option>
+                                        <option value="2">Misericordia</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
                                     <button type="submit" class="btn btn-success">Cadastrar</button>
