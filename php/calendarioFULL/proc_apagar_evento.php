@@ -13,13 +13,13 @@ if (!empty($id)) {
 
     //Verificar se alterou no banco de dados através "mysqli_affected_rows"
     if (mysqli_affected_rows($conn)) {
-        $_SESSION['msg'] = "<div class='alert alert-success' role='alert'>O Evento apagado com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+        $_SESSION['msg'] = "<div class='alert alert-success' role='alert'>Intervenção removida com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
         header("Location: index.php");
     } else {
-        $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro ao apagar o evento <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+        $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro ao apagar Intervenção <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
         header("Location: index.php");
     }
 } else {
-    $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro ao apagar o evento <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+    $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro ao apagar Intervenção <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
     header("Location: index.php");
 }
