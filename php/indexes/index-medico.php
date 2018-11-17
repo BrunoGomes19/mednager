@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
   }
 }
 
-$sql2 = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao='$codPermissao' and servico.codComprador='$codComprador' and servico.dataHoraServico between now() and concat(curdate(),' 23:59:59');";
+$sql2 = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao='$codPermissao' and servico.codComprador='$codComprador' and servico.start between now() and concat(curdate(),' 23:59:59');";
 $result = $conn->query($sql2);
 
 if (!$result) {
@@ -49,7 +49,7 @@ if ($result->num_rows > 0) {
   }
 }
 
-$sql4 = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao='$codPermissao' and servico.codComprador='$codComprador' and servico.dataHoraServico between now() and concat((curdate() + INTERVAL 6 - weekday(curdate()) DAY),' 23:59:59');";
+$sql4 = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao='$codPermissao' and servico.codComprador='$codComprador' and servico.start between now() and concat((curdate() + INTERVAL 6 - weekday(curdate()) DAY),' 23:59:59');";
 $result = $conn->query($sql4);
 
 if (!$result) {
@@ -67,7 +67,7 @@ if ($result->num_rows > 0) {
 
 //
 
-$sql5 = "select count(quantidade) as quantidadetotal from (select count(DISTINCT codLocal) as quantidade FROM servico where codComprador=$codComprador and servico.dataHoraServico between now() and concat(curdate(),' 23:59:59') group by codLocal) as a;";
+$sql5 = "select count(quantidade) as quantidadetotal from (select count(DISTINCT codLocal) as quantidade FROM servico where codComprador=$codComprador and servico.start between now() and concat(curdate(),' 23:59:59') group by codLocal) as a;";
 $result = $conn->query($sql5);
 
 if ($result->num_rows > 0) {
