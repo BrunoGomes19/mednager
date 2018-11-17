@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-$sql2 = "select servico.id,servico.title,servico.start,servico.end,utente.ccUtente,utente.nomeUtente,servico.pvpServico,descriLocal from comprador, servico, local, utente where utente.ccUtente = servico.ccUtente and servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.codComprador = '$codComprador' and servico.end<now() order by servico.end desc;";
+$sql2 = "select servico.observacoes,servico.id,servico.title,servico.start,servico.end,utente.ccUtente,utente.nomeUtente,servico.pvpServico,descriLocal from comprador, servico, local, utente where utente.ccUtente = servico.ccUtente and servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.codComprador = '$codComprador' and servico.end<now() order by servico.end desc;";
 $result2 = $conn->query($sql2);
 
 
@@ -35,7 +35,7 @@ $result2 = $conn->query($sql2);
 
       <script>
 
-      function x(a,b,c,d,e,f,g,h){
+      function x(a,b,c,d,e,f,g,h,i){
 
         document.getElementById('cod').innerHTML = "Informações da intervenção #"+a;
 
@@ -47,13 +47,13 @@ $result2 = $conn->query($sql2);
 
         document.getElementById('preco').innerHTML = e+" €";
 
-        document.getElementById('duracao').innerHTML = f+" h";
+        document.getElementById('nomeutente').innerHTML = f;
 
-        document.getElementById('nomeutente').innerHTML = g;
+        document.getElementById('local').innerHTML = g;
 
-        document.getElementById('local').innerHTML = h;
+        document.getElementById("hiperl").href="../perfis/perfil_utentelista.php?cc="+h;
 
-        document.getElementById("hiperl").href="../perfis/perfil_utentelista.php?cc="+i;
+        document.getElementById('observacoes').innerHTML = i;
 
       }
 
@@ -222,6 +222,8 @@ function showUser(str) {
 
                                                           $ccutente = $row['ccUtente'];
 
+                                                          $observacoes = $row['observacoes'];
+
 
                                                           echo '<tr class="tr-shadow">
                                                               <td></td>
@@ -234,7 +236,7 @@ function showUser(str) {
                                                               <td title="Ver mais informações">
 
 
-                                                                      <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" onclick="x('.$codServico.',\'' . str_replace("'", "\'", $descriServico) . '\',\'' . str_replace("'", "\'", $start) . '\',\'' . str_replace("'", "\'", $end) . '\','.$pvpServico.',\'' . str_replace("'", "\'", $nomeUtente) . '\',\'' . str_replace("'", "\'", $descriLocal) . '\','.$ccutente.');">
+                                                                      <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" onclick="x('.$codServico.',\'' . str_replace("'", "\'", $descriServico) . '\',\'' . str_replace("'", "\'", $start) . '\',\'' . str_replace("'", "\'", $end) . '\','.$pvpServico.',\'' . str_replace("'", "\'", $nomeUtente) . '\',\'' . str_replace("'", "\'", $descriLocal) . '\','.$ccutente.',\'' . str_replace("'", "\'", $observacoes) . '\');">
                                                                           <i class="fas fa-info"></i></button>
 
                                                               </td>
@@ -393,11 +395,7 @@ function showUser(str) {
                                                 <td id="preco"></td>
 
                                             </tr>
-                                            <tr>
-                                                <td>Duração</td>
-                                                <td id="duracao"></td>
 
-                                            </tr>
                                             <tr>
                                                 <td>Nome do utente</td>
                                                 <td><a href="" id="hiperl"><p id="nomeutente"> </p></a></td>
@@ -408,14 +406,34 @@ function showUser(str) {
                                                 <td id="local"></td>
 
                                             </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+
+
+
+
+                                    <table class="a table table-borderless table-data3">
+
+                                        <tbody>
                                             <tr>
-                                                <td>Observações</td>
-                                                <td id="observacoes"></td>
+                                                <td style="text-align:left;">Descrição</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:left" id="observacoes"></td>
 
                                             </tr>
 
                                         </tbody>
-                                    </table>
+
+                                      </table>
+
+
+
+
                                 </div>
                                 <!-- END DATA TABLE-->
                             </div>
