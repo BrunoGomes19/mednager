@@ -419,7 +419,7 @@ function showUser(str) {
 
                                         <tbody>
                                             <tr>
-                                                <td style="text-align:left;">Descrição</td>
+                                                <td style="text-align:left;">Observações</td>
 
                                             </tr>
                                             <tr>
