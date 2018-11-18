@@ -2,19 +2,35 @@
 
 include('header.php');
 
-echo "<script>alert();</script>";
-
 $notas = $_GET['q'];
+
+$op = $_GET['op'];
 
 $emailA = $_SESSION['email'];
 
-$sql = "UPDATE comprador SET notas='$notas' WHERE emailComprador='$emailA'";
+if($op==1){
 
-if ($conn->query($sql) === TRUE) {
+  $sql = "UPDATE comprador SET notas='$notas' WHERE emailComprador='$emailA'";
 
-} else {
-    echo "Error updating record: " . $conn->error;
+  if ($conn->query($sql) === TRUE) {
+
+  } else {
+      echo "Error updating record: " . $conn->error;
+  }
+
+}else if($op==2){
+
+  $sql = "UPDATE utente SET notas='$notas' WHERE emailUtente='$emailA'";
+
+  if ($conn->query($sql) === TRUE) {
+
+  } else {
+      echo "Error updating record: " . $conn->error;
+  }
+
 }
+
+
 
 $conn->close();
 

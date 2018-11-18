@@ -34,8 +34,19 @@ if($_SESSION['permissao'] != 2){
 <script>
 
 
-function guardarNotas() {
+setTimeout(fade_out, 5000);
 
+  function fade_out() {
+    $("#notasautosave").fadeOut().empty();
+
+    var el = document.getElementById("divnotas");
+     var height = el.offsetHeight;
+     var newHeight = height + 25;
+     el.style.height = newHeight + 'px';
+
+  }
+
+function guardarNotas() {
 
 var a = document.getElementById("a").value
 
@@ -48,10 +59,10 @@ var a = document.getElementById("a").value
         }
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
+
             }
         };
-        xmlhttp.open("GET","../topos/ajaxnotas-medico.php?q="+a,true);
+          xmlhttp.open("GET","../topos/ajaxnotas-medico.php?q="+a+"&op=1",true);
         xmlhttp.send();
 
 }
@@ -66,6 +77,18 @@ var a = document.getElementById("a").value
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 
+<style>
+
+textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    resize: none;
+    width: 100%;
+    height: 100%;
+}
+
+</style>
 
 <head>
     <!-- Required meta tags-->
@@ -106,7 +129,27 @@ var a = document.getElementById("a").value
 
 <body class="animsition">
 
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
 
+        <div class="modal-body" style="height:635px" id="divnotas">
+          <textarea name="Text1" id="a" onkeyup="guardarNotas();" maxlength="1000"><?php echo $notas;  ?></textarea>
+        </div>
+        <div id="notasautosave">
+
+          <p style="text-align: center;">As notas serão guardadas automaticamente!</p>
+
+
+        </div>
+
+
+
+
+      </div>
+    </div>
+  </div>
 
     <div class="page-wrapper">
 
@@ -270,7 +313,7 @@ var a = document.getElementById("a").value
 
 
                                 <button type="button" data-toggle="modal" data-target="#myModal">
-                                    <i class="fas fa-sticky-note" style="font-size:25px;color:a9b3c9;"></i>
+                                    <i class="fas fa-sticky-note" style="font-size:25px;color:#a9b3c9;"></i>
                                 </button>
                                   <div class="noti__item js-item-menu">
 
@@ -403,22 +446,6 @@ var a = document.getElementById("a").value
                 </div>
             </header>
 
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
 
-                  <div class="modal-body">
-                    <textarea name="Text1" cols="40" rows="23" id="a"><?php echo $notas;  ?></textarea>
-
-                  </div>
-
-                    <button type="button" class="btn btn btn-primary" data-dismiss="modal" style="font-size:15px" onclick="guardarNotas();">Guardar</button>
-
-                    <div id="txtHint"></div>
-
-                </div>
-              </div>
-            </div>
 
             <!-- HEADER DESKTOP-->
