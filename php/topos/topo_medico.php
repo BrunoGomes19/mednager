@@ -35,6 +35,12 @@ if($_SESSION['permissao'] != 2){
 <!DOCTYPE html>
 <html lang="en">
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+
 <head>
     <!-- Required meta tags-->
 	<link href="../../landingPage/img/logos/redondo.png" rel="icon">
@@ -73,6 +79,9 @@ if($_SESSION['permissao'] != 2){
 </head>
 
 <body class="animsition">
+
+
+
     <div class="page-wrapper">
 
 		        <!-- HEADER MOBILE-->
@@ -130,7 +139,7 @@ if($_SESSION['permissao'] != 2){
                                 <i class="fa fa-users"></i>Lista de Utentes</a>
                         </li>
 
-                        
+
 
                         <li>
                             <a href="../pages_medico/charts.php">
@@ -151,6 +160,7 @@ if($_SESSION['permissao'] != 2){
         <!-- END HEADER MOBILE-->
 
         <!-- MENU SIDEBAR-->
+
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="../indexes/index-medico.php">
@@ -196,7 +206,7 @@ if($_SESSION['permissao'] != 2){
                                 <i class="fa fa-users"></i>Lista de Utentes</a>
                         </li>
 
-                        
+
 
                         <li>
                             <a href="form.html">
@@ -220,6 +230,7 @@ if($_SESSION['permissao'] != 2){
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
+
             <header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
@@ -228,6 +239,24 @@ if($_SESSION['permissao'] != 2){
 
                             </form>
                             <div class="header-button">
+
+                              <div class="noti-wrap">
+
+
+                                <button type="button" data-toggle="modal" data-target="#myModal">
+                                    <i class="fas fa-sticky-note" style="font-size:25px;"></i>
+                                </button>
+                                  <div class="noti__item js-item-menu">
+
+
+
+
+
+
+                                  </div>
+                              </div>
+
+
                                 <div class="noti-wrap">
 
 
@@ -348,6 +377,20 @@ if($_SESSION['permissao'] != 2){
                 </div>
             </header>
 
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
 
+                  <div class="modal-body">
+                    <textarea name="Text1" cols="40" rows="23"></textarea>
+
+                  </div>
+
+                    <button type="button" class="btn btn btn-primary" data-dismiss="modal" style="font-size:15px">Guardar</button>
+
+                </div>
+              </div>
+            </div>
 
             <!-- HEADER DESKTOP-->
