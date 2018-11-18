@@ -17,6 +17,7 @@ if ($result->num_rows > 0) {
 
 		$email = $row['emailComprador'];
 
+  	$notas = $row['notas'];
 
   }
 }
@@ -30,12 +31,37 @@ if($_SESSION['permissao'] != 2){
 
 ?>
 
+<script>
 
+
+function guardarNotas() {
+
+
+var a = document.getElementById("a").value
+
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","../topos/ajaxnotas-medico.php?q="+a,true);
+        xmlhttp.send();
+
+}
+
+
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
@@ -244,7 +270,7 @@ if($_SESSION['permissao'] != 2){
 
 
                                 <button type="button" data-toggle="modal" data-target="#myModal">
-                                    <i class="fas fa-sticky-note" style="font-size:25px;"></i>
+                                    <i class="fas fa-sticky-note" style="font-size:25px;color:a9b3c9;"></i>
                                 </button>
                                   <div class="noti__item js-item-menu">
 
@@ -383,11 +409,13 @@ if($_SESSION['permissao'] != 2){
                 <div class="modal-content">
 
                   <div class="modal-body">
-                    <textarea name="Text1" cols="40" rows="23"></textarea>
+                    <textarea name="Text1" cols="40" rows="23" id="a"><?php echo $notas;  ?></textarea>
 
                   </div>
 
-                    <button type="button" class="btn btn btn-primary" data-dismiss="modal" style="font-size:15px">Guardar</button>
+                    <button type="button" class="btn btn btn-primary" data-dismiss="modal" style="font-size:15px" onclick="guardarNotas();">Guardar</button>
+
+                    <div id="txtHint"></div>
 
                 </div>
               </div>
