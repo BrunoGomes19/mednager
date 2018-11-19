@@ -40,7 +40,7 @@ if(!empty($id) && !empty($title) && !empty($color) && !empty($start) && !empty($
 	
 	//Verificar se alterou no banco de dados através "mysqli_affected_rows"
 	if(mysqli_affected_rows($conn)){
-		$_SESSION['msg'] = "<div class='alert alert-success' role='alert'>Intervenção editada com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+		$_SESSION['msg'] = "<div class='alert alert-primary' role='alert'>Intervenção editada com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 		header("Location: index.php");
 	}else{
 		$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro1 ao editar a Intervenção <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";

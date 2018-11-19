@@ -50,30 +50,18 @@ $resultesp2 = $conn->query($sqlesp2);
                         $("#apagar_evento").attr("href", "proc_apagar_evento.php?id=" + event.id);
 
                         $('#visualizar #id').text(event.id);
-                        $('#visualizar #id').val(event.id);
                         $('#visualizar #title').text(event.title);
-                        $('#visualizar #title').val(event.title);
                         $('#visualizar #start').text(event.start.format('DD/MM/YYYY HH:mm:ss'));
-                        $('#visualizar #start').val(event.start.format('DD/MM/YYYY HH:mm:ss'));
-                        $('#visualizar #end').text(event.end.format('DD/MM/YYYY HH:mm:ss'));
-                        $('#visualizar #end').val(event.end.format('DD/MM/YYYY HH:mm:ss'));
-                        $('#visualizar #color').val(event.color);
++                        $('#visualizar #end').text(event.end.format('DD/MM/YYYY HH:mm:ss'));
                         $('#visualizar #pvpServico').text(event.pvpServico);
-                        $('#visualizar #pvpServico').val(event.pvpServico);
                         $('#visualizar #nSala').text(event.nSala);
-                        $('#visualizar #nSala').val(event.nSala);
                         $('#visualizar #observacoes').text(event.observacoes);
-                        $('#visualizar #observacoes').val(event.observacoes);
                         $('#visualizar #ccUtente').text(event.ccUtente);
-                        $('#visualizar #ccUtente').val(event.ccUtente);
                         //ver How do I get the text value of a selected option?
-                        $('#visualizar #codTipoServico').text(event.codTipoServico);
-                        $('#visualizar #codTipoServico').val(event.codTipoServico);
-                        $('#visualizar #codLocal').text(event.codLocal);
-                        $('#visualizar #codLocal').val(event.codLocal);
+                        $('#visualizar #codTipoServico').text(event.descriTipoServico);
+                        $('#visualizar #codLocal').text(event.descriLocal);
 
-
-                        alert($("#codLocal option[value='2']").text());
+                        //alert($('#codLocals: selected').text());
 
                         $('#visualizar').modal('show');
                         return false;
@@ -91,7 +79,7 @@ $resultesp2 = $conn->query($sqlesp2);
                     //https://fullcalendar.io/docs/events-json-feed
                     events: {
                         url: 'list_data.php',
-                        cache: true
+                        cache: false
                     }
                 });
 
@@ -146,15 +134,16 @@ $resultesp2 = $conn->query($sqlesp2);
 
                             </dl>
                             <!--Talvez de shit-->
-                            <button class="btn btn-canc-vis btn-warning">Editar</button>
+                            <button class="btn btn-canc-vis btn-secondary">Editar</button>
                             <a href="" id="apagar_evento" class="btn btn-danger" role="button">Apagar</a>
+
                         </div>
                         <div class="form">
                             <form method="POST" action="proc_edit_evento.php">
                                 <div class="form-group">
                                     <div class="form-group col-md-12">
                                         <label>Título</label>
-                                        <input type="text" class="form-control" name="title" id="title" placeholder="Título da intervenção">
+                                        <input type="text" class="form-control" name="title" id="title" autocomplete="off" placeholder="Título da intervenção">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -166,12 +155,12 @@ $resultesp2 = $conn->query($sqlesp2);
                                             <option style="color:#0071C5;" value="#0071c5">Azul Turquesa</option>
                                             <option style="color:#FF4500;" value="#FF4500">Laranja</option>
                                             <option style="color:#5fbace;" value="#5fbace">Mednager</option>
-                                            <option style="color:#1C1C1C;" value="#1C1C1C">Preto</option>
-                                            <option style="color:#436EEE;" value="#436EEE">Royal Blue</option>
-                                            <option style="color:#A020F0;" value="#A020F0">Roxo</option>
-                                            <option style="color:#40E0D0;" value="#40E0D0">Turquesa</option>
+                                            <option style="color:#ff8080;" value="#ff8080">Rosa</option>
+                                            <option style="color:#4dff4d;" value="#4dff4d"> Alface</option>
+                                            <option style="color:#b366ff;" value="#b366ff">Roxo</option>
+                                            <option style="color:#adad85;" value="#adad85">Cinzento</option>
                                             <option style="color:#228B22;" value="#228B22">Verde</option>
-                                            <option style="color:#8B0000;" value="#8B0000">Vermelho</option>
+                                            <option style="color:#ff1a1a;" value="#ff1a1a">Vermelho</option>
                                         </select>
                                     </div>
                                 </div>
@@ -200,7 +189,7 @@ $resultesp2 = $conn->query($sqlesp2);
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Preço</label>
-                                    <input type="number" min="0" step="0.01" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção">
+                                    <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -212,7 +201,7 @@ $resultesp2 = $conn->query($sqlesp2);
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Observações</label>
-                                    <input type="text" class="form-control" name="observacoes" id="observacoes" placeholder="Observações">
+                                    <input type="text" class="form-control" name="observacoes" autocomplete="off" id="observacoes" placeholder="Observações">
                                 </div>
                             </div>
 
@@ -249,8 +238,8 @@ $resultesp2 = $conn->query($sqlesp2);
                                 <input type="hidden" name="id" id="id">
                                 <div class="form-group col-md-12">
                                     <!--Talvez de shit-->
-                                    <button type="button" class="btn btn-canc-edit btn-primary">Cancelar</button>
-                                    <button type="submit" class="btn btn-warning">Guardar Alterações</button>
+                                    <button type="button" class="btn btn-canc-edit btn-danger">Cancelar</button>
+                                    <button type="submit" class="btn btn-info">Guardar Alterações</button>
 
                                 </div>
                             </form>
@@ -274,7 +263,7 @@ $resultesp2 = $conn->query($sqlesp2);
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Título</label>
-                                    <input type="text" class="form-control" name="title" id="title" placeholder="Título da intervenção">
+                                    <input type="text" class="form-control" name="title" id="title" autocomplete="off" placeholder="Título da intervenção">
                                 </div>
                             </div>
 
@@ -287,12 +276,12 @@ $resultesp2 = $conn->query($sqlesp2);
                                         <option style="color:#0071C5;" value="#0071c5">Azul Turquesa</option>
                                         <option style="color:#FF4500;" value="#FF4500">Laranja</option>
                                         <option style="color:#5fbace;" value="#5fbace">Mednager</option>
-                                        <option style="color:#1C1C1C;" value="#1C1C1C">Preto</option>
-                                        <option style="color:#436EEE;" value="#436EEE">Royal Blue</option>
-                                        <option style="color:#A020F0;" value="#A020F0">Roxo</option>
-                                        <option style="color:#40E0D0;" value="#40E0D0">Turquesa</option>
+                                        <option style="color:#ff8080;" value="#ff8080">Rosa</option>
+                                        <option style="color:#4dff4d;" value="#4dff4d">Alface</option>
+                                        <option style="color:#b366ff;" value="#b366ff">Roxo</option>
+                                        <option style="color:#adad85;" value="#adad85">Cinzento</option>
                                         <option style="color:#228B22;" value="#228B22">Verde</option>
-                                        <option style="color:#8B0000;" value="#8B0000">Vermelho</option>
+                                        <option style="color:#ff1a1a;" value="#ff1a1a">Vermelho</option>
                                     </select>
                                 </div>
                             </div>
@@ -317,7 +306,7 @@ $resultesp2 = $conn->query($sqlesp2);
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Preço</label>
-                                    <input type="number" min="0" step="0.01" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção">
+                                    <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -329,7 +318,7 @@ $resultesp2 = $conn->query($sqlesp2);
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Observações</label>
-                                    <input type="text" class="form-control" name="observacoes" id="observacoes" placeholder="Observações">
+                                    <input type="text" class="form-control" name="observacoes"  autocomplete="off" id="observacoes" placeholder="Observações">
                                 </div>
                             </div>
 
@@ -363,10 +352,10 @@ $resultesp2 = $conn->query($sqlesp2);
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                   <label>Local</label>
-                                  <select name="codLocal" id="codLocal" class="form-control" required>
+                                  <select name="codLocal" id="codLocals" class="form-control" required>
                                     <?php
 
-                                    echo '  <option selected hidden value="">Selecione</option>';
+                                    //echo '  <option selected hidden value="">Selecione</option>';
 
 
                                     if ($resultesp->num_rows > 0) {
@@ -396,7 +385,7 @@ $resultesp2 = $conn->query($sqlesp2);
 
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-success">Registar</button>
+                                    <button type="submit" class="btn btn-info">Registar</button>
                                 </div>
                             </div>
                         </form>
