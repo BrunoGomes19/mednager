@@ -79,7 +79,7 @@ $resultesp25 = $conn->query($sqlesp25);
                         var editarstart = (event.start.format('DD/MM/YYYY HH:mm:ss'));
                         $('#start2').val(editarstart);
 
-                        alert(title);
+                        //alert(title);
 
                         var editarend = (event.end.format('DD/MM/YYYY HH:mm:ss'));
                         $('#end2').val(editarend);
@@ -113,6 +113,10 @@ $resultesp25 = $conn->query($sqlesp25);
                         sel = document.getElementById('color2');
                         sel.selectedIndex = event.color -1;
                         $('#color2').val(event.color);
+
+                        document.getElementById('idServico').value=event.id;
+
+
 
                         $('#visualizar').modal('show');
                         return false;
@@ -318,7 +322,7 @@ $resultesp25 = $conn->query($sqlesp25);
                             </div>
 
 
-                                <input type="hidden" name="id" id="id">
+                                <input type="hidden" name="idServico" id="idServico" value="0">
                                 <div class="form-group col-md-12">
                                     <!--Talvez de shit-->
                                     <button type="button" class="btn btn-canc-edit btn-danger">Cancelar</button>
