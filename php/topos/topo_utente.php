@@ -117,7 +117,7 @@ if($_SESSION['permissao'] != 3){
 
     <style>
 
-    textarea {
+    #a {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;

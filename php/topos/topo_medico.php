@@ -79,7 +79,7 @@ var a = document.getElementById("a").value
 
 <style>
 
-textarea {
+#a {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
