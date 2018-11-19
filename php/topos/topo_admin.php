@@ -183,9 +183,6 @@ if($_SESSION['permissao'] != 1){
                                 <i class="fas fa-tasks"></i>Intervenções</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="index.html">Gestão</a>
-                                </li>
-                                <li>
                                     <a href="../listas/historicoconsultas-admin.php">Histórico</a>
                                 </li>
                             </ul>
@@ -259,9 +256,7 @@ if($_SESSION['permissao'] != 1){
                             <a class="js-arrow" href="#">
                                 <i class="fa fa-tasks"></i>Intervenções</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="#">Gestão</a>
-                                </li>
+                                
                                 <li>
                                     <a href="../listas/historicoconsultas-admin.php">Histórico</a>
                                 </li>
