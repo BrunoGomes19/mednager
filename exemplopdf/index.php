@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+</html>
 <?php 
 require_once("vendor/autoload.php");
 
@@ -27,19 +33,25 @@ $mpdf->Image('../Interior/images/icon/logotipo.png', 10, 10, 60, 20);
 
 $mpdf->WriteHTML('<h1>'.$nomeUtente.'</h1>');
 $mpdf->Image('../assets/images/users/1.jpg', 30, 50, 60, 60);
-$mpdf->WriteHTML('<br><h4>Data de nascimento: '.$dataNascUtente.'</h4>');
-$mpdf->WriteHTML('<h4>Sexo: '.$sexoUtente.'</h4>');
-$mpdf->WriteHTML('<h4>Contacto: '.$contacto1Utente.'</h4>');
-$mpdf->WriteHTML('<h4>Endereço de email: '.$emailUtente.'</h4>');
-$mpdf->WriteHTML('<h4>Número de CC: '.$ccUtente.'</h4>');
-/*$mpdf->WriteHTML('<h4>NIF: '.$NIFUtente.'</h4>');
-$mpdf->WriteHTML('<h4>NIB: '.$NIBUtente.'</h4>');
-$mpdf->WriteHTML('<h4>Sistema de saúde: '.$sistema.'</h4>');
-$mpdf->WriteHTML('<h4>Cartão sistema de saúde: '.$cartao.'</h4>');
-$mpdf->WriteHTML('<h4>Morada: '.$moradaUtente.'</h4>');
-$mpdf->WriteHTML('<h4>Cidade: '.$localidadeUtente.'</h4>');
-$mpdf->WriteHTML('<h4>Código Postal: '.$codPostalUtente.'</h4>');
-$mpdf->WriteHTML('<h4>Sobre mim (?): '.$ObservacoesUtente.'</h4>');*/
+
+$mpdf->WriteHTML('
+
+	<div border-style: dotted border-color:red><br><h4>Data de nascimento: '.$dataNascUtente.'</h4></div>
+	<h4>Sexo: '.$sexoUtente.'</h4>	
+	<h4>Contacto: '.$contacto1Utente.'</h4>
+	<h4>Endereço de email: '.$emailUtente.'</h4>
+	<h4>Número de CC: '.$ccUtente.'</h4>
+	<h4>NIF: '.$NIFUtente.'</h4>
+	<h4>NIB: '.$NIBUtente.'</h4>
+	<h4>Sistema de saúde: '.$sistema.'</h4>
+	<h4>Cartão sistema de saúde: '.$cartao.'</h4>
+	<h4>Morada: '.$moradaUtente.'</h4>
+	<h4>Cidade: '.$localidadeUtente.'</h4>
+	<h4>Código Postal: '.$codPostalUtente.'</h4>
+	<h4>Sobre mim (?): '.$ObservacoesUtente.'</h4>
+
+	');
+
 
 //footer?
 $mpdf->Output();
