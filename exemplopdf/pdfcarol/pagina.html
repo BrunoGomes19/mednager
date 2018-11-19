@@ -1,10 +1,11 @@
-
 <?php
 
 
 $cc = $_GET['cc'];
 
-include('../topos/topo_admin.php');
+session_start();
+
+emailA = $_SESSION['email'];
 
 $sql = "SELECT * from utente,subsistemas where utente.codSubsistema = subsistemas.codSubsistema and ccUtente like '$cc'";
 $result = $conn->query($sql);
