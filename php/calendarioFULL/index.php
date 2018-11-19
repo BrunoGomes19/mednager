@@ -66,6 +66,8 @@ $resultesp25 = $conn->query($sqlesp25);
                         //ver How do I get the text value of a selected option?
                         $('#visualizar #codTipoServico').text(event.descriTipoServico);
                         $('#visualizar #codLocal').text(event.descriLocal);
+                        $('#visualizar #color').text(event.color);
+
 
                         //Editar
 
@@ -76,6 +78,8 @@ $resultesp25 = $conn->query($sqlesp25);
 
                         var editarstart = (event.start.format('DD/MM/YYYY HH:mm:ss'));
                         $('#start2').val(editarstart);
+
+                        alert(title);
 
                         var editarend = (event.end.format('DD/MM/YYYY HH:mm:ss'));
                         $('#end2').val(editarend);
@@ -94,12 +98,21 @@ $resultesp25 = $conn->query($sqlesp25);
 
 
                         var editarlocal = (event.descriLocal);
-                        $( "#editarLocal option:selected" ).text(editarlocal);
+                        //$( "#editarLocal option:selected" ).text(editarlocal);
+                        var sel = document.getElementById('editarLocal');
+                        sel.selectedIndex = event.codLocal -1;
 
 
                         var descriTipoServico = (event.descriTipoServico);
-                        $( "#editarTipoServico option:selected" ).text(descriTipoServico);
+                        //$( "#editarTipoServico option:selected" ).text(descriTipoServico);
+                        sel = document.getElementById('editarTipoServico');
+                        sel.selectedIndex = event.codTipoServico -1;
 
+                        var color = (event.color);
+                        //$( "#editarTipoServico option:selected" ).text(descriTipoServico);
+                        sel = document.getElementById('color2');
+                        sel.selectedIndex = event.color -1;
+                        $('#color2').val(event.color);
 
                         $('#visualizar').modal('show');
                         return false;
@@ -186,13 +199,12 @@ $resultesp25 = $conn->query($sqlesp25);
                                 </div>
                                 <div class="form-group">
                                     <div class="form-group col-md-12">
-                                        <label>Cor</label>
-                                        <select name="color" class="form-control" id="color">
-                                            <option value="">Selecione</option>
+                                        <label>Cor2</label>
+                                        <select name="color" class="form-control" id="color2">
+                                            <option style="color:#5fbace;" value="#5fbace">Mednager</option>
                                             <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
                                             <option style="color:#0071C5;" value="#0071c5">Azul Turquesa</option>
                                             <option style="color:#FF4500;" value="#FF4500">Laranja</option>
-                                            <option style="color:#5fbace;" value="#5fbace">Mednager</option>
                                             <option style="color:#ff8080;" value="#ff8080">Rosa</option>
                                             <option style="color:#4dff4d;" value="#4dff4d"> Alface</option>
                                             <option style="color:#b366ff;" value="#b366ff">Roxo</option>
@@ -290,7 +302,7 @@ $resultesp25 = $conn->query($sqlesp25);
 
                                           $descriLocal = $row['descriLocal'];
 
-                                        
+
 
                                               echo '<option value="'.$codLocal.'">'.  $descriLocal .'</option>';
 
@@ -342,11 +354,10 @@ $resultesp25 = $conn->query($sqlesp25);
                                 <div class="form-group col-md-12">
                                     <label>Cor</label>
                                     <select name="color" class="form-control" id="color">
-                                        <option value="">Selecione</option>
+                                        <option style="color:#5fbace;" value="#5fbace">Mednager</option>
                                         <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
                                         <option style="color:#0071C5;" value="#0071c5">Azul Turquesa</option>
                                         <option style="color:#FF4500;" value="#FF4500">Laranja</option>
-                                        <option style="color:#5fbace;" value="#5fbace">Mednager</option>
                                         <option style="color:#ff8080;" value="#ff8080">Rosa</option>
                                         <option style="color:#4dff4d;" value="#4dff4d">Alface</option>
                                         <option style="color:#b366ff;" value="#b366ff">Roxo</option>
