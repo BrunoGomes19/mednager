@@ -61,7 +61,36 @@ $resultesp2 = $conn->query($sqlesp2);
                         $('#visualizar #codTipoServico').text(event.descriTipoServico);
                         $('#visualizar #codLocal').text(event.descriLocal);
 
-                        //alert($('#codLocals: selected').text());
+                        //Editar
+
+                        var editartitle = (event.title);
+                        $('#title2').val(editartitle);
+
+                        //cor por fazer
+
+                        var editarstart = (event.start.format('DD/MM/YYYY HH:mm:ss'));
+                        $('#start2').val(editarstart);
+
+                        var editarend = (event.end.format('DD/MM/YYYY HH:mm:ss'));
+                        $('#end2').val(editarend);
+
+                        var editarcc = (event.ccUtente);
+                        $('#ccUtente2').val(editarcc);
+
+                        var editarpvp = (event.pvpServico);
+                        $('#pvpServico2').val(editarpvp);
+
+                        var editarnsala = (event.nSala);
+                        $('#nSala2').val(editarnsala);
+
+                        var editarobservacoes = (event.observacoes);
+                        $('#observacoes2').val(editarobservacoes);
+
+                        var editarlocal = (event.descriLocal);
+                        $( "#codLocal2 option:selected" ).text(editarlocal);
+
+                        var editarintervencao = (event.descriTipoServico);
+                        $('#codTipoServico2').val(editarintervencao);
 
                         $('#visualizar').modal('show');
                         return false;
@@ -142,7 +171,7 @@ $resultesp2 = $conn->query($sqlesp2);
                                 <div class="form-group">
                                     <div class="form-group col-md-12">
                                         <label>Título</label>
-                                        <input type="text" class="form-control" name="title" id="title" placeholder="Título da intervenção">
+                                        <input type="text" class="form-control" name="title" id="title2" placeholder="Título da intervenção">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -169,60 +198,49 @@ $resultesp2 = $conn->query($sqlesp2);
                                 <div class="form-group">
                                     <div class="form-group col-md-12">
                                         <label>Data Inicial</label>
-                                        <input type="text" class="form-control" name="start" id="start" onKeyPress="DataHora(event, this)">
+                                        <input type="text" class="form-control" name="start" id="start2" onKeyPress="DataHora(event, this)">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-group col-md-12">
                                         <label>Data Final</label>
-                                        <input type="text" class="form-control" name="end" id="end" onKeyPress="DataHora(event, this)">
+                                        <input type="text" class="form-control" name="end" id="end2" onKeyPress="DataHora(event, this)">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>CC Utente</label>
-                                    <input type="number" class="form-control" name="ccUtente" id="ccUtente" placeholder="CC do utente">
+                                    <input type="number" class="form-control" name="ccUtente" id="ccUtente2" placeholder="CC do utente">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Preço</label>
-                                    <input type="number" min="0" step="0.01" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção">
+                                    <input type="number" min="0" step="0.01" class="form-control" name="pvpServico" id="pvpServico2" placeholder="Preço da intervenção">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Sala</label>
-                                    <input type="number" class="form-control" name="nSala" id="nSala" placeholder="Sala">
+                                    <input type="number" class="form-control" name="nSala" id="nSala2" placeholder="Sala">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Observações</label>
-                                    <input type="text" class="form-control" name="observacoes" id="observacoes" placeholder="Observações">
+                                    <input type="text" class="form-control" name="observacoes" id="observacoes2" placeholder="Observações">
                                 </div>
                             </div>
 
 
 
-                            <div class="form-group">
-                                <div class="form-group col-md-12">
-                                    <label>Local</label>
-                                    <select name="codLocal" class="form-control" id="codLocal">
-                                        <option value="">Selecione</option>
-                                        <option value="1">Cuf</option>
-                                        <option value="2">Misericordia</option>
-                                        <option value="3">Outro</option>
 
-                                    </select>
-                                </div>
-                            </div>
 
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Tipo de intervenção</label>
-                                    <select name="codTipoServico" class="form-control" id="codTipoServico">
+                                    <select name="editarTipoServico" class="form-control" id="editarTipoServico">
                                         <option value="">Selecione</option>
                                         <option value="1">Consulta</option>
                                         <option value="2">Cirurgia</option>
@@ -231,7 +249,18 @@ $resultesp2 = $conn->query($sqlesp2);
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <div class="form-group col-md-12">
+                                    <label>Local</label>
+                                    <select name="editarLocal" class="form-control" id="editarLocal">
+                                        <option value="">Selecione</option>
+                                        <option value="1">Cuf</option>
+                                        <option value="2">Misericordia</option>
+                                        <option value="3">Outro</option>
 
+                                    </select>
+                                </div>
+                            </div>
 
 
                                 <input type="hidden" name="id" id="id">
@@ -354,8 +383,8 @@ $resultesp2 = $conn->query($sqlesp2);
                                   <select name="codLocal" id="codLocals" class="form-control" required>
                                     <?php
 
-                                    //echo '  <option selected hidden value="">Selecione</option>';
 
+                                      echo '  <option selected hidden value="">Selecione</option>';
 
                                     if ($resultesp->num_rows > 0) {
                                       // output data of each row
