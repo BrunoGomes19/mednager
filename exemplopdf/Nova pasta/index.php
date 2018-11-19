@@ -6,6 +6,7 @@
 </html>
 <?php 
 require_once("vendor/autoload.php");
+use Mpdf/Mpdf;
 
 $hostname='localhost';
 $user = 'admin';
@@ -34,7 +35,7 @@ $mpdf->Image('../Interior/images/icon/logotipo.png', 10, 10, 60, 20);
 $mpdf->WriteHTML('<h1>'.$nomeUtente.'</h1>');
 $mpdf->Image('../assets/images/users/1.jpg', 30, 50, 60, 60);
 
-$mpdf->WriteHTML('
+$mpdf->load_html('
 
 	<div border-style: dotted border-color:red><br><h4>Data de nascimento: '.$dataNascUtente.'</h4></div>
 	<h4>Sexo: '.$sexoUtente.'</h4>	
@@ -51,6 +52,15 @@ $mpdf->WriteHTML('
 	<h4>Sobre mim (?): '.$ObservacoesUtente.'</h4>
 
 	');
+
+$mpdf -> render();
+
+$mpdf -> stream(
+	"perfil.pdf",
+	array{
+		"Attachment" => false
+	}
+);
 
 
 //footer?

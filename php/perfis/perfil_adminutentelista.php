@@ -61,7 +61,7 @@ $conn->close();
 
             <link href="../../assets/css/style.css" rel="stylesheet">
 
-            <div class="content" style="padding-top:8%;">
+            <div class="content" style="padding-top:8%;" id="HTMLtoPDF">
                         <div class="container-fluid">
 
 
@@ -155,6 +155,11 @@ $conn->close();
                                                   <button type="submit" class="btn btn-primary btn-sm" style="font-size:16px">
                                                       <i class="fa fa-arrow-left"></i> Voltar
                                                   </button>&nbsp
+                                        </form>
+                                        <form action="HTMLtoPDF()" style ='float: right; padding: 5px'>
+                                                    <button type="submit" class="btn btn-warning btn-sm" style="font-size:16px">
+                                                      <i class="fas fa-print"></i> Imprimir
+                                                    </button>&nbsp
                                         </form>
             																	</div>
                                         <div class="content">
@@ -297,7 +302,9 @@ $conn->close();
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
 
-
+    <script src="../../exemplopfd/pdfcarol/HTMLtoPDF/js/jspdf.js"></script>
+    <script src="../../exemplopfd/pdfcarol/HTMLtoPDF/js/jquery-2.1.3.js"></script>
+    <script src="../../exemplopfd/pdfcarol/HTMLtoPDF/js/pdfFromHTML.js"></script>
     <!-- Jquery JS-->
     <script src="../../Interior/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
