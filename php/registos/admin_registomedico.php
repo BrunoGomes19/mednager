@@ -2,12 +2,6 @@
 
 session_start();
 
-if($_SESSION['codPermissao'] != 1){
-
-  header("Location: ../logins/logout.php");
-
-}
-
 ?>
 
 <!DOCTYPE html>

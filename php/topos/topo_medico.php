@@ -22,11 +22,7 @@ if ($result->num_rows > 0) {
   }
 }
 
-if($_SESSION['permissao'] != 2){
 
-  header("Location: ../logins/logout.php");
-
-}
 
 
 ?>

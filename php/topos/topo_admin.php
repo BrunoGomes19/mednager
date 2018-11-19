@@ -257,7 +257,7 @@ if($_SESSION['permissao'] != 1){
                             <a class="js-arrow" href="#">
                                 <i class="fa fa-tasks"></i>Intervenções</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                
+
                                 <li>
                                     <a href="../listas/historicoconsultas-admin.php">Histórico</a>
                                 </li>
@@ -268,10 +268,7 @@ if($_SESSION['permissao'] != 1){
                             <a href="form.html">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-calendar-alt"></i>Planos de medicação</a>
-                        </li>
+
                         <li>
                             <a href="../listas/listamedicamentos2.php">
                                 <i class="fa fa-medkit"></i>Medicamentos</a>
@@ -285,10 +282,7 @@ if($_SESSION['permissao'] != 1){
                             <a href="../registos/admin_registomedico.php">
                                 <i class="fas fa-plus"></i>Registo de Médicos</a>
                         </li>
-                        <li>
-                            <a href="table.html">
-                                <i class="fas fa-calendar-alt"></i>Planos de Medicação</a>
-                        </li>
+                    
                         <br>
                         <li>
                             <a href="../configuracoes/config-espec.php">
