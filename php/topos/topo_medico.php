@@ -159,7 +159,7 @@ var a = document.getElementById("a").value
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="../indexes/index-medico.php">
-                            <img src="../../assets/images/logos/logotipo.png" alt="mednager" width="179px" height="52px" />
+                            <img src="../../assets/images/logos/logotipo_final.png" alt="mednager" width="179px" height="52px" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -378,11 +378,11 @@ var a = document.getElementById("a").value
 
                                               if($linkimagem == null){
 
-                                                echo '  <img src="../../assets/images/users/1.jpg" alt="John Doe" />';
+                                                echo '  <img src="../../assets/images/users/1.jpg" alt="mednager" />';
 
                                               }else{
 
-                                                echo '<img src="'.$linkimagem.'" alt="John Doe" />';
+                                                echo '<img src="'.$linkimagem.'" alt="mednager" />';
 
                                               }
                                               ?>
@@ -401,11 +401,11 @@ var a = document.getElementById("a").value
 
                                                           if($linkimagem == null){
 
-                                                            echo '  <img src="../../assets/images/users/1.jpg" alt="John Doe" />';
+                                                            echo '  <img src="../../assets/images/users/1.jpg" alt="mednager" />';
 
                                                           }else{
 
-                                                            echo '<img src="'.$linkimagem.'" alt="John Doe" />';
+                                                            echo '<img src="'.$linkimagem.'" alt="mednager" />';
 
                                                           }
                                                           ?>

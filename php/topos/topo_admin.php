@@ -152,7 +152,7 @@ if($_SESSION['permissao'] != 1){
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="../indexes/index-admin.php">
-                            <img src="../../landingPage/img/logos/logotipo.png" alt="mednager" width="179px" height="52px" />
+                            <img src="../../assets/images/logos/logotipo_final.png" alt="mednager" width="179px" height="52px" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
