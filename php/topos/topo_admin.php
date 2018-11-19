@@ -199,24 +199,25 @@ if($_SESSION['permissao'] != 1){
                             <a href="../listas/listamedicamentos2.php">
                                 <i class="far fa-medkit"></i>Medicamentos</a>
                         </li>
-
-
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-tasks"></i>Registo de Utentes</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="../registos/medico-admin_registoutente.php">Novo Registo</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Associar Utente</a>
-                                </li>
-                            </ul>
+                        <br>
+                        <li>
+                            <a href="../registos/medico-admin_registoutente.php">
+                                <i class="fas fa-plus"></i>Registo de Utentes</a>
                         </li>
                         <li>
                             <a href="../registos/admin_registomedico.php">
                                 <i class="fas fa-plus"></i>Registo de Médicos</a>
                         </li>
+                        <li>
+                            <a href="table.html">
+                                <i class="fas fa-calendar-alt"></i>Planos de Medicação</a>
+                        </li>
+                        <br>
+                        <li>
+                            <a href="../configuracoes/config-espec.php">
+                                <i class="zmdi zmdi-settings"></i>Configurações</a>
+                        </li>
+
                     </ul>
                 </div>
             </nav>
@@ -276,29 +277,23 @@ if($_SESSION['permissao'] != 1){
                                 <i class="fa fa-medkit"></i>Medicamentos</a>
                         </li>
                         <br>
-
-
                         <li>
-                            <a class="js-arrow" href="#">
-                                <i class="fa fa-plus"></i>Registo de Utentes</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="../registos/medico-admin_registoutente.php">Novo registo</a>
-                                </li>
-                                <li>
-                                    <a href="../listas/admin-lu.php">Associar utente</a>
-                                </li>
-                            </ul>
+                            <a href="../registos/medico-admin_registoutente.php">
+                                <i class="fas fa-plus"></i>Registo de Utentes</a>
                         </li>
-
                         <li>
                             <a href="../registos/admin_registomedico.php">
-                                <i class="fa fa-plus"></i>Registo de Médicos</a>
+                                <i class="fas fa-plus"></i>Registo de Médicos</a>
                         </li>
-
-
-
-
+                        <li>
+                            <a href="table.html">
+                                <i class="fas fa-calendar-alt"></i>Planos de Medicação</a>
+                        </li>
+                        <br>
+                        <li>
+                            <a href="../configuracoes/config-espec.php">
+                                <i class="zmdi zmdi-settings"></i>Configurações</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
