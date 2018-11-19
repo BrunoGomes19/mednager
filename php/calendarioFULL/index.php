@@ -58,12 +58,10 @@ $resultesp2 = $conn->query($sqlesp2);
                         $('#visualizar #observacoes').text(event.observacoes);
                         $('#visualizar #ccUtente').text(event.ccUtente);
                         //ver How do I get the text value of a selected option?
-                        $('#visualizar #codTipoServico').text(event.codTipoServico);
+                        $('#visualizar #codTipoServico').text(event.descriTipoServico);
                         $('#visualizar #codLocal').text(event.descriLocal);
 
                         //alert($('#codLocals: selected').text());
-
-
 
                         $('#visualizar').modal('show');
                         return false;
