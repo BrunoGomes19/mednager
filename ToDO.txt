@@ -8,7 +8,7 @@ php/calendarFULL
 -remover: Está certo
 
 -visualizar: preço não poe decimais (p.e 132,33€ fica 12333)
-	local e tipoServico aparecem as pks ids e não as descris
+	local e tipoServico aparecem as pks ids e não as descris  (option:selected)
 
 
 <?php   
@@ -31,6 +31,33 @@ php/calendarFULL
                                                 }
                                             } 
                                         ?> 
+
+<?php
+
+                                        $sqlloc = "SELECT * from local";
+                                        $resultloc = $conn->query($sqlloc); 
+
+                                        echo '  <option selected hidden value=""></option>';
+
+
+                                        if ($resultloc->num_rows > 0) {
+                                            // output data of each row
+                                            while($row = $resultloc->fetch_assoc()) {
+
+                                                $codLocal = $row['codLocal'];
+
+                                                $descriLocal = $row['descriLocal'];
+
+                                                echo "
+                                                    <option value=".$codLocal." >' .$descriLocal.' </option>
+                                                  ";
+
+
+
+                                            }
+                                        }
+
+                                         ?>
 
 *****PAT, 17/nov, 7:11pm**********
 
