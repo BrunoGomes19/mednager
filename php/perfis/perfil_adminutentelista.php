@@ -64,6 +64,52 @@ $conn->close();
             <div class="content" style="padding-top:8%;">
                         <div class="container-fluid">
 
+
+
+
+                          <div class="col-md-4">
+                                    <div class="card card-user">
+                                        <div class="image">
+                                            <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
+                                        </div>
+                                        <div class="content">
+                                            <div class="author">
+                                                 <div class="image" style="width: 50%; margin-left: auto; margin-right: auto; border-radius: 15px">
+
+
+                                                      <?php
+
+                                                        if($linkimagem == null){
+
+                                                          echo '  <img src="../../assets/images/users/1.jpg" alt="mednager" />';
+
+                                                        }else{
+
+                                                          echo '<img src="'.$linkimagem.'" alt="mednager" />';
+
+                                                        }
+                                                        ?>
+
+                                                  </div>
+
+                                                  <h4 class="title"><?php echo $nome; ?><br />
+                                                     <br>
+                                                  </h4>
+                                                </a>
+                                            </div>
+                                            <p class="description text-center"> <?php echo $sobremim; ?>
+                                            </p>
+                                        </div>
+                                        <hr>
+
+                                    </div>
+                                </div>
+
+
+
+
+                          
+
                                 <div class="col-md-8">
                                     <div class="card">
                                       <div class="card-footer">
@@ -238,41 +284,7 @@ $conn->close();
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="card card-user">
-                                        <div class="image">
-                                            <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
-                                        </div>
-                                        <div class="content">
-                                            <div class="author">
-                                                 <a href="#">
-
-
-                                                <?php
-
-                                                  if($linkimagem == null){
-
-                                                    echo '  <img class="avatar border-gray" src="../../assets/images/users/1.jpg" alt="..."/>';
-
-                                                  }else{
-
-                                                    echo ' <img class="avatar border-gray" src="'.$linkimagem.'" alt="..."/>';
-
-                                                  }
-                                                  ?>
-
-                                                  <h4 class="title"><?php echo $nome; ?><br />
-                                                     <br>
-                                                  </h4>
-                                                </a>
-                                            </div>
-                                            <p class="description text-center"> <?php echo $sobremim; ?>
-                                            </p>
-                                        </div>
-                                        <hr>
-
-                                    </div>
-                                </div>
+                                
 
 
 
