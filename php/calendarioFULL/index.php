@@ -136,13 +136,14 @@ $resultesp2 = $conn->query($sqlesp2);
                             <!--Talvez de shit-->
                             <button class="btn btn-canc-vis btn-secondary">Editar</button>
                             <a href="" id="apagar_evento" class="btn btn-danger" role="button">Apagar</a>
+
                         </div>
                         <div class="form">
                             <form method="POST" action="proc_edit_evento.php">
                                 <div class="form-group">
                                     <div class="form-group col-md-12">
                                         <label>Título</label>
-                                        <input type="text" class="form-control" name="title" id="title" placeholder="Título da intervenção">
+                                        <input type="text" class="form-control" name="title" id="title" autocomplete="off" placeholder="Título da intervenção">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -188,7 +189,7 @@ $resultesp2 = $conn->query($sqlesp2);
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Preço</label>
-                                    <input type="number" min="0" step="0.01" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção">
+                                    <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -200,7 +201,7 @@ $resultesp2 = $conn->query($sqlesp2);
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Observações</label>
-                                    <input type="text" class="form-control" name="observacoes" id="observacoes" placeholder="Observações">
+                                    <input type="text" class="form-control" name="observacoes" autocomplete="off" id="observacoes" placeholder="Observações">
                                 </div>
                             </div>
 
@@ -262,7 +263,7 @@ $resultesp2 = $conn->query($sqlesp2);
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Título</label>
-                                    <input type="text" class="form-control" name="title" id="title" placeholder="Título da intervenção">
+                                    <input type="text" class="form-control" name="title" id="title" autocomplete="off" placeholder="Título da intervenção">
                                 </div>
                             </div>
 
@@ -305,7 +306,7 @@ $resultesp2 = $conn->query($sqlesp2);
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Preço</label>
-                                    <input type="number" min="0" step="0.01" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção">
+                                    <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -317,7 +318,7 @@ $resultesp2 = $conn->query($sqlesp2);
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Observações</label>
-                                    <input type="text" class="form-control" name="observacoes" id="observacoes" placeholder="Observações">
+                                    <input type="text" class="form-control" name="observacoes"  autocomplete="off" id="observacoes" placeholder="Observações">
                                 </div>
                             </div>
 

@@ -35,6 +35,7 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 	$result_events = "INSERT INTO servico (title, color, start, end, pvpServico, nSala, observacoes, codComprador, ccUtente, codTipoServico, codLocal, codAlertaUtente, codAlertaComprador) VALUES ('$title', '$color', '$start_sem_barra', '$end_sem_barra', $pvpServico, $nSala, '$observacoes', 2, $ccUtente, $codTipoServico, $codLocal, 1, 1 )";
 
 	$resultado_events = mysqli_query($conn, $result_events);
+
 	
 	//Verificar se salvou no banco de dados através "mysqli_insert_id" o qual verifica se existe o ID do último dado inserido
 	if(mysqli_insert_id($conn)){
