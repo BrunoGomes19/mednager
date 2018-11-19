@@ -50,30 +50,20 @@ $resultesp2 = $conn->query($sqlesp2);
                         $("#apagar_evento").attr("href", "proc_apagar_evento.php?id=" + event.id);
 
                         $('#visualizar #id').text(event.id);
-                        $('#visualizar #id').val(event.id);
                         $('#visualizar #title').text(event.title);
-                        $('#visualizar #title').val(event.title);
                         $('#visualizar #start').text(event.start.format('DD/MM/YYYY HH:mm:ss'));
-                        $('#visualizar #start').val(event.start.format('DD/MM/YYYY HH:mm:ss'));
-                        $('#visualizar #end').text(event.end.format('DD/MM/YYYY HH:mm:ss'));
-                        $('#visualizar #end').val(event.end.format('DD/MM/YYYY HH:mm:ss'));
-                        $('#visualizar #color').val(event.color);
++                        $('#visualizar #end').text(event.end.format('DD/MM/YYYY HH:mm:ss'));
                         $('#visualizar #pvpServico').text(event.pvpServico);
-                        $('#visualizar #pvpServico').val(event.pvpServico);
                         $('#visualizar #nSala').text(event.nSala);
-                        $('#visualizar #nSala').val(event.nSala);
                         $('#visualizar #observacoes').text(event.observacoes);
-                        $('#visualizar #observacoes').val(event.observacoes);
                         $('#visualizar #ccUtente').text(event.ccUtente);
-                        $('#visualizar #ccUtente').val(event.ccUtente);
                         //ver How do I get the text value of a selected option?
                         $('#visualizar #codTipoServico').text(event.codTipoServico);
-                        $('#visualizar #codTipoServico').val(event.codTipoServico);
-                        $('#visualizar #codLocal').text(event.codLocal);
-                        $('#visualizar #codLocal').val(event.codLocal);
+                        $('#visualizar #codLocal').text(event.descriLocal);
+
+                        //alert($('#codLocals: selected').text());
 
 
-                        alert($("#codLocal option[value='2']").text());
 
                         $('#visualizar').modal('show');
                         return false;
@@ -91,7 +81,7 @@ $resultesp2 = $conn->query($sqlesp2);
                     //https://fullcalendar.io/docs/events-json-feed
                     events: {
                         url: 'list_data.php',
-                        cache: true
+                        cache: false
                     }
                 });
 
@@ -363,10 +353,10 @@ $resultesp2 = $conn->query($sqlesp2);
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                   <label>Local</label>
-                                  <select name="codLocal" id="codLocal" class="form-control" required>
+                                  <select name="codLocal" id="codLocals" class="form-control" required>
                                     <?php
 
-                                    echo '  <option selected hidden value="">Selecione</option>';
+                                    //echo '  <option selected hidden value="">Selecione</option>';
 
 
                                     if ($resultesp->num_rows > 0) {
