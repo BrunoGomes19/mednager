@@ -123,7 +123,7 @@ if($_SESSION['permissao'] != 1){
 <body class="animsition">
 
   <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
 
@@ -325,7 +325,7 @@ if($_SESSION['permissao'] != 1){
                               <div class="noti-wrap">
 
 
-                                <button type="button" data-toggle="modal" data-target="#myModal">
+                                <button type="button" data-toggle="modal" data-target="#myModal2">
                                     <i class="fas fa-sticky-note" style="font-size:25px;color:#a9b3c9;"></i>
                                 </button>
                                   <div class="noti__item js-item-menu">
