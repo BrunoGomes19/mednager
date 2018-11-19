@@ -136,7 +136,7 @@ $resultesp2 = $conn->query($sqlesp2);
 
                             </dl>
                             <!--Talvez de shit-->
-                            <button class="btn btn-canc-vis btn-warning">Editar</button>
+                            <button class="btn btn-canc-vis btn-secondary">Editar</button>
                             <a href="" id="apagar_evento" class="btn btn-danger" role="button">Apagar</a>
                         </div>
                         <div class="form">
@@ -239,8 +239,8 @@ $resultesp2 = $conn->query($sqlesp2);
                                 <input type="hidden" name="id" id="id">
                                 <div class="form-group col-md-12">
                                     <!--Talvez de shit-->
-                                    <button type="button" class="btn btn-canc-edit btn-primary">Cancelar</button>
-                                    <button type="submit" class="btn btn-warning">Guardar Alterações</button>
+                                    <button type="button" class="btn btn-canc-edit btn-danger">Cancelar</button>
+                                    <button type="submit" class="btn btn-info">Guardar Alterações</button>
 
                                 </div>
                             </form>
@@ -386,7 +386,7 @@ $resultesp2 = $conn->query($sqlesp2);
 
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-success">Registar</button>
+                                    <button type="submit" class="btn btn-info">Registar</button>
                                 </div>
                             </div>
                         </form>
