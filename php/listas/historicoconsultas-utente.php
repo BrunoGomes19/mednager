@@ -51,7 +51,7 @@ $result2 = $conn->query($sql2);
 
         document.getElementById('local').innerHTML = g;
 
-        document.getElementById("hiperl").href="../perfis/perfil_medicolista.php?cc="+h;
+        document.getElementById("hiperl").href="../perfis/perfil_utentelista.php?cc="+h;
 
         document.getElementById('observacoes').innerHTML = i;
 
@@ -397,7 +397,7 @@ function showUser(str) {
                                         </tr>
 
                                         <tr>
-                                            <td>Nome do médico</td>
+                                            <td>Nome do utente</td>
                                             <td><a href="" id="hiperl"><p id="nomemedico"> </p></a></td>
 
                                         </tr>

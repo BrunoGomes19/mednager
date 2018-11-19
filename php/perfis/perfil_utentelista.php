@@ -313,7 +313,7 @@ echo "http://localhost/mednager/php/indexes/index-medico.php";
                                         </div>
                                     </div>
                                 </div>
-
+                                
 
 
 

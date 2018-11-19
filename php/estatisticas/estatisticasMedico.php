@@ -22,9 +22,9 @@
 
       $nomeUtente = $row["nomeUtente"];
 
-      $sexoUtente = $row["sexoUtente"];
+      $sexoUtente = $row["sexoUtente"]; 
 
-
+            
       if(strpos($sexoUtente, "Masculino") == true){
         $contagem_masculino++;
       }
@@ -35,20 +35,20 @@
         $contagem_outro++;
       }
       else{
-        $contagem_nd++;
-      }
+        $contagem_nd++;        
+      }    
     }
   } else {
     echo "Error";
   }
 
 
-
+  
 
   $sql2 = "select titularAIM, count(*) as nrtits from medicamento group by titularAIM";
   $result2 = $conn->query($sql2);
 
-  if ($result2->num_rows > 0) {
+  if ($result2->num_rows > 0) {    
 
     while($row = $result->fetch_assoc()) {
 
@@ -63,9 +63,9 @@
 
   $conn->close();
 
+ 
 
-
-  ?>
+  ?>  
 
 
 
@@ -88,7 +88,7 @@
         var data = google.visualization.arrayToDataTable([
         ['Sexo', 'Quantidade'],
         ['Masculino',     <?php echo $contagem_masculino ?>],
-        ['Feminino',      <?php echo $contagem_feminino ?>],
+        ['Feminino',      <?php echo $contagem_feminino ?>],        
         ['Outro',    <?php echo $contagem_outro ?>],
         ['Sem nenhuma informação',    <?php echo $contagem_nd ?>]
         ]);
@@ -117,10 +117,10 @@
           var data = google.visualization.arrayToDataTable([
             ['titular AIM', 'nr tits',],
             <?php
-            for($i=0; $i<sizeof($titular); $i++){
-            ?>
+            for($i=0; $i<sizeof($titular); $i++){              
+            ?> 
               ['<?php echo $titular[$i] ?>', '<?php echo $tits[$i] ?>'],
-            <?php } ?>
+            <?php } ?>          
 
           ];
 
@@ -141,13 +141,13 @@
           chart.draw(data, options);
         }
         </script>
-      </div>
+      </div>                            
     </div>
 
 
 
 
-
+    
   </div>
 </div>
 
@@ -177,4 +177,4 @@
 <script src="../../Interior/js/main.js"></script>
 
 </body>
-</html>
+</html> 
