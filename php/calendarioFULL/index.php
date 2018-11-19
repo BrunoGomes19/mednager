@@ -119,7 +119,7 @@ $resultesp2 = $conn->query($sqlesp2);
                                 <dd id="start" class="col-sm-9"></dd>
                                 <dt class="col-sm-3">Fim</dt>
                                 <dd id="end" class="col-sm-9"></dd>
-                                <dt class="col-sm-3">Preço</dt>
+                                <dt class="col-sm-3">Preço (€)</dt>
                                 <dd id="pvpServico" class="col-sm-9"></dd>
                                 <dt class="col-sm-3">Sala</dt>
                                 <dd id="nSala" class="col-sm-9"></dd>
@@ -188,8 +188,8 @@ $resultesp2 = $conn->query($sqlesp2);
                             </div>
                             <div class="form-group">
                                 <div class="form-group col-md-12">
-                                    <label>Preço</label>
-                                    <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção">
+                                    <label>Preço (€)</label>
+                                    <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção (€)">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -305,8 +305,8 @@ $resultesp2 = $conn->query($sqlesp2);
                             </div>
                             <div class="form-group">
                                 <div class="form-group col-md-12">
-                                    <label>Preço</label>
-                                    <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção">
+                                    <label>Preço (€)</label>
+                                    <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção (€)">
                                 </div>
                             </div>
                             <div class="form-group">
