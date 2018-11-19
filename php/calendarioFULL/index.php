@@ -8,6 +8,12 @@ $resultesp = $conn->query($sqlesp);
 $sqlesp2 = "SELECT * from tipoServico";
 $resultesp2 = $conn->query($sqlesp2);
 
+$sqlesp5 = "SELECT * from local";
+$resultesp5 = $conn->query($sqlesp5);
+
+$sqlesp25 = "SELECT * from tipoServico";
+$resultesp25 = $conn->query($sqlesp25);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -60,6 +66,8 @@ $resultesp2 = $conn->query($sqlesp2);
                         //ver How do I get the text value of a selected option?
                         $('#visualizar #codTipoServico').text(event.descriTipoServico);
                         $('#visualizar #codLocal').text(event.descriLocal);
+                        $('#visualizar #color').text(event.color);
+
 
                         //Editar
 
@@ -70,6 +78,8 @@ $resultesp2 = $conn->query($sqlesp2);
 
                         var editarstart = (event.start.format('DD/MM/YYYY HH:mm:ss'));
                         $('#start2').val(editarstart);
+
+                        alert(title);
 
                         var editarend = (event.end.format('DD/MM/YYYY HH:mm:ss'));
                         $('#end2').val(editarend);
@@ -86,11 +96,23 @@ $resultesp2 = $conn->query($sqlesp2);
                         var editarobservacoes = (event.observacoes);
                         $('#observacoes2').val(editarobservacoes);
 
-                        var editarlocal = (event.descriLocal);
-                        $( "#codLocal2 option:selected" ).text(editarlocal);
 
-                        var editarintervencao = (event.descriTipoServico);
-                        $('#codTipoServico2').val(editarintervencao);
+                        var editarlocal = (event.descriLocal);
+                        //$( "#editarLocal option:selected" ).text(editarlocal);
+                        var sel = document.getElementById('editarLocal');
+                        sel.selectedIndex = event.codLocal -1;
+
+
+                        var descriTipoServico = (event.descriTipoServico);
+                        //$( "#editarTipoServico option:selected" ).text(descriTipoServico);
+                        sel = document.getElementById('editarTipoServico');
+                        sel.selectedIndex = event.codTipoServico -1;
+
+                        var color = (event.color);
+                        //$( "#editarTipoServico option:selected" ).text(descriTipoServico);
+                        sel = document.getElementById('color2');
+                        sel.selectedIndex = event.color -1;
+                        $('#color2').val(event.color);
 
                         $('#visualizar').modal('show');
                         return false;
@@ -172,18 +194,17 @@ $resultesp2 = $conn->query($sqlesp2);
                                 <div class="form-group">
                                     <div class="form-group col-md-12">
                                         <label>Título</label>
-                                        <input type="text" class="form-control" name="title" id="title" autocomplete="off" placeholder="Título da intervenção">
+                                        <input type="text" class="form-control" name="title" id="title2" autocomplete="off" placeholder="Título da intervenção">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-group col-md-12">
-                                        <label>Cor</label>
-                                        <select name="color" class="form-control" id="color">
-                                            <option value="">Selecione</option>
+                                        <label>Cor2</label>
+                                        <select name="color" class="form-control" id="color2">
+                                            <option style="color:#5fbace;" value="#5fbace">Mednager</option>
                                             <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
                                             <option style="color:#0071C5;" value="#0071c5">Azul Turquesa</option>
                                             <option style="color:#FF4500;" value="#FF4500">Laranja</option>
-                                            <option style="color:#5fbace;" value="#5fbace">Mednager</option>
                                             <option style="color:#ff8080;" value="#ff8080">Rosa</option>
                                             <option style="color:#4dff4d;" value="#4dff4d"> Alface</option>
                                             <option style="color:#b366ff;" value="#b366ff">Roxo</option>
@@ -218,7 +239,7 @@ $resultesp2 = $conn->query($sqlesp2);
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Preço (€)</label>
-                                    <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção (€)">
+                                    <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico2" placeholder="Preço da intervenção (€)">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -230,7 +251,7 @@ $resultesp2 = $conn->query($sqlesp2);
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Observações</label>
-                                    <input type="text" class="form-control" name="observacoes" autocomplete="off" id="observacoes" placeholder="Observações">
+                                    <input type="text" class="form-control" name="observacoes" autocomplete="off" id="observacoes2" placeholder="Observações">
                                 </div>
                             </div>
 
@@ -242,10 +263,24 @@ $resultesp2 = $conn->query($sqlesp2);
                                 <div class="form-group col-md-12">
                                     <label>Tipo de intervenção</label>
                                     <select name="editarTipoServico" class="form-control" id="editarTipoServico">
-                                        <option value="">Selecione</option>
-                                        <option value="1">Consulta</option>
-                                        <option value="2">Cirurgia</option>
-                                        <option value="3">Outro</option>
+                                      <?php
+
+                                    //  echo '  <option selected hidden value="">Selecione</option>';
+
+                                      if ($resultesp25->num_rows > 0) {
+                                        // output data of each row
+                                        while($row = $resultesp25->fetch_assoc()) {
+
+                                          $id = $row['codTipoServico'];
+
+                                          $title = $row['descriTipoServico'];
+
+                                              echo '<option value="'.$id.'">'.  $title .'</option>';
+
+                                        }
+                                      }
+
+                                       ?>
                                     </select>
                                 </div>
                             </div>
@@ -254,10 +289,29 @@ $resultesp2 = $conn->query($sqlesp2);
                                 <div class="form-group col-md-12">
                                     <label>Local</label>
                                     <select name="editarLocal" class="form-control" id="editarLocal">
-                                        <option value="">Selecione</option>
-                                        <option value="1">Cuf</option>
-                                        <option value="2">Misericordia</option>
-                                        <option value="3">Outro</option>
+                                      <?php
+
+
+                                      //  echo '  <option selected hidden value="">Selecione</option>';
+
+                                      if ($resultesp5->num_rows > 0) {
+                                        // output data of each row
+                                        while($row = $resultesp5->fetch_assoc()) {
+
+                                          $codLocal = $row['codLocal'];
+
+                                          $descriLocal = $row['descriLocal'];
+
+
+
+                                              echo '<option value="'.$codLocal.'">'.  $descriLocal .'</option>';
+
+
+                                        }
+                                      }
+
+
+                                       ?>
 
                                     </select>
                                 </div>
@@ -300,11 +354,10 @@ $resultesp2 = $conn->query($sqlesp2);
                                 <div class="form-group col-md-12">
                                     <label>Cor</label>
                                     <select name="color" class="form-control" id="color">
-                                        <option value="">Selecione</option>
+                                        <option style="color:#5fbace;" value="#5fbace">Mednager</option>
                                         <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
                                         <option style="color:#0071C5;" value="#0071c5">Azul Turquesa</option>
                                         <option style="color:#FF4500;" value="#FF4500">Laranja</option>
-                                        <option style="color:#5fbace;" value="#5fbace">Mednager</option>
                                         <option style="color:#ff8080;" value="#ff8080">Rosa</option>
                                         <option style="color:#4dff4d;" value="#4dff4d">Alface</option>
                                         <option style="color:#b366ff;" value="#b366ff">Roxo</option>

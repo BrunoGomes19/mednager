@@ -5,18 +5,18 @@ session_start();
 include_once("conexao.php");
 
 $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
-$title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
-$color = filter_input(INPUT_POST, 'color', FILTER_SANITIZE_STRING);
-$start = filter_input(INPUT_POST, 'start', FILTER_SANITIZE_STRING);
-$end = filter_input(INPUT_POST, 'end', FILTER_SANITIZE_STRING);
-$pvpServico = filter_input(INPUT_POST, 'pvpServico', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-$nSala = filter_input(INPUT_POST, 'nSala', FILTER_SANITIZE_NUMBER_INT);
-$observacoes = filter_input(INPUT_POST, 'observacoes', FILTER_SANITIZE_STRING);
+$title = filter_input(INPUT_POST, 'title2', FILTER_SANITIZE_STRING);
+$color = filter_input(INPUT_POST, 'color2', FILTER_SANITIZE_STRING);
+$start = filter_input(INPUT_POST, 'start2', FILTER_SANITIZE_STRING);
+$end = filter_input(INPUT_POST, 'end2', FILTER_SANITIZE_STRING);
+$pvpServico = filter_input(INPUT_POST, 'pvpServico2', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+$nSala = filter_input(INPUT_POST, 'nSala2', FILTER_SANITIZE_NUMBER_INT);
+$observacoes = filter_input(INPUT_POST, 'observacoes2', FILTER_SANITIZE_STRING);
 //ir buscar codComprador ao session
 //ir buscar utente com ajax??
-$ccUtente = filter_input(INPUT_POST, 'ccUtente', FILTER_SANITIZE_NUMBER_INT);
-$codTipoServico = filter_input(INPUT_POST, 'codTipoServico', FILTER_SANITIZE_NUMBER_INT);
-$codLocal = filter_input(INPUT_POST, 'codLocal', FILTER_SANITIZE_NUMBER_INT);
+$ccUtente = filter_input(INPUT_POST, 'ccUtente2', FILTER_SANITIZE_NUMBER_INT);
+$codTipoServico = filter_input(INPUT_POST, 'editarTipoServico', FILTER_SANITIZE_NUMBER_INT);
+$codLocal = filter_input(INPUT_POST, 'editarLocal', FILTER_SANITIZE_NUMBER_INT);
 //codAlertas a 0
 
 if(!empty($id) && !empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty($pvpServico) && !empty($nSala) && !empty($codTipoServico) && !empty($codLocal)){
@@ -26,18 +26,18 @@ if(!empty($id) && !empty($title) && !empty($color) && !empty($start) && !empty($
 	$data_sem_barra = array_reverse(explode("/", $date));
 	$data_sem_barra = implode("-", $data_sem_barra);
 	$start_sem_barra = $data_sem_barra . " " . $hora;
-	
+
 	$data = explode(" ", $end);
 	list($date, $hora) = $data;
 	$data_sem_barra = array_reverse(explode("/", $date));
 	$data_sem_barra = implode("-", $data_sem_barra);
 	$end_sem_barra = $data_sem_barra . " " . $hora;
-	
-	$result_events = "UPDATE servico SET title='$title', color='$color', start='$start_sem_barra', end='$end_sem_barra', pvpServico = $pvpServico, nSala = $nSala, codComprador = 2, ccUtente = $ccUtente, codTipoServico = $codTipoServico, codLocal = $codLocal, codAlertaComprador = 1, codAlertaUtente = 1,  WHERE id='$id'"; 
+
+	$result_events = "UPDATE servico SET title='$title', color='$color', start='$start_sem_barra', end='$end_sem_barra', pvpServico = $pvpServico, nSala = $nSala, codComprador = 2, ccUtente = $ccUtente, codTipoServico = $codTipoServico, codLocal = $codLocal, codAlertaComprador = 1, codAlertaUtente = 1,  WHERE id='$id'";
 
 
 	$resultado_events = mysqli_query($conn, $result_events);
-	
+
 	//Verificar se alterou no banco de dados através "mysqli_affected_rows"
 	if(mysqli_affected_rows($conn)){
 		$_SESSION['msg'] = "<div class='alert alert-primary' role='alert'>Intervenção editada com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
@@ -46,8 +46,8 @@ if(!empty($id) && !empty($title) && !empty($color) && !empty($start) && !empty($
 		$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro1 ao editar a Intervenção <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 		header("Location: index.php");
 	}
-	
+
 }else{
-	$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro2 ao editar a Intervenção<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+	$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro3 ao editar a Intervenção<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 	header("Location: index.php");
 }
