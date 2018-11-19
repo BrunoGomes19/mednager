@@ -1,5 +1,12 @@
 <?php
-session_start();
+
+include('../topos/header.php');
+
+$sqlesp = "SELECT * from local";
+$resultesp = $conn->query($sqlesp);
+
+$sqlesp2 = "SELECT * from tipoServico";
+$resultesp2 = $conn->query($sqlesp2);
 
 ?>
 <!DOCTYPE html>
@@ -38,7 +45,7 @@ session_start();
                     editable: true,
                     eventLimit: true, // allow "more" link when too many events
 
-                    
+
                     eventClick: function (event) {
                         $("#apagar_evento").attr("href", "proc_apagar_evento.php?id=" + event.id);
 
@@ -65,6 +72,8 @@ session_start();
                         $('#visualizar #codLocal').text(event.codLocal);
                         $('#visualizar #codLocal').val(event.codLocal);
 
+
+                        alert($("#codLocal option[value='2']").text());
 
                         $('#visualizar').modal('show');
                         return false;
@@ -139,7 +148,7 @@ session_start();
                             <!--Talvez de shit-->
                             <button class="btn btn-canc-vis btn-warning">Editar</button>
                             <a href="" id="apagar_evento" class="btn btn-danger" role="button">Apagar</a>
-                        </div>   
+                        </div>
                         <div class="form">
                             <form method="POST" action="proc_edit_evento.php">
                                 <div class="form-group">
@@ -152,11 +161,11 @@ session_start();
                                     <div class="form-group col-md-12">
                                         <label>Cor</label>
                                         <select name="color" class="form-control" id="color">
-                                            <option value="">Selecione</option>			
+                                            <option value="">Selecione</option>
                                             <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
                                             <option style="color:#0071C5;" value="#0071c5">Azul Turquesa</option>
                                             <option style="color:#FF4500;" value="#FF4500">Laranja</option>
-                                            <option style="color:#5fbace;" value="#5fbace">Mednager</option>	
+                                            <option style="color:#5fbace;" value="#5fbace">Mednager</option>
                                             <option style="color:#1C1C1C;" value="#1C1C1C">Preto</option>
                                             <option style="color:#436EEE;" value="#436EEE">Royal Blue</option>
                                             <option style="color:#A020F0;" value="#A020F0">Roxo</option>
@@ -167,7 +176,7 @@ session_start();
                                     </div>
                                 </div>
 
-                                
+
 
                                 <div class="form-group">
                                     <div class="form-group col-md-12">
@@ -207,13 +216,13 @@ session_start();
                                 </div>
                             </div>
 
-                            
+
 
                             <div class="form-group">
                                 <div class="form-group col-md-12">
                                     <label>Local</label>
                                     <select name="codLocal" class="form-control" id="codLocal">
-                                        <option value="">Selecione</option>         
+                                        <option value="">Selecione</option>
                                         <option value="1">Cuf</option>
                                         <option value="2">Misericordia</option>
                                         <option value="3">Outro</option>
@@ -226,7 +235,7 @@ session_start();
                                 <div class="form-group col-md-12">
                                     <label>Tipo de intervenção</label>
                                     <select name="codTipoServico" class="form-control" id="codTipoServico">
-                                        <option value="">Selecione</option>         
+                                        <option value="">Selecione</option>
                                         <option value="1">Consulta</option>
                                         <option value="2">Cirurgia</option>
                                         <option value="3">Outro</option>
@@ -273,11 +282,11 @@ session_start();
                                 <div class="form-group col-md-12">
                                     <label>Cor</label>
                                     <select name="color" class="form-control" id="color">
-                                        <option value="">Selecione</option>			
+                                        <option value="">Selecione</option>
                                         <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
                                         <option style="color:#0071C5;" value="#0071c5">Azul Turquesa</option>
                                         <option style="color:#FF4500;" value="#FF4500">Laranja</option>
-                                        <option style="color:#5fbace;" value="#5fbace">Mednager</option>	
+                                        <option style="color:#5fbace;" value="#5fbace">Mednager</option>
                                         <option style="color:#1C1C1C;" value="#1C1C1C">Preto</option>
                                         <option style="color:#436EEE;" value="#436EEE">Royal Blue</option>
                                         <option style="color:#A020F0;" value="#A020F0">Roxo</option>
@@ -326,27 +335,61 @@ session_start();
 
                             <div class="form-group">
                                 <div class="form-group col-md-12">
-                                    <label>Tipo de intervenção</label>
-                                    <select name="codTipoServico" class="form-control" id="codTipoServico">
-                                        <option value="">Selecione</option>  
-                                              
-                                        <option value="1" >Consulta</option>
-                                        <option value="2" >Cirurgia</option>
-                                        <option value="3">Outro</option>
-                                    </select>
+                                  <label>Intervenção</label>
+                                  <select name="codTipoServico" id="codTipoServico" class="form-control" required>
+                                    <?php
+
+                                    echo '  <option selected hidden value="">Selecione</option>';
+
+                                    if ($resultesp2->num_rows > 0) {
+                                      // output data of each row
+                                      while($row = $resultesp2->fetch_assoc()) {
+
+                                        $id = $row['codTipoServico'];
+
+                                        $title = $row['descriTipoServico'];
+
+                                            echo '<option value="'.$id.'">'.  $title .'</option>';
+
+                                      }
+                                    }
+
+                                     ?>
+
+                                   </select>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="form-group col-md-12">
-                                    <label>Local</label>
-                                    <select name="codLocal" class="form-control" id="codLocal">
-                                        <option value="">Selecione</option>         
-                                        <option value="1">Cuf</option>
-                                        <option value="2">Misericordia</option>
-                                        <option value="3">Outro</option>
+                                  <label>Local</label>
+                                  <select name="codLocal" id="codLocal" class="form-control" required>
+                                    <?php
 
-                                    </select>
+                                    echo '  <option selected hidden value="">Selecione</option>';
+
+
+                                    if ($resultesp->num_rows > 0) {
+                                      // output data of each row
+                                      while($row = $resultesp->fetch_assoc()) {
+
+                                        $codLocal = $row['codLocal'];
+
+                                        $descriLocal = $row['descriLocal'];
+
+                                            echo '<option value="'.$codLocal.'">'.  $descriLocal .'</option>';
+
+
+                                      }
+                                    }
+
+
+                                     ?>
+
+
+
+
+                                      </select>
                                 </div>
                             </div>
 
