@@ -27,6 +27,24 @@ if ($result->num_rows > 0) {
 
 ?>
 
+
+<style>
+
+a:hover, a{
+
+  -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+
+}
+
+
+
+
+</style>
+
 <script>
 
 
@@ -806,7 +824,7 @@ $resultesp25 = $conn->query($sqlesp25);
                           </div>
                           <div class="modal-body">
                               <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
-                            <input type="hidden" name="idnull" id="idnull" value="'null'">
+
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Título</label>

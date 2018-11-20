@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$codComprador = $_SESSION['codComprador'];
+
 //Incluir conexao com BD
 include_once("conexao.php");
 $id = filter_input(INPUT_POST, 'idnull', FILTER_SANITIZE_STRING);
@@ -32,7 +34,7 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 	$data_sem_barra = implode("-", $data_sem_barra);
 	$end_sem_barra = $data_sem_barra . " " . $hora;
 
-	$result_events = "INSERT INTO servico (id,title, color, start, end, pvpServico, nSala, observacoes, codComprador, ccUtente, codTipoServico, codLocal, codAlertaUtente, codAlertaComprador) VALUES (NULL,'$title', '$color', '$start_sem_barra', '$end_sem_barra', $pvpServico, $nSala, '$observacoes', 2, $ccUtente, $codTipoServico, $codLocal, 1, 1 )";
+	$result_events = "INSERT INTO servico (id,title, color, start, end, pvpServico, nSala, observacoes, codComprador, ccUtente, codTipoServico, codLocal, codAlertaUtente, codAlertaComprador) VALUES (NULL,'$title', '$color', '$start_sem_barra', '$end_sem_barra', $pvpServico, $nSala, '$observacoes', $codComprador, $ccUtente, $codTipoServico, $codLocal, 1, 1 )";
 
 //	$resultado_events = mysqli_query($conn, $result_events);
 

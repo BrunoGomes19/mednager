@@ -1,7 +1,12 @@
 <?php
 
 include_once "conexao.php";
-$result_events = "SELECT id, title, color, start, descriTipoServico,servico.codTipoServico, end, pvpServico, nSala, observacoes, codComprador, ccUtente, local.codLocal, descriLocal, codAlertaUtente, codAlertaComprador FROM servico,local,tiposervico where local.codLocal = servico.codLocal and tiposervico.codTipoServico = servico.codTipoServico;";
+
+session_start();
+
+$codComprador = $_SESSION['codComprador'];
+
+$result_events = "SELECT id, title, color, start, descriTipoServico,servico.codTipoServico, end, pvpServico, nSala, observacoes, codComprador, ccUtente, local.codLocal, descriLocal, codAlertaUtente, codAlertaComprador FROM servico,local,tiposervico where local.codLocal = servico.codLocal and tiposervico.codTipoServico = servico.codTipoServico and codComprador=$codComprador;";
 $resultado_events = mysqli_query($conn, $result_events);
 
 $eventos = array();
