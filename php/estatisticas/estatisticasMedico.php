@@ -45,6 +45,23 @@
 
 
 
+
+  $sql2 = "select distinct titularAIM, count(*) as nrtits from medicamento group by titularAIM";
+  $result2 = $conn->query($sql2);
+
+  if ($result2->num_rows > 0) {
+    $arrayTits = array();
+  while($row = $result->fetch_assoc()) {
+
+    array_push($arrayTits, $row["titularAIM"], $row["nrtits"]);
+
+  }
+  } else {
+  echo "Error";
+  }
+
+
+
   $conn->close();
 
 
@@ -58,9 +75,9 @@
   <div class="section__content section__content--p30">
 
 
-    <div class="row">
-      <div class="col-md-12">
-        <div id="piechart" style="width: 900px; height: 500px;"></div>
+    <div class="row" >
+      <div class="col-md-12" >
+        <div id="piechart" style="width: 1170px; height: 500px;"></div>
 
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
@@ -87,6 +104,37 @@
         }
         </script>
 
+
+
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <div id="chart_div" style="width: 1170px; height: 500px;"></div>
+
+        <script type="text/javascript">
+        google.charts.load('current', {packages: ['corechart', 'bar']});
+        google.charts.setOnLoadCallback(drawBasic);
+
+        function drawBasic() {
+
+          var data = google.visualization.arrayToDataTable([
+
+            ['Titular AIM', 'Número de medicamentos',],
+            <?php
+            for($i=0; $i<sizeof($arrayTits); $i++){
+            ?>
+              ['<?php echo $arrayTits[$i] ?>', '<?php echo $arrayTits[$i+1] ?>'],
+            <?php } ?>
+          ]);
+
+          var options = {
+          title: '% Estatísticas Titulares AIM'
+          };
+
+          var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+          chart.draw(data, options);
+        }
+        </script>
 
 
 
@@ -126,6 +174,9 @@
 
 <!-- Main JS-->
 <script src="../../Interior/js/main.js"></script>
+
+
+
 
 </body>
 </html>
