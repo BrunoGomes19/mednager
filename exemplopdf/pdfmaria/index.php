@@ -10,7 +10,7 @@ $conn = mysqli_connect($hostname, $user, $password,$mysql_database);
 
 $nif = $_GET["nif"];;
 
-$sql='SELECT * FROM utente WHERE NIFUtente='.$nif;
+$sql='SELECT * FROM utente, subsistemas WHERE utente.codSubsistema=subsistemas.codSubsistema AND NIFUtente='.$nif;
 $result = $conn->query($sql);
 
 if($result->num_rows > 0){
@@ -24,11 +24,12 @@ if($result->num_rows > 0){
 		$cc = $row['ccUtente'];
 		$nif = $row['NIFUtente'];
 		$nib = $row['NIBUtente'];
-		$sistema = $row['nrSubSistema'];
+		$sistema = $row['descriSubsistema'];
 		$morada = $row['moradaUtente'];
 		$localidade = $row['localidadeUtente'];
 		$codPostal = $row['codPostalUtente'];
 		$obs = $row['ObservacoesUtente'];
+		$imagem = $row['linkimagem'];
 
 	}
 }else{
@@ -52,6 +53,7 @@ $mpdf->SetHTMLHeader("<div style='text-align: right; font-weight: bold;'>
 	</div>");
 
 $mpdf->WriteHTML('<br><h1>'.$nome.'</h1>
+	
 	<h4>Sexo: '.$sexo.'</h4>
 	<h4>Data de Nascimento: '.$data.'</h4>
 	<h4>Contacto: '.$contacto1.'</h4>
@@ -62,6 +64,9 @@ $mpdf->WriteHTML('<br><h1>'.$nome.'</h1>
 	<h4>NIB: '.$nib.'</h4>
 	<h4>Sistema de saúde: '.$sistema.'</h4>
 	<h4>Morada: '.$morada.'</h4>
+	<h4>Localidade: '.$localidade.'</h4>
+	<h4>Código Postal: '.$codPostal.'</h4>
+	<h4>Observações: '.$obs.'</h4>
 	');
 //header
 //$mpdf->AddPage();
