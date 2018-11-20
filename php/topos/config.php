@@ -5,5 +5,5 @@
 	$mysql_database = 'mydb';
 	$conn = mysqli_connect($hostname, $user, $password,$mysql_database);
 
-	
+
 ?>
