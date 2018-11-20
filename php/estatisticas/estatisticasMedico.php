@@ -11,7 +11,7 @@
 
   $emailComprador=$_SESSION['email'];
 
-  $sql = "select nomeUtente, sexoUtente from comprador, utente, associados where associados.comprador_codComprador=comprador.codComprador and associados.utente_ccUtente=utente.ccUtente and  emailComprador like '$emailComprador'";
+  $sql = "select sexoUtente as descricao, count(*) as c from comprador, utente, associados where associados.comprador_codComprador=comprador.codComprador and associados.utente_ccUtente=utente.ccUtente and  emailComprador like '$emailComprador' group by sexoUtente";
 
   $result = $conn->query($sql);
 
@@ -23,22 +23,17 @@
     $contagem_nd=0;
     while($row = $result->fetch_assoc()) {
 
-      $nomeUtente = $row["nomeUtente"];
-
-      $sexoUtente = $row["sexoUtente"];
-
-
+      $sexoUtente = $row["descricao"];
       if(strcmp($sexoUtente, "Feminino") == 0){
-        $contagem_feminino++;
+        $contagem_feminino = $row["c"];
       }
       else if (strcmp($sexoUtente, "Outro") == 0){
-        $contagem_outro++;
-      }
-      else if (strcmp($nomeUtente, "Masculino") == 0){
-        $contagem_masculino++;
+        $contagem_outro = $row["c"];
+      } else if (strcmp($sexoUtente, "Masculino") == 0){
+        $contagem_masculino = $row["c"];
       }
       else{
-        $contagem_nd++;
+        $contagem_nd = $row["c"];
       }
 
     }
