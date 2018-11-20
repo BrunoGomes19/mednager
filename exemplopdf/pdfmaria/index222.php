@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-</html>
 <?php 
 require_once("vendor/autoload.php");
-use Mpdf/Mpdf;
 
 $hostname='localhost';
 $user = 'admin';
@@ -27,7 +20,7 @@ $sql = "SELECT nomeUtente from utente where ccUtente like '$cc'";
 $result = $conn->query($sql);
 
 $mpdf = new \Mpdf\Mpdf();
-//header
+
 $mpdf->AddPage();
 $mpdf->SetFont('Times','',12);
 $mpdf->Image('../Interior/images/icon/logotipo.png', 10, 10, 60, 20);
@@ -52,17 +45,6 @@ $mpdf->load_html('
 	<h4>Sobre mim (?): '.$ObservacoesUtente.'</h4>
 
 	');
-
-$mpdf -> render();
-
-$mpdf -> stream(
-	"perfil.pdf",
-	array{
-		"Attachment" => false
-	}
-);
-
-
 //footer?
 $mpdf->Output();
 
