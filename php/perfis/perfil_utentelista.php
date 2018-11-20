@@ -180,7 +180,7 @@ echo "http://localhost/mednager/php/indexes/index-medico.php";
                                         </form>
 
 
-                                        <form action="../../exemplopdf/index.php" style ='float: right; padding: 5px'>
+                                        <form action="../../exemplopdf/pdfmaria/index.php" style ='float: right; padding: 5px'>
                                                     <button type="submit" class="btn btn-warning btn-sm" style="font-size:16px">
                                                       <i class="fas fa-print"></i> Imprimir
                                                     </button>&nbsp

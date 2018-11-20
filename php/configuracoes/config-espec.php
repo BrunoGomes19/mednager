@@ -83,38 +83,39 @@ yes.onchange = function(){
                         <div class="col-md-12">
 
                             <h3 class="title-5 m-b-35">Configurações</h3>
+                            <form>
+                                <?php
+                                    echo '<select id="dropdown-especialidades" onchange="escolherEspecialidade();">';
+                                ?>
+                                <?php  
+                                if ($result->num_rows > 0) {
+                                    // output data of each row
+                                    while($row = $result->fetch_assoc()) {
+                                        $descriEspecialidade = $row['descriEspecialidade'];
 
-                            <?php
-                                echo '<select id="dropdown-especialidades" onchange="escolherEspecialidade();">';
-                            ?>
-                            <?php  
-                            if ($result->num_rows > 0) {
-                                // output data of each row
-                                while($row = $result->fetch_assoc()) {
-                                    $descriEspecialidade = $row['descriEspecialidade'];
+                                        $codEspecialidade = $row['codEspecialidade'];
 
-                                    $codEspecialidade = $row['codEspecialidade'];
+                                        if($descriEspecialidade == ""){                                                             
 
-                                    if($descriEspecialidade == ""){                                                             
+                                            echo '<option value=1>Todos</option>';
 
-                                        echo '<option value=1>Todos</option>';
+                                        }else{
 
-                                    }else{
+                                            echo '<option value='.$codEspecialidade.'> '.$descriEspecialidade.' </option>';
 
-                                        echo '<option value='.$codEspecialidade.'> '.$descriEspecialidade.' </option>';
-
+                                        }
                                     }
+                                } else {
+                                    echo "0 results";
                                 }
-                            } else {
-                                echo "0 results";
-                            }
-                            ?>
+                                ?>
 
-                                </select>
+                                    </select>
 
-                            <div class="rs-select2--light ">
-                                <input type="button" value="Configurar" class="btn btn-primary" id="btnHome" onClick="document.location.href='mudar-campos.php'">
-                            </div>     
+                                <div class="rs-select2--light ">
+                                    <input type="button" value="Configurar" class="btn btn-primary" id="btnHome" onClick="document.location.href='mudar-campos.php'">
+                                </div>   
+                            </form>
                         </div>
                     </div>
                 </div>
