@@ -8,8 +8,11 @@
 </head>
 <body>
   <?php
+ 
+  $emailComprador=$_SESSION['email'];
 
-  $sql = "select nomeUtente, sexoUtente from comprador, utente, associados where associados.comprador_codComprador=comprador.codComprador and associados.utente_ccUtente=utente.ccUtente";
+  $sql = "select nomeUtente, sexoUtente from comprador, utente, associados where associados.comprador_codComprador=comprador.codComprador and associados.utente_ccUtente=utente.ccUtente and  emailComprador like '$emailComprador'";
+
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
@@ -24,42 +27,28 @@
 
       $sexoUtente = $row["sexoUtente"]; 
 
-            
-      if(strpos($sexoUtente, "Masculino") == true){
-        $contagem_masculino++;
-      }
-      else if (strpos($sexoUtente, "Feminino") == true){
+           
+      if(strpos($sexoUtente, "Feminino") == true){
         $contagem_feminino++;
       }
-      else if (strpos($sexoUtente, "Outro") == true){
+      else if (strcmp($sexoUtente, "Outro") == true){
         $contagem_outro++;
+      }
+      else if (strcmp($nomeUtente, "Masculino")){
+        $contagem_masculino++;
       }
       else{
         $contagem_nd++;        
-      }    
+      }  
+
+
+
     }
   } else {
     echo "Error";
   }
-
 
   
-
-  $sql2 = "select titularAIM, count(*) as nrtits from medicamento group by titularAIM";
-  $result2 = $conn->query($sql2);
-
-  if ($result2->num_rows > 0) {    
-
-    while($row = $result->fetch_assoc()) {
-
-      $titular = $row["titularAIM"];
-
-      $tits = $row["nrtits"];
-    }
-  } else {
-    echo "Error";
-  }
-
 
   $conn->close();
 
@@ -87,10 +76,10 @@
 
         var data = google.visualization.arrayToDataTable([
         ['Sexo', 'Quantidade'],
-        ['Masculino',     <?php echo $contagem_masculino ?>],
-        ['Feminino',      <?php echo $contagem_feminino ?>],        
-        ['Outro',    <?php echo $contagem_outro ?>],
-        ['Sem nenhuma informação',    <?php echo $contagem_nd ?>]
+        ['Masculino',     <?php echo $contagem_masculino; ?>],
+        ['Feminino',      <?php echo $contagem_feminino; ?>],        
+        ['Outro',    <?php echo $contagem_outro; ?>],
+        ['Sem nenhuma informação',    <?php echo $contagem_nd; ?>]
         ]);
 
         var options = {
@@ -107,40 +96,7 @@
 
 
 
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <div id="chart_div" style="width: 900px; height: 500px;"></div>
-        <script>
-        google.charts.load('current', {packages: ['corechart', 'bar']});
-        google.charts.setOnLoadCallback(drawBasic);
-
-        function drawBasic() {
-          var data = google.visualization.arrayToDataTable([
-            ['titular AIM', 'nr tits',],
-            <?php
-            for($i=0; $i<sizeof($titular); $i++){              
-            ?> 
-              ['<?php echo $titular[$i] ?>', '<?php echo $tits[$i] ?>'],
-            <?php } ?>          
-
-          ];
-
-          var options = {
-            title: 'Population of Largest U.S. Cities',
-            chartArea: {width: '50%'},
-            hAxis: {
-              title: 'Total Population',
-              minValue: 0
-            },
-            vAxis: {
-              title: 'olá'
-            }
-          };
-
-          var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-          chart.draw(data, options);
-        }
-        </script>
+        
       </div>                            
     </div>
 
