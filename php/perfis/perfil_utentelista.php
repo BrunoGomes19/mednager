@@ -179,11 +179,11 @@ echo "http://localhost/mednager/php/indexes/index-medico.php";
             																			</button>&nbsp
                                         </form>
 
-
-                                        <form action="../../exemplopdf/pdfmaria/index.php" style ='float: right; padding: 5px'>
+                                        <form action="../../exemplopdf/pdfmaria/index.php" method="get" style ='float: right; padding: 5px'>
                                                     <button type="submit" class="btn btn-warning btn-sm" style="font-size:16px">
                                                       <i class="fas fa-print"></i> Imprimir
                                                     </button>&nbsp
+                                                    <input type="hidden" name="nif" value="<?php echo $nif; ?>">
                                         </form>
             													</div>
                                         <div class="content">
