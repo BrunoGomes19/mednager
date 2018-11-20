@@ -8,7 +8,7 @@
 </head>
 <body>
   <?php
- 
+
   $emailComprador=$_SESSION['email'];
 
   $sql = "select nomeUtente, sexoUtente from comprador, utente, associados where associados.comprador_codComprador=comprador.codComprador and associados.utente_ccUtente=utente.ccUtente and  emailComprador like '$emailComprador'";
@@ -25,36 +25,36 @@
 
       $nomeUtente = $row["nomeUtente"];
 
-      $sexoUtente = $row["sexoUtente"]; 
+      $sexoUtente = $row["sexoUtente"];
 
-           
-      if(strpos($sexoUtente, "Feminino") == true){
+
+      if(strcmp($sexoUtente, "Feminino") == 0){
         $contagem_feminino++;
       }
-      else if (strcmp($sexoUtente, "Outro") == true){
+      else if (strcmp($sexoUtente, "Outro") == 0){
         $contagem_outro++;
       }
-      else if (strcmp($nomeUtente, "Masculino")){
+      else if (strcmp($nomeUtente, "Masculino") == 0){
         $contagem_masculino++;
       }
       else{
-        $contagem_nd++;        
-      }  
-
-
+        $contagem_nd++;
+      }
 
     }
+
+
   } else {
     echo "Error";
   }
 
-  
+
 
   $conn->close();
 
- 
 
-  ?>  
+
+  ?>
 
 
 
@@ -77,7 +77,7 @@
         var data = google.visualization.arrayToDataTable([
         ['Sexo', 'Quantidade'],
         ['Masculino',     <?php echo $contagem_masculino; ?>],
-        ['Feminino',      <?php echo $contagem_feminino; ?>],        
+        ['Feminino',      <?php echo $contagem_feminino; ?>],
         ['Outro',    <?php echo $contagem_outro; ?>],
         ['Sem nenhuma informação',    <?php echo $contagem_nd; ?>]
         ]);
@@ -96,14 +96,14 @@
 
 
 
-        
-      </div>                            
+
+      </div>
     </div>
 
 
 
 
-    
+
   </div>
 </div>
 
@@ -133,4 +133,4 @@
 <script src="../../Interior/js/main.js"></script>
 
 </body>
-</html> 
+</html>
