@@ -2,6 +2,20 @@
 <html lang="en">
 
 <head>
+
+  <style>
+
+  #erro{
+
+  	color:#f42c2c;
+  	font-size:16px;
+  	font-family:FontAwesome;
+
+  }
+
+
+  </style>
+
   <meta charset="utf-8">
   <title>mednager</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -32,6 +46,10 @@
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
+
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+
+
 </head>
 
 <body>
@@ -362,22 +380,35 @@
           <form method="post" role="form" class="contactForm" action="../reset_pass/enviarmensagem.php">
             <div class="form-row">
               <div class="form-group col-md-6">
-                <input type="text" name="name" class="form-control" id="name" placeholder="O seu nome" data-rule="minlen:4" data-msg="Por favor introduza no mínimo 4 caracteres" />
+                <input type="text" name="name" class="form-control" id="name" placeholder="O seu nome" data-rule="minlen:4" data-msg="Por favor introduza no mínimo 4 caracteres" required />
                 <div class="validation"></div>
               </div>
               <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="email" id="email" placeholder="O seu email" data-rule="email" data-msg="Por favor introduza um email válido" />
+                <input type="email" class="form-control" name="email" id="email" placeholder="O seu email" data-rule="email" data-msg="Por favor introduza um email válido" required />
                 <div class="validation"></div>
               </div>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto" data-rule="minlen:4" data-msg="Por favor introduza no mínimo 8 caracteres de assunto" />
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto" data-rule="minlen:4" data-msg="Por favor introduza no mínimo 8 caracteres de assunto" required />
               <div class="validation"></div>
             </div>
             <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Por favor escreva qualquer coisa para nós" placeholder="Caso queira inscrever-se como coletivo, envie-nos os seguintes dados: &#10;- Nome; &#10;- LEI (Legal Entity Identifier); &#10;- Email; &#10;- Quantidade de médicos a aderir à plataforma."></textarea>
+              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Por favor escreva qualquer coisa para nós" placeholder="Caso queira inscrever-se como coletivo, envie-nos os seguintes dados: &#10;- Nome; &#10;- LEI (Legal Entity Identifier); &#10;- Email; &#10;- Quantidade de médicos a aderir à plataforma." required></textarea>
               <div class="validation"></div>
             </div>
+            <div class="g-recaptcha" data-sitekey="6LcVvnwUAAAAANGqb-hxV1lghFHWSem4E9akTVNH" style="padding-left:36%;"></div>
+
+            <?php
+
+            if(strpos($fullUrl, "signup=recaptcha") == true){
+
+              echo '<br><p id="erro" style="text-align:center;margin:0;">Por favor verifique se validou o recaptcha!</p>';
+
+
+            }
+
+             ?>
+             <br>
             <div class="text-center"><button type="submit">Enviar mensagem</button></div>
           </form>
         </div>
