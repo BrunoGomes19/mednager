@@ -155,13 +155,7 @@ function showUser(str) {
 
 
                                         </div>
-                                        <div class="table-data__tool-right">
-                                          <form method="get" action="../registos/medico-admin_registoutente.php">
-                                            <button type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                                <i class="zmdi zmdi-plus"></i>Nova intervenção</button>
-                                              </form>
-
-                                        </div>
+                            
 
 
                                         </div>

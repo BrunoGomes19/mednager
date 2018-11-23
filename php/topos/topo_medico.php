@@ -178,7 +178,7 @@ var a = document.getElementById("a").value
                                 <i class="fas fa-book"></i>Agenda</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="index.html">Gestão de intervenções</a>
+                                    <a href="../calendarioFULL/index.php">Gestão de intervenções</a>
                                 </li>
                                 <li>
                                     <a href="../listas/historicoconsultas-medico.php">Histórico</a>
@@ -207,7 +207,7 @@ var a = document.getElementById("a").value
 
 
                         <li>
-                            <a href="../pages_medico/charts.php">
+                            <a href="../estatisticas/estatisticasMedico">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
                         <li>
@@ -245,7 +245,7 @@ var a = document.getElementById("a").value
                                 <i class="fas fa-book"></i>Agenda</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="index.html">Gestão de intervenções</a>
+                                    <a href="../calendarioFULL/index.php">Gestão de intervenções</a>
                                 </li>
                                 <li>
                                     <a href="../listas/historicoconsultas-medico.php">Histórico de intervenções</a>
@@ -274,7 +274,7 @@ var a = document.getElementById("a").value
 
 
                         <li>
-                            <a href="form.html">
+                            <a href="../estatisticas/estatisticasMedico">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
                         <li>

@@ -584,7 +584,7 @@ $resultesp25 = $conn->query($sqlesp25);
                     return false;
 
                 },
-
+                eventOverlap: false,
                 selectable: true,
                 selectHelper: true,
                 select: function (start, end) {
