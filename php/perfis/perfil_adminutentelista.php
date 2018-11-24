@@ -108,7 +108,7 @@ $conn->close();
 
 
 
-                          
+
 
                                 <div class="col-md-8">
                                     <div class="card">
@@ -116,38 +116,39 @@ $conn->close();
                                         <form action="
 
 
-                                        <?php
+                                         <?php
 
-                                        //Caso aceda ao perfil pela lista de médicos o voltar vai redirecionar para lá novamente
+                                         //Caso aceda ao perfil pela lista de médicos o voltar vai redirecionar para lá novamente
 
-                                        //Caso aceda ao perfil pelo historico de intervenções vai redirecionar para lá novamente
+                                         //Caso aceda ao perfil pelo historico de intervenções vai redirecionar para lá novamente
 
-                                        //Caso aceda ao perfil pelo URL em qualquer lugar vai redirecionar para o index-medico.php
+                                         //Caso aceda ao perfil pelo URL em qualquer lugar vai redirecionar para o index-medico.php
 
-                                        if(empty($_SERVER['HTTP_REFERER'])){
+                                         if(empty($_SERVER['HTTP_REFERER'])){
 
-                                        echo "http://localhost/mednager/php/indexes/index-admin.php";
+                                           echo "http://localhost/mednager/php/indexes/index-admin.php";
 
-                                        }else{
+                                         }else{
 
-                                          $last = $_SERVER['HTTP_REFERER'];
-                                        
-                                          if($last == 'http://localhost/mednager/php/listas/admin-lu.php'){
+                                           $last = $_SERVER['HTTP_REFERER'];
 
-                                          echo $last;
+                                           if($last == 'http://localhost/mednager/php/listas/admin-lu.php'){
 
-                                          }else{
+                                           echo $last;
 
-                                          echo "http://localhost/mednager/php/listas/historicoconsultas-admin.php";
-
-                                          }
-
-                                        }
+                                           }else{
 
 
+                                           echo $last;
+
+                                           }
+
+                                         }
 
 
-                                         ?>
+
+
+                                          ?>
 
 
 
@@ -289,7 +290,7 @@ $conn->close();
                                         </div>
                                     </div>
                                 </div>
-                                
+
 
 
 

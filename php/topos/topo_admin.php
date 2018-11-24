@@ -68,18 +68,6 @@ if($_SESSION['permissao'] != 1){
 
     <script>
 
-    setTimeout(fade_out, 5000);
-
-      function fade_out() {
-        $("#notasautosave").fadeOut().empty();
-
-        var el = document.getElementById("divnotas");
-         var height = el.offsetHeight;
-         var newHeight = height + 25;
-         el.style.height = newHeight + 'px';
-
-      }
-
     function guardarNotas() {
 
     var a = document.getElementById("a").value
@@ -130,14 +118,6 @@ if($_SESSION['permissao'] != 1){
           <div class="modal-body" style="height:635px" id="divnotas">
           <textarea name="Text1" id="a" onkeyup="guardarNotas();" maxlength="1000"><?php echo $notas;  ?></textarea>
         </div>
-        <div id="notasautosave">
-
-          <p style="text-align: center;">As notas serão guardadas automaticamente!</p>
-
-
-        </div>
-
-
 
 
       </div>
@@ -282,7 +262,7 @@ if($_SESSION['permissao'] != 1){
                             <a href="../registos/admin_registomedico.php">
                                 <i class="fas fa-plus"></i>Registo de Médicos</a>
                         </li>
-                    
+
                         <br>
                         <li>
                             <a href="../configuracoes/config-espec.php">

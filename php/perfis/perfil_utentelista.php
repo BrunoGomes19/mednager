@@ -138,39 +138,40 @@ $conn->close();
                                     <div class="card">
                                       <div class="card-footer">
                                         <form action="
+                                        
+ <?php
 
-<?php
+ //Caso aceda ao perfil pela lista de médicos o voltar vai redirecionar para lá novamente
 
-//Caso aceda ao perfil pela lista de médicos o voltar vai redirecionar para lá novamente
+ //Caso aceda ao perfil pelo historico de intervenções vai redirecionar para lá novamente
 
-//Caso aceda ao perfil pelo historico de intervenções vai redirecionar para lá novamente
+ //Caso aceda ao perfil pelo URL em qualquer lugar vai redirecionar para o index-medico.php
 
-//Caso aceda ao perfil pelo URL em qualquer lugar vai redirecionar para o index-medico.php
+ if(empty($_SERVER['HTTP_REFERER'])){
 
-if(empty($_SERVER['HTTP_REFERER'])){
+   echo "http://localhost/mednager/php/indexes/index-medico.php";
 
-echo "http://localhost/mednager/php/indexes/index-medico.php";
+ }else{
 
-}else{
+   $last = $_SERVER['HTTP_REFERER'];
 
-  $last = $_SERVER['HTTP_REFERER'];
+   if($last == 'http://localhost/mednager/php/listas/medico-lu.php'){
 
-  if($last == 'http://localhost/mednager/php/listas/medico-lu.php'){
+   echo $last;
 
-  echo $last;
-
-  }else{
-
-  echo "http://localhost/mednager/php/listas/historicoconsultas-medico.php";
-
-  }
-
-}
+   }else{
 
 
+   echo $last;
+
+   }
+
+ }
 
 
- ?>
+
+
+  ?>
 
 
                                         " method="GET" style ='float: left; padding: 5px;'>

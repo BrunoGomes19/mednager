@@ -71,18 +71,6 @@ if($_SESSION['permissao'] != 3){
 
     <script>
 
-    setTimeout(fade_out, 5000);
-
-      function fade_out() {
-        $("#notasautosave").fadeOut().empty();
-
-        var el = document.getElementById("divnotas");
-         var height = el.offsetHeight;
-         var newHeight = height + 25;
-         el.style.height = newHeight + 'px';
-
-      }
-
 
     function guardarNotas() {
 
@@ -143,12 +131,6 @@ if($_SESSION['permissao'] != 3){
           <textarea name="Text1" id="a" onkeyup="guardarNotas();" maxlength="1000"><?php echo $notas;  ?></textarea>
 
         </div>
-            <div id="notasautosave">
-
-              <p style="text-align: center;">As notas serão guardadas automaticamente!</p>
-
-
-            </div>
 
 
 

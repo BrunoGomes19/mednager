@@ -125,7 +125,8 @@ $conn->close();
 
                                           }else{
 
-                                          echo "http://localhost/mednager/php/listas/historicoconsultas-utente.php";
+
+                                          echo $last;
 
                                           }
 
@@ -208,7 +209,7 @@ $conn->close();
                                         </div>
                                     </div>
                                 </div>
-                                
+
 
 
 
