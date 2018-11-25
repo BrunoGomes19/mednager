@@ -152,7 +152,30 @@ $resultesp25 = $conn->query($sqlesp25);
                 defaultDate: Date(),
                 navLinks: true, // can click day/week names to navigate views
                 editable: true,
-                eventLimit: true, // allow "more" link when too many events
+                eventLimit: true,
+                eventOverlap: false,
+                selectOverlap: false,
+                eventDrop: function(event, delta, revertFunc) {
+
+    if (!confirm("Deseja mesmo alterar o dia da intervenção?")) {
+      revertFunc();
+    }else{
+
+      alert("Altera na BD: new value: "+event.start.format());
+
+    }
+
+  }, eventResize: function(event, delta, revertFunc) {
+
+    if (!confirm("Deseja mesmo alterar a hora final da intervenção?")) {
+      revertFunc();
+    }else{
+
+      alert("Altera na BD: new value: "+event.end.format());
+
+    }
+
+  },
 
                 //Apontar a intervenção até 1 dia de atraso
                 validRange: function(nowDate) {
@@ -174,24 +197,32 @@ $resultesp25 = $conn->query($sqlesp25);
                     $('#visualizar #start').text(event.start.format('DD/MM/YYYY HH:mm:ss'));
                     $('#visualizar #end').text(event.end.format('DD/MM/YYYY HH:mm:ss'));
 
-                    var currentdate = new Date();
+                          Number.prototype.padLeft = function(base,chr){
+                           var  len = (String(base || 10).length - String(this).length)+1;
+                           return len > 0? new Array(len).join(chr || '0')+this : this;
+                       }
+
+                    var d = new Date;
+
+                     d.setHours(d.getHours() - 1);
+
+                        dformat = [d.getDate().padLeft(),
+                                   (d.getMonth()+1).padLeft(),
+                                   d.getFullYear()].join('/') +' ' +
+                                  [d.getHours().padLeft(),
+                                   d.getMinutes().padLeft(),
+                                   d.getSeconds().padLeft()].join(':');
+
+                                   document.getElementById("tempo").style.display = "block";
 
 
+                                   if(event.end.format('DD/MM/YYYY HH:mm:ss')<dformat){
 
-                    var data = currentdate.getDate()+"/"+(currentdate.getMonth()+1)+"/"+currentdate.getDate()+" "+currentdate.getHours()+":"+currentdate.getMinutes()+":"+currentdate.getSeconds();
-                    alert(data);
+                                     document.getElementById("tempo").style.display = "none";
 
-                    //25/11/2018 00:00:00
-/*
-                    $flag = false;
 
-                    if(event.end.format('DD/MM/YYYY HH:mm:ss')==newDate){
+                                   }
 
-                      alert(1);
-
-                    }
-
-                    alert(2);*/
 
                     $('#visualizar #pvpServico').text(event.pvpServico);
                     $('#visualizar #nSala').text(event.nSala);
@@ -290,11 +321,12 @@ $resultesp25 = $conn->query($sqlesp25);
 
 
             <!-- MAIN CONTENT-->
-            <form action="../indexes/index-medico.php" method="GET" style ='float: left; padding: 5px;'>
+            <form action="../indexes/index-medico.php" method="GET" style ='float: left; padding: 5px'>
                       <button type="submit" class="btn btn-primary btn-sm" style="font-size:16px">
                           <i class="fa fa-arrow-left"></i> Voltar
                       </button>&nbsp
             </form>
+
             <div class="main-content" style="padding-top:0px;background-color:#dce0e5;">
 
               <div class="container"><br>
@@ -342,10 +374,10 @@ $resultesp25 = $conn->query($sqlesp25);
                                       <dd id="codLocal" class="col-sm-9"></dd>
 
                                   </dl>
-                                  <!--Talvez de shit-->
+                                  <div style="display:block" id="tempo">
                                   <button class="btn btn-canc-vis btn-secondary">Editar</button>
                                   <a href="" id="apagar_evento" class="btn btn-danger" role="button">Apagar</a>
-
+                                </div>
                               </div>
                               <div class="form">
                                   <form method="POST" action="proc_edit_evento.php">
