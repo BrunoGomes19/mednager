@@ -45,44 +45,7 @@ a:hover, a{
 
 </style>
 
-<script>
 
-
-setTimeout(fade_out, 5000);
-
-  function fade_out() {
-    $("#notasautosave").fadeOut().empty();
-
-    var el = document.getElementById("divnotas");
-     var height = el.offsetHeight;
-     var newHeight = height + 25;
-     el.style.height = newHeight + 'px';
-
-  }
-
-function guardarNotas() {
-
-var a = document.getElementById("a").value
-
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-
-            }
-        };
-          xmlhttp.open("GET","../topos/ajaxnotas-medico.php?q="+a+"&op=1",true);
-        xmlhttp.send();
-
-}
-
-
-</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -133,329 +96,7 @@ var a = document.getElementById("a").value
 
 </head>
 
-<body class="animsition">
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-
-        <div class="modal-body" style="height:635px" id="divnotas">
-          <textarea name="Text1" id="a" onkeyup="guardarNotas();" maxlength="1000"><?php echo $notas;  ?></textarea>
-        </div>
-        <div id="notasautosave">
-
-          <p style="text-align: center;">As notas serão guardadas automaticamente!</p>
-
-
-        </div>
-
-
-
-
-      </div>
-    </div>
-  </div>
-
-    <div class="page-wrapper">
-
-		        <!-- HEADER MOBILE-->
-        <header class="header-mobile d-block d-lg-none">
-            <div class="header-mobile__bar">
-                <div class="container-fluid">
-                    <div class="header-mobile-inner">
-                        <a class="logo" href="../indexes/index-medico.php">
-                            <img src="../../assets/images/logos/logotipo_final.png" alt="mednager" width="179px" height="52px" />
-                        </a>
-                        <button class="hamburger hamburger--slider" type="button">
-                            <span class="hamburger-box">
-                                <span class="hamburger-inner"></span>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <nav class="navbar-mobile">
-                <div class="container-fluid">
-                    <ul class="navbar-mobile__list list-unstyled">
-                        <li class="active has-sub">
-                            <a href="../indexes/index-medico.php">
-                                <i class="fa fa-home"></i>Início</a>
-
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-book"></i>Agenda</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="index.html">Gestão de intervenções</a>
-                                </li>
-                                <li>
-                                    <a href="../listas/historicoconsultas-medico.php">Histórico</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fa fa-plus"></i>Registo de Utentes</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="../registos/medico-admin_registoutente.php">Novo Registo</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Associar Utentes</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="../listas/medico-lu.php">
-                                <i class="fa fa-users"></i>Lista de Utentes</a>
-                        </li>
-
-
-
-                        <li>
-                            <a href="../pages_medico/charts.php">
-                                <i class="fa fa-signal"></i>Estatísticas</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-calendar-alt"></i>Planos de medicação</a>
-                        </li>
-                        <li>
-                            <a href="../listas/listamedicamentos.php">
-                                <i class="fa fa-medkit"></i>Medicamentos</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!-- END HEADER MOBILE-->
-
-        <!-- MENU SIDEBAR-->
-
-        <aside class="menu-sidebar d-none d-lg-block">
-            <div class="logo">
-                <a href="../indexes/index-medico.php">
-                    <img style="width: 100%" src="../../landingPage/img/logos/logotipo.png" alt="Cool Admin" />
-                </a>
-            </div>
-            <div class="menu-sidebar__content js-scrollbar1">
-                <nav class="navbar-sidebar">
-                    <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a href="../indexes/index-medico.php">
-                                <i class="fa fa-home"></i>Início</a>
-
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-book"></i>Agenda</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="index.html">Gestão de intervenções</a>
-                                </li>
-                                <li>
-                                    <a href="../listas/historicoconsultas-medico.php">Histórico de intervenções</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li >
-                            <a class="js-arrow" href="#">
-                                <i class="fa fa-plus"></i>Registo de Utentes</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="../registos/medico-admin_registoutente.php">Novo registo</a>
-                                </li>
-                                <li>
-                                    <a href="../listas/medico-lu.php">Associar utente</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="../listas/medico-lu.php">
-                                <i class="fa fa-users"></i>Lista de Utentes</a>
-                        </li>
-
-
-
-                        <li>
-                            <a href="form.html">
-                                <i class="fa fa-signal"></i>Estatísticas</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-calendar-alt"></i>Planos de medicação</a>
-                        </li>
-                        <li>
-                            <a href="../listas/listamedicamentos.php">
-                                <i class="fa fa-medkit"></i>Medicamentos</a>
-                        </li>
-
-                    </ul>
-                </nav>
-            </div>
-        </aside>
-        <!-- END MENU SIDEBAR-->
-
-        <!-- PAGE CONTAINER-->
-        <div class="page-container">
-            <!-- HEADER DESKTOP-->
-
-            <header class="header-desktop">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="header-wrap">
-                            <form class="form-header" action="" method="POST">
-
-                            </form>
-                            <div class="header-button">
-
-                              <div class="noti-wrap">
-
-
-                                <button type="button" data-toggle="modal" data-target="#myModal2">
-                                    <i class="fas fa-sticky-note" style="font-size:25px;color:#a9b3c9;"></i>
-                                </button>
-                                  <div class="noti__item js-item-menu">
-
-
-
-
-
-
-                                  </div>
-                              </div>
-
-
-                                <div class="noti-wrap">
-
-
-                                    <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-notifications"></i>
-                                        <span class="quantity">3</span>
-                                        <div class="notifi-dropdown js-dropdown">
-                                            <div class="notifi__title">
-                                                <p>You have 3 Notifications</p>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c1 img-cir img-40">
-                                                    <i class="zmdi zmdi-email-open"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>You got a email notification</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c2 img-cir img-40">
-                                                    <i class="zmdi zmdi-account-box"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Your account has been blocked</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c3 img-cir img-40">
-                                                    <i class="zmdi zmdi-file-text"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>You got a new file</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__footer">
-                                                <a href="#">All notifications</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="account-wrap">
-                                    <div class="account-item clearfix js-item-menu">
-                                        <div class="image">
-
-
-                                            <?php
-
-                                              if($linkimagem == null){
-
-                                                echo '  <img src="../../assets/images/users/1.jpg" alt="mednager" />';
-
-                                              }else{
-
-                                                echo '<img src="'.$linkimagem.'" alt="mednager" />';
-
-                                              }
-                                              ?>
-
-                                        </div>
-                                        <div class="content">
-                                            <a class="js-acc-btn" href="#"><?php	 echo $nome;?></a>
-                                        </div>
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                                <div class="image">
-                                                    <a href="#">
-
-
-                                                        <?php
-
-                                                          if($linkimagem == null){
-
-                                                            echo '  <img src="../../assets/images/users/1.jpg" alt="mednager" />';
-
-                                                          }else{
-
-                                                            echo '<img src="'.$linkimagem.'" alt="mednager" />';
-
-                                                          }
-                                                          ?>
-
-                                                    </a>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#"><?php echo $nome;?></a>
-                                                    </h5>
-                                                    <span class="email"><?php echo $email;?></span>
-                                                </div>
-                                            </div><?php $n_ordem=$_SESSION['n_ordem'];?>
-                                            <div class="account-dropdown__body">
-                                                <div class="account-dropdown__item">
-                                                    <a href="../perfis/perfil_medico.php">
-                                                        <i class="zmdi zmdi-account"></i>Perfil</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Configurações</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-money-box"></i>Pagamentos</a>
-                                                </div>
-                                            </div>
-                                            <div class="account-dropdown__footer">
-                                                <a href="../logins/logout.php">
-                                                    <i class="zmdi zmdi-power"></i>Sair</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-
-
-            <!-- HEADER DESKTOP-->
-
+<body style="margin:0px;">
 
 <?php
 
@@ -513,14 +154,45 @@ $resultesp25 = $conn->query($sqlesp25);
                 editable: true,
                 eventLimit: true, // allow "more" link when too many events
 
+                //Apontar a intervenção até 1 dia de atraso
+                validRange: function(nowDate) {
+                  return {
+                    start: nowDate.clone().add(-1, 'days'),
+
+                  };
+                },
+
+
+
 
                 eventClick: function (event) {
+
                     $("#apagar_evento").attr("href", "proc_apagar_evento.php?id=" + event.id);
 
                     $('#visualizar #id').text(event.id);
                     $('#visualizar #title').text(event.title);
                     $('#visualizar #start').text(event.start.format('DD/MM/YYYY HH:mm:ss'));
-    +                        $('#visualizar #end').text(event.end.format('DD/MM/YYYY HH:mm:ss'));
+                    $('#visualizar #end').text(event.end.format('DD/MM/YYYY HH:mm:ss'));
+
+                    var currentdate = new Date();
+
+
+
+                    var data = currentdate.getDate()+"/"+(currentdate.getMonth()+1)+"/"+currentdate.getDate()+" "+currentdate.getHours()+":"+currentdate.getMinutes()+":"+currentdate.getSeconds();
+                    alert(data);
+
+                    //25/11/2018 00:00:00
+/*
+                    $flag = false;
+
+                    if(event.end.format('DD/MM/YYYY HH:mm:ss')==newDate){
+
+                      alert(1);
+
+                    }
+
+                    alert(2);*/
+
                     $('#visualizar #pvpServico').text(event.pvpServico);
                     $('#visualizar #nSala').text(event.nSala);
                     $('#visualizar #observacoes').text(event.observacoes);
@@ -618,7 +290,12 @@ $resultesp25 = $conn->query($sqlesp25);
 
 
             <!-- MAIN CONTENT-->
-            <div class="main-content" style="padding-top:30px">
+            <form action="../indexes/index-medico.php" method="GET" style ='float: left; padding: 5px;'>
+                      <button type="submit" class="btn btn-primary btn-sm" style="font-size:16px">
+                          <i class="fa fa-arrow-left"></i> Voltar
+                      </button>&nbsp
+            </form>
+            <div class="main-content" style="padding-top:0px;background-color:#dce0e5;">
 
               <div class="container"><br>
                   <?php
@@ -627,7 +304,7 @@ $resultesp25 = $conn->query($sqlesp25);
                       unset($_SESSION['msg']);
                   }
                   ?>
-                  <div id='calendar' style="background-color:#f9fafc;border-radius: 15px;"></div>
+                  <div id='calendar' style="background-color:#f9fafc;border-radius: 15px;padding-left:5px;padding-right:5px;"></div>
               </div>
 
 
@@ -801,7 +478,6 @@ $resultesp25 = $conn->query($sqlesp25);
 
                                       <input type="hidden" name="idServico" id="idServico" value="0">
                                       <div class="form-group col-md-12">
-                                          <!--Talvez de shit-->
                                           <button type="button" class="btn btn-canc-edit btn-danger">Cancelar</button>
                                           <button type="submit" class="btn btn-info">Guardar Alterações</button>
 
@@ -828,7 +504,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Título</label>
-                                          <input type="text" class="form-control" name="title" id="title" autocomplete="off" placeholder="Título da intervenção">
+                                          <input type="text" class="form-control" name="title" id="title" autocomplete="off" placeholder="Título da intervenção" required>
                                       </div>
                                   </div>
 
@@ -864,25 +540,25 @@ $resultesp25 = $conn->query($sqlesp25);
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>CC Utente</label>
-                                          <input type="number" class="form-control" name="ccUtente" id="ccUtente" placeholder="CC do utente">
+                                          <input type="number" class="form-control" name="ccUtente" id="ccUtente" placeholder="CC do utente" required>
                                       </div>
                                   </div>
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Preço (€)</label>
-                                          <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção (€)">
+                                          <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção (€)" required>
                                       </div>
                                   </div>
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Sala</label>
-                                          <input type="number" class="form-control" name="nSala" id="nSala" placeholder="Sala">
+                                          <input type="number" class="form-control" name="nSala" id="nSala" placeholder="Sala" required>
                                       </div>
                                   </div>
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Observações</label>
-                                          <input type="text" class="form-control" name="observacoes"  autocomplete="off" id="observacoes" placeholder="Observações">
+                                          <input type="text" class="form-control" name="observacoes"  autocomplete="off" id="observacoes" placeholder="Observações" required>
                                       </div>
                                   </div>
 
@@ -1041,6 +717,16 @@ $resultesp25 = $conn->query($sqlesp25);
         $('.visualizar').slideToggle();
         $('.form').slideToggle();
     });
+</script>
+
+<script>
+
+window.setTimeout(function() {
+ $(".alert").fadeTo(500, 0).slideUp(500, function(){
+     $(this).remove();
+ });
+}, 6000);
+
 </script>
 
 
