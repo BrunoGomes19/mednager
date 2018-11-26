@@ -11,7 +11,7 @@
 
   $emailComprador=$_SESSION['email'];
 
-  $sql = "select sexoUtente as descricao, count(*) as c from comprador, utente, associados where associados.comprador_codComprador=comprador.codComprador and associados.utente_ccUtente=utente.ccUtente and  emailComprador like '$emailComprador' group by sexoUtente";
+  $sql = "select sexoComprador as descricao, count(*) as c from comprador, utente, associados where associados.comprador_codComprador=comprador.codComprador and associados.utente_ccUtente=utente.ccUtente and  emailComprador like '$emailComprador' group by sexoUtente";
 
   $result = $conn->query($sql);
 
@@ -44,30 +44,6 @@
   }
 
 
-
-
-  $sql2 = "select distinct titularAIM, count(*) as nrtits from medicamento group by titularAIM";
-  $result2 = $conn->query($sql2);
-
-  if ($result2->num_rows > 0) {
-    $arrayTits = array();
-  while($row = $result->fetch_assoc()) {
-
-    array_push($arrayTits, $row["titularAIM"], parseInt($row["nrtits"]));
-
-  }
-
-  } else {
-  echo "Error";
-  }
-
-
-
-
-  $conn->close();
-
-
-
   ?>
 
 
@@ -77,8 +53,8 @@
   <div class="section__content section__content--p30">
 
 
-    <div class="row">
-      <div class="col-md-12">
+    <div class="row" >
+      <div class="col-md-12" >
         <div id="piechart" style="width: 1170px; height: 500px;"></div>
 
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -106,42 +82,6 @@
         }
         </script>
 
-
-        <div id="chart_div" style="width: 1170px; height:3500px;"></div>
-
-        <script type="text/javascript">
-        google.charts.load('current', {packages: ['corechart', 'bar']});
-        google.charts.setOnLoadCallback(drawBasic);
-
-        function drawBasic() {
-
-          var data = google.visualization.arrayToDataTable([
-
-            ['Titular AIM', 'Número de medicamentos',],
-            <?php
-            if($result2->num_rows > 0){
-                while($row = $result2->fetch_assoc()){
-                  echo "['".$row['titularAIM']."', ".$row['nrtits']."],";
-                }
-            }
-            ?>
-          ]);
-
-          var options = {
-            title: '% Estatísticas Titulares AIM',
-            vAxis: {
-              textStyle : {
-                fontSize: 10 // or the number you want
-              }
-            },
-
-          };
-
-          var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-          chart.draw(data, options);
-        }
-        </script>
 
 
 
