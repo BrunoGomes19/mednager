@@ -1,4 +1,4 @@
-- Imprimir (Nos perfis e nas interven��es);
+﻿
 
 - Gr�ficos
 
@@ -11,3 +11,9 @@ https://stackoverflow.com/questions/15161654/recurring-events-in-fullcalendar   
 SUBSISTEMAS DE SAUDE VAI FICAR NOVO???
 
 ADICIONAR CAMPOS DA ESPECIALIDADE , GESTAO
+
+STATS
+nr utentes totais e nr utentes por sexo
+nr serviços por local e por especialidade
+
+
