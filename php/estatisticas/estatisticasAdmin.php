@@ -28,6 +28,23 @@
     echo "Error1";
   }
 
+  $sqtotalMed = "select emailComprador, count(*) as nrMed from comprador where codPermissao=2";
+
+
+  $result = $conn->query($sqtotalMed);
+
+  if ($result->num_rows > 0) {
+    // output data of each row  
+    
+    while($row = $result->fetch_assoc()) {
+      $nrMed = $row["nrMed"];
+
+    }
+
+  } else {
+    echo "Error2";
+  }
+
 
   $sql = "select sexoComprador as descricao, count(*) as c from comprador where LEIComprador='$LEIComprador' and codPermissao=2 group by sexoComprador";
 
@@ -62,7 +79,7 @@
 
 
 
-  $sql2 = "select descriEspecialidade, COUNT(*) as nrMedicos from especialidade, comprador where comprador.codEspecialidade=especialidade.codEspecialidade and nrOrdem is not null and LEIComprador='$LEIComprador' group by descriEspecialidade";
+  $sql2 = "select descriEspecialidade, COUNT(*) as nrMedicos from especialidade, comprador where comprador.codEspecialidade=especialidade.codEspecialidade and codPermissao=2 and LEIComprador='$LEIComprador' group by descriEspecialidade";
   $result2 = $conn->query($sql2);
 
   if ($result2->num_rows > 0) {
@@ -124,7 +141,7 @@
 
 
 
-        <div id="chart_div" style="width: 970px; height: 130px;"></div>
+        <div id="chart_div" style="width: 970px; height: 150px;"></div>
 
         <script type="text/javascript">
         google.charts.load('current', {packages: ['corechart', 'bar']});
@@ -137,11 +154,12 @@
             ['Especialidade', 'Número de médicos',],
             <?php
             if($result2->num_rows > 0){
-                while($row = $result2->fetch_assoc()){
-                  echo "['".$row['descriEspecialidade']."', ".$row['nrMedicos']."],";
-                }
-            }
+              while($row = $result2->fetch_assoc()){
+                echo "['".$row['descriEspecialidade']."', ".$row['nrMedicos']."],";
+              }                
+            }            
             ?>
+            ['TOTAL', <?php echo $nrMed; ?>]
           ]);
 
           var options = {

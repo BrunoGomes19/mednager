@@ -79,7 +79,7 @@ echo '
   <tr class="spacer"></tr>
   <tr class="tr-shadow">
       <td>
-          
+
       </td>
       <td>'.$nome.'</td>
       <td>
@@ -91,6 +91,9 @@ echo '
 
               <button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
                   <i class="fa fa-user"></i>&nbsp;Perfil</button>
+
+                  <button class="btn btn-outline-primary" >
+                      <i class="fa fa-calendar-plus"></i>&nbsp;Plano</button>
 
       </td>
   </tr>
