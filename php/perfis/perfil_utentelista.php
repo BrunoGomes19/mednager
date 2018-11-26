@@ -180,7 +180,7 @@ $conn->close();
             																			</button>&nbsp
                                         </form>
 
-                                        <form action="../../exemplopdf/pdfmaria/index.php" method="get" style ='float: right; padding: 5px'>
+                                        <form action="../imprimir/indexUtente.php" method="get" style ='float: right; padding: 5px'>
                                                     <button type="submit" class="btn btn-warning btn-sm" style="font-size:16px">
                                                       <i class="fas fa-print"></i> Imprimir
                                                     </button>&nbsp
