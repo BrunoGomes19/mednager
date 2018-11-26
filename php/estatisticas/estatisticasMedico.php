@@ -53,12 +53,14 @@
     $arrayTits = array();
   while($row = $result->fetch_assoc()) {
 
-    array_push($arrayTits, $row["titularAIM"], $row["nrtits"]);
+    array_push($arrayTits, $row["titularAIM"], parseInt($row["nrtits"]));
 
   }
+
   } else {
   echo "Error";
   }
+
 
 
 
@@ -106,8 +108,8 @@
 
 
 
-<!--
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
         <div id="chart_div" style="width: 1170px; height: 500px;"></div>
 
         <script type="text/javascript">
@@ -122,7 +124,7 @@
             <?php
             for($i=0; $i<sizeof($arrayTits); $i++){
             ?>
-              ['<?php echo $arrayTits[$i] ?>', '<?php echo $arrayTits[$i+1] ?>'],
+              ['<?php echo $arrayTits[$i] ?>', <?php echo parseInt($arrayTits[$i+1]); ?>]
             <?php } ?>
           ]);
 
@@ -136,7 +138,7 @@
         }
         </script>
 
--->
+
 
 
 
