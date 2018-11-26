@@ -189,7 +189,7 @@ var a = document.getElementById("a").value
 
 
                         <li>
-                            <a href="../estatisticas/estatisticasMedico">
+                            <a href="../estatisticas/estatisticasMedico.php">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
                         <li>
@@ -256,7 +256,7 @@ var a = document.getElementById("a").value
 
 
                         <li>
-                            <a href="../estatisticas/estatisticasMedico">
+                            <a href="../estatisticas/estatisticasMedico.php">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
                         <li>
