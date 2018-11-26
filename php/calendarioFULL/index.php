@@ -317,6 +317,7 @@ $resultesp25 = $conn->query($sqlesp25);
 
                 },
                 eventOverlap: false,
+                selectOverlap: false,
                 selectable: true,
                 selectHelper: true,
                 select: function (start, end) {
@@ -328,7 +329,7 @@ $resultesp25 = $conn->query($sqlesp25);
                 //https://fullcalendar.io/docs/events-json-feed
                 events: {
                     url: 'list_data.php',
-                    cache: false
+                    cache: false,
                 }
             });
 
