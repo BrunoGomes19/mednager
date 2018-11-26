@@ -18,49 +18,44 @@ $conn->close();
 
 <script>
 
+function nomeCampo(){
 
+  var a = $("#dropdown-especialidades option:selected").text();
 
-//
-
-function escolherEspecialidade(esp,str) {
-
-//if was onclick do:
-//  document.getElementById("input1-group2").value="";
-
-var yes = document.getElementById("dropdown-especialidades");
-
-yes.onchange = function(){
-
-   document.getElementById("input1-group2").value = "";
+document.getElementById('campo').innerHTML = "Adicionar campo - "+a;
 
 }
 
-    var selectBox = document.getElementById("dropdown-especialidades");
-    var codEspecialidade = selectBox.options[selectBox.selectedIndex].value;
-    var descriEspecialidade = selectBox.options[selectBox.selectedIndex].text;
+function registaCampo (){
 
-    if (esp == "") {
-        document.getElementById("txtHint").innerHTML = "A lista de medicamentos será exibida aqui.";
-        return;
-    } else {
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","ajaxlistamedicamentos.php?cod="+codEspecialidade+"&descri="+descriEspecialidade+"&str="+esp,true);
-        xmlhttp.send();
-    }
+    var nome = document.getElementById('nomeCampo').value;
+    var unid = document.getElementById('unidadeCampo').value;
+    var obs = document.getElementById('observacoesCampo').value;
+    var a = $('#dropdown-especialidades').val();
+
+    alert(a);
+    alert(nome); alert(unid); alert(obs);
+
+
+          if (window.XMLHttpRequest) {
+              // code for IE7+, Firefox, Chrome, Opera, Safari
+              xmlhttp = new XMLHttpRequest();
+          } else {
+              // code for IE6, IE5
+              xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+
+              }
+          };
+          xmlhttp.open("GET","ajaxconfigs.php?nome="+$nome+"&unid="+$unid+"&obs"+$obs+"&a="+a,true);
+          xmlhttp.send();
+
 }
 
 </script>
+
 
 
 <!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
@@ -80,14 +75,15 @@ yes.onchange = function(){
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="row">
-                        <div class="col-md-12">
+
+                        <div class="col-md-12" id="escolhaEsp">
 
                             <h3 class="title-5 m-b-35">Configurações</h3>
                             <form>
                                 <?php
-                                    echo '<select id="dropdown-especialidades" onchange="escolherEspecialidade();">';
+                                    echo '<select id="dropdown-especialidades"  >';
                                 ?>
-                                <?php  
+                                <?php
                                 if ($result->num_rows > 0) {
                                     // output data of each row
                                     while($row = $result->fetch_assoc()) {
@@ -95,7 +91,7 @@ yes.onchange = function(){
 
                                         $codEspecialidade = $row['codEspecialidade'];
 
-                                        if($descriEspecialidade == ""){                                                             
+                                        if($descriEspecialidade == ""){
 
                                             echo '<option value=1>Todos</option>';
 
@@ -113,10 +109,33 @@ yes.onchange = function(){
                                     </select>
 
                                 <div class="rs-select2--light ">
-                                    <input type="button" value="Configurar" class="btn btn-primary" id="btnHome" onClick="document.location.href='mudar-campos.php'">
-                                </div>   
+                                    <input type="button" value="Configurar" class="btn btn-primary" id="btnHome" onclick="nomeCampo()";>
+                                </div>
                             </form>
                         </div>
+
+
+                        <div class="col-md-12" id="configEsp" style="display: none";>
+
+                          <br><hr>
+
+                            <h3 id="campo" class="title-5 m-b-35">Adicionar campo - </h3>
+
+                              <input class="form-control input-sm" type="text"  id="nomeCampo" placeholder="Nome do campo"><br>
+                              <input class="form-control" type="text" id="unidadeCampo"  placeholder="Unidade do campo"><br>
+                              <input class="form-control input-lg" type="text"  id="observacoesCampo" placeholder="Observações do campo">
+                              <br><br>
+                              <input type="button" value="Adicionar"  id="addCampo" class="btn btn-warning" onclick="registaCampo()">
+
+                            </form>
+                        </div>
+
+
+
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -170,6 +189,12 @@ yes.onchange = function(){
             autoclose: true,
         })
     })
+
+
+
+    $('.btn-primary').on("click", function () {
+        document.getElementById('configEsp').style.display = "block";
+    });
 </script>
 
 </body>
