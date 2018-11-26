@@ -98,6 +98,24 @@ a:hover, a{
 
 <body style="margin:0px;">
 
+  <!-- Modal -->
+  <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-body" style="height:635px">
+
+
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
 <?php
 
 
@@ -317,7 +335,7 @@ $resultesp25 = $conn->query($sqlesp25);
 
                 },
                 eventOverlap: false,
-                selectOverlap: false,
+                selectOverlap: true,
                 selectable: true,
                 selectHelper: true,
                 select: function (start, end) {
@@ -354,6 +372,11 @@ $resultesp25 = $conn->query($sqlesp25);
             <form action="../indexes/index-medico.php" method="GET" style ='float: left; padding: 5px'>
                       <button type="submit" class="btn btn-primary btn-sm" style="font-size:16px">
                           <i class="fa fa-arrow-left"></i> Voltar
+                      </button>&nbsp
+            </form>
+            <form style ='float: right; padding: 5px'>
+                      <button type="button" class="btn btn-primary btn-sm" style="font-size:22px" data-toggle="modal" data-target="#myModal3">
+                          <i class="fas fa-info"></i>
                       </button>&nbsp
             </form>
 
