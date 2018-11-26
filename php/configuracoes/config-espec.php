@@ -28,27 +28,29 @@ document.getElementById('campo').innerHTML = "Adicionar campo - "+a;
 
 function registaCampo (){
 
-  <?php
+    var nome = document.getElementById('nomeCampo').value;
+    var unid = document.getElementById('unidadeCampo').value;
+    var obs = document.getElementById('observacoesCampo').value;
+    var a = $('#dropdown-especialidades').val();
+
+    alert(a);
+    alert(nome); alert(unid); alert(obs);
 
 
+          if (window.XMLHttpRequest) {
+              // code for IE7+, Firefox, Chrome, Opera, Safari
+              xmlhttp = new XMLHttpRequest();
+          } else {
+              // code for IE6, IE5
+              xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
 
-
-  $nomeCampo1 = filter_input(INPUT_POST, 'nomeCampo1', FILTER_SANITIZE_STRING);
-
-  $sql = "INSERT INTO registoCampos VALUES (null, nomeCampo1, unidadeCampo, observacoesCampo);";
-  if($conn->query($sql)===TRUE){
-    echo "Campo adicionado com sucessp";
-  } else{
-    echo "Error: ". $sql . "<br>" . $conn->error;
-  }
-
-  $conn->close();
-
-  ;
-
-   ?>
-
-
+              }
+          };
+          xmlhttp.open("GET","ajaxconfigs.php?nome="+$nome+"&unid="+$unid+"&obs"+$obs+"&a="+a,true);
+          xmlhttp.send();
 
 }
 
@@ -119,7 +121,7 @@ function registaCampo (){
 
                             <h3 id="campo" class="title-5 m-b-35">Adicionar campo - </h3>
 
-                              <input class="form-control input-sm" type="text"  id="nomeCampo1" placeholder="Nome do campo"><br>
+                              <input class="form-control input-sm" type="text"  id="nomeCampo" placeholder="Nome do campo"><br>
                               <input class="form-control" type="text" id="unidadeCampo"  placeholder="Unidade do campo"><br>
                               <input class="form-control input-lg" type="text"  id="observacoesCampo" placeholder="Observações do campo">
                               <br><br>
