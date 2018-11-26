@@ -77,8 +77,8 @@
   <div class="section__content section__content--p30">
 
 
-    <div class="row">
-      <div class="col-md-12">
+    <div class="row" >
+      <div class="col-md-12" >
         <div id="piechart" style="width: 1170px; height: 500px;"></div>
 
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -107,7 +107,10 @@
         </script>
 
 
-        <div id="chart_div" style="width: 1170px; height:3500px;"></div>
+
+
+
+        <div id="chart_div" style="width: 1170px; height: 5900px;"></div>
 
         <script type="text/javascript">
         google.charts.load('current', {packages: ['corechart', 'bar']});
@@ -134,6 +137,7 @@
                 fontSize: 10 // or the number you want
               }
             },
+            chartArea:{left:300,top:40,bottom: 30,width:"100%",height:"100%"}
 
           };
 

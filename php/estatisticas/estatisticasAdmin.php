@@ -11,7 +11,23 @@
 
   $emailComprador=$_SESSION['email'];
 
-  $sql = "select sexoComprador as descricao, count(*) as c from comprador, utente, associados where associados.comprador_codComprador=comprador.codComprador and associados.utente_ccUtente=utente.ccUtente and  emailComprador like '$emailComprador' group by sexoUtente";
+  $sqlLEI = "select LEIComprador from comprador where emailComprador like '$emailComprador'";
+
+
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+    // output data of each row  
+    
+    while($row = $result->fetch_assoc()) {
+      $LEIComprador = $row["LEIComprador"];
+    }
+
+  } else {
+    echo "Error";
+  }
+
+  $sql = "select sexoUtente as descricao, count(*) as c from comprador, utente, associados where associados.comprador_codComprador=comprador.codComprador and associados.utente_ccUtente=utente.ccUtente and  emailComprador like '$emailComprador' group by sexoUtente";
 
   $result = $conn->query($sql);
 
