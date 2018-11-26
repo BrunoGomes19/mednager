@@ -110,7 +110,7 @@
 
 
 
-        <div id="chart_div" style="width: 1170px; height: 500px;"></div>
+        <div id="chart_div" style="width: 1170px; height:3500px;"></div>
 
         <script type="text/javascript">
         google.charts.load('current', {packages: ['corechart', 'bar']});
@@ -122,14 +122,22 @@
 
             ['Titular AIM', 'Número de medicamentos',],
             <?php
-            for($i=0; $i<sizeof($arrayTits); $i++){
+            if($result2->num_rows > 0){
+                while($row = $result2->fetch_assoc()){
+                  echo "['".$row['titularAIM']."', ".$row['nrtits']."],";
+                }
+            }
             ?>
-              ['<?php echo $arrayTits[$i] ?>', <?php echo parseInt($arrayTits[$i+1]); ?>]
-            <?php } ?>
           ]);
 
           var options = {
-          title: '% Estatísticas Titulares AIM'
+            title: '% Estatísticas Titulares AIM',
+            vAxis: {
+              textStyle : {
+                fontSize: 10 // or the number you want
+              }
+            },
+
           };
 
           var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
