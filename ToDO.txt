@@ -3,3 +3,7 @@
 - Gráficos
 
 - Plano de medicação (duas vertentes diferentes, uma com o calendário, e outra com "Manhã, Almoço, Jantar, Dormir")
+
+notifs - quiçá v 2.0
+
+https://stackoverflow.com/questions/15161654/recurring-events-in-fullcalendar    - plano medicaçao semanal
