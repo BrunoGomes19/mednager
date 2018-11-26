@@ -1,7 +1,3 @@
-- Resolver os problemas no calendário (gestão de intervenções)
-
-- Calendário da gestão de intervenções (Só dá para criar uma intervenção no dia, e só é possivel editar a intervenção até 30 minutos depois da criação da mesma)
-
 - Imprimir (Nos perfis e nas intervenções);
 
 - Gráficos
