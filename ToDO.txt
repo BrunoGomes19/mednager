@@ -1,9 +1,13 @@
-- Imprimir (Nos perfis e nas intervenções);
+- Imprimir (Nos perfis e nas intervenï¿½ï¿½es);
 
-- Gráficos
+- Grï¿½ficos
 
-- Plano de medicação (duas vertentes diferentes, uma com o calendário, e outra com "Manhã, Almoço, Jantar, Dormir")
+- Plano de medicaï¿½ï¿½o (duas vertentes diferentes, uma com o calendï¿½rio, e outra com "Manhï¿½, Almoï¿½o, Jantar, Dormir")
 
-notifs - quiçá v 2.0
+notifs - quiï¿½ï¿½ v 2.0
 
-https://stackoverflow.com/questions/15161654/recurring-events-in-fullcalendar    - plano medicaçao semanal
+https://stackoverflow.com/questions/15161654/recurring-events-in-fullcalendar    - plano medicaï¿½ao semanal
+
+SUBSISTEMAS DE SAUDE VAI FICAR NOVO???
+
+ADICIONAR CAMPOS DA ESPECIALIDADE , GESTAO
