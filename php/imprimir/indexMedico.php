@@ -8,29 +8,29 @@ $mysql_database = 'mydb';
 
 $conn = mysqli_connect($hostname, $user, $password,$mysql_database);
 
-$nif = $_GET["nif"];;
+$cc = $_GET["cc"];;
 
-$sql='SELECT * FROM utente, subsistemas WHERE utente.codSubsistema=subsistemas.codSubsistema AND NIFUtente='.$nif;
+$sql='SELECT * FROM comprador, especialidade WHERE ccComprador='.$cc;
 $result = $conn->query($sql);
 
 if($result->num_rows > 0){
 	while($row = $result->fetch_assoc()){
-		$nome = $row['nomeUtente'];
-		$sexo = $row['sexoUtente'];
-		$data = $row['dataNascUtente'];
-		$contacto1 = $row['contacto1Utente'];
-		$contacto2 = $row['contacto2Utente'];
-		$email = $row['emailUtente'];
-		$cc = $row['ccUtente'];
-		$nif = $row['NIFUtente'];
-		$nib = $row['NIBUtente'];
-		$sistema = $row['descriSubsistema'];
-		$morada = $row['moradaUtente'];
-		$localidade = $row['localidadeUtente'];
-		$codPostal = $row['codPostalUtente'];
-		$obs = $row['ObservacoesUtente'];
+		$nome = $row['nomeComprador'];
+		$sexo = $row['sexoComprador'];
+		$data = $row['dataNascComprador'];
+		$contacto1 = $row['contacto1Comprador'];
+		$contacto2 = $row['contacto2Comprador'];
+		$email = $row['emailComprador'];
+		$nOrdem = $row['nrOrdem'];
+		$cc = $row['ccComprador'];
+		$nif = $row['NIFComprador'];
+		$nib = $row['NIBComprador'];
+		$formacao = $row['formacaoCarreira'];
+		$morada = $row['moradaComprador'];
+		$localidade = $row['localidadeComprador'];
+		$codPostal = $row['codPostalComprador'];
+		$obs = $row['observacoesComprador'];
 		$imagem = $row['linkimagem'];
-
 	}
 }else{
 	echo "ERROR";
@@ -59,10 +59,11 @@ $mpdf->WriteHTML('<br><h1>'.$nome.'</h1>
 	<h4>Contacto: '.$contacto1.'</h4>
 	<h4>Contacto: '.$contacto2.'</h4>
 	<h4>Endereço de email: '.$email.'</h4>
+	<h4>Número de Ordem: '.$nOrdem.'</h4>
 	<h4>Número de CC: '.$cc.'</h4>
 	<h4>NIF: '.$nif.'</h4>
 	<h4>NIB: '.$nib.'</h4>
-	<h4>Sistema de saúde: '.$sistema.'</h4>
+	<h4>Formação/Carreira: '.$formacao.'</h4>
 	<h4>Morada: '.$morada.'</h4>
 	<h4>Localidade: '.$localidade.'</h4>
 	<h4>Código Postal: '.$codPostal.'</h4>

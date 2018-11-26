@@ -51,7 +51,7 @@ function drawBasic() {
             <?php
             for($i=0; $i<sizeof($titular); $i++){
             ?>
-              ['<?php echo $titular[$i] ?>', '<?php echo $tits[$i] ?>'],
+              ['<?php echo $titular[$i] ?>', <?php echo $tits[$i] ?>],
             <?php } ?>
 
           ];

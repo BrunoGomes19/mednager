@@ -193,7 +193,7 @@ var a = document.getElementById("a").value
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="../planosMedicacao/planoMedico.php">
                                 <i class="fas fa-calendar-alt"></i>Planos de medicação</a>
                         </li>
                         <li>
@@ -260,7 +260,7 @@ var a = document.getElementById("a").value
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="../planosMedicacao/planoMedico.php">
                                 <i class="fas fa-calendar-alt"></i>Planos de medicação</a>
                         </li>
                         <li>

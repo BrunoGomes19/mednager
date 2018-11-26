@@ -168,7 +168,7 @@ if($_SESSION['permissao'] != 1){
                             </ul>
                         </li>
                         <li>
-                            <a href="chart.html">
+                            <a href="../estatisticas/estatisticasAdmin.php">
                                 <i class="fas fa-signal"></i>Estatísticas</a>
                         </li>
                         <li>
@@ -245,7 +245,7 @@ if($_SESSION['permissao'] != 1){
                         </li>
 
                         <li>
-                            <a href="form.html">
+                            <a href="../estatisticas/estatisticasAdmin.php">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
 

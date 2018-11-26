@@ -1,19 +1,5 @@
-php/calendarFULL
+- Imprimir (Nos perfis e nas intervenções);
 
--cadastrar: falta ser dinâmico a procurar o ccUtente ou a dar a possibilidade de registá-lo na hora
-	________falta ser dinâmico no Local e na intervenção, ou seja, os values vão ser printados automaticamente por cada tipoServico (nao sei se vale a pena perder tempo pq podemos adicionar uns quantos e uma opçao q seja Outro)
+- Gráficos
 
--editar: ___________falta dar fix nos selects Local e Tipo intervençao que não estão a aparecer, mas acho q de resto está chill
-
--remover: Está certo
-
--visualizar: __________preço não poe decimais (p.e 132,33€ fica 12333)
-	__________local e tipoServico aparecem as pks ids e não as descris  (option:selected) FEITO
-
-
-
-
-*****PAT, 17/nov, 7:11pm**********
-
-
-SECÇÃO DE NOTAS PESSOAIS/ETC
+- Plano de medicação (duas vertentes diferentes, uma com o calendário, e outra com "Manhã, Almoço, Jantar, Dormir")

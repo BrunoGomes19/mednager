@@ -186,12 +186,12 @@ if($_SESSION['permissao'] != 3){
                         </li>
 
                         <li>
-                            <a href="form.html">
+                            <a href="../planosMedicacao/planoUtente.php">
                                 <i class="fa fa-calendar-alt"></i>Plano de Medicação</a>
                         </li>
 
                         <li>
-                            <a href="map.html">
+                            <a href="../estatisticas/estatisticasUtente.php">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
                     </ul>
@@ -236,12 +236,12 @@ if($_SESSION['permissao'] != 3){
                         </li>
 
                         <li>
-                            <a href="form.html">
+                            <a href="../planosMedicacao/planoUtente.php">
                                 <i class="fa fa-calendar-alt"></i>Plano de Medicação</a>
                         </li>
 
                         <li>
-                            <a href="map.html">
+                            <a href="../estatisticas/estatisticasUtente.php">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
 
