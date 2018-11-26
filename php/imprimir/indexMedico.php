@@ -10,7 +10,7 @@ $conn = mysqli_connect($hostname, $user, $password,$mysql_database);
 
 $cc = $_GET["cc"];;
 
-$sql='SELECT * FROM comprador, especialidade WHERE ccComprador='.$cc;
+$sql='SELECT * FROM comprador, especialidade WHERE comprador.codEspecialidade=especialidade.codEspecialidade AND ccComprador='.$cc;
 $result = $conn->query($sql);
 
 if($result->num_rows > 0){
@@ -22,6 +22,7 @@ if($result->num_rows > 0){
 		$contacto2 = $row['contacto2Comprador'];
 		$email = $row['emailComprador'];
 		$nOrdem = $row['nrOrdem'];
+		$especialidade = $row['descriEspecialidade'];
 		$cc = $row['ccComprador'];
 		$nif = $row['NIFComprador'];
 		$nib = $row['NIBComprador'];
@@ -53,13 +54,15 @@ $mpdf->SetHTMLHeader("<div style='text-align: right; font-weight: bold;'>
 	</div>");
 
 $mpdf->WriteHTML('<br><h1>'.$nome.'</h1>
-	
+
+	<img src='.$imagem.'>
 	<h4>Sexo: '.$sexo.'</h4>
 	<h4>Data de Nascimento: '.$data.'</h4>
 	<h4>Contacto: '.$contacto1.'</h4>
 	<h4>Contacto: '.$contacto2.'</h4>
 	<h4>Endereço de email: '.$email.'</h4>
 	<h4>Número de Ordem: '.$nOrdem.'</h4>
+	<h4>Especialidade: ' .$especialidade. '</h4>
 	<h4>Número de CC: '.$cc.'</h4>
 	<h4>NIF: '.$nif.'</h4>
 	<h4>NIB: '.$nib.'</h4>
