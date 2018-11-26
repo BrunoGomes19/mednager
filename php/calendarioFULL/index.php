@@ -27,6 +27,195 @@ if ($result->num_rows > 0) {
 
 ?>
 
+<script>
+
+function guardaCC(cc){
+
+$('#myModal5').modal('hide');
+
+$('#vaidar #ccUtente').val(cc);
+
+}
+
+function guardaCCEditar(cc){
+
+$('#myModal5editar').modal('hide');
+
+$('#vaidareditar #ccUtente2').val(cc);
+
+}
+
+
+function abrirModal5(){
+
+  $('#vaidar2 #title').val("");
+  txtHint.innerHTML = '';
+
+  $('#myModal5').modal('show');
+
+}
+
+function abrirModal5editar(){
+
+  $('#vaidar2Editar #title').val("");
+  txtHint2.innerHTML = '';
+
+  $('#myModal5editar').modal('show');
+
+}
+
+
+</script>
+
+<script>
+
+.modal.left .modal-dialog,
+	.modal.right .modal-dialog {
+		position: fixed;
+		margin: auto;
+		width: 320px;
+		height: 100%;
+		-webkit-transform: translate3d(0%, 0, 0);
+		    -ms-transform: translate3d(0%, 0, 0);
+		     -o-transform: translate3d(0%, 0, 0);
+		        transform: translate3d(0%, 0, 0);
+	}
+
+	.modal.left .modal-content,
+	.modal.right .modal-content {
+		height: 100%;
+		overflow-y: auto;
+	}
+
+	.modal.left .modal-body,
+	.modal.right .modal-body {
+		padding: 15px 15px 80px;
+	}
+
+/*Left*/
+	.modal.left.fade .modal-dialog{
+		left: -320px;
+		-webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+		   -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+		     -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+		        transition: opacity 0.3s linear, left 0.3s ease-out;
+	}
+
+	.modal.left.fade.in .modal-dialog{
+		left: 0;
+	}
+
+/*Right*/
+	.modal.right.fade .modal-dialog {
+		right: -320px;
+		-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+		   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+		     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+		        transition: opacity 0.3s linear, right 0.3s ease-out;
+	}
+
+	.modal.right.fade.in .modal-dialog {
+		right: 0;
+	}
+
+/* ----- MODAL STYLE ----- */
+	.modal-content {
+		border-radius: 0;
+		border: none;
+	}
+
+	.modal-header {
+		border-bottom-color: #EEEEEE;
+		background-color: #FAFAFA;
+	}
+
+/* ----- v CAN BE DELETED v ----- */
+body {
+	background-color: #78909C;
+}
+
+.demo {
+	padding-top: 60px;
+	padding-bottom: 110px;
+}
+
+.btn-demo {
+	margin: 15px;
+	padding: 10px 15px;
+	border-radius: 0;
+	font-size: 16px;
+	background-color: #FFFFFF;
+}
+
+.btn-demo:focus {
+	outline: 0;
+}
+
+.demo-footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: 15px;
+	background-color: #212121;
+	text-align: center;
+}
+
+.demo-footer > a {
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 16px;
+	color: #fff;
+}
+
+</script>
+
+<script>
+
+function procuraUtente(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "A lista de utentes será exibida aqui...";
+        return;
+    } else {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","procuraUtente.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+
+function procuraUtenteEditar(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "A lista de utentes será exibida aqui...";
+        return;
+    } else {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint2").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","procuraUtenteEditar.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+
+</script>
 
 <style>
 
@@ -39,6 +228,7 @@ a:hover, a{
 
 
 }
+
 
 
 
@@ -355,6 +545,10 @@ $resultesp25 = $conn->query($sqlesp25);
 
     </script>
 
+    <style>.modal {
+  overflow-y:auto;
+}</style>
+
 <!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
 <script type="text/javascript" src="https://formden.com/static/cdn/formden.js"></script>
 
@@ -442,7 +636,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                       </div>
                                       <div class="form-group">
                                           <div class="form-group col-md-12">
-                                              <label>Cor2</label>
+                                              <label>Cor</label>
                                               <select name="color" class="form-control" id="color2">
                                                   <option style="color:#5fbace;" value="#5fbace">Mednager</option>
                                                   <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
@@ -474,10 +668,16 @@ $resultesp25 = $conn->query($sqlesp25);
                                       </div>
 
                                       <div class="form-group">
-                                      <div class="form-group col-md-12">
-                                          <label>CC Utente</label>
-                                          <input type="number" class="form-control" name="ccUtente" id="ccUtente2" placeholder="CC do utente">
-                                      </div>
+                                        <div class="form-group col-md-12" id="vaidareditar">
+                                            <label style="display:block;">CC Utente</label>
+                                            <input type="number" class="form-control" name="ccUtente" id="ccUtente2" placeholder="CC do utente" required  style="width:91%;display:inline">&nbsp
+
+                                            <i class="fas fa-user-plus" style="font-size:25px;position:relative;top:5px;" onclick="abrirModal5editar();"></i>
+
+
+
+
+                                    </div>
                                   </div>
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
@@ -623,9 +823,16 @@ $resultesp25 = $conn->query($sqlesp25);
                                       </div>
                                   </div>
                                   <div class="form-group">
-                                      <div class="form-group col-md-12">
-                                          <label>CC Utente</label>
-                                          <input type="number" class="form-control" name="ccUtente" id="ccUtente" placeholder="CC do utente" required>
+
+                                          <div class="form-group col-md-12" id="vaidar">
+                                              <label style="display:block;">CC Utente</label>
+                                              <input type="number" class="form-control" name="ccUtente" id="ccUtente" placeholder="CC do utente" required  style="width:91%;display:inline">&nbsp
+
+                                              <i class="fas fa-user-plus" style="font-size:25px;position:relative;top:5px;" onclick="abrirModal5();"></i>
+
+
+
+
                                       </div>
                                   </div>
                                   <div class="form-group">
@@ -813,6 +1020,68 @@ window.setTimeout(function() {
 }, 6000);
 
 </script>
+
+<div class="modal right fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+		<div class="modal-dialog" role="document" style="padding-top:5%">
+			<div class="modal-content" style="background-color:#f9f9f9;width:100%;">
+
+        <div class="modal-header">
+            <h4 class="modal-title text-center">Procurar utente</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
+
+                <div class="form-group">
+                    <div class="form-group col-md-12" id="vaidar2">
+                        <label>Nome completo</label>
+                        <input type="text" class="form-control" name="title" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome completo" required onkeyup="procuraUtente(this.value)">
+                        <br>
+                        <p id="txtHint">A lista de utentes será exibida aqui...</p>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+
+			</div><!-- modal-content -->
+		</div><!-- modal-dialog -->
+	</div><!-- modal -->
+
+  <div class="modal right fade" id="myModal5editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+  		<div class="modal-dialog" role="document" style="padding-top:5%">
+  			<div class="modal-content" style="background-color:#f9f9f9;width:100%;">
+
+          <div class="modal-header">
+              <h4 class="modal-title text-center">Procurar utente</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
+
+                  <div class="form-group">
+                      <div class="form-group col-md-12" id="vaidar2Editar">
+                          <label>Nome completo</label>
+                          <input type="text" class="form-control" name="title" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome completo" required onkeyup="procuraUtenteEditar(this.value)">
+                          <br>
+                          <p id="txtHint2">A lista de utentes será exibida aqui...</p>
+                      </div>
+                  </div>
+
+
+              </form>
+          </div>
+
+  			</div><!-- modal-content -->
+  		</div><!-- modal-dialog -->
+  	</div><!-- modal -->
+
+
 
 
 </body>
