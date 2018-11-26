@@ -161,7 +161,22 @@ $resultesp25 = $conn->query($sqlesp25);
       revertFunc();
     }else{
 
-      alert("Altera na BD: new value: "+event.start.format());
+
+
+              if (window.XMLHttpRequest) {
+                  // code for IE7+, Firefox, Chrome, Opera, Safari
+                  xmlhttp = new XMLHttpRequest();
+              } else {
+                  // code for IE6, IE5
+                  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+              }
+              xmlhttp.onreadystatechange = function() {
+                  if (this.readyState == 4 && this.status == 200) {
+
+                  }
+              };
+              xmlhttp.open("GET","editar_drop.php?id="+event.id+"&start="+event.start.format('YYYY/MM/DD HH:mm:ss')+"&end="+event.end.format('YYYY/MM/DD HH:mm:ss'),true);
+              xmlhttp.send();
 
     }
 
@@ -171,7 +186,21 @@ $resultesp25 = $conn->query($sqlesp25);
       revertFunc();
     }else{
 
-      alert("Altera na BD: new value: "+event.end.format());
+
+      if (window.XMLHttpRequest) {
+          // code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp = new XMLHttpRequest();
+      } else {
+          // code for IE6, IE5
+          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+
+          }
+      };
+      xmlhttp.open("GET","editar_resize.php?id="+event.id+"&end="+event.end.format('YYYY/MM/DD HH:mm:ss'),true);
+      xmlhttp.send();
 
     }
 
