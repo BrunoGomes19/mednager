@@ -32,9 +32,10 @@ function registaCampo (){
     var unid = document.getElementById('unidadeCampo').value;
     var obs = document.getElementById('observacoesCampo').value;
     var a = $('#dropdown-especialidades').val();
-
-    alert(a);
-    alert(nome); alert(unid); alert(obs);
+    
+    document.getElementById('nomeCampo').value="";
+    document.getElementById('unidadeCampo').value="";
+    document.getElementById('observacoesCampo').value="";
 
 
           if (window.XMLHttpRequest) {
@@ -46,10 +47,11 @@ function registaCampo (){
           }
           xmlhttp.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
 
               }
           };
-          xmlhttp.open("GET","ajaxconfigs.php?nome="+$nome+"&unid="+$unid+"&obs"+$obs+"&a="+a,true);
+          xmlhttp.open("GET","ajaxconfigs.php?nome="+nome+"&unid="+unid+"&obs="+obs+"&a="+a,true);
           xmlhttp.send();
 
 }
@@ -108,34 +110,29 @@ function registaCampo (){
 
                                     </select>
 
-                                <div class="rs-select2--light ">
+                                <div class="rs-select2--light "><br>
                                     <input type="button" value="Configurar" class="btn btn-primary" id="btnHome" onclick="nomeCampo()";>
                                 </div>
                             </form>
                         </div>
 
 
+                        <br>
                         <div class="col-md-12" id="configEsp" style="display: none";>
 
                           <br><hr>
+                          <div id="txtHint" ><b></b></div>
 
-                            <h3 id="campo" class="title-5 m-b-35">Adicionar campo - </h3>
+                            <h3 id="campo" class="title-5 m-b-35"></h3>
 
-                              <input class="form-control input-sm" type="text"  id="nomeCampo" placeholder="Nome do campo"><br>
-                              <input class="form-control" type="text" id="unidadeCampo"  placeholder="Unidade do campo"><br>
-                              <input class="form-control input-lg" type="text"  id="observacoesCampo" placeholder="Observações do campo">
-                              <br><br>
+                              <input class="form-control input-lg" type="text"  id="nomeCampo" placeholder="Nome do campo" required=""><br>
+                              <input class="form-control" type="text" id="unidadeCampo"  placeholder="Unidade do campo" required=""><br>
+                              <input class="form-control input-lg" type="text"  id="observacoesCampo" placeholder="Observações do campo" required=""><br>
+                              <br>
                               <input type="button" value="Adicionar"  id="addCampo" class="btn btn-warning" onclick="registaCampo()">
 
                             </form>
                         </div>
-
-
-
-
-
-
-
                     </div>
                 </div>
             </div>

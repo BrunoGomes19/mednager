@@ -122,7 +122,7 @@ echo '
             echo '
             <button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
                 <i class="fa fa-user"></i>&nbsp;Perfil</button>
-                <button class="btn btn-outline-primary" >
+                <button class="btn btn-outline-primary" onclick="planoMed('.$cc.');" >
                     <i class="fa fa-calendar-plus"></i>&nbsp;Plano</button>';
 
           }
