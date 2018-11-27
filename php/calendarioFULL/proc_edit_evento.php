@@ -31,7 +31,7 @@ $end = $dateArray2["year"]."-".$dateArray2["day"]."-".$dateArray2["month"]." ".$
 
 $findDataHora = false;
 
-$sql = "SELECT * FROM servico where servico.codComprador=$codComprador AND (servico.start between '$start' and '$end') OR (servico.end between '$start' and '$end') and servico.id!=$id;";
+$sql = "SELECT * FROM servico where servico.codComprador=$codComprador AND ((servico.start between '$start' and '$end') OR (servico.end between '$start' and '$end')) and servico.id!=$id;";
 
 echo $sql;
 
