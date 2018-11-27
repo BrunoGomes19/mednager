@@ -2,7 +2,9 @@
 <html>
 <head>
   <?php
-  include('../topos/topo_utente.php');
+  include('../topos/topo_medico.php');
+  $cc = $_GET["cc"];
+  echo "<script> alert($cc); </script>";
   ?>
 
 </head>

@@ -18,7 +18,13 @@ include('../topos/topo_medico.php');
 <script>
 
 function verperfil($cc){
+
 window.location.replace('../perfis/perfil_utentelista.php?cc='+$cc);
+
+}
+
+function planoMed($cc){
+window.location.replace('../planosMedicacao/planoUtente.php?cc='+$cc);
 }
 
 function associar($cc,$codComprador){

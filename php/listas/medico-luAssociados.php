@@ -10,6 +10,14 @@ function verperfil($cc){
 window.location.replace('../perfis/perfil_utentelista.php?cc='+$cc);
 }
 
+function planoMed($cc){
+
+window.location.replace('../planosMedicacao/planoUtente.php?cc='+$cc);
+
+}
+
+
+
 function showUser(str) {
     if (str == "") {
         document.getElementById("txtHint").innerHTML = "A lista de utentes será exibida aqui.";
