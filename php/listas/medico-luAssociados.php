@@ -12,7 +12,7 @@ window.location.replace('../perfis/perfil_utentelista.php?cc='+$cc);
 
 function planoMed($cc){
 
-window.location.replace('../planosMedicacao/planoUtente.php?cc='+$cc);
+window.location.replace('../planoMedicacaoMedico/index.php?cc='+$cc);
 
 }
 
