@@ -29,50 +29,42 @@ if ($result->num_rows > 0) {
 
 <script>
 
-function guardaCC(cc){
+function guardaMed(codMedicamento){
 
-$('#myModal5').modal('hide');
+$('#myModalMed').modal('hide');
 
-$('#vaidar #ccUtente').val(cc);
-
-}
-
-function guardaCCEditar(cc){
-
-$('#myModal5editar').modal('hide');
-
-$('#vaidareditar #ccUtente2').val(cc);
+$('#vaidarMed #title').val(cc);
 
 }
 
-function cadastrarmeio(){
+function guardaMedEditar(cc){
 
-var nMed = document.getElementById('nMed').value;
+$('#myModalMededitar').modal('hide');
 
-document.getElementById('nMed').innerHTML = nMed;
-
-$('#cadastrar').modal('hide');
-
-$('#cadastrarfim').modal('show');
+$('#vaidarMededitar #title2Med').val(cc);
 
 }
 
 
-function abrirModal5(){
 
-  $('#vaidar2 #title').val("");
+
+
+
+function abrirModalMed(){
+
+  $('#vaidarMed #title').val("");
   txtHint.innerHTML = '';
 
-  $('#myModal5').modal('show');
+  $('#myModalMed').modal('show');
 
 }
 
-function abrirModal5editar(){
+function abrirModalMededitar(){
 
-  $('#vaidar2Editar #title').val("");
+  $('#vaidarMedEditar #title').val("");
   txtHint2.innerHTML = '';
 
-  $('#myModal5editar').modal('show');
+  $('#myModalMededitar').modal('show');
 
 }
 
@@ -644,7 +636,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                       <div class="form-group">
                                           <div class="form-group col-md-12">
                                               <label>Título</label>
-                                              <input type="text" class="form-control" name="title" id="title2" autocomplete="off" placeholder="Título da intervenção">
+                                              <input type="text" class="form-control" name="title" id="title2Med" autocomplete="off" placeholder="Título da intervenção">
                                           </div>
                                       </div>
                                       <div class="form-group">
@@ -685,7 +677,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                             <label style="display:block;">CC Utente</label>
                                             <input type="number" class="form-control" name="ccUtente" id="ccUtente2" placeholder="CC do utente" required  style="width:91%;display:inline">&nbsp
 
-                                            <i class="fas fa-user-plus" style="font-size:25px;position:relative;top:5px;" onclick="abrirModal5editar();"></i>
+                                            <i class="fas fa-user-plus" style="font-size:25px;position:relative;top:5px;" onclick="abrirModalMededitar();"></i>
 
 
 
@@ -799,7 +791,7 @@ $resultesp25 = $conn->query($sqlesp25);
                               </button>
                           </div>
                           <div class="modal-body">
-
+                            <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
 
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
@@ -837,143 +829,39 @@ $resultesp25 = $conn->query($sqlesp25);
                                           <input type="text" class="form-control" name="end" id="end" onKeyPress="DataHora(event, this)">
                                       </div>
                                   </div>
-                                  <div class="form-group">
+                                  <div class='form-group col-md-12' id='vaidarmed'>
+                                      <label style='display:block;'>Medicamento</label>
+                                      <input type='number' class='form-control' name='codMedicamento' id='codMedicamento' placeholder='Nome do medicamento' required  style='width:91%;display:inline'>&nbsp
 
-
-
-
-
-                                      </div>
+                                    <i class='fas fa-user-plus' style='font-size:25px;position:relative;top:5px;' onclick='abrirModalMed();'></i>
                                   </div>
 
 
+                                <div class='form-group'>
+                                    <div class='form-group col-md-12'>
+                                        <label>Observações</label>
+                                        <textarea class='form-control' name='observacoes' style='resize:none;' autocomplete='off' id='observacoes' placeholder='Observações' required rows='4'></textarea>
 
-                                    <div class="form-group">
-                                        <div class="form-group col-md-12">
-                                            <label>Número de medicamentos</label>
-                                            <input type="number" min="1" class="form-control" name="nMed" id="nMed" placeholder="Número de medicamentos a receitar" required>
-                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-2 col-sm-10">
-                                            <input type="submit" value="Continuar" onclick="cadastrarmeio();" class="btn btn-info"></button>
-                                        </div>
-                                    </div>
-
-                                   </div>
-
-
-                                  </div>
-
-                          </div>
-
-
-
-
-<div class="modal fade" id="cadastrarfim" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title text-center">Introduzir medicamentos</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
-
-                  <input>
-
-                      <?php
-                        if (isset ($_GET['submit'])) {
-                          $nrmeds = htmlentities($_GET['nMed']);
-
-
-
-                          for ($i=0; $i < $nrmeds; $i++) {
-                            echo "  <div class='nMedicamentos' style='display: none'>
-
-                                <div class='form-group col-md-12' id='vaidarmed'>
-                                    <label style='display:block;'>Medicamento</label>
-                                    <input type='number' class='form-control' name='codMedicamento' id='codMedicamento' placeholder='Nome do medicamento' required  style='width:91%;display:inline'>&nbsp
-
-                                  <i class='fas fa-user-plus' style='font-size:25px;position:relative;top:5px;' onclick='abrirModal5();'></i>
                                 </div>
-
-
-                              <div class='form-group'>
-                                  <div class='form-group col-md-12'>
-                                      <label>Observações</label>
-                                      <textarea class='form-control' name='observacoes' style='resize:none;' autocomplete='off' id='observacoes' placeholder='Observações' required rows='4'></textarea>
-
-                                  </div>
-                              </div>
-
-
-
-
-
-                            ";
-                          }
-                        }
-
-
-                       ?>
-
-
-                      <div class="form-group" style="display: none">
-                          <div class="col-sm-offset-2 col-sm-10">
-                              <button type="submit" class="btn btn-info">Registar</button>
-                          </div>
-                    </div>
-
-                     </div>
+                              </form>
+                            </div>
 
 
 
 
 
 
-                    </div>
-                </form>
-            </div>
-        </div>
+                      </div>
 
 
-
-                  </div>
               </div>
 
-                </div>
-            </div>
-            <!-- END MAIN CONTENT-->
-            <!-- END PAGE CONTAINER-->
         </div>
 
-    </div>
 
-    <!-- Jquery JS-->
 
-    <!-- Bootstrap JS-->
-    <script src="../../Interior/vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="../../Interior/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="../../Interior/vendor/slick/slick.min.js">
-    </script>
-    <script src="../../Interior/vendor/wow/wow.min.js"></script>
-    <script src="../../Interior/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    <script src="../../Interior/vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="../../Interior/vendor/counter-up/jquery.counterup.min.js">
-    </script>
-    <script src="../../Interior/vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="../../Interior/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="../../Interior/vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="../../Interior/vendor/select2/select2.min.js">
-    </script>
 
-    <!-- Main JS-->
-    <script src="../../Interior/js/main.js"></script>
 
 
 <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
@@ -1039,7 +927,7 @@ window.setTimeout(function() {
 
 </script>
 
-<div class="modal right fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+<div class="modal right fade" id="myModalMed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
 		<div class="modal-dialog" role="document" style="padding-top:5%">
 			<div class="modal-content" style="background-color:#f9f9f9;width:100%;">
 
@@ -1053,11 +941,11 @@ window.setTimeout(function() {
             <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
 
                 <div class="form-group">
-                    <div class="form-group col-md-12" id="vaidar2">
+                    <div class="form-group col-md-12" id="vaidarmed">
                         <label>Nome completo</label>
-                        <input type="text" class="form-control" name="title" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome completo" required onkeyup="procuraUtente(this.value)">
+                        <input type="text" class="form-control" name="titleMed" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome completo" required onkeyup="procuraMed(this.value)">
                         <br>
-                        <p id="txtHint">A lista de utentes será exibida aqui...</p>
+                        <p id="txtHint">A lista de medicamentos será exibida aqui...</p>
                     </div>
                 </div>
 
@@ -1069,7 +957,7 @@ window.setTimeout(function() {
 		</div><!-- modal-dialog -->
 	</div><!-- modal -->
 
-  <div class="modal right fade" id="myModal5editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+  <div class="modal right fade" id="myModalMededitar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
   		<div class="modal-dialog" role="document" style="padding-top:5%">
   			<div class="modal-content" style="background-color:#f9f9f9;width:100%;">
 
@@ -1083,7 +971,7 @@ window.setTimeout(function() {
               <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
 
                   <div class="form-group">
-                      <div class="form-group col-md-12" id="vaidar2Editar">
+                      <div class="form-group col-md-12" id="vaidarMedEditar">
                           <label>Nome completo</label>
                           <input type="text" class="form-control" name="title" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome completo" required onkeyup="procuraUtenteEditar(this.value)">
                           <br>
