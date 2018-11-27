@@ -22,17 +22,41 @@ function nomeCampo(){
 
   var a = $("#dropdown-especialidades option:selected").text();
 
-document.getElementById('campo').innerHTML = "Adicionar campo - "+a;
+  var b = $("#dropdown-especialidades option:selected").val();
+
+  if(b==1){
+
+
+  }else{
+
+
+        document.getElementById('configEsp').style.display = "block";
+
+
+    document.getElementById('campo').innerHTML = "Adicionar campo - "+a;
+
+  }
+
+
+
+
 
 }
+
 
 function registaCampo (){
 
     var nome = document.getElementById('nomeCampo').value;
     var unid = document.getElementById('unidadeCampo').value;
     var obs = document.getElementById('observacoesCampo').value;
+
+    if(nome == "" || unid=="" || obs==""){
+
+
+
+}else{
     var a = $('#dropdown-especialidades').val();
-    
+
     document.getElementById('nomeCampo').value="";
     document.getElementById('unidadeCampo').value="";
     document.getElementById('observacoesCampo').value="";
@@ -54,6 +78,7 @@ function registaCampo (){
           xmlhttp.open("GET","ajaxconfigs.php?nome="+nome+"&unid="+unid+"&obs="+obs+"&a="+a,true);
           xmlhttp.send();
 
+}
 }
 
 </script>
@@ -95,7 +120,7 @@ function registaCampo (){
 
                                         if($descriEspecialidade == ""){
 
-                                            echo '<option value=1>Todos</option>';
+                                            echo '<option value=1 hidden>Escolha uma especialidade</option>';
 
                                         }else{
 
@@ -116,20 +141,20 @@ function registaCampo (){
                             </form>
                         </div>
 
-
+                        <form>
                         <br>
                         <div class="col-md-12" id="configEsp" style="display: none";>
 
                           <br><hr>
                           <div id="txtHint" ><b></b></div>
-
+                          <form>
                             <h3 id="campo" class="title-5 m-b-35"></h3>
 
-                              <input class="form-control input-lg" type="text"  id="nomeCampo" placeholder="Nome do campo" required=""><br>
-                              <input class="form-control" type="text" id="unidadeCampo"  placeholder="Unidade do campo" required=""><br>
-                              <input class="form-control input-lg" type="text"  id="observacoesCampo" placeholder="Observações do campo" required=""><br>
+                              <input class="form-control input-lg" type="text" id="nomeCampo" placeholder="Nome do campo" required /><br>
+                              <input class="form-control" type="text" id="unidadeCampo"  placeholder="Unidade do campo" required /><br>
+                              <input class="form-control input-lg" type="text"  id="observacoesCampo" placeholder="Observações do campo" required /><br>
                               <br>
-                              <input type="button" value="Adicionar"  id="addCampo" class="btn btn-warning" onclick="registaCampo()">
+                              <input type="input" value="Adicionar"  id="addCampo" class="btn btn-warning" onclick="registaCampo()">
 
                             </form>
                         </div>
@@ -189,9 +214,14 @@ function registaCampo (){
 
 
 
-    $('.btn-primary').on("click", function () {
-        document.getElementById('configEsp').style.display = "block";
-    });
+
+
+    window.setTimeout(function() {
+     $(".alert").fadeTo(500, 0).slideUp(500, function(){
+         $(this).remove();
+     });
+ }, 6000);
+
 </script>
 
 </body>
