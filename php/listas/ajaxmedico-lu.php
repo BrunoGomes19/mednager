@@ -111,14 +111,38 @@ echo '
       </td>
       <td class="desc">'.$nif.'</td>
 
-      <td>
+      <td>';
+      $sql2 = "Select * from associados where associados.utente_ccUtente = '$cc' and associados.comprador_codComprador = '$codComprador';";
+      $result3 = $con->query($sql2);
+      if ($result3->num_rows > 0) {
+          // output data of each row
+          while($row = $result3->fetch_assoc()) {
 
-              <button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
-                  <i class="fa fa-user"></i>&nbsp;Perfil</button>
-                  <button class="btn btn-outline-primary" >
-                      <i class="fa fa-calendar-plus"></i>&nbsp;Plano</button>
 
-      </td>
+            echo '
+            <button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
+                <i class="fa fa-user"></i>&nbsp;Perfil</button>
+                <button class="btn btn-outline-primary" >
+                    <i class="fa fa-calendar-plus"></i>&nbsp;Plano</button>';
+
+          }
+      } else {
+
+        echo '<button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
+            <i class="fa fa-user"></i>&nbsp;Perfil</button>
+            ';
+
+      }
+
+
+
+
+
+
+
+
+
+      echo '</td>
   </tr>
   <tr class="spacer"></tr>
 ';
