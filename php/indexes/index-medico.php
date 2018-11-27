@@ -49,7 +49,7 @@ if ($result->num_rows > 0) {
   }
 }
 
-$sql4 = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao='$codPermissao' and servico.codComprador='$codComprador' and servico.start between now() and concat((curdate() + INTERVAL 6 - weekday(curdate()) DAY),' 23:59:59');";
+$sql4 = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao='$codPermissao' and servico.codComprador='$codComprador' and servico.start between DATE_ADD(CURDATE(), INTERVAL - WEEKDAY(CURDATE()) DAY) and concat((curdate() + INTERVAL 6 - weekday(curdate()) DAY),' 23:59:59');";
 $result = $conn->query($sql4);
 
 if (!$result) {

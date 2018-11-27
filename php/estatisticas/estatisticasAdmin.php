@@ -96,6 +96,22 @@
 
 
 
+  $sql3 = "select local.descriLocal, COUNT(*) as nrEsp from local, servico WHERE local.codLocal=servico.codLocal GROUP BY local.descriLocal";
+  $result3 = $conn->query($sql3);
+
+  if ($result3->num_rows > 0) {
+    $arrayLoc = array();
+  while($row = $result->fetch_assoc()) {
+
+    array_push($arrayLoc, $row["local.descriLocal"], parseInt($row["nrEsp"]));
+
+  }
+
+  } else {
+  echo "Error";
+  }
+
+
 
   $conn->close();
 
@@ -111,6 +127,7 @@
 
     <div class="row" >
       <div class="col-md-12" >
+        <!-- SEXO DOS UTENTES-->
         <div id="piechart" style="width: 970px; height: 500px;"></div>
 
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -129,7 +146,8 @@
         ]);
 
         var options = {
-        title: '% Sexo dos médicos associados'
+        title: '% Sexo dos Médicos associados',
+        colors: ['#5fbace', '#4c94a4', '#4c94a4', '#264a52', '#264a52']
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -140,7 +158,7 @@
 
 
 
-
+        <!-- MEDICOS POR ESP-->
         <div id="chart_div" style="width: 970px; height: 150px;"></div>
 
         <script type="text/javascript">
@@ -163,7 +181,8 @@
           ]);
 
           var options = {
-            title: 'Número de médicos por especialidade',
+            title: 'Número de Médicos por Especialidade',
+            colors: ['#5fbace'],
             vAxis: {
               textStyle : {
                 fontSize: 13 // or the number you want
@@ -175,7 +194,7 @@
               chxs: '0N*f0',
             },
 
-            chartArea:{left:200,top:40,bottom: 40,width:"30%",height:"100%"},
+            chartArea:{left:190,top:40,bottom: 40,width:"30%",height:"100%"},
 
           };
 
@@ -184,6 +203,42 @@
           chart.draw(data, options);
         }
         </script>
+
+
+
+        <!-- NR de CONSULTAS-->
+        <div id="donutchart" style="width: 970px; height: 450px;"></div>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+          google.charts.load("current", {packages:["corechart"]});
+          google.charts.setOnLoadCallback(drawChart);
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Task', 'Hours per Day'],
+              <?php
+            if($result3->num_rows > 0){
+              while($row = $result3->fetch_assoc()){
+                echo "['".$row['descriLocal']."', ".$row['nrEsp']."],";
+              }                
+            }            
+            ?>
+            ]);
+
+            var options = {
+              title: '% Consultas por Local',
+              pieHole: 0.4,
+              colors: ['#5fbace', '#4c94a4', '#4c94a4', '#264a52', '#264a52']
+
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+            chart.draw(data, options);
+          }
+        </script>
+
+
+
+        
 
 
 
@@ -207,7 +262,7 @@
 <!-- Bootstrap JS-->
 <script src="../../Interior/vendor/bootstrap-4.1/popper.min.js"></script>
 <script src="../../Interior/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-<!-- Vendor JS       -->
+<!-- Vendor JS -->
 <script src="../../Interior/vendor/slick/slick.min.js">
 </script>
 <script src="../../Interior/vendor/wow/wow.min.js"></script>

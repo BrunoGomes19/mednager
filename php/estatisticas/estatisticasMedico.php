@@ -97,7 +97,9 @@
         ]);
 
         var options = {
-        title: '% Sexo dos utentes associados'
+        title: '% Sexo dos utentes associados',
+        colors: ['#5fbace', '#4c94a4', '#4c94a4', '#264a52', '#264a52'],
+        is3D: true
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -110,7 +112,7 @@
 
 
 
-        <div id="chart_div" style="width: 1170px; height: 5900px;"></div>
+        <div id="chart_div" style="width: 1000px; height: 5900px;"></div>
 
         <script type="text/javascript">
         google.charts.load('current', {packages: ['corechart', 'bar']});
@@ -132,6 +134,7 @@
 
           var options = {
             title: '% Estatísticas Titulares AIM',
+            colors: ['#5fbace'],
             vAxis: {
               textStyle : {
                 fontSize: 10 // or the number you want
