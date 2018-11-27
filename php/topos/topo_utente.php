@@ -177,7 +177,7 @@ if($_SESSION['permissao'] != 3){
                                 <i class="fas fa-tasks"></i>Intervenções</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="index.html">Gestão</a>
+                                    <a href="../calendarioFULL/indexUtente.php">Gestão</a>
                                 </li>
                                 <li>
                                     <a href="../listas/historicoconsultas-utente.php">Histórico</a>
@@ -227,7 +227,7 @@ if($_SESSION['permissao'] != 3){
                                 <i class="fa fa-tasks"></i>Intervenções</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="#">Gestão</a>
+                                    <a href="../calendarioFULL/indexUtente.php">Gestão</a>
                                 </li>
                                 <li>
                                     <a href="../listas/historicoconsultas-utente.php">Histórico</a>

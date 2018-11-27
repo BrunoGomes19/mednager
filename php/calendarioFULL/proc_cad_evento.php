@@ -33,7 +33,7 @@ $end = $dateArray2["year"]."-".$dateArray2["day"]."-".$dateArray2["month"]." ".$
 
 $findDataHora = false;
 
-$sql = "SELECT * FROM servico where servico.codComprador=$codComprador AND (servico.start between '$start' and '$end') OR (servico.end between '$start' and '$end');";
+$sql = "SELECT * FROM servico where (ccUtente=$ccUtente or codComprador=$codComprador) and (('$start' between servico.start and servico.end) OR ('$end' between servico.start and servico.end));";
 
 echo $sql;
 
@@ -44,10 +44,42 @@ if ($result->num_rows > 0) {
 
 			//echo "<script> alert('Erro - datas invalidas');</script>";
 
-			$findDataHora = true;
-			$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Já existe uma intervenção a decorrer nesse dia e hora!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
-			header("Location: index.php");
+			while($row = $result->fetch_assoc()) {
+
+
+
+				if($row['ccUtente'] == $ccUtente && $row['codComprador'] == $codComprador){
+
+					$findDataHora = true;
+					$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>O médico e o utente já possuem uma intervenção a decorrer nesse dia e hora!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+					header("Location: index.php");
+
+				}else if($row['ccUtente'] == $ccUtente){
+
+					$findDataHora = true;
+					$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>O utente selecionado já tem uma intervenção a decorrer nesse dia e hora!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+					header("Location: index.php");
+
+				}else if($row['codComprador'] == $codComprador){
+
+					$findDataHora = true;
+					$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Você já tem uma intervenção a decorrer nesse dia e hora!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+					header("Location: index.php");
+
+				}else{
+
+					$findDataHora = true;
+					$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Já existe uma intervenção a decorrer nesse dia e hora!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+					header("Location: index.php");
+
+
+
+
+	}
 }
+}
+
+
 
 if($findDataHora == false){
 

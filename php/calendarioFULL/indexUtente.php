@@ -3,7 +3,7 @@ include('../topos/header.php');
 
 $email=$_SESSION['email'];
 
-$sqlrecuperacaoc = "SELECT * from comprador where emailcomprador = '$email'";
+$sqlrecuperacaoc = "SELECT * from utente where emailUtente = '$email'";
 $result = $conn->query($sqlrecuperacaoc);
 
 if ($result->num_rows > 0) {
@@ -11,11 +11,11 @@ if ($result->num_rows > 0) {
 
     $linkimagem = $row['linkimagem'];
 
-    $sexo = $row['sexoComprador'];
+    $sexo = $row['sexoUtente'];
 
-    $nome = $row['nomeComprador'];
+    $nome = $row['nomeUtente'];
 
-		$email = $row['emailComprador'];
+		$email = $row['emailUtente'];
 
   	$notas = $row['notas'];
 
@@ -27,45 +27,6 @@ if ($result->num_rows > 0) {
 
 ?>
 
-<script>
-
-function guardaCC(cc){
-
-$('#myModal5').modal('hide');
-
-$('#vaidar #ccUtente').val(cc);
-
-}
-
-function guardaCCEditar(cc){
-
-$('#myModal5editar').modal('hide');
-
-$('#vaidareditar #ccUtente2').val(cc);
-
-}
-
-
-function abrirModal5(){
-
-  $('#vaidar2 #title').val("");
-  txtHint.innerHTML = '';
-
-  $('#myModal5').modal('show');
-
-}
-
-function abrirModal5editar(){
-
-  $('#vaidar2Editar #title').val("");
-  txtHint2.innerHTML = '';
-
-  $('#myModal5editar').modal('show');
-
-}
-
-
-</script>
 
 <script>
 
@@ -169,54 +130,6 @@ body {
 
 </script>
 
-<script>
-
-function procuraUtente(str) {
-    if (str == "") {
-        document.getElementById("txtHint").innerHTML = "A lista de utentes será exibida aqui...";
-        return;
-    } else {
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","procuraUtente.php?q="+str,true);
-        xmlhttp.send();
-    }
-}
-
-function procuraUtenteEditar(str) {
-    if (str == "") {
-        document.getElementById("txtHint").innerHTML = "A lista de utentes será exibida aqui...";
-        return;
-    } else {
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint2").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","procuraUtenteEditar.php?q="+str,true);
-        xmlhttp.send();
-    }
-}
-
-</script>
-
 <style>
 
 a:hover, a{
@@ -229,13 +142,7 @@ a:hover, a{
 
 }
 
-
-
-
-
 </style>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -365,52 +272,12 @@ $resultesp25 = $conn->query($sqlesp25);
                 selectOverlap: false,
                 eventDrop: function(event, delta, revertFunc) {
 
-    if (!confirm("Deseja mesmo alterar o dia da intervenção?")) {
       revertFunc();
-    }else{
-
-
-
-              if (window.XMLHttpRequest) {
-                  // code for IE7+, Firefox, Chrome, Opera, Safari
-                  xmlhttp = new XMLHttpRequest();
-              } else {
-                  // code for IE6, IE5
-                  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-              }
-              xmlhttp.onreadystatechange = function() {
-                  if (this.readyState == 4 && this.status == 200) {
-
-                  }
-              };
-              xmlhttp.open("GET","editar_drop.php?id="+event.id+"&start="+event.start.format('YYYY/MM/DD HH:mm:ss')+"&end="+event.end.format('YYYY/MM/DD HH:mm:ss'),true);
-              xmlhttp.send();
-
-    }
 
   }, eventResize: function(event, delta, revertFunc) {
 
-    if (!confirm("Deseja mesmo alterar a hora final da intervenção?")) {
       revertFunc();
-    }else{
 
-
-      if (window.XMLHttpRequest) {
-          // code for IE7+, Firefox, Chrome, Opera, Safari
-          xmlhttp = new XMLHttpRequest();
-      } else {
-          // code for IE6, IE5
-          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-      }
-      xmlhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-
-          }
-      };
-      xmlhttp.open("GET","editar_resize.php?id="+event.id+"&end="+event.end.format('YYYY/MM/DD HH:mm:ss'),true);
-      xmlhttp.send();
-
-    }
 
   },
 
@@ -427,38 +294,12 @@ $resultesp25 = $conn->query($sqlesp25);
 
                 eventClick: function (event) {
 
-                    $("#apagar_evento").attr("href", "proc_apagar_evento.php?id=" + event.id);
 
                     $('#visualizar #id').text(event.id);
                     $('#visualizar #title').text(event.title);
                     $('#visualizar #start').text(event.start.format('DD/MM/YYYY HH:mm:ss'));
                     $('#visualizar #end').text(event.end.format('DD/MM/YYYY HH:mm:ss'));
 
-                          Number.prototype.padLeft = function(base,chr){
-                           var  len = (String(base || 10).length - String(this).length)+1;
-                           return len > 0? new Array(len).join(chr || '0')+this : this;
-                       }
-
-                    var d = new Date;
-
-                     d.setHours(d.getHours() - 1);
-
-                        dformat = [d.getDate().padLeft(),
-                                   (d.getMonth()+1).padLeft(),
-                                   d.getFullYear()].join('/') +' ' +
-                                  [d.getHours().padLeft(),
-                                   d.getMinutes().padLeft(),
-                                   d.getSeconds().padLeft()].join(':');
-
-                                   document.getElementById("tempo").style.display = "block";
-
-
-                                   if(event.end.format('DD/MM/YYYY HH:mm:ss')<dformat){
-
-                                     document.getElementById("tempo").style.display = "none";
-
-
-                                   }
 
 
                     $('#visualizar #pvpServico').text(event.pvpServico);
@@ -524,10 +365,7 @@ $resultesp25 = $conn->query($sqlesp25);
                     return false;
 
                 },
-                eventOverlap: false,
-                selectOverlap: true,
-                selectable: true,
-                selectHelper: true,
+
                 select: function (start, end) {
                     $('#cadastrar #start').val(moment(start).format('DD/MM/YYYY HH:mm:ss'));
                     $('#cadastrar #end').val(moment(end).format('DD/MM/YYYY HH:mm:ss'));
@@ -536,7 +374,7 @@ $resultesp25 = $conn->query($sqlesp25);
 
                 //https://fullcalendar.io/docs/events-json-feed
                 events: {
-                    url: 'list_data.php',
+                    url: 'list_dataUtente.php',
                     cache: false,
                 }
             });
@@ -563,7 +401,7 @@ $resultesp25 = $conn->query($sqlesp25);
 
 
             <!-- MAIN CONTENT-->
-            <form action="../indexes/index-medico.php" method="GET" style ='float: left; padding: 5px'>
+            <form action="../indexes/index-utente.php" method="GET" style ='float: left; padding: 5px'>
                       <button type="submit" class="btn btn-primary btn-sm" style="font-size:16px">
                           <i class="fa fa-arrow-left"></i> Voltar
                       </button>&nbsp
@@ -621,10 +459,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                       <dd id="codLocal" class="col-sm-9"></dd>
 
                                   </dl>
-                                  <div style="display:block" id="tempo">
-                                  <button class="btn btn-canc-vis btn-secondary">Editar</button>
-                                  <a href="" id="apagar_evento" class="btn btn-danger" role="button">Apagar</a>
-                                </div>
+
                               </div>
                               <div class="form">
                                   <form method="POST" action="proc_edit_evento.php">
