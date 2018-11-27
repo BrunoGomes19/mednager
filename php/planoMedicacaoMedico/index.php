@@ -45,6 +45,18 @@ $('#vaidareditar #ccUtente2').val(cc);
 
 }
 
+function cadastrarmeio(){
+
+var nMed = document.getElementById('nMed').value;
+
+document.getElementById('nMed').innerHTML = nMed;
+
+$('#cadastrar').modal('hide');
+
+$('#cadastrarfim').modal('show');
+
+}
+
 
 function abrirModal5(){
 
@@ -775,6 +787,8 @@ $resultesp25 = $conn->query($sqlesp25);
                   </div>
               </div>
 
+
+<!-- CADASTRAR NR MEDS-->
               <div class="modal fade" id="cadastrar" tabindex="-1" role="dialog">
                   <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
@@ -785,7 +799,7 @@ $resultesp25 = $conn->query($sqlesp25);
                               </button>
                           </div>
                           <div class="modal-body">
-                              <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
+
 
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
@@ -833,7 +847,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                   </div>
 
 
-                                  <form action="" method="get">
+
                                     <div class="form-group">
                                         <div class="form-group col-md-12">
                                             <label>Número de medicamentos</label>
@@ -842,61 +856,91 @@ $resultesp25 = $conn->query($sqlesp25);
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10">
-                                            <input type="submit" value="Continuar" class="btn btn-info"></button>
+                                            <input type="submit" value="Continuar" onclick="cadastrarmeio();" class="btn btn-info"></button>
                                         </div>
                                     </div>
-                                  </form>
 
-
-                                  <?php
-                                    if (isset ($_GET['submit'])) {
-                                      $nrmeds = htmlentities($_GET['nMed']);
-
-                                      for ($i=0; $i < $nrmeds; $i++) {
-                                        echo "  <div class='nMedicamentos' style='display: none'>
-
-                                            <div class='form-group col-md-12' id='vaidarmed'>
-                                                <label style='display:block;'>Medicamento</label>
-                                                <input type='number' class='form-control' name='codMedicamento' id='codMedicamento' placeholder='Nome do medicamento' required  style='width:91%;display:inline'>&nbsp
-
-                                              <i class='fas fa-user-plus' style='font-size:25px;position:relative;top:5px;' onclick='abrirModal5();'></i>
-                                            </div>
-
-
-                                          <div class='form-group'>
-                                              <div class='form-group col-md-12'>
-                                                  <label>Observações</label>
-                                                  <textarea class='form-control' name='observacoes' style='resize:none;' autocomplete='off' id='observacoes' placeholder='Observações' required rows='4'></textarea>
-
-                                              </div>
-                                          </div>
-
-
-
-
-
-                                        ";
-                                      }
-                                    }
-
-
-                                   ?>
-
-
-                                  <div class="form-group" style="display: none">
-                                      <div class="col-sm-offset-2 col-sm-10">
-                                          <button type="submit" class="btn btn-info">Registar</button>
-                                      </div>
-                                </div>
-
-
-
+                                   </div>
 
 
                                   </div>
-                              </form>
+
                           </div>
-                      </div>
+
+
+
+
+<div class="modal fade" id="cadastrarfim" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-center">Introduzir medicamentos</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
+
+                  <input>
+
+                      <?php
+                        if (isset ($_GET['submit'])) {
+                          $nrmeds = htmlentities($_GET['nMed']);
+
+
+
+                          for ($i=0; $i < $nrmeds; $i++) {
+                            echo "  <div class='nMedicamentos' style='display: none'>
+
+                                <div class='form-group col-md-12' id='vaidarmed'>
+                                    <label style='display:block;'>Medicamento</label>
+                                    <input type='number' class='form-control' name='codMedicamento' id='codMedicamento' placeholder='Nome do medicamento' required  style='width:91%;display:inline'>&nbsp
+
+                                  <i class='fas fa-user-plus' style='font-size:25px;position:relative;top:5px;' onclick='abrirModal5();'></i>
+                                </div>
+
+
+                              <div class='form-group'>
+                                  <div class='form-group col-md-12'>
+                                      <label>Observações</label>
+                                      <textarea class='form-control' name='observacoes' style='resize:none;' autocomplete='off' id='observacoes' placeholder='Observações' required rows='4'></textarea>
+
+                                  </div>
+                              </div>
+
+
+
+
+
+                            ";
+                          }
+                        }
+
+
+                       ?>
+
+
+                      <div class="form-group" style="display: none">
+                          <div class="col-sm-offset-2 col-sm-10">
+                              <button type="submit" class="btn btn-info">Registar</button>
+                          </div>
+                    </div>
+
+                     </div>
+
+
+
+
+
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
                   </div>
               </div>
 
