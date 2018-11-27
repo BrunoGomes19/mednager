@@ -13,7 +13,14 @@ SUBSISTEMAS DE SAUDE VAI FICAR NOVO???
 ADICIONAR CAMPOS DA ESPECIALIDADE , GESTAO
 
 STATS
+ADMIN 
 nr utentes totais e nr utentes por sexo
 nr serviços por local e por especialidade
 
+MEDICO
+nr utentes totais e nr utentes por sexo
+nr serviços por local e por especialidade
+
+UTENTE
+nr de consultas por mes 
 
