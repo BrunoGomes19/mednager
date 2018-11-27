@@ -10,15 +10,14 @@ $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
 $color = filter_input(INPUT_POST, 'color', FILTER_SANITIZE_STRING);
 $start0 = filter_input(INPUT_POST, 'start', FILTER_SANITIZE_STRING);
 $end0 = filter_input(INPUT_POST, 'end', FILTER_SANITIZE_STRING);
-$pvpServico = filter_input(INPUT_POST, 'pvpServico', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-$nSala = filter_input(INPUT_POST, 'nSala', FILTER_SANITIZE_NUMBER_INT);
+$codMedicamento = filter_input(INPUT_POST, 'codMedicamento', FILTER_SANITIZE_NUMBER_INT);
 $observacoes = filter_input(INPUT_POST, 'observacoes', FILTER_SANITIZE_STRING);
 //ir buscar codComprador ao session
 //ir buscar utente com ajax??
-$ccUtente = filter_input(INPUT_POST, 'ccUtente', FILTER_SANITIZE_NUMBER_INT);
-$codTipoServico = filter_input(INPUT_POST, 'codTipoServico', FILTER_SANITIZE_NUMBER_INT);
-$codLocal = filter_input(INPUT_POST, 'codLocal', FILTER_SANITIZE_NUMBER_INT);
+$dias = filter_input(INPUT_POST, 'dias', FILTER_SANITIZE_NUMBER_INT);
+$horas = filter_input(INPUT_POST, 'horas', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 //codAlertas a 0
+$ccUtente = filter_input(INPUT_POST, 'ccUtente3', FILTER_SANITIZE_NUMBER_INT);
 
 //$originalDate = "2010-03-21";
 
@@ -29,31 +28,11 @@ $start = $dateArray["year"]."-".$dateArray["day"]."-".$dateArray["month"]." ".$d
 $end = $dateArray2["year"]."-".$dateArray2["day"]."-".$dateArray2["month"]." ".$dateArray2["hour"].":".$dateArray2["minute"].":".$dateArray2["second"];
 
 
-
-
-$findDataHora = false;
-
-$sql = "SELECT * FROM servico where servico.codComprador=$codComprador AND (servico.start between '$start' and '$end') OR (servico.end between '$start' and '$end');";
-
-echo $sql;
-
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-
-			//echo "<script> alert('Erro - datas invalidas');</script>";
-
-			$findDataHora = true;
-			$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Já existe uma intervenção a decorrer nesse dia e hora!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
-			header("Location: index.php");
-}
-
 if($findDataHora == false){
 
 
 
-if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty($pvpServico) && !empty($nSala) && !empty($codTipoServico) && !empty($codLocal)) {
+if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty($codMedicamento) && !empty($observacoes) && !empty($dias) && !empty($horas)) {
 	//Converter a data e hora do formato brasileiro para o formato do Banco de Dados
 	$data = explode(" ", $start);
 	list($date, $hora) = $data;
@@ -67,7 +46,7 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 	$data_sem_barra = implode("-", $data_sem_barra);
 	$end_sem_barra = $data_sem_barra . " " . $hora;
 
-	$result_events = "INSERT INTO servico (id,title, color, start, end, pvpServico, nSala, observacoes, codComprador, ccUtente, codTipoServico, codLocal, codAlertaUtente, codAlertaComprador) VALUES (NULL,'$title', '$color', '$start_sem_barra', '$end_sem_barra', $pvpServico, $nSala, '$observacoes', $codComprador, $ccUtente, $codTipoServico, $codLocal, 1, 1 )";
+	$result_events = "INSERT INTO planomedicacao (id,title, color, start, end, observacoes, codComprador, ccUtente,codMedicamento) VALUES (NULL,'$title', '$color', '$start_sem_barra', '$end_sem_barra', '$observacoes', $codComprador, $ccUtente,$codMedicamento)";
 
 //	$resultado_events = mysqli_query($conn, $result_events);
 
@@ -79,12 +58,12 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 		$_SESSION['msg'] = "<div class='alert alert-primary' role='alert'>Intervenção registada com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 		//echo "<script> alert('OK');</script>";
 
-		header("Location: index.php");
+	header("Location: index.php?cc=$ccUtente");
 	}else{
 	$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro1 ao registar a Intervenção <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 	//echo "<script> alert('Erro - datas invalidas');</script>";
 
-		header("Location: index.php");
+	header("Location: index.php?cc=$ccUtente");
 	}
 
 }else{
@@ -92,7 +71,7 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 
 	//echo "<script> alert('Erro - datas invalidas');</script>";
 
-	header("Location: index.php");
+	header("Location: index.php?cc=$ccUtente");
 }
 
 

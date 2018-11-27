@@ -1,6 +1,8 @@
 <?php
 include('../topos/header.php');
 
+$ccUtente = $_GET['cc'];
+
 $email=$_SESSION['email'];
 
 $sqlrecuperacaoc = "SELECT * from comprador where emailcomprador = '$email'";
@@ -29,11 +31,14 @@ if ($result->num_rows > 0) {
 
 <script>
 
-function guardaMed(codMedicamento){
+function guardaMed(codMedicamento,nomeMedicamento){
 
 $('#myModalMed').modal('hide');
 
-$('#vaidarMed #title').val(cc);
+$('#vaidarMed #codMedicamento').val(codMedicamento);
+$('#vaidarMed #nomeMedic').val(nomeMedicamento);
+
+
 
 }
 
@@ -46,7 +51,13 @@ $('#vaidarMededitar #title2Med').val(cc);
 }
 
 
+function agendamento(){
 
+  document.getElementById("agendamentoCorrente").style.display = "none";
+  document.getElementById("divAgendamento").style.display = "block";
+
+
+}
 
 
 
@@ -175,7 +186,7 @@ body {
 
 <script>
 
-function procuraUtente(str) {
+function procuraMed(str) {
     if (str == "") {
         document.getElementById("txtHint").innerHTML = "A lista de utentes será exibida aqui...";
         return;
@@ -192,12 +203,12 @@ function procuraUtente(str) {
                 document.getElementById("txtHint").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET","procuraUtente.php?q="+str,true);
+        xmlhttp.open("GET","procuraMed.php?q="+str,true);
         xmlhttp.send();
     }
 }
 
-function procuraUtenteEditar(str) {
+function procuraMedEditar(str) {
     if (str == "") {
         document.getElementById("txtHint").innerHTML = "A lista de utentes será exibida aqui...";
         return;
@@ -214,7 +225,7 @@ function procuraUtenteEditar(str) {
                 document.getElementById("txtHint2").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET","procuraUtenteEditar.php?q="+str,true);
+        xmlhttp.open("GET","procuraMedEditar.php?q="+str,true);
         xmlhttp.send();
     }
 }
@@ -370,7 +381,7 @@ $resultesp25 = $conn->query($sqlesp25);
                 selectOverlap: false,
                 eventDrop: function(event, delta, revertFunc) {
 
-    if (!confirm("Deseja mesmo alterar o dia da intervenção?")) {
+  if (!confirm("Deseja mesmo alterar o dia deste plano de medicação?")) {
       revertFunc();
     }else{
 
@@ -438,48 +449,17 @@ $resultesp25 = $conn->query($sqlesp25);
                     $('#visualizar #title').text(event.title);
                     $('#visualizar #start').text(event.start.format('DD/MM/YYYY HH:mm:ss'));
                     $('#visualizar #end').text(event.end.format('DD/MM/YYYY HH:mm:ss'));
-
-                          Number.prototype.padLeft = function(base,chr){
-                           var  len = (String(base || 10).length - String(this).length)+1;
-                           return len > 0? new Array(len).join(chr || '0')+this : this;
-                       }
-
-                    var d = new Date;
-
-                     d.setHours(d.getHours() - 1);
-
-                        dformat = [d.getDate().padLeft(),
-                                   (d.getMonth()+1).padLeft(),
-                                   d.getFullYear()].join('/') +' ' +
-                                  [d.getHours().padLeft(),
-                                   d.getMinutes().padLeft(),
-                                   d.getSeconds().padLeft()].join(':');
-
-                                   document.getElementById("tempo").style.display = "block";
-
-
-                                   if(event.end.format('DD/MM/YYYY HH:mm:ss')<dformat){
-
-                                     document.getElementById("tempo").style.display = "none";
-
-
-                                   }
-
-
-                    $('#visualizar #pvpServico').text(event.pvpServico);
-                    $('#visualizar #nSala').text(event.nSala);
                     $('#visualizar #observacoes').text(event.observacoes);
                     $('#visualizar #ccUtente').text(event.ccUtente);
-                    //ver How do I get the text value of a selected option?
-                    $('#visualizar #codTipoServico').text(event.descriTipoServico);
-                    $('#visualizar #codLocal').text(event.descriLocal);
+                    $('#visualizar #codMedicamento').text(event.codMedicamento);
+                    $('#visualizar #nomeMedicamento').text(event.nomeMedicamento);
                     $('#visualizar #color').text(event.color);
 
 
                     //Editar
 
                     var editartitle = (event.title);
-                    $('#title2').val(editartitle);
+                    $('#title2Med').val(editartitle);
 
                     //cor por fazer
 
@@ -494,26 +474,14 @@ $resultesp25 = $conn->query($sqlesp25);
                     var editarcc = (event.ccUtente);
                     $('#ccUtente2').val(editarcc);
 
-                    var editarpvp = (event.pvpServico);
-                    $('#pvpServico2').val(editarpvp);
-
-                    var editarnsala = (event.nSala);
-                    $('#nSala2').val(editarnsala);
-
                     var editarobservacoes = (event.observacoes);
                     $('#observacoes2').val(editarobservacoes);
 
+                    var editarcodmedicamento = (event.codMedicamento);
+                    $('#codMedicamento2').val(editarcodmedicamento);
 
-                    var editarlocal = (event.descriLocal);
-                    //$( "#editarLocal option:selected" ).text(editarlocal);
-                    var sel = document.getElementById('editarLocal');
-                    sel.selectedIndex = event.codLocal -1;
-
-
-                    var descriTipoServico = (event.descriTipoServico);
-                    //$( "#editarTipoServico option:selected" ).text(descriTipoServico);
-                    sel = document.getElementById('editarTipoServico');
-                    sel.selectedIndex = event.codTipoServico -1;
+                    var nomeMedicamento = (event.nomeMedicamento);
+                    $('#nomeMedicamento2').val(nomeMedicamento);
 
                     var color = (event.color);
                     //$( "#editarTipoServico option:selected" ).text(descriTipoServico);
@@ -529,7 +497,7 @@ $resultesp25 = $conn->query($sqlesp25);
                     return false;
 
                 },
-                eventOverlap: false,
+                eventOverlap: true,
                 selectOverlap: true,
                 selectable: true,
                 selectHelper: true,
@@ -596,7 +564,7 @@ $resultesp25 = $conn->query($sqlesp25);
                   <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
                           <div class="modal-header">
-                              <h4 class="modal-title text-center">Dados da intervenção</h4>
+                              <h4 class="modal-title text-center">Dados do plano de medicação</h4>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                               </button>
@@ -604,7 +572,7 @@ $resultesp25 = $conn->query($sqlesp25);
                           <div class="modal-body">
                               <div class="visualizar">
                                   <dl class="row">
-                                      <dt class="col-sm-3">ID da intervenção</dt>
+                                      <dt class="col-sm-3">ID do plano</dt>
                                       <dd id="id" class="col-sm-9"></dd>
                                       <dt class="col-sm-3">Título</dt>
                                       <dd id="title" class="col-sm-9"></dd>
@@ -612,18 +580,14 @@ $resultesp25 = $conn->query($sqlesp25);
                                       <dd id="start" class="col-sm-9"></dd>
                                       <dt class="col-sm-3">Fim</dt>
                                       <dd id="end" class="col-sm-9"></dd>
-                                      <dt class="col-sm-3">Preço (€)</dt>
-                                      <dd id="pvpServico" class="col-sm-9"></dd>
-                                      <dt class="col-sm-3">Sala</dt>
-                                      <dd id="nSala" class="col-sm-9"></dd>
                                       <dt class="col-sm-3">Observações</dt>
                                       <dd id="observacoes" class="col-sm-9"></dd>
                                       <dt class="col-sm-3">CC Utente</dt>
                                       <dd id="ccUtente" class="col-sm-9"></dd>
-                                      <dt class="col-sm-3">Tipo de intervenção</dt>
-                                      <dd id="codTipoServico" class="col-sm-9"></dd>
-                                      <dt class="col-sm-3">Local</dt>
-                                      <dd id="codLocal" class="col-sm-9"></dd>
+                                      <dt class="col-sm-3">Código do medicamento</dt>
+                                      <dd id="codMedicamento" class="col-sm-9"></dd>
+                                      <dt class="col-sm-3">Nome do medicamento</dt>
+                                      <dd id="nomeMedicamento" class="col-sm-9"></dd>
 
                                   </dl>
                                   <div style="display:block" id="tempo">
@@ -671,100 +635,35 @@ $resultesp25 = $conn->query($sqlesp25);
                                               <input type="text" class="form-control" name="end" id="end2" onKeyPress="DataHora(event, this)">
                                           </div>
                                       </div>
-
                                       <div class="form-group">
                                         <div class="form-group col-md-12" id="vaidareditar">
-                                            <label style="display:block;">CC Utente</label>
-                                            <input type="number" class="form-control" name="ccUtente" id="ccUtente2" placeholder="CC do utente" required  style="width:91%;display:inline">&nbsp
+                                            <label style="display:block;">Nome do medicamento</label>
+                                            <input type="text" class="form-control" name="nomeMedicamento" id="nomeMedicamento2" placeholder="Nome do medicamento" required  style="width:91%;display:inline" readonly>&nbsp
 
-                                            <i class="fas fa-user-plus" style="font-size:25px;position:relative;top:5px;" onclick="abrirModalMededitar();"></i>
+                                            <i class="fas fa-pills" style='font-size:25px;position:relative;top:5px;' onclick='abrirModalMededitar();'></i>
 
 
 
 
                                     </div>
                                   </div>
-                                  <div class="form-group">
-                                      <div class="form-group col-md-12">
-                                          <label>Preço (€)</label>
-                                          <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico2" placeholder="Preço da intervenção (€)">
-                                      </div>
+                                      <div class="form-group">
+                                        <div class="form-group col-md-12" id="vaidareditar">
+                                            <label style="display:block;">CC Utente</label>
+                                            <input type="number" class="form-control" name="ccUtente" id="ccUtente2" placeholder="CC do utente" required  style="width:100%;display:inline" readonly>&nbsp
+
+
+
+
+                                    </div>
                                   </div>
-                                  <div class="form-group">
-                                      <div class="form-group col-md-12">
-                                          <label>Sala</label>
-                                          <input type="number" class="form-control" name="nSala" id="nSala2" placeholder="Sala">
-                                      </div>
-                                  </div>
+
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Observações</label>
                                           <textarea class="form-control" name="observacoes" style="resize:none;" autocomplete="off" id="observacoes2" placeholder="Observações" required rows="4"></textarea>
                                       </div>
                                   </div>
-
-
-
-
-
-                                  <div class="form-group">
-                                      <div class="form-group col-md-12">
-                                          <label>Tipo de intervenção</label>
-                                          <select name="editarTipoServico" class="form-control" id="editarTipoServico">
-                                            <?php
-
-                                          //  echo '  <option selected hidden value="">Selecione</option>';
-
-                                            if ($resultesp25->num_rows > 0) {
-                                              // output data of each row
-                                              while($row = $resultesp25->fetch_assoc()) {
-
-                                                $id = $row['codTipoServico'];
-
-                                                $title = $row['descriTipoServico'];
-
-                                                    echo '<option value="'.$id.'">'.  $title .'</option>';
-
-                                              }
-                                            }
-
-                                             ?>
-                                          </select>
-                                      </div>
-                                  </div>
-
-                                  <div class="form-group">
-                                      <div class="form-group col-md-12">
-                                          <label>Local</label>
-                                          <select name="editarLocal" class="form-control" id="editarLocal">
-                                            <?php
-
-
-                                            //  echo '  <option selected hidden value="">Selecione</option>';
-
-                                            if ($resultesp5->num_rows > 0) {
-                                              // output data of each row
-                                              while($row = $resultesp5->fetch_assoc()) {
-
-                                                $codLocal = $row['codLocal'];
-
-                                                $descriLocal = $row['descriLocal'];
-
-
-
-                                                    echo '<option value="'.$codLocal.'">'.  $descriLocal .'</option>';
-
-
-                                              }
-                                            }
-
-
-                                             ?>
-
-                                          </select>
-                                      </div>
-                                  </div>
-
 
                                       <input type="hidden" name="idServico" id="idServico" value="0">
                                       <div class="form-group col-md-12">
@@ -785,7 +684,7 @@ $resultesp25 = $conn->query($sqlesp25);
                   <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
                           <div class="modal-header">
-                              <h4 class="modal-title text-center">Registar intervenção</h4>
+                              <h4 class="modal-title text-center">Registar plano de medicação</h4>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                               </button>
@@ -796,7 +695,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Título</label>
-                                          <input type="text" class="form-control" name="title" id="title" autocomplete="off" placeholder="Título da intervenção" required>
+                                          <input type="text" class="form-control" name="title" id="title" autocomplete="off" placeholder="Título do plano de medicação" required>
                                       </div>
                                   </div>
 
@@ -829,11 +728,16 @@ $resultesp25 = $conn->query($sqlesp25);
                                           <input type="text" class="form-control" name="end" id="end" onKeyPress="DataHora(event, this)">
                                       </div>
                                   </div>
+
+
                                   <div class='form-group col-md-12' id='vaidarmed'>
                                       <label style='display:block;'>Medicamento</label>
-                                      <input type='number' class='form-control' name='codMedicamento' id='codMedicamento' placeholder='Nome do medicamento' required  style='width:91%;display:inline'>&nbsp
 
-                                    <i class='fas fa-user-plus' style='font-size:25px;position:relative;top:5px;' onclick='abrirModalMed();'></i>
+                                      <input type='hidden' class='form-control' name='codMedicamento' id='codMedicamento' placeholder='Nome do medicamento' required  style='width:91%;display:inline'>
+
+                                      <input type='text' class='form-control' name='nomeMedic' id='nomeMedic' placeholder='Nome do medicamento' required  style='width:91%;display:inline' readonly>&nbsp
+
+                                    <i class="fas fa-pills" style='font-size:25px;position:relative;top:5px;' onclick='abrirModalMed();'></i>
                                   </div>
 
 
@@ -843,6 +747,39 @@ $resultesp25 = $conn->query($sqlesp25);
                                         <textarea class='form-control' name='observacoes' style='resize:none;' autocomplete='off' id='observacoes' placeholder='Observações' required rows='4'></textarea>
 
                                     </div>
+                                </div>
+
+                                <div class="form-group" id="agendamentoCorrente">
+                                    <div class="form-group col-md-12">
+
+                                        <button type="button" class="form-control" onclick="agendamento();">Caso deseja um agendamento corrente clique aqui</button>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <!-- AQUI 2 inputs, nº dias e horas  -->
+                                <div id="divAgendamento" style="display:none;">
+                                <div class="form-group">
+                                    <div class="form-group col-md-12">
+                                        <label>Por quantos dias deseja este plano de medicação?</label>
+                                        <input type="number" min="1" class="form-control" name="dias" placeholder="Número de dias" id="dias" value="0" onKeyPress="DataHora(event, this)">
+                                    </div>
+                                </div>
+
+                                <input type="hidden" id="ccUtente3" name="ccUtente3" value="<?php echo $ccUtente; ?>">
+
+                                <div class="form-group">
+                                    <div class="form-group col-md-12">
+                                        <label>A cada quantas horas deseja que este medicamento seja tomado?</label>
+                                        <input type="number" min="1" class="form-control" name="horas" placeholder="Número de horas" value="0" id="horas" onKeyPress="DataHora(event, this)">
+                                    </div>
+                                </div>
+                              </div>
+
+                                <!-- FIM 2 inputs-->
+                                <div class="col-sm-offset-2 col-sm-10" style="text-align:right;float:right;">
+                                    <button type="submit" class="btn btn-info">Registar</button>
                                 </div>
                               </form>
                             </div>
@@ -928,11 +865,11 @@ window.setTimeout(function() {
 </script>
 
 <div class="modal right fade" id="myModalMed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
-		<div class="modal-dialog" role="document" style="padding-top:5%">
+		<div class="modal-dialog" role="document" style="padding-top:5%;max-width:60%">
 			<div class="modal-content" style="background-color:#f9f9f9;width:100%;">
 
         <div class="modal-header">
-            <h4 class="modal-title text-center">Procurar utente</h4>
+            <h4 class="modal-title text-center">Procurar medicamento</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -942,8 +879,8 @@ window.setTimeout(function() {
 
                 <div class="form-group">
                     <div class="form-group col-md-12" id="vaidarmed">
-                        <label>Nome completo</label>
-                        <input type="text" class="form-control" name="titleMed" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome completo" required onkeyup="procuraMed(this.value)">
+                        <label>Nome do medicamento</label>
+                        <input type="text" class="form-control" name="titleMed" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome do medicamento ou nome do genérico" required onkeyup="procuraMed(this.value)">
                         <br>
                         <p id="txtHint">A lista de medicamentos será exibida aqui...</p>
                     </div>
@@ -958,11 +895,11 @@ window.setTimeout(function() {
 	</div><!-- modal -->
 
   <div class="modal right fade" id="myModalMededitar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
-  		<div class="modal-dialog" role="document" style="padding-top:5%">
+  		<div class="modal-dialog" role="document" style="padding-top:5%;max-width:60%">
   			<div class="modal-content" style="background-color:#f9f9f9;width:100%;">
 
           <div class="modal-header">
-              <h4 class="modal-title text-center">Procurar utente</h4>
+              <h4 class="modal-title text-center">Procurar medicamento</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
               </button>
@@ -972,8 +909,8 @@ window.setTimeout(function() {
 
                   <div class="form-group">
                       <div class="form-group col-md-12" id="vaidarMedEditar">
-                          <label>Nome completo</label>
-                          <input type="text" class="form-control" name="title" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome completo" required onkeyup="procuraUtenteEditar(this.value)">
+                          <label>Nome do medicamento</label>
+                          <input type="text" class="form-control" name="title" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome do medicamento ou nome do genérico" required onkeyup="procuraMedEditar(this.value)">
                           <br>
                           <p id="txtHint2">A lista de utentes será exibida aqui...</p>
                       </div>
