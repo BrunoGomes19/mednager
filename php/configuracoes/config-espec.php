@@ -121,14 +121,14 @@ function registaCampo (){
                         <div class="col-md-12" id="configEsp" style="display: none";>
 
                           <br><hr>
-                          <div id="txtHint"><b></b></div>
+                          <div id="txtHint" ><b></b></div>
 
-                            <h3 id="campo" class="title-5 m-b-35">Adicionar campo - </h3>
+                            <h3 id="campo" class="title-5 m-b-35"></h3>
 
-                              <input class="form-control input-sm" type="text"  id="nomeCampo" placeholder="Nome do campo"><br>
-                              <input class="form-control" type="text" id="unidadeCampo"  placeholder="Unidade do campo"><br>
-                              <input class="form-control input-lg" type="text"  id="observacoesCampo" placeholder="Observações do campo">
-                              <br><br>
+                              <input class="form-control input-lg" type="text"  id="nomeCampo" placeholder="Nome do campo" required=""><br>
+                              <input class="form-control" type="text" id="unidadeCampo"  placeholder="Unidade do campo" required=""><br>
+                              <input class="form-control input-lg" type="text"  id="observacoesCampo" placeholder="Observações do campo" required=""><br>
+                              <br>
                               <input type="button" value="Adicionar"  id="addCampo" class="btn btn-warning" onclick="registaCampo()">
 
                             </form>
