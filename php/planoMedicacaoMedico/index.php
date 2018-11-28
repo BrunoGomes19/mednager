@@ -3,6 +3,18 @@ include('../topos/header.php');
 
 $ccUtente = $_GET['cc'];
 
+$sqlNomeUtente = "SELECT * from utente where ccUtente = '$ccUtente'";
+$result = $conn->query($sqlNomeUtente);
+
+if ($result->num_rows > 0) {
+  while($row = $result->fetch_assoc()) {
+
+    $nomeUtente = $row['nomeUtente'];
+
+  }
+}
+
+
 $email=$_SESSION['email'];
 
 $sqlrecuperacaoc = "SELECT * from comprador where emailcomprador = '$email'";
@@ -56,6 +68,17 @@ function agendamento(){
   document.getElementById("agendamentoCorrente").style.display = "none";
   document.getElementById("divAgendamento").style.display = "block";
 
+
+}
+
+function esconderAgendamento(){
+
+  document.getElementById("agendamentoCorrente").style.display = "block";
+  document.getElementById("divAgendamento").style.display = "none";
+
+  document.getElementById("dias").value = 1;
+
+  document.getElementById("horas").value = 0;
 
 }
 
@@ -377,8 +400,8 @@ $resultesp25 = $conn->query($sqlesp25);
                 navLinks: true, // can click day/week names to navigate views
                 editable: true,
                 eventLimit: true,
-                eventOverlap: false,
-                selectOverlap: false,
+                eventOverlap: true,
+                selectOverlap: true,
                 eventDrop: function(event, delta, revertFunc) {
 
   if (!confirm("Deseja mesmo alterar o dia deste plano de medicação?")) {
@@ -406,27 +429,9 @@ $resultesp25 = $conn->query($sqlesp25);
 
   }, eventResize: function(event, delta, revertFunc) {
 
-    if (!confirm("Deseja mesmo alterar a hora final da intervenção?")) {
+
       revertFunc();
-    }else{
 
-
-      if (window.XMLHttpRequest) {
-          // code for IE7+, Firefox, Chrome, Opera, Safari
-          xmlhttp = new XMLHttpRequest();
-      } else {
-          // code for IE6, IE5
-          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-      }
-      xmlhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-
-          }
-      };
-      xmlhttp.open("GET","editar_resize.php?id="+event.id+"&end="+event.end.format('YYYY/MM/DD HH:mm:ss'),true);
-      xmlhttp.send();
-
-    }
 
   },
 
@@ -443,7 +448,7 @@ $resultesp25 = $conn->query($sqlesp25);
 
                 eventClick: function (event) {
 
-                    $("#apagar_evento").attr("href", "proc_apagar_evento.php?id=" + event.id);
+                    $("#apagar_evento").attr("href", "proc_apagar_evento.php?id=" + event.id+"&cc="+event.ccUtente);
 
                     $('#visualizar #id').text(event.id);
                     $('#visualizar #title').text(event.title);
@@ -454,8 +459,6 @@ $resultesp25 = $conn->query($sqlesp25);
                     $('#visualizar #codMedicamento').text(event.codMedicamento);
                     $('#visualizar #nomeMedicamento').text(event.nomeMedicamento);
                     $('#visualizar #color').text(event.color);
-
-
                     //Editar
 
                     var editartitle = (event.title);
@@ -509,7 +512,7 @@ $resultesp25 = $conn->query($sqlesp25);
 
                 //https://fullcalendar.io/docs/events-json-feed
                 events: {
-                    url: 'list_data.php',
+                    url: 'list_data.php?cc='+<?php echo $ccUtente; ?>,
                     cache: false,
                 }
             });
@@ -549,6 +552,8 @@ $resultesp25 = $conn->query($sqlesp25);
 
             <div class="main-content" style="padding-top:0px;background-color:#dce0e5;">
 
+              <h4 class="modal-title text-center"><strong>Nome do utente</strong>: <?php echo $nomeUtente; ?></h4>
+
               <div class="container"><br>
                   <?php
                   if (isset($_SESSION['msg'])) {
@@ -580,14 +585,12 @@ $resultesp25 = $conn->query($sqlesp25);
                                       <dd id="start" class="col-sm-9"></dd>
                                       <dt class="col-sm-3">Fim</dt>
                                       <dd id="end" class="col-sm-9"></dd>
-                                      <dt class="col-sm-3">Observações</dt>
-                                      <dd id="observacoes" class="col-sm-9"></dd>
-                                      <dt class="col-sm-3">CC Utente</dt>
-                                      <dd id="ccUtente" class="col-sm-9"></dd>
                                       <dt class="col-sm-3">Código do medicamento</dt>
                                       <dd id="codMedicamento" class="col-sm-9"></dd>
                                       <dt class="col-sm-3">Nome do medicamento</dt>
                                       <dd id="nomeMedicamento" class="col-sm-9"></dd>
+                                      <dt class="col-sm-3">Observações</dt>
+                                      <dd id="observacoes" class="col-sm-9"></dd>
 
                                   </dl>
                                   <div style="display:block" id="tempo">
@@ -638,7 +641,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                       <div class="form-group">
                                         <div class="form-group col-md-12" id="vaidareditar">
                                             <label style="display:block;">Nome do medicamento</label>
-                                            <input type="text" class="form-control" name="nomeMedicamento" id="nomeMedicamento2" placeholder="Nome do medicamento" required  style="width:91%;display:inline" readonly>&nbsp
+                                            <input type="text" class="form-control" name="nomeMedicamento" id="nomeMedicamento2" placeholder="Nome do medicamento" required  style="width:91%;display:inline;background-color:white;" readonly>&nbsp
 
                                             <i class="fas fa-pills" style='font-size:25px;position:relative;top:5px;' onclick='abrirModalMededitar();'></i>
 
@@ -647,16 +650,14 @@ $resultesp25 = $conn->query($sqlesp25);
 
                                     </div>
                                   </div>
-                                      <div class="form-group">
-                                        <div class="form-group col-md-12" id="vaidareditar">
-                                            <label style="display:block;">CC Utente</label>
-                                            <input type="number" class="form-control" name="ccUtente" id="ccUtente2" placeholder="CC do utente" required  style="width:100%;display:inline" readonly>&nbsp
+
+
+                                            <input type="hidden" class="form-control" name="ccUtente" id="ccUtente2" placeholder="CC do utente" required  style="width:100%;display:inline" readonly>&nbsp
 
 
 
 
-                                    </div>
-                                  </div>
+
 
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
@@ -719,13 +720,13 @@ $resultesp25 = $conn->query($sqlesp25);
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Data Inicial</label>
-                                          <input type="text" class="form-control" name="start" id="start" onKeyPress="DataHora(event, this)">
+                                          <input disabled style="background-color:white;" type="text" class="form-control" name="start" id="start" onKeyPress="DataHora(event, this)">
                                       </div>
                                   </div>
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Data Final</label>
-                                          <input type="text" class="form-control" name="end" id="end" onKeyPress="DataHora(event, this)">
+                                          <input disabled style="background-color:white;" type="text" class="form-control" name="end" id="end" onKeyPress="DataHora(event, this)">
                                       </div>
                                   </div>
 
@@ -735,7 +736,7 @@ $resultesp25 = $conn->query($sqlesp25);
 
                                       <input type='hidden' class='form-control' name='codMedicamento' id='codMedicamento' placeholder='Nome do medicamento' required  style='width:91%;display:inline'>
 
-                                      <input type='text' class='form-control' name='nomeMedic' id='nomeMedic' placeholder='Nome do medicamento' required  style='width:91%;display:inline' readonly>&nbsp
+                                      <input type='text' disabled class='form-control' name='nomeMedic' id='nomeMedic' placeholder='Nome do medicamento' required  style='width:91%;display:inline;background-color:white;' readonly>&nbsp
 
                                     <i class="fas fa-pills" style='font-size:25px;position:relative;top:5px;' onclick='abrirModalMed();'></i>
                                   </div>
@@ -752,7 +753,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                 <div class="form-group" id="agendamentoCorrente">
                                     <div class="form-group col-md-12">
 
-                                        <button type="button" class="form-control" onclick="agendamento();">Caso deseja um agendamento corrente clique aqui</button>
+                                        <button type="button" class="form-control" onclick="agendamento();">Desejo um plano de medicação recorrente</button>
                                     </div>
                                 </div>
 
@@ -763,7 +764,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                 <div class="form-group">
                                     <div class="form-group col-md-12">
                                         <label>Por quantos dias deseja este plano de medicação?</label>
-                                        <input type="number" min="1" class="form-control" name="dias" placeholder="Número de dias" id="dias" value="1" onKeyPress="DataHora(event, this)">
+                                        <input type="number" min="1" max="30" class="form-control" step="1" name="dias" placeholder="Número de dias" id="dias" value="1" onKeyPress="DataHora(event, this)">
                                     </div>
                                 </div>
 
@@ -772,10 +773,18 @@ $resultesp25 = $conn->query($sqlesp25);
                                 <div class="form-group">
                                     <div class="form-group col-md-12">
                                         <label>De quantas em quantas horas deseja que este medicamento seja tomado?</label>
-                                        <input type="number" min="1" max="24" class="form-control" name="horas" placeholder="Número de horas" value="24" id="horas" onKeyPress="DataHora(event, this)">
+                                        <input type="number" min="0" max="24" class="form-control" step="1" name="horas" placeholder="Número de horas" value="0" id="horas" onKeyPress="DataHora(event, this)">
+                                    </div>
+                                </div>
+                                <div class="form-group" id="agendamentoCorrente">
+                                    <div class="form-group col-md-12">
+
+                                        <button type="button" class="form-control" onclick="esconderAgendamento();">Não desejo um plano de medicação recorrente</button>
                                     </div>
                                 </div>
                               </div>
+
+
 
                                 <!-- FIM 2 inputs-->
                                 <div class="col-sm-offset-2 col-sm-10" style="text-align:right;float:right;">

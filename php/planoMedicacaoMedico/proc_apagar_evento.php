@@ -7,7 +7,7 @@ include_once("conexao.php");
 
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
-$ccUtente = filter_input(INPUT_POST, 'ccUtente2', FILTER_SANITIZE_NUMBER_INT);
+$ccUtente = filter_input(INPUT_GET, 'cc', FILTER_SANITIZE_NUMBER_INT);
 
 if (!empty($id)) {
     $result_events = "DELETE FROM planomedicacao WHERE id = $id";

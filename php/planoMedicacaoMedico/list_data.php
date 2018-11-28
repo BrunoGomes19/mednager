@@ -6,7 +6,9 @@ session_start();
 
 $codComprador = $_SESSION['codComprador'];
 
-$result_events = "SELECT * from planomedicacao,medicamento where planomedicacao.codMedicamento = medicamento.codMedicamento and codComprador=$codComprador;";
+$ccUtente2 = $_GET['cc'];
+
+$result_events = "SELECT * from planomedicacao,medicamento where planomedicacao.codMedicamento = medicamento.codMedicamento and ccUtente=$ccUtente2;";
 $resultado_events = mysqli_query($conn, $result_events);
 
 $eventos = array();
