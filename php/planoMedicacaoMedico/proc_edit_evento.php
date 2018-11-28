@@ -6,22 +6,21 @@ $codComprador = $_SESSION['codComprador'];
 //Incluir conexao com BD
 include_once("conexao.php");
 
-$id = filter_input(INPUT_POST, 'idServico', FILTER_SANITIZE_NUMBER_INT);
+$id = filter_input(INPUT_POST, 'idnull', FILTER_SANITIZE_STRING);
 $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
 $color = filter_input(INPUT_POST, 'color', FILTER_SANITIZE_STRING);
 $start0 = filter_input(INPUT_POST, 'start', FILTER_SANITIZE_STRING);
 $end0 = filter_input(INPUT_POST, 'end', FILTER_SANITIZE_STRING);
-$pvpServico = filter_input(INPUT_POST, 'pvpServico', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-$nSala = filter_input(INPUT_POST, 'nSala', FILTER_SANITIZE_NUMBER_INT);
+$codMedicamento = filter_input(INPUT_POST, 'codMedicamento', FILTER_SANITIZE_NUMBER_INT);
 $observacoes = filter_input(INPUT_POST, 'observacoes', FILTER_SANITIZE_STRING);
 //ir buscar codComprador ao session
 //ir buscar utente com ajax??
-$ccUtente = filter_input(INPUT_POST, 'ccUtente', FILTER_SANITIZE_NUMBER_INT);
-$codTipoServico = filter_input(INPUT_POST, 'editarTipoServico', FILTER_SANITIZE_NUMBER_INT);
-$codLocal = filter_input(INPUT_POST, 'editarLocal', FILTER_SANITIZE_NUMBER_INT);
+$dias = filter_input(INPUT_POST, 'dias', FILTER_SANITIZE_NUMBER_INT);
+$horas = filter_input(INPUT_POST, 'horas', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 //codAlertas a 0
+$ccUtente = filter_input(INPUT_POST, 'ccUtente', FILTER_SANITIZE_NUMBER_INT);
 
-//$msg2 = "!empty($id) "."!empty($title) "."!empty($color) "."!empty($start) "."!empty($end) "."!empty($pvpServico) "."!empty($nSala) "."!empty($codTipoServico)  !empty($codLocal))";
+//$originalDate = "2010-03-21";
 
 $dateArray = date_parse_from_format('m/d/Y h:i:s', $start0);
 $dateArray2 = date_parse_from_format('m/d/Y h:i:s', $end0);
@@ -44,12 +43,13 @@ if ($result->num_rows > 0) {
 
 			$findDataHora = true;
 			$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Já existe uma intervenção a decorrer nesse dia e hora!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
-			header("Location: index.php");
+			header("Location: index.php?cc=$ccUtente");
 }
 
-if($findDataHora == false){
+echo (!empty($id) && !empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty($observacoes));
 
-if(!empty($id) && !empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty($pvpServico) && !empty($nSala) && !empty($codTipoServico) && !empty($codLocal) && !empty($observacoes)){
+
+if(!empty($id) && !empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty($observacoes)){
 	//Converter a data e hora do formato brasileiro para o formato do Banco de Dados
 	$data = explode(" ", $start);
 	list($date, $hora) = $data;
@@ -63,7 +63,7 @@ if(!empty($id) && !empty($title) && !empty($color) && !empty($start) && !empty($
 	$data_sem_barra = implode("-", $data_sem_barra);
 	$end_sem_barra = $data_sem_barra . " " . $hora;
 
-	$result_events = "UPDATE servico SET title='$title', color='$color', start='$start_sem_barra', end='$end_sem_barra', pvpServico = $pvpServico, nSala = $nSala, codComprador = $codComprador, ccUtente = $ccUtente, codTipoServico = $codTipoServico, codLocal = $codLocal, codAlertaComprador = 1, codAlertaUtente = 1, observacoes = '$observacoes'  WHERE id='$id'";
+	$result_events = "UPDATE servico SET title='$title', color='$color', start='$start_sem_barra', end='$end_sem_barra', codComprador = $codComprador, ccUtente = $ccUtente, observacoes = '$observacoes'  WHERE id='$id'";
 	//$msg2 = $result_events;
 
 	$resultado_events = mysqli_query($conn, $result_events);
@@ -73,15 +73,14 @@ if(!empty($id) && !empty($title) && !empty($color) && !empty($start) && !empty($
 //	$_SESSION['msg'] = $msg2;
 	if(mysqli_affected_rows($conn)){
 		$_SESSION['msg'] = "<div class='alert alert-primary' role='alert'>Intervenção editada com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
-		header("Location: index.php");
+			header("Location: index.php?cc=$ccUtente");
 	}else{
 		$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Não fez nenhuma alteração à intervenção!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
-		header("Location: index.php");
+			header("Location: index.php?cc=$ccUtente");
 	}
 
 }else{
 	$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro3 ao editar a Intervenção<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 	//$_SESSION['msg'] =$msg2;
-	header("Location: index.php");
-}
-}
+			header("Location: index.php?cc=$ccUtente");
+		}
