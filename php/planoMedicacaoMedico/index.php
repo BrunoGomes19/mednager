@@ -89,6 +89,25 @@ function esconderAgendamento(){
 
 }
 
+function agendamentoEditar(){
+
+  document.getElementById("agendamentoCorrenteEditar").style.display = "none";
+  document.getElementById("divAgendamentoEditar").style.display = "block";
+
+
+}
+
+function esconderAgendamentoEditar(){
+
+  document.getElementById("agendamentoCorrenteEditar").style.display = "block";
+  document.getElementById("divAgendamentoEditar").style.display = "none";
+
+  document.getElementById("dias").value = 1;
+
+  document.getElementById("horas").value = 0;
+
+}
+
 
 
 function abrirModalMed(){
@@ -426,7 +445,7 @@ $resultesp25 = $conn->query($sqlesp25);
               }
               xmlhttp.onreadystatechange = function() {
                   if (this.readyState == 4 && this.status == 200) {
-
+                      window.location.href = 'index.php?cc='+<?php echo $ccUtente; ?>;
                   }
               };
               xmlhttp.open("GET","editar_drop.php?id="+event.id+"&start="+event.start.format('YYYY/MM/DD HH:mm:ss')+"&end="+event.end.format('YYYY/MM/DD HH:mm:ss'),true);
@@ -582,7 +601,7 @@ $resultesp25 = $conn->query($sqlesp25);
                       unset($_SESSION['msg']);
                   }
                   ?>
-                  <div id='calendar' style="background-color:#f9fafc;border-radius: 15px;padding-left:5px;padding-right:5px;"></div>
+                  <div id='calendar' style="background-color:#f9fafc;border-radius: 15px;padding-left:5px;padding-right:5px;padding-bottom:10px;"></div>
               </div>
 
 
@@ -688,6 +707,40 @@ $resultesp25 = $conn->query($sqlesp25);
                                           <textarea class="form-control" name="observacoes" style="resize:none;" autocomplete="off" id="observacoes2" placeholder="Observações" required rows="4"></textarea>
                                       </div>
                                   </div>
+
+                                  <div class="form-group" id="agendamentoCorrenteEditar">
+                                      <div class="form-group col-md-12">
+
+                                          <button type="button" class="form-control" onclick="agendamentoEditar();">Desejo um plano de medicação recorrente</button>
+                                      </div>
+                                  </div>
+
+                                  <hr>
+
+                                  <!-- AQUI 2 inputs, nº dias e horas  -->
+                                  <div id="divAgendamentoEditar" style="display:none;">
+                                  <div class="form-group">
+                                      <div class="form-group col-md-12">
+                                          <label>Por quantos dias deseja este plano de medicação?</label>
+                                          <input type="number" min="1" max="30" class="form-control" step="1" name="dias" placeholder="Número de dias" id="dias" value="1" onKeyPress="DataHora(event, this)">
+                                      </div>
+                                  </div>
+
+                                  <input type="hidden" id="ccUtente3" name="ccUtente3" value="<?php echo $ccUtente; ?>">
+
+                                  <div class="form-group">
+                                      <div class="form-group col-md-12">
+                                          <label>De quantas em quantas horas deseja que este medicamento seja tomado?</label>
+                                          <input type="number" min="0" max="24" class="form-control" step="1" name="horas" placeholder="Número de horas" value="0" id="horas" onKeyPress="DataHora(event, this)">
+                                      </div>
+                                  </div>
+                                  <div class="form-group" id="agendamentoCorrenteEditar">
+                                      <div class="form-group col-md-12">
+
+                                          <button type="button" class="form-control" onclick="esconderAgendamentoEditar();">Não desejo um plano de medicação recorrente</button>
+                                      </div>
+                                  </div>
+                                </div>
 
                                       <input type="hidden" name="idServico" id="idServico" value="0">
                                       <div class="form-group col-md-12">
@@ -799,7 +852,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                         <input type="number" min="0" max="24" class="form-control" step="1" name="horas" placeholder="Número de horas" value="0" id="horas" onKeyPress="DataHora(event, this)">
                                     </div>
                                 </div>
-                                <div class="form-group" id="agendamentoCorrente">
+                                <div class="form-group" id="agendamentoNaoCorrente">
                                     <div class="form-group col-md-12">
 
                                         <button type="button" class="form-control" onclick="esconderAgendamento();">Não desejo um plano de medicação recorrente</button>

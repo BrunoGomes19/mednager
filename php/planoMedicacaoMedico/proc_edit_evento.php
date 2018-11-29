@@ -28,6 +28,8 @@ $dateArray2 = date_parse_from_format('m/d/Y h:i:s', $end0);
 $start = $dateArray["year"]."-".$dateArray["day"]."-".$dateArray["month"]." ".$dateArray["hour"].":".$dateArray["minute"].":".$dateArray["second"];
 $end = $dateArray2["year"]."-".$dateArray2["day"]."-".$dateArray2["month"]." ".$dateArray2["hour"].":".$dateArray2["minute"].":".$dateArray2["second"];
 
+if(($dias == 1 && $horas == 0) || $horas == 0){
+
 if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty($observacoes)){
 	//Converter a data e hora do formato brasileiro para o formato do Banco de Dados
 	$data = explode(" ", $start);
@@ -63,3 +65,56 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 	//$_SESSION['msg'] =$msg2;
 			header("Location: index.php?cc=$ccUtente");
 		}
+
+	}else{
+
+
+		if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty($observacoes)){
+			//Converter a data e hora do formato brasileiro para o formato do Banco de Dados
+			$data = explode(" ", $start);
+			list($date, $hora) = $data;
+			$data_sem_barra = array_reverse(explode("/", $date));
+			$data_sem_barra = implode("-", $data_sem_barra);
+			$start_sem_barra = $data_sem_barra . " " . $hora;
+
+			$data = explode(" ", $end);
+			list($date, $hora) = $data;
+			$data_sem_barra = array_reverse(explode("/", $date));
+			$data_sem_barra = implode("-", $data_sem_barra);
+			$end_sem_barra = $data_sem_barra . " " . $hora;
+
+			$result_events = "UPDATE planomedicacao SET title='$title', color='$color', start='$start_sem_barra', end='$end_sem_barra', codComprador = $codComprador, ccUtente = $ccUtente, observacoes = '$observacoes', codMedicamento = $codMedicamento  WHERE id='$id'";
+			//$msg2 = $result_events;
+
+			$resultado_events = mysqli_query($conn, $result_events);
+
+
+				$numVezes = 24/$horas;
+
+				$numVezes *= $dias;
+
+
+
+				for($i=1;$i<$numVezes;$i++){
+
+
+									$start_sem_barra = date('Y-m-d H:i:s', strtotime($start_sem_barra. ' + '.$horas.' hour'));
+									$end_sem_barra = date('Y-m-d H:i:s', strtotime($end_sem_barra. ' + '.$horas.' hour'));
+
+					$result_events = "INSERT INTO planomedicacao (id,title, color, start, end, observacoes, codComprador, ccUtente,codMedicamento) VALUES (NULL,'$title', '$color', '$start_sem_barra', '$end_sem_barra', '$observacoes', $codComprador, $ccUtente,$codMedicamento)";
+				$conn->query($result_events);
+
+
+
+				}
+
+					$_SESSION['msg'] = "<div class='alert alert-primary' role='alert'>Intervenção registada com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+					//echo "<script> alert('OK');</script>";
+
+				header("Location: index.php?cc=$ccUtente");
+
+
+
+
+	}
+}
