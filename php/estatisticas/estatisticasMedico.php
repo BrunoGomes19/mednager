@@ -9,6 +9,7 @@
 <body>
   <?php
 
+
   $emailComprador=$_SESSION['email'];
 
   $sql = "select sexoUtente as descricao, count(*) as c from comprador, utente, associados where associados.comprador_codComprador=comprador.codComprador and associados.utente_ccUtente=utente.ccUtente and  emailComprador like '$emailComprador' group by sexoUtente";
@@ -206,7 +207,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
     <div class="row" >
       <div class="col-md-12" >
         <div id="piechart" style="width: 1170px; height: 500px;"></div>
-
+        <!--grafico sexos -->
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
         google.charts.load('current', {'packages':['corechart']});
@@ -236,7 +237,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
 
 
 
-
+        <!--grafico titulares -->
 
         <div id="chart_div" style="width: 1000px; height: 5900px;"></div>
 
@@ -276,7 +277,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
         }
         </script>
 
-
+<!--grafico nr consultas -->
         <div id="columnchart_values" style="width: 1170px; height: 600px;"></div>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
