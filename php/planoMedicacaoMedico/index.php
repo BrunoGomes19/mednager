@@ -54,11 +54,13 @@ $('#vaidarMed #nomeMedic').val(nomeMedicamento);
 
 }
 
-function guardaMedEditar(cc){
+function guardaMedEditar(codMedicamento,nomeMedicamento){
 
 $('#myModalMededitar').modal('hide');
 
-$('#vaidarMededitar #title2Med').val(cc);
+$('#vaidareditar #nomeMedicamento2').val(nomeMedicamento);
+
+$('#vaidareditar #codMedicamento2').val(codMedicamento);
 
 }
 
@@ -629,19 +631,21 @@ $resultesp25 = $conn->query($sqlesp25);
                                       <div class="form-group">
                                           <div class="form-group col-md-12">
                                               <label>Data Inicial</label>
-                                              <input type="text" class="form-control" name="start" id="start2" onKeyPress="DataHora(event, this)">
+                                              <input readonly style="background-color:white;" type="text" class="form-control" name="start" id="start2" onKeyPress="DataHora(event, this)">
                                           </div>
                                       </div>
                                       <div class="form-group">
                                           <div class="form-group col-md-12">
                                               <label>Data Final</label>
-                                              <input type="text" class="form-control" name="end" id="end2" onKeyPress="DataHora(event, this)">
+                                              <input type="text" readonly style="background-color:white;" class="form-control" name="end" id="end2" onKeyPress="DataHora(event, this)">
                                           </div>
                                       </div>
                                       <div class="form-group">
                                         <div class="form-group col-md-12" id="vaidareditar">
                                             <label style="display:block;">Nome do medicamento</label>
                                             <input type="text" class="form-control" name="nomeMedicamento" id="nomeMedicamento2" placeholder="Nome do medicamento" required  style="width:91%;display:inline;background-color:white;" readonly>&nbsp
+
+                                              <input type="hidden" class="form-control" name="codMedicamento" id="codMedicamento2">
 
                                             <i class="fas fa-pills" style='font-size:25px;position:relative;top:5px;' onclick='abrirModalMededitar();'></i>
 
@@ -720,13 +724,13 @@ $resultesp25 = $conn->query($sqlesp25);
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Data Inicial</label>
-                                          <input disabled style="background-color:white;" type="text" class="form-control" name="start" id="start" onKeyPress="DataHora(event, this)">
+                                          <input readonly style="background-color:white;" type="text" class="form-control" name="start" id="start" onKeyPress="DataHora(event, this)">
                                       </div>
                                   </div>
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Data Final</label>
-                                          <input disabled style="background-color:white;" type="text" class="form-control" name="end" id="end" onKeyPress="DataHora(event, this)">
+                                          <input readonly style="background-color:white;" type="text" class="form-control" name="end" id="end" onKeyPress="DataHora(event, this)">
                                       </div>
                                   </div>
 

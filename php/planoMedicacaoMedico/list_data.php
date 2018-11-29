@@ -8,7 +8,7 @@ $codComprador = $_SESSION['codComprador'];
 
 $ccUtente2 = $_GET['cc'];
 
-$result_events = "SELECT * from planomedicacao,medicamento where planomedicacao.codMedicamento = medicamento.codMedicamento and ccUtente=$ccUtente2;";
+$result_events = "SELECT * from planomedicacao,medicamento where planomedicacao.codMedicamento = medicamento.codMedicamento and ccUtente=$ccUtente2 and codComprador=$codComprador;";
 $resultado_events = mysqli_query($conn, $result_events);
 
 $eventos = array();
