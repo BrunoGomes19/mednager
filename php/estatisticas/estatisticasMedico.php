@@ -62,6 +62,132 @@
   }
 
 
+  $sqlcodCom = "select codComprador from comprador where emailComprador like '$emailComprador'";
+
+
+  $result = $conn->query($sqlcodCom);
+
+  if ($result->num_rows > 0) {
+    // output data of each row  
+    
+    while($row = $result->fetch_assoc()) {
+      $codComprador = $row["codComprador"];
+
+    }
+
+  } else {
+    echo "Error1";
+  }
+
+  
+  
+
+
+
+  $sqlsegunda = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and servico.start=curdate() + INTERVAL 0 - weekday(curdate()) DAY";
+
+  $resultSegunda = $conn->query($sqlsegunda);
+
+  if ($resultSegunda->num_rows > 0) {
+   
+  while($row = $resultSegunda->fetch_assoc()) {
+      $qttsegunda = $row["quantidade"];
+
+  }
+
+  } else {
+  echo "Error";
+  }
+
+  $sqldomingo = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and servico.start=curdate() + INTERVAL -1 - weekday(curdate()) DAY";
+  $resultdomingo = $conn->query($sqldomingo);
+
+  if ($resultdomingo->num_rows > 0) {
+   
+  while($row = $resultdomingo->fetch_assoc()) {
+      $qtttdomingo = $row["quantidade"];
+
+  }
+
+  } else {
+  echo "Error";
+  }
+
+
+  $sqlterca = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and servico.start=curdate() + INTERVAL 1 - weekday(curdate()) DAY";
+  $resultTerca = $conn->query($sqlterca);
+
+  if ($resultTerca->num_rows > 0) {
+   
+  while($row = $resultTerca->fetch_assoc()) {
+      $qtttTerca = $row["quantidade"];
+
+  }
+
+  } else {
+  echo "Error";
+  }
+
+
+$sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and servico.start=curdate() + INTERVAL 2 - weekday(curdate()) DAY";
+  $resultQuarta = $conn->query($sqlquarta);
+
+  if ($resultQuarta->num_rows > 0) {
+   
+  while($row = $resultQuarta->fetch_assoc()) {
+      $qtttQuarta = $row["quantidade"];
+
+  }
+
+  } else {
+  echo "Error";
+  }
+
+  $sqlquinta = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and servico.start=curdate() + INTERVAL 2 - weekday(curdate()) DAY";
+  $resultQuinta = $conn->query($sqlquinta);
+
+  if ($resultQuinta->num_rows > 0) {
+   
+  while($row = $resultQuinta->fetch_assoc()) {
+      $qtttQuinta = $row["quantidade"];
+
+  }
+
+  } else {
+  echo "Error";
+  }
+
+  $sqlsexta = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and servico.start=curdate() + INTERVAL 4 - weekday(curdate()) DAY";
+  $resultSexta = $conn->query($sqlsexta);
+
+  if ($resultSexta->num_rows > 0) {
+   
+  while($row = $resultSexta->fetch_assoc()) {
+      $qtttSexta = $row["quantidade"];
+
+  }
+
+  } else {
+  echo "Error";
+  }
+
+
+  $sqlsabado = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and servico.start=curdate() + INTERVAL 5 - weekday(curdate()) DAY";
+  $resultSabado = $conn->query($sqlsabado);
+
+  if ($resultSabado->num_rows > 0) {
+   
+  while($row = $resultSabado->fetch_assoc()) {
+      $qtttSabado = $row["quantidade"];
+
+  }
+
+  } else {
+  echo "Error";
+  }
+
+
+
 
 
   $conn->close();
@@ -133,7 +259,7 @@
           ]);
 
           var options = {
-            title: '% Estatísticas Titulares AIM',
+            title: 'Número de medicamentos por Titular titularAIM',
             colors: ['#5fbace'],
             vAxis: {
               textStyle : {
@@ -147,6 +273,49 @@
           var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
 
           chart.draw(data, options);
+        }
+        </script>
+
+
+        <div id="columnchart_values" style="width: 1170px; height: 600px;"></div>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+          google.charts.load("current", {packages:['corechart']});
+          google.charts.setOnLoadCallback(drawChart);
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ["dia", "número de consultas", { role: "style" } ],
+              
+              ["DOM", <?php echo $qtttdomingo; ?>, "#5fbace"],
+              ["SEG", <?php echo $qttsegunda; ?>, "#4c94a4"],
+              ["TER", <?php echo $qtttTerca; ?>, "#264a52"],
+              ["QUA", <?php echo $qtttQuarta; ?>, "#264a52"],
+              ["QUI", <?php echo $qtttQuinta; ?>, "gold"],
+              ["SEX", <?php echo $qtttSexta; ?>, "#b87333"],
+              ["SAB", <?php echo $qtttSabado; ?>, "color: #e5e4e2"]
+            ]);
+
+            
+
+            var view = new google.visualization.DataView(data);
+            view.setColumns([0, 1,
+                             { calc: "stringify",
+                               sourceColumn: 1,
+                               type: "string",
+                               role: "annotation" },
+                             2]);
+
+            var options = {
+              title: "Número de consultas por semana",
+              width: 1000,
+              height: 600,
+              bar: {groupWidth: "95%"},
+              legend: { position: "none" },
+              hAxis: {format: 'decimal'},
+              vAxis: {format: 'decimal'}
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+            chart.draw(view, options);
         }
         </script>
 
