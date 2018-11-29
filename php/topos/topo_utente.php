@@ -186,7 +186,7 @@ if($_SESSION['permissao'] != 3){
                         </li>
 
                         <li>
-                            <a href="../planosMedicacao/planoUtente.php">
+                            <a href="../planoMedicacaoMedico/indexUtente.php">
                                 <i class="fa fa-calendar-alt"></i>Plano de Medicação</a>
                         </li>
 
@@ -236,7 +236,7 @@ if($_SESSION['permissao'] != 3){
                         </li>
 
                         <li>
-                            <a href="../planosMedicacao/planoUtente.php">
+                            <a href="../planoMedicacaoMedico/indexUtente.php">
                                 <i class="fa fa-calendar-alt"></i>Plano de Medicação</a>
                         </li>
 
