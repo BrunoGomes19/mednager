@@ -12,6 +12,11 @@ if ($result->num_rows > 0) {
     $nomeUtente = $row['nomeUtente'];
 
   }
+}else{
+
+  header('Location: ../indexes/index-medico.php');
+
+
 }
 
 
@@ -554,7 +559,21 @@ $resultesp25 = $conn->query($sqlesp25);
 
             <div class="main-content" style="padding-top:0px;background-color:#dce0e5;">
 
-              <h4 class="modal-title text-center"><strong>Nome do utente</strong>: <?php echo $nomeUtente; ?></h4>
+              <h4 class="modal-title text-center"><strong>Nome do utente</strong>: <?php
+
+
+              if(!empty($nomeUtente)){
+
+                echo $nomeUtente;
+
+              }
+
+
+
+
+
+
+                ?></h4>
 
               <div class="container"><br>
                   <?php
