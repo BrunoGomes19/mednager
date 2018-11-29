@@ -33,9 +33,7 @@ $end = $dateArray2["year"]."-".$dateArray2["day"]."-".$dateArray2["month"]." ".$
 
 $findDataHora = false;
 
-$sql = "SELECT * FROM servico where (ccUtente=$ccUtente or codComprador=$codComprador) and (('$start' between servico.start and servico.end) OR ('$end' between servico.start and servico.end));";
-
-echo $sql;
+$sql = "SELECT * FROM servico where (ccUtente=$ccUtente or codComprador=$codComprador) and ((('$start' between servico.start and servico.end) OR ('$end' between servico.start and servico.end)) or ((servico.start between '$start' and '$end') OR (servico.end between '$start' and '$end')));";
 
 $result = $conn->query($sql);
 

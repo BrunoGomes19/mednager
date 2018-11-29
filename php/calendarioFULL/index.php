@@ -381,6 +381,8 @@ $resultesp25 = $conn->query($sqlesp25);
               xmlhttp.onreadystatechange = function() {
                   if (this.readyState == 4 && this.status == 200) {
 
+                    window.location.href = 'index.php'
+
                   }
               };
               xmlhttp.open("GET","editar_drop.php?id="+event.id+"&start="+event.start.format('YYYY/MM/DD HH:mm:ss')+"&end="+event.end.format('YYYY/MM/DD HH:mm:ss'),true);
@@ -404,7 +406,7 @@ $resultesp25 = $conn->query($sqlesp25);
       }
       xmlhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
-
+            window.location.href = 'index.php'
           }
       };
       xmlhttp.open("GET","editar_resize.php?id="+event.id+"&end="+event.end.format('YYYY/MM/DD HH:mm:ss'),true);
@@ -583,7 +585,7 @@ $resultesp25 = $conn->query($sqlesp25);
                       unset($_SESSION['msg']);
                   }
                   ?>
-                  <div id='calendar' style="background-color:#f9fafc;border-radius: 15px;padding-left:5px;padding-right:5px;"></div>
+                  <div id='calendar' style="background-color:#f9fafc;border-radius: 15px;padding-left:5px;padding-right:5px;padding-bottom:10px;"></div>
               </div>
 
 
