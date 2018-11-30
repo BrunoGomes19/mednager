@@ -21,7 +21,7 @@ function associar($cc,$LEIComprador){
 
 
   bootbox.confirm({
-    message: "Tem a certeza que quer associar este utente?",
+    message: "Tem a certeza que quer associar este médico?",
     buttons: {
         confirm: {
             label: 'Sim',
@@ -50,7 +50,7 @@ function associar($cc,$LEIComprador){
 function desassociar($cc,$LEIComprador){
 
   bootbox.confirm({
-    message: "Tem a certeza que quer desassociar este utente?",
+    message: "Tem a certeza que quer desassociar este médico?",
     buttons: {
         confirm: {
             label: 'Sim',
@@ -187,9 +187,7 @@ function showUser(str) {
 
 
 
-                                                      					}else{
-
-                                                                  if(strpos($fullUrl, "alertdesassociado") == true){
+                                                      					}else   if(strpos($fullUrl, "alertdesassociado") == true){
 
                                                         						echo '<script>
 
@@ -200,9 +198,18 @@ function showUser(str) {
 
 
 
-                                                        					}
+                                                        					}else if(strpos($fullUrl, "limite") == true){
 
-                                                                }
+                                                                    echo '<script>
+
+                                                                    bootbox.alert("Chegou ao seu limite de associações!");
+
+
+                                                                    </script>';
+
+                                                                  }
+
+
                                                   ?>
 
                                                     <!--<tr class="spacer"></tr>
