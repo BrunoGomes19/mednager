@@ -461,14 +461,6 @@ $resultesp25 = $conn->query($sqlesp25);
 
   },
 
-                //Apontar a intervenção até 1 dia de atraso
-                validRange: function(nowDate) {
-                  return {
-                    start: nowDate.clone().add(-1, 'days'),
-
-                  };
-                },
-
 
 
 
@@ -485,6 +477,16 @@ $resultesp25 = $conn->query($sqlesp25);
                     $('#visualizar #codMedicamento').text(event.codMedicamento);
                     $('#visualizar #nomeMedicamento').text(event.nomeMedicamento);
                     $('#visualizar #color').text(event.color);
+
+                    if(event.confirmacao == 0){
+
+                      $('#visualizar #confirmacao').text("Por tomar");
+
+                    }else if(event.confirmacao == 1){
+
+                      $('#visualizar #confirmacao').text("Tomado");
+
+                    }
                     //Editar
 
                     var editartitle = (event.title);
@@ -631,6 +633,8 @@ $resultesp25 = $conn->query($sqlesp25);
                                       <dd id="nomeMedicamento" class="col-sm-9"></dd>
                                       <dt class="col-sm-3">Observações</dt>
                                       <dd id="observacoes" class="col-sm-9"></dd>
+                                      <dt class="col-sm-3">Estado:</dt>
+                                      <dd id="confirmacao" class="col-sm-9"></dd>
 
                                   </dl>
                                   <div style="display:block" id="tempo">

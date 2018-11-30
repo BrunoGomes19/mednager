@@ -193,6 +193,7 @@ a:hover, a{
 
 
 
+
 </head>
 
 <body style="margin:0px;">
@@ -291,7 +292,18 @@ $resultesp25 = $conn->query($sqlesp25);
                     $('#visualizar #color').text(event.color);
                     $('#visualizar #nomeComprador').text(event.nomeComprador);
                     $('#visualizar #ccComprador').text(event.ccComprador);
-                    //Editar
+                    $('#visualizar #confirmacao').text(event.confirmacao);
+
+                    document.getElementById("botaoConfirmar").style.display = "block";
+
+
+                    if(event.confirmacao==1){
+
+                      document.getElementById("botaoConfirmar").style.display = "none";
+
+
+                    }
+
 
                     var editartitle = (event.title);
                     $('#title2Med').val(editartitle);
@@ -343,6 +355,43 @@ $resultesp25 = $conn->query($sqlesp25);
             });
 
         });
+
+    </script>
+
+    <script>
+
+    function confirmarMedicacao(){
+
+
+      if (!confirm("Já tomou a medicação receitada pelo seu médico?")) {
+
+
+
+        }else{
+
+            var a = document.getElementById('id').innerHTML;
+
+                  if (window.XMLHttpRequest) {
+                      // code for IE7+, Firefox, Chrome, Opera, Safari
+                      xmlhttp = new XMLHttpRequest();
+                  } else {
+                      // code for IE6, IE5
+                      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                  }
+                  xmlhttp.onreadystatechange = function() {
+                      if (this.readyState == 4 && this.status == 200) {
+
+                        window.location.href = 'indexUtente.php';
+
+                      }
+                  };
+                  xmlhttp.open("GET","confirmacaoUtente.php?id="+a,true);
+                  xmlhttp.send();
+
+        }
+
+    }
+
 
     </script>
 
@@ -419,7 +468,15 @@ $resultesp25 = $conn->query($sqlesp25);
                                       <dt class="col-sm-3">Observações</dt>
                                       <dd id="observacoes" class="col-sm-9"></dd>
 
+
+
                                   </dl>
+
+                                  <div id="botaoConfirmar">
+                                  <button class="btn btn-large btn-primary" onclick="confirmarMedicacao();">
+                                    Confirmar
+                                  </button>
+                                </div>
 
                               </div>
                               <div class="form">
