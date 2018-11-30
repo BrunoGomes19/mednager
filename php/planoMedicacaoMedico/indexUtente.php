@@ -424,7 +424,7 @@ $resultesp25 = $conn->query($sqlesp25);
                       </button>&nbsp
             </form>
 
-            <div class="main-content" style="padding-top:0px;background-color:#dce0e5;">
+            <div class="main-content" style="padding-top:0px;background-color:#dce0e5;padding-bottom:2%;">
 
               <div class="container"><br>
                   <?php

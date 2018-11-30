@@ -192,10 +192,7 @@ var a = document.getElementById("a").value
                             <a href="../estatisticas/estatisticasMedico.php">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
-                        <li>
-                            <a href="../planosMedicacao/planoMedico.php">
-                                <i class="fas fa-calendar-alt"></i>Planos de medicação</a>
-                        </li>
+
                         <li>
                             <a href="../listas/listamedicamentos.php">
                                 <i class="fa fa-medkit"></i>Medicamentos</a>
@@ -259,10 +256,7 @@ var a = document.getElementById("a").value
                             <a href="../estatisticas/estatisticasMedico.php">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
-                        <li>
-                            <a href="../planosMedicacao/planoMedico.php">
-                                <i class="fas fa-calendar-alt"></i>Planos de medicação</a>
-                        </li>
+                        
                         <li>
                             <a href="../listas/listamedicamentos.php">
                                 <i class="fa fa-medkit"></i>Medicamentos</a>
