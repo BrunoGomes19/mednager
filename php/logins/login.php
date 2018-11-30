@@ -110,6 +110,10 @@ if(isset($_POST['submit'])){
 
 					if($row["estadoComprador"] == 0){
 
+						$_SESSION['preco'] = $row['preco'];
+						
+						$_SESSION['quantidadeMedicos'] = $row['quantidadeMedicos'];
+
 						header("Location: ../erros/pagamentoColetivo.php");
 
 					}else{

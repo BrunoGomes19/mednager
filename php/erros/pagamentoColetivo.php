@@ -97,12 +97,12 @@ session_start();
                                             <div class="row">
                                                 <div class="col-6">
                                                     <label for="cc-payment" class="control-label mb-1"></label>
-                                                    <p>14x49,99€</p>
+                                                    <p> <?php echo $_SESSION['quantidadeMedicos']; ?> x 49,99€</p>
 
                                                 </div>
                                                 <div class="col-6">
-                                                    <h1>699,86€</h1>
-                                                    <label for="cc-payment" class="control-label mb-1">(c/ IVA)</label>
+                                                    <h1> <?php  echo $_SESSION['preco'];  ?> €</h1>
+                                                    <label for="cc-payment" class="control-label mb-1">(c/ IVA incluído)</label>
                                                 </div>
                                             </div>
                                             <hr>
@@ -127,7 +127,7 @@ session_start();
                                                     <div class="input-group">
 
                                                     </div>
-                                                    <label for="x_card_code" class="control-label mb-1">Valor: 699,86€</label>
+                                                    <label for="x_card_code" class="control-label mb-1">Montante: <?php  echo $_SESSION['preco'];  ?> EURO</label>
                                                     <div class="input-group">
 
                                                     </div>
