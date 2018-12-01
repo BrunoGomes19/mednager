@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+@session_start();
 
 ?>
 
@@ -156,76 +156,7 @@ session_start();
                 unset($_SESSION['msgRegisto']);
             }
 
-
-					$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-					if(strpos($fullUrl, "signup=pperror") == true){
-
-					//	echo '<p id="erro">As palavra-passe não coincidem.<br><br></p>';
-
-
-
-					}else{
-
-						if(strpos($fullUrl, "signup=cerror") == true){
-
-					//	echo '<p id="erro">Ocorreu um erro a registar o comprador.<br><br></p>';
-
-
-
-					}else{
-
-							if(strpos($fullUrl, "signup=noerror") == true){
-
-							//echo '<p id="erro">Este número de ordem é inválido.<br><br></p>';
-
-						}else{
-
-							if(strpos($fullUrl, "signup=emailerror") == true){
-
-							//echo '<p id="erro">Este e-mail já está associado a outra conta.<br><br></p>';
-
-						}else{
-
-							if(strpos($fullUrl, "signup=numeroordemerror") == true){
-
-						//	echo '<p id="erro">Este número de ordem já está associado a outra conta.<br><br></p>';
-
-						}else{
-              if(strpos($fullUrl, "signup=ccerror") == true){
-
-
-              //echo '<p id="erro">Este cartão de cidadão já está associado a outra conta.<br><br></p>';
-
-              }else{
-                if(strpos($fullUrl, "signup=niferror") == true){
-
-                  //echo '<p id="erro">Este NIF já está associado a outra conta.<br><br></p>';
-
-                }
-
-
-              }
-
-
-
-						}
-
-
-						}
-
-
-						}
-
-						}
-
-
-
-					}
-
-
-
-				?>
+				    ?>
 
                         <div class="row border-top border-secondary">
                             <div class="col-12">

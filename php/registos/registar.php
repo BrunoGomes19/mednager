@@ -18,7 +18,7 @@
 
 	$confirmPassword = $_POST["confirmPassword"];
 
-	session_start();
+	@session_start();
 
 
 	if(!is_numeric($numeroOrdem)){

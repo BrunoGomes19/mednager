@@ -141,18 +141,12 @@ $conn->close();
 
 																		<?php
 
+												            if (isset($_SESSION['msgEditarCC'])) {
+												                echo $_SESSION['msgEditarCC'];
+												                unset($_SESSION['msgEditarCC']);
+												            }
 
-																	$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-																	if(strpos($fullUrl, "ccerror") == true){
-
-																		echo '<p id="erro">Este cartão de cidadão já está associado a outra conta.<br><br></p>';
-
-
-
-																	}
-
-																	?>
+																		?>
 
                                     <div class="row">
 
@@ -219,15 +213,12 @@ $conn->close();
 
 																		<?php
 
-																	if(strpos($fullUrl, "niferror") == true){
+												            if (isset($_SESSION['msgEditarNIF'])) {
+												                echo $_SESSION['msgEditarNIF'];
+												                unset($_SESSION['msgEditarNIF']);
+												            }
 
-																		echo '<p id="erro">Este NIF já está associado a outra conta.<br><br></p>';
-
-
-
-																	}
-
-																	?>
+																		?>
 
 																										<div class="row">
 																													<div class="col-md-4">

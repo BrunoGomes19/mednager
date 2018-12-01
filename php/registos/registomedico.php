@@ -141,18 +141,12 @@ $conn->close();
 
 																		<?php
 
+												            if (isset($_SESSION['msgRegistoNO'])) {
+												                echo $_SESSION['msgRegistoNO'];
+												                unset($_SESSION['msgRegistoNO']);
+												            }
 
-																	$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-																	if(strpos($fullUrl, "noerror") == true){
-
-																		echo '<p id="erro">Este número de ordem já está associado a outra conta.<br><br></p>';
-
-
-
-																	}
-
-																	?>
+																		?>
 
                                     <div class="row">
 
@@ -261,15 +255,12 @@ $conn->close();
 
 																		<?php
 
-																	if(strpos($fullUrl, "ccerror") == true){
+												            if (isset($_SESSION['msgRegistoCC'])) {
+												                echo $_SESSION['msgRegistoCC'];
+												                unset($_SESSION['msgRegistoCC']);
+												            }
 
-																		echo '<p id="erro">Este cartão de cidadão já está associado a outra conta.<br><br></p>';
-
-
-
-																	}
-
-																	?>
+																		?>
 
 									<div class="row">
                                          <div class="col-md-4">
@@ -288,15 +279,12 @@ $conn->close();
 
 																		<?php
 
-																	if(strpos($fullUrl, "niferror") == true){
+												            if (isset($_SESSION['msgRegistoNIF'])) {
+												                echo $_SESSION['msgRegistoNIF'];
+												                unset($_SESSION['msgRegistoNIF']);
+												            }
 
-																		echo '<p id="erro">Este cartão de cidadão já está associado a outra conta.<br><br></p>';
-
-
-
-																	}
-
-																	?>
+																		?>
 
                                     <div class="row">
                                         <div class="col-md-12">

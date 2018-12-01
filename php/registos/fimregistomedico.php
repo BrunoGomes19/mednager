@@ -156,22 +156,22 @@
 
 	if($findccC || $findccU){
 
-		header("Location: registomedico.php?ccerror");
+		$_SESSION['msgRegistoCC'] = '<p id="erro">Este cartão de cidadão já está associado a outra conta.<br><br></p>';
 
-		exit();
+		header("Location: registomedico.php");
 
 	}else if($findNIFC || $findNIFU){
 
-		header("Location: registomedico.php?niferror");
+		$_SESSION['msgRegistoNIF'] = '<p id="erro">Este NIF já está associado a outra conta.<br><br></p>';
 
-		exit();
+		header("Location: registomedico.php");
 
 
 	}else if($findno){
 
-		header("Location: registomedico.php?noerror");
+		$_SESSION['msgRegistoNO'] = '<p id="erro">Este número de ordem já está associado a outra conta.<br><br></p>';
 
-		exit();
+		header("Location: registomedico.php");
 
 
 	}else{

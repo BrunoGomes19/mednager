@@ -132,15 +132,15 @@
 
 if($findccC || $findccU){
 
-	header("Location: registoutente.php?ccerror");
+	$_SESSION['msgEditarCC'] = '<p id="erro">Este cartão de cidadão já está associado a outra conta.<br><br></p>';
 
-	exit();
+	header("Location: registoutente.php");
 
 }else if($findNIFC || $findNIFU){
 
-	header("Location: registoutente.php?niferror");
+	$_SESSION['msgEditarNIF'] = '<p id="erro">Este NIF já está associado a outra conta.<br><br></p>';
 
-	exit();
+	header("Location: registoutente.php");
 
 
 }else{
