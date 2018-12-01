@@ -224,7 +224,7 @@
 
 				//INSERIR NA BD
 
-		$sql = "INSERT into utente(nifUtente,ccUtente, emailUtente, passUtente, nomeUtente, sexoUtente,codPermissao,codAlertaUtente, codSubsistema, emailconfirmUtente) values('$nif','$ccUtente','$email',md5('$pass'),'$nome','$sexo',3,1,1,0);";
+		$sql = "INSERT into utente(nifUtente,ccUtente, emailUtente, passUtente, nomeUtente, sexoUtente,codPermissao, codSubsistema, emailconfirmUtente) values('$nif','$ccUtente','$email',md5('$pass'),'$nome','$sexo',3,1,0);";
 
 		//Criar especialidade 1 - novo | O comprador só insere a sua "especialidade" após a página de registo
 
