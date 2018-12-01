@@ -187,7 +187,7 @@ if ($result->num_rows > 0) {
 				$passNoChange = $pass;
 
 
-		$sql = "INSERT into utente(ccUtente, emailUtente, passUtente, nomeUtente, sexoUtente,codPermissao,codAlertaUtente, codSubsistema, NIFUtente, emailConfirmUtente) values('$ccUtente','$email',md5('$pass'),'$nome',' ',3,1,1, '$nif',0);";
+		$sql = "INSERT into utente(ccUtente, emailUtente, passUtente, nomeUtente, sexoUtente,codPermissao, codSubsistema, NIFUtente, emailConfirmUtente) values('$ccUtente','$email',md5('$pass'),'$nome',' ',3,1, '$nif',0);";
 
 		//Criar especialidade 1 - novo | O comprador só insere a sua "especialidade" após a página de registo
 
