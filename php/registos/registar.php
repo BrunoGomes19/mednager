@@ -23,26 +23,17 @@
 
 	if(!is_numeric($numeroOrdem)){
 
-		header("Location: authentication-register.php?signup=noerror");
+		$_SESSION['msgRegisto'] = '<p id="erro">Este número de ordem é inválido.<br><br></p>';
 
-			exit();
-
-	}
-
-	if($sexo == "erro"){
-
-		header("Location: authentication-register.php?signup=serror");
-
-			exit();
+		header("Location: authentication-register.php");
 
 	}
-
 
 	if($pass != $confirmPassword){
 
-		header("Location: authentication-register.php?signup=pperror");
+		$_SESSION['msgRegisto'] = '<p id="erro">As palavra-passe não coincidem.<br><br></p>';
 
-			exit();
+		header("Location: authentication-register.php");
 
 	}else{
 
@@ -228,33 +219,33 @@
 
 			if($findemailc || $findemailu){
 
-				header("Location: authentication-register.php?signup=emailerror");
+				$_SESSION['msgRegisto'] = '<p id="erro">Este e-mail já está associado a outra conta.<br><br></p>';
 
-				exit();
+				header("Location: authentication-register.php");
 
 			}else{
 				//se já houver um numero de ordem
 				if($findno){
 
-				header("Location: authentication-register.php?signup=numeroordemerror");
+				$_SESSION['msgRegisto'] = '<p id="erro">Este número de ordem já está associado a outra conta.<br><br></p>';
 
-				exit();
+				header("Location: authentication-register.php");
 
 			}else{
 
 				if($findccU || $findccC){
 
-					header("Location: authentication-register.php?signup=ccerror");
+					$_SESSION['msgRegisto'] = '<p id="erro">Este cartão de cidadão já está associado a outra conta.<br><br></p>';
 
-					exit();
+					header("Location: authentication-register.php");
 
 				}else{
 
 					if($findNIFU || $findNIFC){
 
-						header("Location: authentication-register.php?signup=niferror");
+						$_SESSION['msgRegisto'] = '<p id="erro">Este NIF já está associado a outra conta.<br><br></p>';
 
-						exit();
+						header("Location: authentication-register.php");
 
 					}else{
 
@@ -314,7 +305,12 @@
 					echo 'Mailer Error: ' . $mail->ErrorInfo;
 				} else {
 
-					header("Location: ../logins/authentication-login.php?signup=ee");
+					$_SESSION['msgRegisto'] = '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
+							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							   <span style="color:white;">E-mail enviado com sucesso!</span>
+								</div>';
+
+					header("Location: ../logins/authentication-login.php");
 
 				}
 
@@ -336,9 +332,9 @@
 
 			echo mysqli_error($conn);
 
-			header("Location: authentication-register.php?signup=cerror");
+			$_SESSION['msgRegisto'] = '<p id="erro">Ocorreu um erro a registar o comprador.<br><br></p>';
 
-			exit();
+			header("Location: authentication-register.php");
 
 		}
 
