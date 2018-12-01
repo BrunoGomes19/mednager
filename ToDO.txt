@@ -1,14 +1,10 @@
-﻿
+﻿---- PATRÍCIA -------
 
 - Gr�ficos
 
-- Plano de medica��o (duas vertentes diferentes, uma com o calend�rio, e outra com "Manh�, Almo�o, Jantar, Dormir")
-
 notifs - qui�� v 2.0
 
-https://stackoverflow.com/questions/15161654/recurring-events-in-fullcalendar    - plano medica�ao semanal
-
-SUBSISTEMAS DE SAUDE VAI FICAR NOVO???
+SUBSISTEMAS DE SAUDE VAI FICAR NOVO??? Sim
 
 ADICIONAR CAMPOS DA ESPECIALIDADE , GESTAO
 
@@ -24,3 +20,18 @@ nr serviços por local e por especialidade
 UTENTE
 nr de consultas por mes 
 
+----- BRUNO ---------
+
+Quando pedir uma associação, ficar a laranja, verde para associar e vermelho já associado
+
+Não deixar os médicos/admins verem as infos dos utentes sem estarem associados
+
+Alterar as mensagens por $_SESSION['msg']
+
+Alterar os GETS por Request
+
+Imprimir
+
+Terminar os gráficos (Médicos associados com o lei - carolina)
+
+Terminar a configuração de campos nas intervenções
