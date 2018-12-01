@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+@session_start();
 
 ?>
 
@@ -109,48 +109,14 @@ session_start();
                             </div>
                         </div>
 
-						<?php
+                        <?php
 
-
-					$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-					if(strpos($fullUrl, "rutente=cc") == true){
-
-						echo '<p id="erro">Este número de cartão de cidadão já se encontra associado a outra conta.<br><br></p>';
-
-
-
-					}else{
-
-						if(strpos($fullUrl, "rutente=email") == true){
-
-						echo '<p id="erro">Este endereço de e-mail já se encontra associado a outra conta!<br><br></p>';
-
-                    } else if (strpos($fullUrl, "rutente=nif") == true){
-
-                        echo '<p id="erro">Este nif já se encontra associado a outra conta!<br><br></p>';
-
-                      }else{
-
-                        if(strpos($fullUrl, "rutente=ccinvalido") == true){
-
-                          echo '<p id="erro">Este número de cartão de cidadão é inválido!<br><br></p>';
-
-                        }else{
-
-                          if(strpos($fullUrl, "rutente=erro") == true){
-
-                            echo '<p id="erro">Ocorreu um erro a registar este utente!<br><br></p>';
-                          }
-
+                        if (isset($_SESSION['msgMedicoAdminRUtente'])) {
+                            echo $_SESSION['msgMedicoAdminRUtente'];
+                            unset($_SESSION['msgMedicoAdminRUtente']);
                         }
 
-                      }
-					}
-
-
-
-				?>
+                        ?>
 
                         <div class="row border-top border-secondary">
                             <div class="col-12">

@@ -141,6 +141,8 @@ $conn->close();
 
 																		<?php
 
+																		@session_start();
+
 												            if (isset($_SESSION['msgEditarCC'])) {
 												                echo $_SESSION['msgEditarCC'];
 												                unset($_SESSION['msgEditarCC']);

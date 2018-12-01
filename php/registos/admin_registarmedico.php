@@ -272,7 +272,12 @@
 
 					$conn->query("UPDATE comprador set codeEmailConfirm='$str' WHERE emailComprador='$email'");
 
-				header("Location: ../indexes/index-admin.php?medico=add&nome=$nome");
+			 $_SESSION['msgUtenteAdd'] = '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
+			 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<span style="color:white;">Obrigado por realizar o registo do médico '.$nome.'!<br>Ser-lhe-á enviado um e-mail com as credenciais.</span>
+			 </div>';
+
+			 header("Location: ../indexes/index-admin.php");
 
 			 exit();
 

@@ -123,19 +123,12 @@ if ($result->num_rows > 0) {
 
                         <?php
 
-                        $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                        @session_start();
 
-                        if(strpos($fullUrl, "utente=add") == true){
-
-                        echo'<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                         <span style="color:white;">Obrigado por realizar o registo do utente ';echo $_GET['nome'];echo '!<br>Ser-lhe-á enviado um e-mail com as credenciais.</span>
-                        </div>';
-
-
-
+                        if (isset($_SESSION['msgUtenteAdd'])) {
+                            echo $_SESSION['msgUtenteAdd'];
+                            unset($_SESSION['msgUtenteAdd']);
                         }
-
                         ?>
 
                         <div class="row m-t-25">

@@ -2,6 +2,8 @@
 
 	if(isset($_POST['submit'])){
 
+	@session_start();
+
 	$email = $_POST["email"];
 
 	$nome = $_POST["nome"];
@@ -10,16 +12,14 @@
 
 	$nif = $_POST["nif"];
 
-	session_start();
-
 	$nomeEnvia = $_SESSION['login_user'];
 
 
 	if(!is_numeric($ccUtente)){
 
-		header("Location: medico-admin_registoutente.php?rutente=ccinvalido");
+		$_SESSION['msgMedicoAdminRUtente'] = '<p id="erro">Este número de cartão de cidadão é inválido!<br><br></p>';
 
-			exit();
+		header("Location: medico-admin_registoutente.php");
 
 	}
 
@@ -38,8 +38,10 @@
 
 				$findemailc = false;
 				$findemailu = false;
-				$findcc = false;
+				$findccU = false;
+				$findccC = false;
 				$findnifu = false;
+				$findnifc = false;
 
 //ver infos
 
@@ -120,7 +122,27 @@ if ($result->num_rows > 0) {
 
 						echo "Este cartão de cidadão já está registado noutro médico." ;
 
-						$findcc = true;
+						$findccU = true;
+
+					}
+
+
+				}
+			}
+
+			$sql77 = "SELECT ccComprador from comprador";
+			$result = $conn->query($sql77);
+
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) {
+
+
+					if( $row["ccComprador"] == $ccUtente){
+
+						echo "Este cartão de cidadão já está registado noutro médico." ;
+
+						$findccC = true;
 
 					}
 
@@ -150,26 +172,45 @@ if ($result->num_rows > 0) {
 				}
 			}
 
+			$sql66 = "SELECT NIFComprador from comprador";
+			$result = $conn->query($sql66);
+
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) {
+
+
+					if( $row["NIFComprador"] == $nif){
+
+						$findnifc = true;
+
+					}
+
+
+				}
+			}
+
 			//se encontrar o email na tabela dos utentes ou compradores dar erro
 
 			if($findemailc || $findemailu){
 
-				header("Location: medico-admin_registoutente.php?rutente=email");
+				$_SESSION['msgMedicoAdminRUtente'] = '<p id="erro">Este endereço de e-mail já se encontra associado a outra conta!<br><br></p>';
 
-				exit();
+				header("Location: medico-admin_registoutente.php");
 
 			}else{
 				//se já houver um cc
-				if($findcc){
+				if($findccU || $findccC){
 
-				header("Location: medico-admin_registoutente.php?rutente=cc");
+				$_SESSION['msgMedicoAdminRUtente'] = '<p id="erro">Este número de cartão de cidadão já se encontra associado a outra conta.<br><br></p>';
 
-				exit();
+				header("Location: medico-admin_registoutente.php");
 
-			} else if ($findnifu) {
+			} else if ($findnifu || $findnifc) {
 
-				header("Location: medico-admin_registoutente.php?rutente=nif");
-				exit();
+				$_SESSION['msgMedicoAdminRUtente'] = '<p id="erro">Este nif já se encontra associado a outra conta!<br><br></p>';
+
+				header("Location: medico-admin_registoutente.php");
 
 
 			}else{
@@ -250,9 +291,14 @@ if ($result->num_rows > 0) {
 
 					$conn->query("UPDATE utente set codeEmailConfirm='$str' WHERE emailUtente='$email'");
 
-				header("Location: ../indexes/index-admin.php?utente=add&nome=$nome");
+					$_SESSION['msgUtenteAdd'] = '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					 <span style="color:white;">Obrigado por realizar o registo do utente '.$nome.' !<br>Ser-lhe-á enviado um e-mail com as credenciais.</span>
+					</div>';
 
-			 exit();
+					header("Location: ../indexes/index-admin.php");
+
+					exit();
 
 			}else{
 
@@ -317,9 +363,15 @@ if ($result->num_rows > 0) {
 
 									$conn->query("UPDATE utente set codeEmailConfirm='$str' WHERE emailUtente='$email'");
 
-				header("Location: ../indexes/index-medico.php?utente=add&nome=$nome");
+				$_SESSION['msgUtenteAdd'] = '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				 <span style="color:white;">Obrigado por realizar o registo do utente '.$nome.' !<br>Ser-lhe-á enviado um e-mail com as credenciais.</span>
+				</div>';
+
+				header("Location: ../indexes/index-medico.php");
 
 				exit();
+
 			}
 
 	}
