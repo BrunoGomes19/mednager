@@ -1,5 +1,7 @@
 <?php
 
+        @session_start();
+
         $secretKey = "6LcVvnwUAAAAAF7PR2uL8yoUWFwdqm9UTeRpSzF1";
         $responseKey = $_POST['g-recaptcha-response'];
         $userIP = $_SERVER['REMOTE_ADDR'];
@@ -54,7 +56,11 @@
 											echo 'Mailer Error: ' . $mail->ErrorInfo;
 										} else {
 
-											header("Location: ../indexes/index.php?signup=ee#contact");
+                      $_SESSION['msgEmailEnviado'] = '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#70e093;border-radius:8px";>
+            							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            							   <span style="color:white;">Mensagem enviada com sucesso. Entraremos em contacto brevemente!</span>
+            								</div>';
+                			header("Location: ../indexes/index.php#contact");
 
 										}
 
@@ -66,7 +72,9 @@
 
 						{
 
-							header("Location: ../indexes/index.php?signup=recaptcha#contact");
+              $_SESSION['msgVerificaRecaptcha'] = '<br><p id="erro" style="text-align:center;margin:0;">Por favor verifique se validou o recaptcha!</p>';
+
+							header("Location: ../indexes/index.php#contact");
 
 						}
 

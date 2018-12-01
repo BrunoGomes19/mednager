@@ -1,5 +1,7 @@
 <?php
 
+@session_start();
+
 if(isset($_POST['submit'])){
 
 	$servername='localhost';
@@ -40,7 +42,7 @@ if(isset($_POST['submit'])){
 
 				}else{
 
-					session_start(); //fundamental para configurar para 'o futuro' a variavel de sessao
+					 //fundamental para configurar para 'o futuro' a variavel de sessao
 
 
 				$_SESSION['login_user']=$row["nomeUtente"]; //esta var.
@@ -67,16 +69,20 @@ if(isset($_POST['submit'])){
 
 					//echo "<br><br>Password errada - UTENTE" ;
 
-					header("Location: authentication-login.php?signup=uerror&user=$user");
+					$_SESSION['msgLogin'] = '<p id="erro">Palavra-passe errada. Tente novamente ou clique em Esqueci-me da palavra-passe para a repor.<br><br></p>';
 
-					exit();
+					header("Location: authentication-login.php");
 
 			}
 
 
 		}
 	} else {
-		header("Location: authentication-login.php?signup=oerror");
+
+		$_SESSION['msgLogin'] = '<p id="erro">Não foi possível encontrar a sua conta!<br><br></p>';
+
+		header("Location: authentication-login.php");
+
 	}
 
 }else{
@@ -103,7 +109,7 @@ if(isset($_POST['submit'])){
 				}else{
 
 
-					session_start(); //fundamental para configurar para 'o futuro' a variavel de sessao
+				 //fundamental para configurar para 'o futuro' a variavel de sessao
 
 
 				if($row["codPermissao"] == 1){
@@ -111,7 +117,7 @@ if(isset($_POST['submit'])){
 					if($row["estadoComprador"] == 0){
 
 						$_SESSION['preco'] = $row['preco'];
-						
+
 						$_SESSION['quantidadeMedicos'] = $row['quantidadeMedicos'];
 
 						header("Location: ../erros/pagamentoColetivo.php");
@@ -172,15 +178,18 @@ if(isset($_POST['submit'])){
 
 			}else{
 
-					header("Location: authentication-login.php?signup=cerror&user=$user");
+					$_SESSION['msgLogin'] = '<p id="erro">Palavra-passe errada. Tente novamente ou clique em Esqueci-me da palavra-passe para a repor.<br><br></p>';
 
-					exit();
+					header("Location: authentication-login.php");
+
 			}
 
 		}
 	} else {
 
-		header("Location: authentication-login.php?signup=oerror");
+		$_SESSION['msgLogin'] = '<p id="erro">Não foi possível encontrar a sua conta!<br><br></p>';
+
+		header("Location: authentication-login.php");
 
 	}
 

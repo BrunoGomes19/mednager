@@ -2,6 +2,8 @@
 
 	if(isset($_POST['submit'])){
 
+		@session_start();
+
 	$email = $_POST["email"];
 
 	$pass = $_POST["password"];
@@ -15,8 +17,6 @@
 	$ccUtente = $_POST["ccUtente"];
 
 	$confirmPassword = $_POST["confirmPassword"];
-
-	session_start();
 
 
 	if(!is_numeric($ccUtente)){
@@ -306,9 +306,12 @@
 //Fim do email com link
 
 
-			header("Location: ../logins/authentication-login.php?signup=emailregisto");
+			$_SESSION['msgRegisto'] = '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			 <span style="color:white;">Obrigado por efetuar o seu registo.<br>Por favor verifique o seu email para confirmar a sua conta!</span>
+			</div>';
 
-			exit();
+			header("Location: ../logins/authentication-login.php");
 
 		}else{
 

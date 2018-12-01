@@ -1,3 +1,9 @@
+<?php
+
+  @session_start();
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -331,24 +337,12 @@
           <p>Se tiver alguma questão, não hesite em contactar-nos!</p>
         </div>
 
-
-		<?php
-
-
-					$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-					if(strpos($fullUrl, "signup=ee") == true){
-
-					echo'<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#70e093;border-radius:8px";>
-							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							   <span style="color:white;">Mensagem enviada com sucesso. Entraremos em contacto brevemente!</span>
-								</div>';
-
-
-
-					}
-		?>
-
+        <?php
+        if (isset($_SESSION['msgEmailEnviado'])) {
+            echo $_SESSION['msgEmailEnviado'];
+            unset($_SESSION['msgEmailEnviado']);
+        }
+        ?>
 
         <div class="row contact-info">
 
@@ -398,15 +392,11 @@
             </div>
             <div class="g-recaptcha" data-sitekey="6LcVvnwUAAAAANGqb-hxV1lghFHWSem4E9akTVNH" style="padding-left:36%;"></div>
 
-            <?php
-
-            if(strpos($fullUrl, "signup=recaptcha") == true){
-
-              echo '<br><p id="erro" style="text-align:center;margin:0;">Por favor verifique se validou o recaptcha!</p>';
-
-
-            }
-
+             <?php
+             if (isset($_SESSION['msgVerificaRecaptcha'])) {
+                 echo $_SESSION['msgVerificaRecaptcha'];
+                 unset($_SESSION['msgVerificaRecaptcha']);
+             }
              ?>
              <br>
             <div class="text-center"><button type="submit">Enviar mensagem</button></div>

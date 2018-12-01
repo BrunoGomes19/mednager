@@ -1,3 +1,9 @@
+<?php
+
+@session_start();
+
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -124,107 +130,33 @@
                         </div>
 
 
-						<?php
-
-
-					$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-					if(strpos($fullUrl, "signup=uerror") == true){
-
-						echo '<p id="erro">Palavra-passe errada. Tente novamente ou clique em Esqueci-me da palavra-passe para a repor.<br><br></p>';
+                        <?php
 
 
 
-					}else{
-
-						if(strpos($fullUrl, "signup=cerror") == true){
-
-						echo '<p id="erro">Palavra-passe errada. Tente novamente ou clique em Esqueci-me da palavra-passe para a repor.<br><br></p>';
-
+                        if (isset($_SESSION['msgLogin'])) {
+                            echo $_SESSION['msgLogin'];
+                            unset($_SESSION['msgLogin']);
+                        }
 
 
-					}else{
-
-					if(strpos($fullUrl, "signup=oerror") == true){
-
-
-						echo '<p id="erro">Não foi possível encontrar a sua conta!<br><br></p>';
-
-					}else{
-
-						if(strpos($fullUrl, "signup=recup") == true){
-
-							echo'<div class="alert alert-warning alert-dismissible fade-show" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
-							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							   <span style="color:white;">Dentro de alguns minutos receberá um e-mail para recuperar a sua palavra-passe.</span>
-								</div>';
-
-						}else{
-							if(strpos($fullUrl, "signup=logout") == true){
-
-								echo'<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
-							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							   <span style="color:white;">Você saiu da sua conta. Esperemos que volte brevemente!</span>
-								</div>';
-
-							}else{
-
-								if(strpos($fullUrl, "signup=newpass") == true){
-
-								echo'<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
-							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							   <span style="color:white;">Password alterada com sucesso!</span>
-								</div>';
-
-							}else{
-
-								if(strpos($fullUrl, "signup=ee") == true){
-
-								echo'<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
-							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							   <span style="color:white;">E-mail enviado com sucesso!</span>
-								</div>';
-
-							}else{
-
-                if(strpos($fullUrl, "signup=emailregisto") == true){
-
-                  echo'<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
-  							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  							   <span style="color:white;">Obrigado por efetuar o seu registo.<br>Por favor verifique o seu email para confirmar a sua conta!</span>
-  								</div>';
-
-                }else{
-
-                  if(strpos($fullUrl, "signup=emailconfirmado") == true){
-
-                    echo'<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                     <span style="color:white;">Email confirmado com sucesso!</span>
-                    </div>';
+                        if (isset($_SESSION['msgLogout'])) {
+                            echo $_SESSION['msgLogout'];
+                            unset($_SESSION['msgLogout']);
+                        }
 
 
-                  }
+                        if (isset($_SESSION['msgRecuperacao'])) {
+                            echo $_SESSION['msgRecuperacao'];
+                            unset($_SESSION['msgRecuperacao']);
+                        }
 
+                        if (isset($_SESSION['msgRegisto'])) {
+                            echo $_SESSION['msgRegisto'];
+                            unset($_SESSION['msgRegisto']);
+                        }
 
-
-                }
-
-              }
-
-							}
-
-							}
-						}
-
-					}
-
-					}
-
-					}
-
-				?>
-
+                        ?>
 
                         <div class="row border-top border-secondary">
 
@@ -262,20 +194,6 @@
                                 </div>
                                  <input type="email" class="form-control form-control-lg" placeholder="E-mail" aria-label="email" aria-describedby="basic-addon1" required name="emailr">
                             </div>
-
-							<?php
-
-							if(strpos($fullUrl, "signup=emailnotin") == true){
-
-							//onload (id="to-recover")
-
-
-							echo '<p id="erro">Não existe nenhuma conta com este e-mail!<br><br></p>';
-
-						}
-
-
-							?>
 
                             <!-- pwd -->
                             <div class="row m-t-20 p-t-20 border-top border-secondary" style="padding-top:5%">

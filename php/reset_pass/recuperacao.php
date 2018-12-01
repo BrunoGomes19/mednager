@@ -1,5 +1,7 @@
 <?php
 
+@session_start();
+
 	if(isset($_GET["email"]) && isset($_GET["token"]) && isset($_GET["tipo"])){
 
 	$email = $_GET["email"];
@@ -26,7 +28,13 @@ if(isset($_POST['submit'])){
 
 		$conn->query("UPDATE comprador set passComprador='$pass' WHERE emailComprador='$email'");
 
-		header("Location: ../logins/authentication-login.php?signup=newpass");
+		$_SESSION['msgRecuperacao'] = '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		 <span style="color:white;">Password alterada com sucesso!</span>
+		</div>';
+
+		header("Location: ../logins/authentication-login.php");
+
 
 
 	}else{
@@ -38,7 +46,12 @@ if(isset($_POST['submit'])){
 
 		$conn->query("UPDATE utente set passUtente='$pass' WHERE emailUtente='$email'");
 
-		header("Location: ../logins/authentication-login.php?signup=newpass");
+		$_SESSION['msgRecuperacao'] = '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		 <span style="color:white;">Password alterada com sucesso!</span>
+		</div>';
+
+		header("Location: ../logins/authentication-login.php");
 
 
 		}

@@ -1,6 +1,6 @@
 <?php
 
-
+@session_start();
 
 if(isset($_POST['submit'])){
 
@@ -117,7 +117,12 @@ if(isset($_POST['submit'])){
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
 			} else {
 
-				header("Location: ../logins/authentication-login.php?signup=ee");
+				$_SESSION['msgRecuperacao'] = '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				 <span style="color:white;">E-mail enviado com sucesso!</span>
+				</div>';
+
+				header("Location: ../logins/authentication-login.php");
 
 			}
 
@@ -129,10 +134,12 @@ if(isset($_POST['submit'])){
 
 		$conn->query("UPDATE comprador set tokenComprador='$str' WHERE emailComprador='$email'");
 
-		//FIM DA RECUPERAÇÃO
+		$_SESSION['msgRecuperacao'] = '<div class="alert alert-warning alert-dismissible fade-show" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			 <span style="color:white;">Dentro de alguns minutos receberá um e-mail para recuperar a sua palavra-passe.</span>
+			</div>';
 
-
-		//header("Location: ../html/ltr/authentication-login.php?signup=recup");
+		header("Location: ../logins/authentication-login.php");
 
 
 	}else{
@@ -188,7 +195,12 @@ if(isset($_POST['submit'])){
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
 			} else {
 
-				header("Location: ../logins/authentication-login.php?signup=ee");
+				$_SESSION['msgRecuperacao'] = '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				 <span style="color:white;">E-mail enviado com sucesso!</span>
+				</div>';
+
+				header("Location: ../logins/authentication-login.php");
 
 			}
 
@@ -205,14 +217,22 @@ if(isset($_POST['submit'])){
 
 		//header("Location: ../html/ltr/authentication-login.php?signup=recup");
 
+		$_SESSION['msgRecuperacao'] = '<div class="alert alert-warning alert-dismissible fade-show" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			 <span style="color:white;">Dentro de alguns minutos receberá um e-mail para recuperar a sua palavra-passe.</span>
+			</div>';
+
+		header("Location: ../logins/authentication-login.php");
+
 
 	}else{
 
 		//location a dizer que este email nao existe na bd
 
-		header("Location: ../logins/authentication-login.php?signup=emailnotin&recup=1");
+		$_SESSION['msgRecuperacao'] = '<p id="erro">Não existe nenhuma conta com este e-mail!<br><br></p>';
 
-			exit();
+		header("Location: ../logins/authentication-login.php");
+
 
 	}
 
