@@ -96,7 +96,7 @@
 
 
 
-  $sql3 = "select local.descriLocal, COUNT(*) as nrEsp from local, servico WHERE local.codLocal=servico.codLocal GROUP BY local.descriLocal";
+  $sql3 = "select local.descriLocal, COUNT(*) as nrEsp from local, servico, comprador WHERE local.codLocal=servico.codLocal and comprador.codComprador=servico.codComprador and LEIComprador='$LEIComprador' GROUP BY local.descriLocal";
   $result3 = $conn->query($sql3);
 
   if ($result3->num_rows > 0) {
