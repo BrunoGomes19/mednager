@@ -17,9 +17,9 @@
 
 	if(!is_numeric($numeroOrdem)){
 
-		header("Location: admin_registomedico?rmedico=noinvalido");
+		$_SESSION['msgAdminRegistaMedico'] = '<p id="erro">Este número de ordem é inválido!<br><br></p>';
 
-			exit();
+		header("Location: admin_registomedico.php");
 
 	}
 
@@ -56,9 +56,12 @@
 
 				$findemailc = false;
 				$findemailu = false;
-				$findcc = false;
-				$findnif = false;
-				$findcc = false;
+				$findccC = false;
+				$findccU = false;
+				$findnifC = false;
+				$findnifU = false;
+				$findno = false;
+
 
 		//Comparar o email com o email dos utentes
 
@@ -95,10 +98,6 @@
 
 					if( $row["emailComprador"] == $email){
 
-
-
-
-
 					echo "Este e-mail já existe no COMPRADOR" ;
 
 					$findemailc = true;
@@ -123,7 +122,7 @@
 
 				echo "Este número de ordem já está registado." ;
 
-					$findcc = true;
+					$findno = true;
 
 					}
 
@@ -144,7 +143,27 @@
 
 				echo "Este NIF já está registado." ;
 
-					$findnif = true;
+					$findnifC = true;
+
+					}
+
+
+				}
+			}
+
+			$sql81 = "SELECT NIFUtente from utente";
+			$result = $conn->query($sql81);
+
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) {
+
+
+					if( $row["NIFUtente"] == $nif){
+
+				echo "Este NIF já está registado." ;
+
+					$findnifU = true;
 
 					}
 
@@ -164,7 +183,27 @@
 
 				echo "Este Cartão de cidadão  já está registado." ;
 
-					$findcc = true;
+					$findccC = true;
+
+					}
+
+
+				}
+			}
+
+			$sql9 = "SELECT ccUtente from utente";
+			$result = $conn->query($sql9);
+
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while($row = $result->fetch_assoc()) {
+
+
+					if( $row["ccUtente"] == $cc){
+
+				echo "Este Cartão de cidadão  já está registado." ;
+
+					$findccU = true;
 
 					}
 
@@ -177,28 +216,29 @@
 
 			if($findemailc || $findemailu){
 
-				header("Location: admin_registomedico.php?rmedico=email");
+				$_SESSION['msgAdminRegistaMedico'] = '<p id="erro">Este endereço de e-mail já se encontra associado a outra conta!<br><br></p>';
 
-				exit();
+				header("Location: admin_registomedico.php");
 
 			}else{
 				//se já houver um cc
-				if($findcc){
+				if($findno){
 
-				header("Location: admin_registomedico.php?rmedico=no");
+				$_SESSION['msgAdminRegistaMedico'] = '<p id="erro">Este número de ordem já se encontra associado a outra conta.<br><br></p>';
 
-				exit();
+				header("Location: admin_registomedico.php");
 
-			} else if($findcc){
-				header("Location: admin_registomedico.php?rmedico=cc");
+			} else if($findccC || $findccU){
 
-				exit();
+				$_SESSION['msgAdminRegistaMedico'] = '<p id="erro">Este Cartão de cidadão já se encontra associado a outra conta!<br><br></p>';
 
-			} else if ($findnif){
+				header("Location: admin_registomedico.php");
 
-				header("Location: admin_registomedico.php?rmedico=nif");
+			} else if ($findnifC || $findnifU){
 
-				exit();
+				$_SESSION['msgAdminRegistaMedico'] = '<p id="erro">Este NIF já se encontra associado a outra conta!<br><br></p>';
+
+				header("Location: admin_registomedico.php");
 
 			}else{
 
@@ -285,7 +325,9 @@
 
 		}else{
 
+			$_SESSION['msgAdminRegistaMedico'] = '<p id="erro">Ocorreu um erro no registo do médico!<br><br></p>';
 
+			header("Location: admin_registomedico.php");
 
 		}
 

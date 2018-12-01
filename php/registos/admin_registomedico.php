@@ -118,51 +118,14 @@ session_start();
                             </div>
                         </div>
 
-						<?php
+                        <?php
 
-
-					$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-					if(strpos($fullUrl, "rmedico=no") == true){
-
-						echo '<p id="erro">Este número de ordem já se encontra associado a outra conta.<br><br></p>';
-
-
-
-					}else{
-
-						if(strpos($fullUrl, "rmedico=email") == true){
-
-						echo '<p id="erro">Este endereço de e-mail já se encontra associado a outra conta!<br><br></p>';
-
-                    } else if(strpos($fullUrl, "rmedico=nif") == true){
-
-                        echo '<p id="erro">Este NIF já se encontra associado a outra conta!<br><br></p>';
-
-                    } else if(strpos($fullUrl, "rmedico=cc") == true){
-                        echo '<p id="erro">Este Cartão de cidadão já se encontra associado a outra conta!<br><br></p>';
-
-                      }else{
-
-                        if(strpos($fullUrl, "rmedico=noinvalido") == true){
-
-                          echo '<p id="erro">Este número de ordem é inválido!<br><br></p>';
-
-                        }else{
-
-                          if(strpos($fullUrl, "rmedico=erro") == true){
-
-                            echo '<p id="erro">Ocorreu um erro no registo do médico!<br><br></p>';
-                          }
-
+                        if (isset($_SESSION['msgAdminRegistaMedico'])) {
+                            echo $_SESSION['msgAdminRegistaMedico'];
+                            unset($_SESSION['msgAdminRegistaMedico']);
                         }
 
-                      }
-					}
-
-
-
-				?>
+                        ?>
 
                         <div class="row border-top border-secondary">
                             <div class="col-12">
