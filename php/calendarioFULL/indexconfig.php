@@ -921,6 +921,8 @@ $resultcampo = $conn->query($sqlcampo);
                                   </div>
 
 
+
+                                  <!-- DINAMICO-->
                                   <?php
                                   if ($resultcampo->num_rows > 0) {
                                     // output data of each row
@@ -932,11 +934,11 @@ $resultcampo = $conn->query($sqlcampo);
 
                                       $codRegistoCampo = $row['codRegistoCampos'];
 
-                                        echo "<div class="form-group">
-                                            <div class="form-group col-md-12">
-                                                <label>$nomeCampo</label>
-                                                <input type="text" class="form-control" name="$nomeCampo" id="$nomeCampo" placeholder="$nomeCampo" required>
-                                                <input type="hidden" name="teste" id="idServico" value="$nomeCampo">
+                                        echo "<div class='form-group'>
+                                            <div class='form-group col-md-12'>
+                                                <label>'".$nomeCampo."'</label>
+                                                <input type='text' class='form-control' name='".$nomeCampo."' id='".$nomeCampo."' placeholder='".$nomeCampo."' required>
+                                                <input type='hidden' name='".$codRegistoCampo."' id='".$codRegistoCampo."' value='".$nomeCampo."'>
                                             </div>
                                         </div>";
 
@@ -945,6 +947,7 @@ $resultcampo = $conn->query($sqlcampo);
 
 
                                   ?>
+
 
 
 
