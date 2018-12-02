@@ -120,6 +120,8 @@ if(isset($_POST['submit'])){
 
 						$_SESSION['quantidadeMedicos'] = $row['quantidadeMedicos'];
 
+						$_SESSION['email']=$row["emailComprador"]; //esta var.
+
 						header("Location: ../erros/pagamentoColetivo.php");
 
 					}else{
@@ -147,6 +149,8 @@ if(isset($_POST['submit'])){
 					if($row["codPermissao"] == 2){
 
 						if($row["estadoComprador"] == 0){
+
+							$_SESSION['email']=$row["emailComprador"]; //esta var.
 
 							header("Location: ../erros/pagamentoMedico.php");
 
