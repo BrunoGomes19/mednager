@@ -321,7 +321,8 @@ $resultesp5 = $conn->query($sqlesp5);
 $sqlesp25 = "SELECT * from tipoServico";
 $resultesp25 = $conn->query($sqlesp25);
 
-$sqlcampo = "SELECT codRegistoCampos, nomeCampo, unidadeCampo, observacoesCampo, codEspecialidade, codComprador from registoCampos, comprador where emailComprador = '".$email."'";
+$sqlespCampo = "SELECT codEspecialidade from comprador where emailComprador = '".$email."' ";
+$sqlcampo = "SELECT DISTINCT codRegistoCampos, nomeCampo, unidadeCampo, observacoesCampo, registoCampos.codEspecialidade, registoCampos.codComprador from registoCampos, comprador where registoCampos.codEspecialidade =".$sqlespCampo."";
 $resultcampo = $conn->query($sqlcampo);
 
 ?>
@@ -928,15 +929,13 @@ $resultcampo = $conn->query($sqlcampo);
                                     // output data of each row
                                     while($row = $resultcampo->fetch_assoc()) {
 
-
-
                                       $nomeCampo = $row['nomeCampo'];
 
                                       $codRegistoCampo = $row['codRegistoCampos'];
 
                                         echo "<div class='form-group'>
                                             <div class='form-group col-md-12'>
-                                                <label>'".$nomeCampo."'</label>
+                                                <label>".$nomeCampo."</label>
                                                 <input type='text' class='form-control' name='".$nomeCampo."' id='".$nomeCampo."' placeholder='".$nomeCampo."' required>
                                                 <input type='hidden' name='".$codRegistoCampo."' id='".$codRegistoCampo."' value='".$nomeCampo."'>
                                             </div>
@@ -944,7 +943,6 @@ $resultcampo = $conn->query($sqlcampo);
 
                                     }
                                   }
-
 
                                   ?>
 
