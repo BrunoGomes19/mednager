@@ -63,7 +63,7 @@ if(!empty($id) && !empty($title) && !empty($color) && !empty($start) && !empty($
 	$data_sem_barra = implode("-", $data_sem_barra);
 	$end_sem_barra = $data_sem_barra . " " . $hora;
 
-	$result_events = "UPDATE servico SET title='$title', color='$color', start='$start_sem_barra', end='$end_sem_barra', pvpServico = $pvpServico, nSala = $nSala, codComprador = $codComprador, ccUtente = $ccUtente, codTipoServico = $codTipoServico, codLocal = $codLocal, codAlertaComprador = 1, codAlertaUtente = 1, observacoes = '$observacoes'  WHERE id='$id'";
+	$result_events = "UPDATE servico SET title='$title', color='$color', start='$start_sem_barra', end='$end_sem_barra', pvpServico = $pvpServico, nSala = $nSala, codComprador = $codComprador, ccUtente = $ccUtente, codTipoServico = $codTipoServico, codLocal = $codLocal, observacoes = '$observacoes'  WHERE id='$id'";
 	//$msg2 = $result_events;
 
 	$resultado_events = mysqli_query($conn, $result_events);
