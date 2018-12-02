@@ -16,6 +16,7 @@ if ($result->num_rows > 0) {
 
   header('Location: ../indexes/index-medico.php');
 
+  exit();
 
 }
 

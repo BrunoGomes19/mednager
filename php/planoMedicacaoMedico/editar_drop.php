@@ -14,6 +14,9 @@ $sql = "UPDATE planomedicacao SET start='$start_sem_barra', end='$end_sem_barra'
 
 if ($conn->query($sql) === TRUE) {
     	$_SESSION['msg'] = "<div class='alert alert-primary' role='alert'>A data do plano de medicação foi alterada com sucesso!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+
+      exit();
+
 } else {
     echo "Error updating record: " . $conn->error;
 }

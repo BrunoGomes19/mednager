@@ -56,11 +56,17 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 		//echo "<script> alert('OK');</script>";
 
 	header("Location: index.php?cc=$ccUtente");
+
+	exit();
+
 	}else{
 	$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro1 ao registar a Intervenção <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 	//echo "<script> alert('Erro - datas invalidas');</script>";
 
 	header("Location: index.php?cc=$ccUtente");
+
+	exit();
+
 	}
 
 }else{
@@ -69,6 +75,9 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 	//echo "<script> alert('Erro - datas invalidas');</script>";
 
 	header("Location: index.php?cc=$ccUtente");
+
+	exit();
+
 }
 
 }else{
@@ -109,6 +118,7 @@ $end_sem_barra = date('Y-m-d H:i:s', strtotime($end_sem_barra. ' + '.$horas.' ho
 
 header("Location: index.php?cc=$ccUtente");
 
+	exit();
 
 }else{
 	$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro2 ao registar a Intervenção <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
@@ -116,6 +126,9 @@ header("Location: index.php?cc=$ccUtente");
 	//echo "<script> alert('Erro - datas invalidas');</script>";
 
 	header("Location: index.php?cc=$ccUtente");
+
+	exit();
+
 }
 
 

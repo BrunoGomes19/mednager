@@ -4,6 +4,9 @@
 
 if(!(isset($_SESSION['login_user']) && $_SESSION['login_user'] != "")){
 	header('Location: authentication-login.php');
+
+	exit();
+
 }
 
 
@@ -18,6 +21,8 @@ $_SESSION['msgLogout'] = '<div class="alert alert-warning alert-dismissible" dat
 </div>';
 
 header("Location: authentication-login.php");
+
+exit();
 
 }
 

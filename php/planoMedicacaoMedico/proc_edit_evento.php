@@ -55,15 +55,24 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 	if(mysqli_affected_rows($conn)){
 		$_SESSION['msg'] = "<div class='alert alert-primary' role='alert'>Intervenção editada com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 			header("Location: index.php?cc=$ccUtente");
+
+			exit();
+
 	}else{
 		$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Não fez nenhuma alteração à intervenção!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 			header("Location: index.php?cc=$ccUtente");
+
+			exit();
+
 	}
 
 }else{
 	$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro3 ao editar a Intervenção<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 	//$_SESSION['msg'] =$msg2;
 			header("Location: index.php?cc=$ccUtente");
+
+			exit();
+
 		}
 
 	}else{
@@ -113,8 +122,7 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 
 				header("Location: index.php?cc=$ccUtente");
 
-
-
+				exit();
 
 	}
 }

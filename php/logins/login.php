@@ -40,6 +40,8 @@ if(isset($_POST['submit'])){
 
 					header("Location: ../erros/contaSuspensa.php");
 
+					exit();
+
 				}else{
 
 					 //fundamental para configurar para 'o futuro' a variavel de sessao
@@ -61,8 +63,6 @@ if(isset($_POST['submit'])){
 
 				header("Location: ../indexes/index-utente.php");
 
-				//
-
 					exit();
 				}
 			}else{
@@ -73,6 +73,8 @@ if(isset($_POST['submit'])){
 
 					header("Location: authentication-login.php");
 
+					exit();
+
 			}
 
 
@@ -82,6 +84,8 @@ if(isset($_POST['submit'])){
 		$_SESSION['msgLogin'] = '<p id="erro">Não foi possível encontrar a sua conta!<br><br></p>';
 
 		header("Location: authentication-login.php");
+
+		exit();
 
 	}
 
@@ -106,6 +110,8 @@ if(isset($_POST['submit'])){
 
 					header("Location: ../erros/contaSuspensa.php");
 
+					exit();
+
 				}else{
 
 
@@ -123,6 +129,8 @@ if(isset($_POST['submit'])){
 						$_SESSION['email']=$row["emailComprador"]; //esta var.
 
 						header("Location: ../erros/pagamentoColetivo.php");
+
+						exit();
 
 					}else{
 
@@ -153,6 +161,8 @@ if(isset($_POST['submit'])){
 							$_SESSION['email']=$row["emailComprador"]; //esta var.
 
 							header("Location: ../erros/pagamentoMedico.php");
+
+							exit();
 
 						}else{
 
@@ -186,6 +196,8 @@ if(isset($_POST['submit'])){
 
 					header("Location: authentication-login.php");
 
+					exit();
+
 			}
 
 		}
@@ -194,6 +206,8 @@ if(isset($_POST['submit'])){
 		$_SESSION['msgLogin'] = '<p id="erro">Não foi possível encontrar a sua conta!<br><br></p>';
 
 		header("Location: authentication-login.php");
+
+		exit();
 
 	}
 
@@ -205,6 +219,9 @@ if(isset($_POST['submit'])){
 
 	if(!(isset($_SESSION['login_user']) && $_SESSION['login_user'] != "")){
 	header('Location: authentication-login.php');
+
+	exit();
+
 }
 
 }

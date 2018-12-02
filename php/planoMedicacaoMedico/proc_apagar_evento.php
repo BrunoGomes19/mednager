@@ -17,11 +17,20 @@ if (!empty($id)) {
     if (mysqli_affected_rows($conn)) {
         $_SESSION['msg'] = "<div class='alert alert-primary' role='alert'>Intervenção removida com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
         header("Location: index.php?cc=$ccUtente");
+
+        exit();
+
     } else {
         $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro ao apagar Intervenção <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
         header("Location: index.php?cc=$ccUtente");
+
+        exit();
+
     }
 } else {
     $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro ao apagar Intervenção <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
     header("Location: index.php?cc=$ccUtente");
+
+    exit();
+
 }
