@@ -324,10 +324,11 @@ if($_SESSION['permissao'] != 3){
 
 
                                     <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-notifications"></i>
-                                        <!--IF O SELECT > 0 APARECE OTHERWISE NO
-                                        <span class="quantity">SELECT DA TABELA CODALERTAUTENTE WHERE ESTADO=0</span>
-                                        -->
+                                    	<?php 
+                                    		if ("(SELECT * FROM alertautente WHERE estadoUtente = 0) > 0"){
+                                    			echo "<span class='quantity'>"SELECT DA TABELA CODALERTAUTENTE WHERE ESTADO=0"</span>"
+                                    		}
+                                    	?>
                                         <div class="notifi-dropdown js-dropdown count">
                                         	<ul class="dropdown-menu "></ul>
                                             <div class="notifi__item">
