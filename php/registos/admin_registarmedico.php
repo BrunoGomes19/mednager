@@ -2,6 +2,8 @@
 
 	if(isset($_POST['submit'])){
 
+		@session_start();
+
 
 	$email = $_POST["email"];
 
@@ -35,7 +37,7 @@
 		die("Connection failed: " . $conn->connect_error);
 	}
 
-		session_start();
+
 
 			$emailA = $_SESSION['email'];
 

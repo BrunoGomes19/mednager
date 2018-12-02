@@ -12,7 +12,16 @@ $conn->query($sql);
 
 if ($conn->query($sql) === TRUE) {
 
-  header("Location: ../listas/admin-lm.php?alertdesassociado");
+  $_SESSION['msgAssociacao'] = '<script>
+
+  bootbox.alert("Médico desassociado com sucesso!");
+
+
+  </script>';
+
+  header("Location: ../listas/admin-lm.php");
+
+
 } else {
   echo "Error updating record: " . $conn->error;
 }

@@ -2,6 +2,8 @@
 
 	include('../topos/header.php');
 
+	@session_start();
+
 	$nomecompleto = $_POST['nomecompleto'];
 
 	$email = $_SESSION['email'];

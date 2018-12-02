@@ -43,14 +43,29 @@ if($quantidadeQuery<$quantidadeMedicos){
 
   if ($conn->query($sql) === TRUE) {
 
-    header("Location: ../listas/admin-lm.php?alertassociado");
+    $_SESSION['msgAssociacao'] = '<script>
+
+    bootbox.alert("Médico associado com sucesso!");
+
+
+    </script>';
+
+    header("Location: ../listas/admin-lm.php");
+
   } else {
     echo "Error updating record: " . $conn->error;
   }
 
 }else{
 
-  header("Location: ../listas/admin-lm.php?limite");
+  $_SESSION['msgAssociacao'] = '<script>
+
+  bootbox.alert("Chegou ao seu limite de associações!");
+
+
+  </script>';
+
+  header("Location: ../listas/admin-lm.php");
 
 }
 

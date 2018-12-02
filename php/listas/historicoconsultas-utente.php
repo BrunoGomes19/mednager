@@ -155,7 +155,7 @@ function showUser(str) {
 
 
                                         </div>
-                            
+
 
 
                                         </div>
@@ -275,45 +275,7 @@ function showUser(str) {
 
 
                                                 </div>
-
-
-
-
-                                <?php
-                                                $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-                                      					if(strpos($fullUrl, "alertassociado") == true){
-
-                                      						echo '<script>
-
-                                                  bootbox.alert("Utente associado com sucesso!");
-
-
-                                                  </script>';
-
-
-
-                                      					}else{
-
-                                                  if(strpos($fullUrl, "alertdesassociado") == true){
-
-                                        						echo '<script>
-
-                                                    bootbox.alert("Utente desassociado com sucesso!");
-
-
-                                                    </script>';
-
-
-
-                                        					}
-
-                                                }
-                                  ?>
-
-
-
-
+                                                
                                                     <!--<tr class="spacer"></tr>
                                                     <tr class="tr-shadow">
                                                         <td>

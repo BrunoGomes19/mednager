@@ -12,7 +12,14 @@ $query = mysqli_query($conn,$sql);
 
 if($query){
 
-  header("Location: ../listas/medico-lu.php?alertdesassociado");
+  $_SESSION['msgAssociacao'] = '<script>
+
+  bootbox.alert("Utente desassociado com sucesso!");
+
+
+  </script>';
+
+  header("Location: ../listas/medico-lu.php");
 
   exit();
 }

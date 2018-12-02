@@ -12,7 +12,14 @@ $query = mysqli_query($conn,$sql);
 
 if($query){
 
-  header("Location: ../listas/medico-lu.php?alertassociado");
+  $_SESSION['msgAssociacao'] = '<script>
+
+  bootbox.alert("Utente associado com sucesso!");
+
+
+  </script>';
+
+  header("Location: ../listas/medico-lu.php");
 
   exit();
 }

@@ -5,6 +5,8 @@
 
 	include "../topos/config.php";
 
+	@session_start();
+
 	$email = $_GET["email"];
 
 	$token = $_GET["codeEmailConfirm"];

@@ -174,40 +174,11 @@ function showUser(str) {
                                                 <div id="txtHint"><b>A lista de médicos será exibida aqui.</b></div>
 
                                                 <?php
-                                                                $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-                                                      					if(strpos($fullUrl, "alertassociado") == true){
-
-                                                      						echo '<script>
-
-                                                                  bootbox.alert("Médico associado com sucesso!");
-
-
-                                                                  </script>';
-
-
-
-                                                      					}else   if(strpos($fullUrl, "alertdesassociado") == true){
-
-                                                        						echo '<script>
-
-                                                                    bootbox.alert("Médico desassociado com sucesso!");
-
-
-                                                                    </script>';
-
-
-
-                                                        					}else if(strpos($fullUrl, "limite") == true){
-
-                                                                    echo '<script>
-
-                                                                    bootbox.alert("Chegou ao seu limite de associações!");
-
-
-                                                                    </script>';
-
-                                                                  }
+                                                if (isset($_SESSION['msgAssociacao'])) {
+                                                    echo $_SESSION['msgAssociacao'];
+                                                    unset($_SESSION['msgAssociacao']);
+                                                }
 
 
                                                   ?>

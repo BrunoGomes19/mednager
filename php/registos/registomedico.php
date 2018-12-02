@@ -1,6 +1,8 @@
 <?php
 include('../topos/topo_medico.php');
 
+@session_start();
+
 	$sql = "SELECT * from comprador where emailComprador like '$email'";
 $result = $conn->query($sql);
 

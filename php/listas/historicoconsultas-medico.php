@@ -156,7 +156,7 @@ function showUser(str) {
 
                                         </div>
                                         <div class="table-data__tool-right">
-                                          <form method="get" action="../registos/medico-admin_registoutente.php">
+                                          <form method="get" action="../calendarioFULL/index.php">
                                             <button type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small">
                                                 <i class="zmdi zmdi-plus"></i>Nova intervenção</button>
                                               </form>
@@ -281,44 +281,6 @@ function showUser(str) {
 
 
                                                 </div>
-
-
-
-
-                                <?php
-                                                $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-                                      					if(strpos($fullUrl, "alertassociado") == true){
-
-                                      						echo '<script>
-
-                                                  bootbox.alert("Utente associado com sucesso!");
-
-
-                                                  </script>';
-
-
-
-                                      					}else{
-
-                                                  if(strpos($fullUrl, "alertdesassociado") == true){
-
-                                        						echo '<script>
-
-                                                    bootbox.alert("Utente desassociado com sucesso!");
-
-
-                                                    </script>';
-
-
-
-                                        					}
-
-                                                }
-                                  ?>
-
-
-
 
                                                     <!--<tr class="spacer"></tr>
                                                     <tr class="tr-shadow">
