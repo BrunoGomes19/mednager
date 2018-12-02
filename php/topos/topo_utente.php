@@ -93,6 +93,24 @@ if($_SESSION['permissao'] != 3){
 
     }
 
+    function load_unseen_notification(view = '') {
+
+
+    	$.ajax({
+    		url:"fetch.php",
+    		method:"POST",
+    		data:{view:view},
+    		dataTyper:"json", 
+    		success:function(data){
+    			$('.dropdown-menu').html(data.notification);
+    			if(data.unseen_notification > 0){
+    				$('.count').html(data.unseen_notification);
+    			}
+    		}
+    	})
+
+    }
+
 
     </script>
 
@@ -287,6 +305,8 @@ if($_SESSION['permissao'] != 3){
                                         <i class="zmdi zmdi-notifications"></i>
                                         <span class="quantity">3</span>
                                         <div class="notifi-dropdown js-dropdown">
+                                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-pill label-danger count"></span>Notificação</a>
+                                        	<ul class="dropdown-menu"></ul>
                                             <div class="notifi__title">
                                                 <p>You have 3 Notifications</p>
                                             </div>
