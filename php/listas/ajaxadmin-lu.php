@@ -16,7 +16,8 @@ if (!$con) {
 }
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT * FROM utente WHERE NIFUtente like '".$q."%' ORDER BY nomeUtente";
+$sql="SELECT * FROM utente,comprador,associados WHERE utente.ccUtente = associados.utente_ccUtente and associados.comprador_codComprador = comprador.codComprador and LEIComprador = 123 and NIFUtente like '".$q."%' ORDER BY nomeUtente";
+
 $result = mysqli_query($con,$sql);
 
 echo '
@@ -49,13 +50,13 @@ $cc = $row['ccUtente'];
 
 $nif = $row['NIFUtente'];
 
-
+$confirmacao = $row['confirmacao'];
 
 echo '
   <tr class="spacer"></tr>
   <tr class="tr-shadow">
       <td>
-        
+
       </td>
       <td>'.$nome.'</td>
       <td>
@@ -63,14 +64,18 @@ echo '
       </td>
       <td class="desc">'.$nif.'</td>
 
-      <td>
+      <td>';
 
-              <button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
-                  <i class="fa fa-user"></i>&nbsp;Perfil</button>
-                  <button type="button" class="btn btn-outline-danger">
-                       <i class="fa fa-trash"></i>&nbsp; Remover</button>
+      if($confirmacao == 1){
 
-      </td>
+        echo '  <button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
+              <i class="fa fa-user"></i>&nbsp;Perfil</button>';
+
+      }
+
+
+
+    echo '</td>
   </tr>
   <tr class="spacer"></tr>
 ';

@@ -53,6 +53,18 @@ if ($result->num_rows > 0) {
 } else {
   echo "Error";
 }
+
+$sql55 = "SELECT * FROM utente,comprador,associados WHERE utente.ccUtente = associados.utente_ccUtente and associados.comprador_codComprador = comprador.codComprador and LEIComprador = 123 and associados.utente_ccUtente = $cc and associados.confirmacao=1 ORDER BY nomeUtente";
+$result2 = $conn->query($sql55);
+
+if ($result2->num_rows == 0) {
+
+  echo '<script>window.location.replace("../logins/logout.php");</script>';
+
+  exit();
+
+}
+
 $conn->close();
 
 ?>
