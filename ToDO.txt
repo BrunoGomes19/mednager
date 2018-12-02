@@ -36,4 +36,6 @@ Terminar os gráficos (Médicos associados com o lei - carolina)
 
 Terminar a configuração de campos nas intervenções
 
+Criar um modal para registar um utente nas intervenções
+
 PATRÍCIA preciso de tirar dos inserts do cad e do edit e de mudar a bd
