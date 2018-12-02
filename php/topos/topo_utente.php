@@ -94,8 +94,6 @@ if($_SESSION['permissao'] != 3){
     }
 
     function load_unseen_notification(view = '') {
-
-
     	$.ajax({
     		url:"fetch.php",
     		method:"POST",
@@ -110,6 +108,18 @@ if($_SESSION['permissao'] != 3){
     	})
 
     }
+
+    //mudar para lido
+    load_unseen_notification();
+    $(document).on('click', '.dropdown-toggle', function(){
+    	$('.count').html('');
+    	load_unseen_notification('yes')
+    })
+
+    //a cada 5 segundos verifica se há notifs nova sem dar refresh à página
+    set_interval(function(){
+    	load_unseen_notification();
+    }, 5000);
 
 
     </script>
@@ -303,13 +313,11 @@ if($_SESSION['permissao'] != 3){
 
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-notifications"></i>
-                                        <span class="quantity">3</span>
-                                        <div class="notifi-dropdown js-dropdown">
-                                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-pill label-danger count"></span>Notificação</a>
-                                        	<ul class="dropdown-menu"></ul>
-                                            <div class="notifi__title">
-                                                <p>You have 3 Notifications</p>
-                                            </div>
+                                        <!--IF O SELECT > 0 APARECE OTHERWISE NO
+                                        <span class="quantity">SELECT DA TABELA CODALERTAUTENTE WHERE ESTADO=0</span>
+                                        -->
+                                        <div class="notifi-dropdown js-dropdown count">
+                                        	<ul class="dropdown-menu "></ul>
                                             <div class="notifi__item">
                                                 <div class="bg-c1 img-cir img-40">
                                                     <i class="zmdi zmdi-email-open"></i>
@@ -318,27 +326,6 @@ if($_SESSION['permissao'] != 3){
                                                     <p>You got a email notification</p>
                                                     <span class="date">April 12, 2018 06:50</span>
                                                 </div>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c2 img-cir img-40">
-                                                    <i class="zmdi zmdi-account-box"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Your account has been blocked</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c3 img-cir img-40">
-                                                    <i class="zmdi zmdi-file-text"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>You got a new file</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__footer">
-                                                <a href="#">All notifications</a>
                                             </div>
                                         </div>
                                     </div>
