@@ -322,7 +322,7 @@ $sqlesp25 = "SELECT * from tipoServico";
 $resultesp25 = $conn->query($sqlesp25);
 
 //duvida
-$sqlcampo = "SELECT DISTINCT codRegistoCampos, nomeCampo, unidadeCampo, observacoesCampo, codEspecialidade, codComprador from registoCampos where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' )";
+$sqlcampo = "SELECT DISTINCT codRegistoCampos, nomeCampo, unidadeCampo, codEspecialidade, codComprador from registoCampos where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' )";
 $resultcampo = $conn->query($sqlcampo);
 
 ?>
