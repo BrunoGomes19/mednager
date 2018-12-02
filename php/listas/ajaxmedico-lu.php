@@ -82,11 +82,23 @@ echo '
           // output data of each row
           while($row = $result3->fetch_assoc()) {
 
+            if($row['confirmacao'] == 0){
 
-            echo '
-            <button class="btn btn-danger btn-sm" style="font-size:16px" title="Clique para desassociar" onclick="desassociar('.$cc.','.$codComprador.')";>
-              <i class="fas fa-times"></i>
-            </button>&nbsp';
+              echo '
+              <button class="btn btn-warning btn-sm" style="font-size:16px;color:white;background-color:#ff751a;" title="Clique para desassociar" onclick="associacaoPendente('.$cc.','.$codComprador.')";>
+                <i class="fas fa-user-friends"></i>
+              </button>&nbsp';
+
+            }else{
+
+              echo '
+              <button class="btn btn-danger btn-sm" style="font-size:16px" title="Clique para desassociar" onclick="desassociar('.$cc.','.$codComprador.')";>
+                <i class="fas fa-times"></i>
+              </button>&nbsp';
+
+            }
+
+
 
           }
       } else {
@@ -118,19 +130,25 @@ echo '
           // output data of each row
           while($row = $result3->fetch_assoc()) {
 
+            if($row['confirmacao'] == 1){
 
-            echo '
-            <button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
-                <i class="fa fa-user"></i>&nbsp;Perfil</button>
-                <button class="btn btn-outline-primary" onclick="planoMed('.$cc.');" >
-                    <i class="fa fa-calendar-plus"></i>&nbsp;Plano</button>';
+              echo '
+              <button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
+                  <i class="fa fa-user"></i>&nbsp;Perfil</button>
+                  <button class="btn btn-outline-primary" onclick="planoMed('.$cc.');" >
+                      <i class="fa fa-calendar-plus"></i>&nbsp;Plano</button>';
+
+            }else{
+
+            echo '  <button class="btn btn-outline-primary" onclick="planoMed('.$cc.');" >
+                  <i class="fa fa-calendar-plus"></i>&nbsp;Plano</button>';
+
+            }
+
+
 
           }
       } else {
-
-        echo '<button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
-            <i class="fa fa-user"></i>&nbsp;Perfil</button>
-            ';
 
       }
 

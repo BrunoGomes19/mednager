@@ -200,7 +200,10 @@ if($_SESSION['permissao'] != 3){
                                 <i class="fa fa-user-md"></i>Lista de Médicos</a>
                         </li>
 
-
+                        <li>
+                            <a href="../listas/utente-listaPedidos.php">
+                                <i class="fas fa-user-friends"></i>Lista de Associações</a>
+                        </li>
 
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
@@ -250,7 +253,10 @@ if($_SESSION['permissao'] != 3){
                                 <i class="fa fa-user-md"></i>Lista de Médicos</a>
                         </li>
 
-
+                        <li>
+                            <a href="../listas/utente-listaPedidos.php">
+                                <i class="fas fa-user-friends"></i>Lista de Associações</a>
+                        </li>
 
                         <li>
                             <a class="js-arrow" href="#">

@@ -192,8 +192,6 @@ var a = document.getElementById("a").value
                                 <i class="fa fa-users"></i>Lista de Utentes</a>
                         </li>
 
-
-
                         <li>
                             <a href="../estatisticas/estatisticasMedico.php">
                                 <i class="fa fa-signal"></i>Estatísticas</a>

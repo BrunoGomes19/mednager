@@ -10,11 +10,6 @@ include('../topos/topo_medico.php');
 
     <script src="../../assets/js/bootbox.min.js"></script>
 
-    <script>
-
-
-    </script>
-
 <script>
 
 function verperfil($cc){
@@ -24,8 +19,46 @@ window.location.replace('../perfis/perfil_utentelista.php?cc='+$cc);
 }
 
 function planoMed($cc){
-window.location.replace('../planoMedicacaoMedico/index.php?cc='+$cc);
+
+  bootbox.alert({
+    message: "O utente só conseguirá visualizar o plano de medicação após aceitar a associação!",
+    callback: function () {
+        window.location.replace('../planoMedicacaoMedico/index.php?cc='+$cc);
+    }
+})
+
 }
+
+
+function associacaoPendente($cc,$codComprador){
+
+  bootbox.confirm({
+    message: "Tem a certeza que deseja cancelar o pedido de associação?",
+    buttons: {
+        confirm: {
+            label: 'Sim',
+            className: 'btn-success'
+        },
+        cancel: {
+            label: 'Não',
+            className: 'btn-danger'
+        }
+    },
+    callback: function (result) {
+      if(result==true){
+          window.location.replace('../associacao/desassociacao_medico-lu.php?cc='+$cc+'&cod='+$codComprador);
+
+      }else{
+
+
+      }
+
+    }
+  });
+
+}
+
+
 
 function associar($cc,$codComprador){
 
@@ -120,6 +153,10 @@ function showUser(str) {
 <!--Font Awesome (added because you use icons in your prepend/append)-->
 <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+
 <!-- Inline CSS based on choices in "Settings" tab -->
 <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
 
@@ -195,7 +232,7 @@ function showUser(str) {
                                     echo $_SESSION['msgAssociacao'];
                                     unset($_SESSION['msgAssociacao']);
                                 }
-                                
+
                                   ?>
 
 

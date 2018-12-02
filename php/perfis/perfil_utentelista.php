@@ -7,6 +7,30 @@ include('../topos/topo_medico.php');
 
 $emailA = $_SESSION['email'];
 
+$sql = "SELECT * FROM comprador where emailComprador = '$emailA'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        $codCompradorAssociacao = $row['codComprador'];
+    }
+} else {
+    echo "0 results";
+}
+
+
+$sql55 = "SELECT * FROM associados where utente_ccUtente = $cc and comprador_codComprador = $codCompradorAssociacao and confirmacao=1";
+$result2 = $conn->query($sql55);
+
+if ($result2->num_rows == 0) {
+
+  echo '<script>window.location.replace("../logins/logout.php");</script>';
+
+  exit();
+
+}
+
 $sql = "SELECT * from utente,subsistemas where subsistemas.codSubsistema = utente.codSubsistema and ccUtente like '$cc'";
 $result = $conn->query($sql);
 
@@ -138,7 +162,7 @@ $conn->close();
                                     <div class="card">
                                       <div class="card-footer">
                                         <form action="
-                                        
+
  <?php
 
  //Caso aceda ao perfil pela lista de médicos o voltar vai redirecionar para lá novamente
