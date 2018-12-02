@@ -162,11 +162,15 @@
 
 		header("Location: registomedico.php");
 
+		exit();
+
 	}else if($findNIFC || $findNIFU){
 
 		$_SESSION['msgRegistoNIF'] = '<p id="erro">Este NIF já está associado a outra conta.<br><br></p>';
 
 		header("Location: registomedico.php");
+
+		exit();
 
 
 	}else if($findno){
@@ -174,6 +178,8 @@
 		$_SESSION['msgRegistoNO'] = '<p id="erro">Este número de ordem já está associado a outra conta.<br><br></p>';
 
 		header("Location: registomedico.php");
+
+		exit();
 
 
 	}else{
@@ -188,6 +194,8 @@
 		if ($conn->query($sql) === TRUE) {
 
 		header("Location: ../indexes/index-medico.php");
+
+		exit();
 
 	} else {
 	    echo "Error updating record: " . $conn->error;

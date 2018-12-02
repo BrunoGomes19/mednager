@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
 
 		header("Location: ../logins/authentication-login.php");
 
-
+		exit();
 
 	}else{
 
@@ -53,6 +53,7 @@ if(isset($_POST['submit'])){
 
 		header("Location: ../logins/authentication-login.php");
 
+		exit();
 
 		}
 

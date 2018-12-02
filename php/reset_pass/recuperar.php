@@ -124,6 +124,8 @@ if(isset($_POST['submit'])){
 
 				header("Location: ../logins/authentication-login.php");
 
+				exit();
+
 			}
 
 
@@ -141,6 +143,7 @@ if(isset($_POST['submit'])){
 
 		header("Location: ../logins/authentication-login.php");
 
+		exit();
 
 	}else{
 
@@ -202,6 +205,8 @@ if(isset($_POST['submit'])){
 
 				header("Location: ../logins/authentication-login.php");
 
+				exit();
+
 			}
 
 
@@ -215,7 +220,7 @@ if(isset($_POST['submit'])){
 		//FIM DA RECUPERAÇÃO
 
 
-		//header("Location: ../html/ltr/authentication-login.php?signup=recup");
+
 
 		$_SESSION['msgRecuperacao'] = '<div class="alert alert-warning alert-dismissible fade-show" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -224,15 +229,15 @@ if(isset($_POST['submit'])){
 
 		header("Location: ../logins/authentication-login.php");
 
+		exit();
 
 	}else{
-
-		//location a dizer que este email nao existe na bd
 
 		$_SESSION['msgRecuperacao'] = '<p id="erro">Não existe nenhuma conta com este e-mail!<br><br></p>';
 
 		header("Location: ../logins/authentication-login.php");
 
+		exit();
 
 	}
 
@@ -246,6 +251,9 @@ if(isset($_POST['submit'])){
 
 	if(!(isset($_SESSION['login_user']) && $_SESSION['login_user'] != "")){
 	header('Location: ../logins/authentication-login.php');
+
+	exit();
+
 }
 	}
 

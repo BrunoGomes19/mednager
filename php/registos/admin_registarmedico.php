@@ -23,6 +23,8 @@
 
 		header("Location: admin_registomedico.php");
 
+		exit();
+
 	}
 
 	$servername = "localhost";
@@ -222,6 +224,8 @@
 
 				header("Location: admin_registomedico.php");
 
+				exit();
+
 			}else{
 				//se já houver um cc
 				if($findno){
@@ -230,17 +234,23 @@
 
 				header("Location: admin_registomedico.php");
 
+				exit();
+
 			} else if($findccC || $findccU){
 
 				$_SESSION['msgAdminRegistaMedico'] = '<p id="erro">Este Cartão de cidadão já se encontra associado a outra conta!<br><br></p>';
 
 				header("Location: admin_registomedico.php");
 
+				exit();
+
 			} else if ($findnifC || $findnifU){
 
 				$_SESSION['msgAdminRegistaMedico'] = '<p id="erro">Este NIF já se encontra associado a outra conta!<br><br></p>';
 
 				header("Location: admin_registomedico.php");
+
+				exit();
 
 			}else{
 
@@ -331,6 +341,8 @@
 
 			header("Location: admin_registomedico.php");
 
+			exit();
+
 		}
 
 			}
@@ -350,6 +362,9 @@
 
 	if(!(isset($_SESSION['login_user']) && $_SESSION['login_user'] != "")){
 	header('Location: ../logins/authentication-login.php');
+
+	exit();
+
 }
 	}
 

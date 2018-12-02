@@ -138,11 +138,15 @@ if($findccC || $findccU){
 
 	header("Location: registoutente.php");
 
+	exit();
+
 }else if($findNIFC || $findNIFU){
 
 	$_SESSION['msgEditarNIF'] = '<p id="erro">Este NIF já está associado a outra conta.<br><br></p>';
 
 	header("Location: registoutente.php");
+
+	exit();
 
 
 }else{
@@ -160,6 +164,8 @@ if($findccC || $findccU){
 	if ($conn->query($sql) === TRUE) {
 
 	header("Location: ../indexes/index-utente.php");
+
+	exit();
 
 } else {
     echo "Error updating record: " . $conn->error;

@@ -18,6 +18,8 @@ if($_SESSION['permissao'] != 1){
 
   header("Location: ../logins/logout.php");
 
+  exit();
+
 }
 
 ?>

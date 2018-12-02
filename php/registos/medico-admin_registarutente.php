@@ -21,6 +21,8 @@
 
 		header("Location: medico-admin_registoutente.php");
 
+		exit();
+
 	}
 
 	$servername = "localhost";
@@ -198,6 +200,8 @@ if ($result->num_rows > 0) {
 
 				header("Location: medico-admin_registoutente.php");
 
+				exit();
+
 			}else{
 				//se já houver um cc
 				if($findccU || $findccC){
@@ -206,12 +210,15 @@ if ($result->num_rows > 0) {
 
 				header("Location: medico-admin_registoutente.php");
 
+				exit();
+
 			} else if ($findnifu || $findnifc) {
 
 				$_SESSION['msgMedicoAdminRUtente'] = '<p id="erro">Este nif já se encontra associado a outra conta!<br><br></p>';
 
 				header("Location: medico-admin_registoutente.php");
 
+				exit();
 
 			}else{
 
@@ -405,6 +412,9 @@ if ($result->num_rows > 0) {
 
 	if(!(isset($_SESSION['login_user']) && $_SESSION['login_user'] != "")){
 	header('Location: ../logins/authentication-login.php');
+
+	exit();
+
 }
 	}
 

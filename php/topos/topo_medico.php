@@ -22,7 +22,13 @@ if ($result->num_rows > 0) {
   }
 }
 
+if($_SESSION['permissao'] != 2){
 
+  header("Location: ../logins/logout.php");
+
+  exit();
+
+}
 
 
 ?>
@@ -256,7 +262,7 @@ var a = document.getElementById("a").value
                             <a href="../estatisticas/estatisticasMedico.php">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
-                        
+
                         <li>
                             <a href="../listas/listamedicamentos.php">
                                 <i class="fa fa-medkit"></i>Medicamentos</a>

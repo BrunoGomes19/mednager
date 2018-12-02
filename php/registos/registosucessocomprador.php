@@ -27,6 +27,7 @@
 
 		header("Location: ../logins/authentication-login.php");
 
+		exit();
 
 	}else{
 
@@ -44,6 +45,7 @@
 
 		header("Location: ../logins/authentication-login.php");
 
+		exit();
 
 		}
 
@@ -58,6 +60,9 @@
 
 		if(!(isset($_SESSION['login_user']) && $_SESSION['login_user'] != "")){
 		header('Location: ../logins/authentication-login.php');
+
+		exit();
+
 	}
 
 	}

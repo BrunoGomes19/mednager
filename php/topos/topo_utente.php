@@ -27,6 +27,8 @@ if($_SESSION['permissao'] != 3){
 
   header("Location: ../logins/logout.php");
 
+  exit();
+
 }
 
 
@@ -98,7 +100,7 @@ if($_SESSION['permissao'] != 3){
     		url:"fetch.php",
     		method:"POST",
     		data:{view:view},
-    		dataTyper:"json", 
+    		dataTyper:"json",
     		success:function(data){
     			$('.dropdown-menu').html(data.notification);
     			if(data.unseen_notification > 0){

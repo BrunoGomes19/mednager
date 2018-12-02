@@ -5,6 +5,9 @@ $conn->set_charset("utf8");
 
 if(!(isset($_SESSION['login_user']) && $_SESSION['login_user'] != "")){
   header('Location: ../logins/authentication-login.php');
+
+  exit();
+
 }
 
 

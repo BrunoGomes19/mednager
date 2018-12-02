@@ -27,6 +27,8 @@
 
 		header("Location: authentication-register.php");
 
+		exit();
+
 	}
 
 	if($pass != $confirmPassword){
@@ -34,6 +36,8 @@
 		$_SESSION['msgRegisto'] = '<p id="erro">As palavra-passe não coincidem.<br><br></p>';
 
 		header("Location: authentication-register.php");
+
+		exit();
 
 	}else{
 
@@ -223,6 +227,8 @@
 
 				header("Location: authentication-register.php");
 
+				exit();
+
 			}else{
 				//se já houver um numero de ordem
 				if($findno){
@@ -230,6 +236,8 @@
 				$_SESSION['msgRegisto'] = '<p id="erro">Este número de ordem já está associado a outra conta.<br><br></p>';
 
 				header("Location: authentication-register.php");
+
+				exit();
 
 			}else{
 
@@ -239,6 +247,8 @@
 
 					header("Location: authentication-register.php");
 
+					exit();
+
 				}else{
 
 					if($findNIFU || $findNIFC){
@@ -246,6 +256,8 @@
 						$_SESSION['msgRegisto'] = '<p id="erro">Este NIF já está associado a outra conta.<br><br></p>';
 
 						header("Location: authentication-register.php");
+
+						exit();
 
 					}else{
 
@@ -312,6 +324,8 @@
 
 					header("Location: ../logins/authentication-login.php");
 
+					exit();
+
 				}
 
 
@@ -336,6 +350,8 @@
 
 			header("Location: authentication-register.php");
 
+			exit();
+
 		}
 
 }
@@ -357,6 +373,9 @@
 
 	if(!(isset($_SESSION['login_user']) && $_SESSION['login_user'] != "")){
 	header('Location: ../logins/authentication-login.php');
+
+	exit();
+
 }
 	}
 

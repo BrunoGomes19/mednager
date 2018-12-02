@@ -7,6 +7,8 @@
 
 		header("Location: ../logins/authentication-login.php");
 
+		exit();
+
 	}
 
 ?>

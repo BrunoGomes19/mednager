@@ -19,16 +19,21 @@
 
 		header("Location: registosucessoutente.php?codeEmailConfirm=$token&email=$email&tipo=$tipo");
 
+		exit();
 
 	}else{
 
 		header("Location: ../erros/error-403");
+
+		exit();
 
 	}
 
 	}else{
 
 		header("Location: ../logins/authentication-login.php");
+
+		exit();
 
 	}
 

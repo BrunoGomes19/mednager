@@ -62,6 +62,8 @@
             								</div>';
                 			header("Location: ../indexes/index.php#contact");
 
+                      exit();
+
 										}
 
 
@@ -75,6 +77,8 @@
               $_SESSION['msgVerificaRecaptcha'] = '<br><p id="erro" style="text-align:center;margin:0;">Por favor verifique se validou o recaptcha!</p>';
 
 							header("Location: ../indexes/index.php#contact");
+
+              exit();
 
 						}
 
