@@ -52,6 +52,8 @@ if($quantidadeQuery<$quantidadeMedicos){
 
     header("Location: ../listas/admin-lm.php");
 
+    exit();
+
   } else {
     echo "Error updating record: " . $conn->error;
   }
@@ -66,6 +68,8 @@ if($quantidadeQuery<$quantidadeMedicos){
   </script>';
 
   header("Location: ../listas/admin-lm.php");
+
+  exit();
 
 }
 

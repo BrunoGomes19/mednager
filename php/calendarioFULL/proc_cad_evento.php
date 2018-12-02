@@ -52,11 +52,16 @@ if ($result->num_rows > 0) {
 					$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>O médico e o utente já possuem uma intervenção a decorrer nesse dia e hora!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 					header("Location: index.php");
 
+					exit();
+
 				}else if($row['ccUtente'] == $ccUtente){
 
 					$findDataHora = true;
 					$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>O utente selecionado já tem uma intervenção a decorrer nesse dia e hora!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+
 					header("Location: index.php");
+
+					exit();
 
 				}else if($row['codComprador'] == $codComprador){
 
@@ -64,13 +69,15 @@ if ($result->num_rows > 0) {
 					$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Você já tem uma intervenção a decorrer nesse dia e hora!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 					header("Location: index.php");
 
+					exit();
+
 				}else{
 
 					$findDataHora = true;
 					$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Já existe uma intervenção a decorrer nesse dia e hora!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 					header("Location: index.php");
 
-
+					exit();
 
 
 	}
@@ -110,19 +117,28 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 		//echo "<script> alert('OK');</script>";
 
 		header("Location: index.php");
+
+		exit();
+
 	}else{
-	$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro1 ao registar a Intervenção <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+	$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro ao registar a Intervenção <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 	//echo "<script> alert('Erro - datas invalidas');</script>";
 
 		header("Location: index.php");
+
+		exit();
+
 	}
 
 }else{
-	$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro2 ao registar a Intervenção <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+	$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Ocorreu um erro ao registar a Intervenção <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 
 	//echo "<script> alert('Erro - datas invalidas');</script>";
 
 	header("Location: index.php");
+
+	exit();
+
 }
 
 

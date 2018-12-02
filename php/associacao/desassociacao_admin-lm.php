@@ -21,6 +21,7 @@ if ($conn->query($sql) === TRUE) {
 
   header("Location: ../listas/admin-lm.php");
 
+  exit();
 
 } else {
   echo "Error updating record: " . $conn->error;

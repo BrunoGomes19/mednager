@@ -8,7 +8,6 @@ $id = $_GET['id'];
 
 $end_sem_barra = $_GET['end'];
 
-
 $sql = "SELECT * FROM servico where id=$id";
 $result = $conn->query($sql);
 
@@ -59,27 +58,28 @@ if ($result->num_rows > 0) {
 					$findDataHora = true;
 					$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>O médico e o utente já possuem uma intervenção a decorrer nesse dia e hora!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 
+          exit();
 
 				}else if($row['ccUtente'] == $ccUtente){
 
 					$findDataHora = true;
 					$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>O utente selecionado já tem uma intervenção a decorrer nesse dia e hora!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 
+          exit();
 
 				}else if($row['codComprador'] == $codComprador){
 
 					$findDataHora = true;
 					$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Você já tem uma intervenção a decorrer nesse dia e hora!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 
+          exit();
 
 				}else{
 
 					$findDataHora = true;
 					$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Já existe uma intervenção a decorrer nesse dia e hora!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
-					header("Location: index.php?abc");
 
-
-
+          exit();
 
 	}
 }
@@ -87,11 +87,13 @@ if ($result->num_rows > 0) {
 
 if($findDataHora == false){
 
-$sql = "UPDATE servico SET title='$title', color='$color', start='$start_sem_barra', end='$end_sem_barra', pvpServico = $pvpServico, nSala = $nSala, codComprador = $codComprador, ccUtente = $ccUtente, codTipoServico = $codTipoServico, codLocal = $codLocal, codAlertaComprador = 1, codAlertaUtente = 1  WHERE id='$id'";
+$sql = "UPDATE servico SET title='$title', color='$color', start='$start_sem_barra', end='$end_sem_barra', pvpServico = $pvpServico, nSala = $nSala, codComprador = $codComprador, ccUtente = $ccUtente, codTipoServico = $codTipoServico, codLocal = $codLocal WHERE id='$id'";
 
 if ($conn->query($sql) === TRUE) {
 
 $_SESSION['msg'] = "<div class='alert alert-primary' role='alert'>A hora final da intervenção foi alterada com sucesso!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+
+  exit();
 
 } else {
     echo "Error updating record: " . $conn->error;

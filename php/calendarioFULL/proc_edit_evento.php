@@ -45,6 +45,7 @@ if ($result->num_rows > 0) {
 			$findDataHora = true;
 			$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Já existe uma intervenção a decorrer nesse dia e hora!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 			header("Location: index.php");
+			exit();
 }
 
 if($findDataHora == false){
@@ -74,14 +75,23 @@ if(!empty($id) && !empty($title) && !empty($color) && !empty($start) && !empty($
 	if(mysqli_affected_rows($conn)){
 		$_SESSION['msg'] = "<div class='alert alert-primary' role='alert'>Intervenção editada com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 		header("Location: index.php");
+
+		exit();
+
 	}else{
 		$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Não fez nenhuma alteração à intervenção!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 		header("Location: index.php");
+
+		exit();
+
 	}
 
 }else{
 	$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro3 ao editar a Intervenção<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 	//$_SESSION['msg'] =$msg2;
 	header("Location: index.php");
+
+	exit();
+
 }
 }
