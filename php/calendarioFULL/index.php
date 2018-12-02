@@ -672,7 +672,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                       <div class="form-group">
                                         <div class="form-group col-md-12" id="vaidareditar">
                                             <label style="display:block;">CC Utente</label>
-                                            <input type="number" class="form-control" name="ccUtente" id="ccUtente2" placeholder="CC do utente" required  style="width:91%;display:inline">&nbsp
+                                            <input type="number" class="form-control" name="ccUtente" id="ccUtente2" placeholder="CC do utente" readonly required style="width:91%;display:inline">&nbsp
 
                                             <i class="fas fa-user-plus" style="font-size:25px;position:relative;top:5px;" onclick="abrirModal5editar();"></i>
 
@@ -828,7 +828,7 @@ $resultesp25 = $conn->query($sqlesp25);
 
                                           <div class="form-group col-md-12" id="vaidar">
                                               <label style="display:block;">CC Utente</label>
-                                              <input type="number" class="form-control" name="ccUtente" id="ccUtente" placeholder="CC do utente" required  style="width:91%;display:inline">&nbsp
+                                              <input type="number" class="form-control" name="ccUtente" id="ccUtente" placeholder="CC do utente" required readonly style="width:91%;display:inline">&nbsp
 
                                               <i class="fas fa-user-plus" style="font-size:25px;position:relative;top:5px;" onclick="abrirModal5();"></i>
 
