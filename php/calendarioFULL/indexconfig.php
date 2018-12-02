@@ -321,6 +321,9 @@ $resultesp5 = $conn->query($sqlesp5);
 $sqlesp25 = "SELECT * from tipoServico";
 $resultesp25 = $conn->query($sqlesp25);
 
+$sqlcampo = "SELECT codRegistoCampos, nomeCampo, unidadeCampo, observacoesCampo, codEspecialidade, codComprador from registoCampos, comprador where emailComprador = '".$email."'";
+$resultcampo = $conn->query($sqlcampo);
+
 ?>
 
 <meta charset="UTF-8">
@@ -916,6 +919,34 @@ $resultesp25 = $conn->query($sqlesp25);
                                             </select>
                                       </div>
                                   </div>
+
+
+                                  <?php
+                                  if ($resultcampo->num_rows > 0) {
+                                    // output data of each row
+                                    while($row = $resultcampo->fetch_assoc()) {
+
+
+
+                                      $nomeCampo = $row['nomeCampo'];
+
+                                      $codRegistoCampo = $row['codRegistoCampos'];
+
+                                        echo "<div class="form-group">
+                                            <div class="form-group col-md-12">
+                                                <label>$nomeCampo</label>
+                                                <input type="text" class="form-control" name="$nomeCampo" id="$nomeCampo" placeholder="$nomeCampo" required>
+                                                <input type="hidden" name="teste" id="idServico" value="$nomeCampo">
+                                            </div>
+                                        </div>";
+
+                                    }
+                                  }
+
+
+                                  ?>
+
+
 
 
                                   <div class="form-group">
