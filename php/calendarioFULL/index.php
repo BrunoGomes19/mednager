@@ -15,9 +15,9 @@ if ($result->num_rows > 0) {
 
     $nome = $row['nomeComprador'];
 
-		$email = $row['emailComprador'];
+    $email = $row['emailComprador'];
 
-  	$notas = $row['notas'];
+    $notas = $row['notas'];
 
   }
 }
@@ -64,107 +64,115 @@ function abrirModal5editar(){
 
 }
 
+function abrirRegistoUtente(){
+  $('#ccUtente #ccUtente').val("");
+  $('#nome #nome').val("");
+  $('#email #email').val("");
+  $('#nif #nif').val("");
+  $('#modalregistarUtente').modal('show');
+}
+
 
 </script>
 
 <script>
 
 .modal.left .modal-dialog,
-	.modal.right .modal-dialog {
-		position: fixed;
-		margin: auto;
-		width: 320px;
-		height: 100%;
-		-webkit-transform: translate3d(0%, 0, 0);
-		    -ms-transform: translate3d(0%, 0, 0);
-		     -o-transform: translate3d(0%, 0, 0);
-		        transform: translate3d(0%, 0, 0);
-	}
+  .modal.right .modal-dialog {
+    position: fixed;
+    margin: auto;
+    width: 320px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+        -ms-transform: translate3d(0%, 0, 0);
+         -o-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
+  }
 
-	.modal.left .modal-content,
-	.modal.right .modal-content {
-		height: 100%;
-		overflow-y: auto;
-	}
+  .modal.left .modal-content,
+  .modal.right .modal-content {
+    height: 100%;
+    overflow-y: auto;
+  }
 
-	.modal.left .modal-body,
-	.modal.right .modal-body {
-		padding: 15px 15px 80px;
-	}
+  .modal.left .modal-body,
+  .modal.right .modal-body {
+    padding: 15px 15px 80px;
+  }
 
 /*Left*/
-	.modal.left.fade .modal-dialog{
-		left: -320px;
-		-webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
-		   -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
-		     -o-transition: opacity 0.3s linear, left 0.3s ease-out;
-		        transition: opacity 0.3s linear, left 0.3s ease-out;
-	}
+  .modal.left.fade .modal-dialog{
+    left: -320px;
+    -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+       -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+         -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+            transition: opacity 0.3s linear, left 0.3s ease-out;
+  }
 
-	.modal.left.fade.in .modal-dialog{
-		left: 0;
-	}
+  .modal.left.fade.in .modal-dialog{
+    left: 0;
+  }
 
 /*Right*/
-	.modal.right.fade .modal-dialog {
-		right: -320px;
-		-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
-		   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
-		     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
-		        transition: opacity 0.3s linear, right 0.3s ease-out;
-	}
+  .modal.right.fade .modal-dialog {
+    right: -320px;
+    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+       -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+         -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+            transition: opacity 0.3s linear, right 0.3s ease-out;
+  }
 
-	.modal.right.fade.in .modal-dialog {
-		right: 0;
-	}
+  .modal.right.fade.in .modal-dialog {
+    right: 0;
+  }
 
 /* ----- MODAL STYLE ----- */
-	.modal-content {
-		border-radius: 0;
-		border: none;
-	}
+  .modal-content {
+    border-radius: 0;
+    border: none;
+  }
 
-	.modal-header {
-		border-bottom-color: #EEEEEE;
-		background-color: #FAFAFA;
-	}
+  .modal-header {
+    border-bottom-color: #EEEEEE;
+    background-color: #FAFAFA;
+  }
 
 /* ----- v CAN BE DELETED v ----- */
 body {
-	background-color: #78909C;
+  background-color: #78909C;
 }
 
 .demo {
-	padding-top: 60px;
-	padding-bottom: 110px;
+  padding-top: 60px;
+  padding-bottom: 110px;
 }
 
 .btn-demo {
-	margin: 15px;
-	padding: 10px 15px;
-	border-radius: 0;
-	font-size: 16px;
-	background-color: #FFFFFF;
+  margin: 15px;
+  padding: 10px 15px;
+  border-radius: 0;
+  font-size: 16px;
+  background-color: #FFFFFF;
 }
 
 .btn-demo:focus {
-	outline: 0;
+  outline: 0;
 }
 
 .demo-footer {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	padding: 15px;
-	background-color: #212121;
-	text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  background-color: #212121;
+  text-align: center;
 }
 
 .demo-footer > a {
-	text-decoration: none;
-	font-weight: bold;
-	font-size: 16px;
-	color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  color: #fff;
 }
 
 </script>
@@ -259,7 +267,7 @@ a:hover, a{
 
 <head>
     <!-- Required meta tags-->
-	<link href="../../landingPage/img/logos/redondo.png" rel="icon">
+  <link href="../../landingPage/img/logos/redondo.png" rel="icon">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="au theme template">
@@ -320,6 +328,10 @@ $resultesp5 = $conn->query($sqlesp5);
 
 $sqlesp25 = "SELECT * from tipoServico";
 $resultesp25 = $conn->query($sqlesp25);
+
+//duvida
+$sqlcampo = "SELECT DISTINCT codRegistoCampos, nomeCampo, unidadeCampo, codEspecialidade, codComprador from registoCampos where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' )";
+$resultcampo = $conn->query($sqlcampo);
 
 ?>
 
@@ -672,7 +684,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                       <div class="form-group">
                                         <div class="form-group col-md-12" id="vaidareditar">
                                             <label style="display:block;">CC Utente</label>
-                                            <input type="number" class="form-control" name="ccUtente" id="ccUtente2" placeholder="CC do utente" readonly required style="width:91%;display:inline;background-color:white;">&nbsp
+                                            <input type="number" class="form-control" name="ccUtente" id="ccUtente2" placeholder="CC do utente" required  style="width:91%;display:inline">&nbsp
 
                                             <i class="fas fa-user-plus" style="font-size:25px;position:relative;top:5px;" onclick="abrirModal5editar();"></i>
 
@@ -828,7 +840,7 @@ $resultesp25 = $conn->query($sqlesp25);
 
                                           <div class="form-group col-md-12" id="vaidar">
                                               <label style="display:block;">CC Utente</label>
-                                              <input type="number" class="form-control" name="ccUtente" id="ccUtente" placeholder="CC do utente" required readonly style="width:91%;display:inline;background-color:white;">&nbsp
+                                              <input type="number" class="form-control" name="ccUtente" id="ccUtente" placeholder="CC do utente" required  style="width:91%;display:inline">&nbsp
 
                                               <i class="fas fa-user-plus" style="font-size:25px;position:relative;top:5px;" onclick="abrirModal5();"></i>
 
@@ -840,7 +852,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Preço (€)</label>
-                                          <input type="number" min="0" step="0.01" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção (€)" required>
+                                          <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção (€)" required>
                                       </div>
                                   </div>
                                   <div class="form-group">
@@ -916,6 +928,34 @@ $resultesp25 = $conn->query($sqlesp25);
                                             </select>
                                       </div>
                                   </div>
+
+
+
+                                  <!-- DINAMICO-->
+                                  <?php
+                                  if ($resultcampo->num_rows > 0) {
+                                    // output data of each row
+                                    while($row = $resultcampo->fetch_assoc()) {
+
+                                      $nomeCampo = $row['nomeCampo'];
+
+                                      $codRegistoCampo = $row['codRegistoCampos'];
+
+                                        echo "<div class='form-group'>
+                                            <div class='form-group col-md-12'>
+                                                <label>".$nomeCampo."</label>
+                                                <input type='text' class='form-control' name='".$nomeCampo."' id='".$nomeCampo."' placeholder='".$nomeCampo."' required>
+                                                <input type='hidden' name='".$codRegistoCampo."' id='".$codRegistoCampo."' value='".$nomeCampo."'>
+                                            </div>
+                                        </div>";
+
+                                    }
+                                  }
+
+                                  ?>
+
+
+
 
 
                                   <div class="form-group">
@@ -1025,8 +1065,8 @@ window.setTimeout(function() {
 </script>
 
 <div class="modal right fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
-		<div class="modal-dialog" role="document" style="padding-top:5%">
-			<div class="modal-content" style="background-color:#f9f9f9;width:100%;">
+    <div class="modal-dialog" role="document" style="padding-top:5%">
+      <div class="modal-content" style="background-color:#f9f9f9;width:100%;">
 
         <div class="modal-header">
             <h4 class="modal-title text-center">Procurar utente</h4>
@@ -1050,13 +1090,13 @@ window.setTimeout(function() {
             </form>
         </div>
 
-			</div><!-- modal-content -->
-		</div><!-- modal-dialog -->
-	</div><!-- modal -->
+      </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+  </div><!-- modal -->
 
   <div class="modal right fade" id="myModal5editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
-  		<div class="modal-dialog" role="document" style="padding-top:5%">
-  			<div class="modal-content" style="background-color:#f9f9f9;width:100%;">
+      <div class="modal-dialog" role="document" style="padding-top:5%">
+        <div class="modal-content" style="background-color:#f9f9f9;width:100%;">
 
           <div class="modal-header">
               <h4 class="modal-title text-center">Procurar utente</h4>
@@ -1069,6 +1109,7 @@ window.setTimeout(function() {
 
                   <div class="form-group">
                       <div class="form-group col-md-12" id="vaidar2Editar">
+                          <h6 style="text-align: right;" onclick="abrirRegistoUtente()"> + Registar utente</h6>
                           <label>Nome completo</label>
                           <input type="text" class="form-control" name="title" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome completo" required onkeyup="procuraUtenteEditar(this.value)">
                           <br>
@@ -1080,9 +1121,70 @@ window.setTimeout(function() {
               </form>
           </div>
 
-  			</div><!-- modal-content -->
-  		</div><!-- modal-dialog -->
-  	</div><!-- modal -->
+        </div><!-- modal-content -->
+      </div><!-- modal-dialog -->
+    </div><!-- modal -->
+
+    <div class="modal right fade" id="modalregistarUtente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+    <div class="modal-dialog" role="document" style="padding-top:5%">
+      <div class="modal-content" style="background-color:#f9f9f9;width:100%;">
+
+        <div class="modal-header">
+            <h4 class="modal-title text-center">Registar utente</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
+
+                <div class="input-group mb-3" id="nome">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text text-black" id="basic-addon1"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control form-control-lg" placeholder="Nome completo" aria-label="nomeUtente" aria-describedby="basic-addon1" required name="nome">
+                </div>
+
+                <div class="input-group mb-3" id="ccUtente">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text text-black" id="basic-addon1"><i class="fas fa-address-card"></i></span>
+                    </div>
+                    <input type="text" class="form-control form-control-lg" placeholder="Cartão de cidadão" aria-label="ccUtente" aria-describedby="basic-addon1" required name="ccUtente" id="ccUtente">
+                </div>
+
+
+
+
+                <div class="input-group mb-3" id="email">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text text-black" id="basic-addon2"><i class="fas fa-at"></i></span>
+                    </div>
+                    <input type="email" class="form-control form-control-lg" placeholder="E-mail" aria-label="email" aria-describedby="basic-addon1" required name="email">
+                </div>
+
+
+                <div class="input-group mb-3" id="nif">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text text-black" id="basic-addon1"><i class="fas fa-id-card"></i></span>
+                    </div>
+                    <input type="text" class="form-control form-control-lg" placeholder="NIF" aria-label="NIFUtente" aria-describedby="basic-addon1" required name="nif" id="nif">
+                </div>
+
+                <div class="row border-top border-secondary">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="p-t-20">
+                                <input class="btn btn-block btn-info" type="submit" name="submit" value="Registar"></input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+      </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+  </div><!-- modal -->
 
 
 

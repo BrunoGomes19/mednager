@@ -48,9 +48,8 @@ function registaCampo (){
 
     var nome = document.getElementById('nomeCampo').value;
     var unid = document.getElementById('unidadeCampo').value;
-    var obs = document.getElementById('observacoesCampo').value;
 
-    if(nome == "" || unid=="" || obs==""){
+    if(nome == "" || unid=="" ){
 
 
 
@@ -59,7 +58,6 @@ function registaCampo (){
 
     document.getElementById('nomeCampo').value="";
     document.getElementById('unidadeCampo').value="";
-    document.getElementById('observacoesCampo').value="";
 
 
           if (window.XMLHttpRequest) {
@@ -75,7 +73,7 @@ function registaCampo (){
 
               }
           };
-          xmlhttp.open("GET","ajaxconfigs.php?nome="+nome+"&unid="+unid+"&obs="+obs+"&a="+a,true);
+          xmlhttp.open("GET","ajaxconfigs.php?nome="+nome+"&unid="+unid+"&a="+a,true);
           xmlhttp.send();
 
 }
@@ -152,7 +150,6 @@ function registaCampo (){
 
                               <input class="form-control input-lg" type="text" id="nomeCampo" placeholder="Nome do campo" required /><br>
                               <input class="form-control" type="text" id="unidadeCampo"  placeholder="Unidade do campo" required /><br>
-                              <input class="form-control input-lg" type="text"  id="observacoesCampo" placeholder="Observações do campo" required /><br>
                               <br>
                               <input type="input" value="Adicionar"  id="addCampo" class="btn btn-warning" onclick="registaCampo()">
 
