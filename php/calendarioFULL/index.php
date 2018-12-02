@@ -321,6 +321,10 @@ $resultesp5 = $conn->query($sqlesp5);
 $sqlesp25 = "SELECT * from tipoServico";
 $resultesp25 = $conn->query($sqlesp25);
 
+//duvida
+$sqlcampo = "SELECT DISTINCT codRegistoCampos, nomeCampo, unidadeCampo, observacoesCampo, codEspecialidade, codComprador from registoCampos where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' )";
+$resultcampo = $conn->query($sqlcampo);
+
 ?>
 
 <meta charset="UTF-8">
@@ -672,7 +676,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                       <div class="form-group">
                                         <div class="form-group col-md-12" id="vaidareditar">
                                             <label style="display:block;">CC Utente</label>
-                                            <input type="number" class="form-control" name="ccUtente" id="ccUtente2" placeholder="CC do utente" readonly required style="width:91%;display:inline;background-color:white;">&nbsp
+                                            <input type="number" class="form-control" name="ccUtente" id="ccUtente2" placeholder="CC do utente" required  style="width:91%;display:inline">&nbsp
 
                                             <i class="fas fa-user-plus" style="font-size:25px;position:relative;top:5px;" onclick="abrirModal5editar();"></i>
 
@@ -828,7 +832,7 @@ $resultesp25 = $conn->query($sqlesp25);
 
                                           <div class="form-group col-md-12" id="vaidar">
                                               <label style="display:block;">CC Utente</label>
-                                              <input type="number" class="form-control" name="ccUtente" id="ccUtente" placeholder="CC do utente" required readonly style="width:91%;display:inline;background-color:white;">&nbsp
+                                              <input type="number" class="form-control" name="ccUtente" id="ccUtente" placeholder="CC do utente" required  style="width:91%;display:inline">&nbsp
 
                                               <i class="fas fa-user-plus" style="font-size:25px;position:relative;top:5px;" onclick="abrirModal5();"></i>
 
@@ -840,7 +844,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Preço (€)</label>
-                                          <input type="number" min="0" step="0.01" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção (€)" required>
+                                          <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção (€)" required>
                                       </div>
                                   </div>
                                   <div class="form-group">
@@ -916,6 +920,34 @@ $resultesp25 = $conn->query($sqlesp25);
                                             </select>
                                       </div>
                                   </div>
+
+
+
+                                  <!-- DINAMICO-->
+                                  <?php
+                                  if ($resultcampo->num_rows > 0) {
+                                    // output data of each row
+                                    while($row = $resultcampo->fetch_assoc()) {
+
+                                      $nomeCampo = $row['nomeCampo'];
+
+                                      $codRegistoCampo = $row['codRegistoCampos'];
+
+                                        echo "<div class='form-group'>
+                                            <div class='form-group col-md-12'>
+                                                <label>".$nomeCampo."</label>
+                                                <input type='text' class='form-control' name='".$nomeCampo."' id='".$nomeCampo."' placeholder='".$nomeCampo."' required>
+                                                <input type='hidden' name='".$codRegistoCampo."' id='".$codRegistoCampo."' value='".$nomeCampo."'>
+                                            </div>
+                                        </div>";
+
+                                    }
+                                  }
+
+                                  ?>
+
+
+
 
 
                                   <div class="form-group">
