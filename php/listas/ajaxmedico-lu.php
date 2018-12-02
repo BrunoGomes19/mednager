@@ -135,12 +135,12 @@ echo '
               echo '
               <button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
                   <i class="fa fa-user"></i>&nbsp;Perfil</button>
-                  <button class="btn btn-outline-primary" onclick="planoMed('.$cc.');" >
+                  <button class="btn btn-outline-primary" onclick="planoMedAssociado('.$cc.');" >
                       <i class="fa fa-calendar-plus"></i>&nbsp;Plano</button>';
 
             }else{
 
-            echo '  <button class="btn btn-outline-primary" onclick="planoMed('.$cc.');" >
+            echo '  <button class="btn btn-outline-primary" onclick="planoMedPendente('.$cc.');" >
                   <i class="fa fa-calendar-plus"></i>&nbsp;Plano</button>';
 
             }

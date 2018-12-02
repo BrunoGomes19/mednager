@@ -16,7 +16,7 @@ if (!$con) {
 }
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT * FROM utente WHERE nomeUtente like '".$q."%' ORDER BY nomeUtente limit 4";
+$sql="SELECT * FROM utente,associados WHERE utente.ccUtente = associados.utente_ccUtente and nomeUtente like '".$q."%' ORDER BY nomeUtente limit 4";
 $result = mysqli_query($con,$sql);
 
 session_start();

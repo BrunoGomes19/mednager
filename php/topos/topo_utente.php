@@ -67,6 +67,10 @@ if($_SESSION['permissao'] != 3){
     <link href="../../Interior/vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="../../Interior/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+
     <!-- Main CSS-->
     <link href="../../Interior/css/theme.css" rel="stylesheet" media="all">
 

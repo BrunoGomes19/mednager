@@ -18,7 +18,13 @@ window.location.replace('../perfis/perfil_utentelista.php?cc='+$cc);
 
 }
 
-function planoMed($cc){
+function planoMedAssociado($cc){
+  
+        window.location.replace('../planoMedicacaoMedico/index.php?cc='+$cc);
+
+}
+
+function planoMedPendente($cc){
 
   bootbox.alert({
     message: "O utente só conseguirá visualizar o plano de medicação após aceitar a associação!",

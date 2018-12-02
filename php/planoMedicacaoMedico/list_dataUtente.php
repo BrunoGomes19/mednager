@@ -16,7 +16,7 @@ if ($result->num_rows > 0) {
     }
 }
 
-$result_events = "SELECT * from planomedicacao,medicamento where planomedicacao.codMedicamento = medicamento.codMedicamento and ccUtente=$ccUtente;";
+$result_events = "SELECT * from planomedicacao,medicamento,associados,comprador,utente where planomedicacao.codMedicamento = medicamento.codMedicamento and planomedicacao.ccUtente = utente.ccUtente and planomedicacao.codComprador = comprador.codComprador and comprador.codComprador = associados.comprador_codComprador and associados.utente_ccUtente = utente.ccUtente and planomedicacao.ccUtente=$ccUtente and associados.confirmacao=1;";
 $resultado_events = mysqli_query($conn, $result_events);
 
 $eventos = array();
