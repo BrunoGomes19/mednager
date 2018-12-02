@@ -37,7 +37,7 @@ if ($result->num_rows > 0) {
 
 if($quantidadeQuery<$quantidadeMedicos){
 
-  $sql = "UPDATE comprador set LEIComprador='$LEIComprador' WHERE ccComprador='$ccComprador'";
+  $sql = "UPDATE comprador set LEIComprador='$LEIComprador', associacao = 1 WHERE ccComprador='$ccComprador'";
 
   $conn->query($sql);
 

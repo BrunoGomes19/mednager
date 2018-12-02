@@ -10,10 +10,42 @@ include('../topos/topo_admin.php');
 
     <script src="../../assets/js/bootbox.min.js"></script>
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+
 <script>
 
 function verperfil($cc){
 window.location.replace('../perfis/perfil_adminmedicolista.php?cc='+$cc);
+}
+
+function associacaoPendente($cc,$LEIComprador){
+
+  bootbox.confirm({
+    message: "Tem a certeza que deseja cancelar o pedido de associação?",
+    buttons: {
+        confirm: {
+            label: 'Sim',
+            className: 'btn-success'
+        },
+        cancel: {
+            label: 'Não',
+            className: 'btn-danger'
+        }
+    },
+    callback: function (result) {
+      if(result==true){
+          window.location.replace('../associacao/desassociacao_admin-lm.php?cc='+$cc+'&lei='+$LEIComprador);
+
+      }else{
+
+
+      }
+
+    }
+  });
+
 }
 
 function associar($cc,$LEIComprador){
@@ -47,7 +79,7 @@ function associar($cc,$LEIComprador){
 
 }
 
-function desassociar($cc,$LEIComprador){
+function desassociar($cc){
 
   bootbox.confirm({
     message: "Tem a certeza que quer desassociar este médico?",
@@ -63,7 +95,7 @@ function desassociar($cc,$LEIComprador){
     },
     callback: function (result) {
       if(result==true){
-          window.location.replace('../associacao/desassociacao_admin-lm.php?cc='+$cc+'&lei='+$LEIComprador);
+          window.location.replace('../associacao/desassociacao_admin-lm.php?cc='+$cc);
 
       }else{
 

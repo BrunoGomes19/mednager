@@ -4,9 +4,7 @@ include('../topos/header.php');
 
 $ccComprador = $_GET['cc'];
 
-$LEIComprador = $_GET['lei'];
-
-$sql = "UPDATE comprador set LEIComprador='' WHERE ccComprador='$ccComprador'";
+$sql = "UPDATE comprador set LEIComprador='' , associacao = 0 WHERE ccComprador='$ccComprador'";
 
 $conn->query($sql);
 

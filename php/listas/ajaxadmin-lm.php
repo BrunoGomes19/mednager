@@ -74,18 +74,53 @@ echo '
           // output data of each row
           while($row = $result3->fetch_assoc()) {
 
+            $associacao = $row['associacao'];
 
-            echo '
-            <button class="btn btn-danger btn-sm" style="font-size:16px" title="Clique para desassociar" onclick="desassociar('.$cc.','.$LEIComprador.')";>
-              <i class="fas fa-times"></i>
-            </button>&nbsp';
+            if($associacao == 1){
+
+
+              echo '
+              <button class="btn btn-warning btn-sm" style="font-size:16px;color:white;background-color:#ff751a;" title="Pedido pendente" onclick="associacaoPendente('.$cc.','.$codComprador.')";>
+                <i class="fas fa-user-friends"></i>
+              </button>&nbsp';
+
+            }else if($associacao == 2){
+
+              echo '
+              <button class="btn btn-danger btn-sm" style="font-size:16px" title="Clique para desassociar" onclick="desassociar('.$cc.')";>
+                <i class="fas fa-times"></i>
+              </button>&nbsp';
+
+            }
+
+
 
           }
       } else {
 
-        echo '<button class="btn btn-primary btn-sm" style="font-size:16px" title="Clique para associar" onclick="associar('.$cc.','.$LEIComprador.')";>
-            <i class="fas fa-check"></i>
-        </button>&nbsp';
+        $sql22 = "Select * from comprador where ccComprador = '$cc';";
+        $result33 = $con->query($sql22);
+
+        if ($result33->num_rows > 0) {
+            // output data of each row
+            while($row = $result33->fetch_assoc()) {
+
+              $test = $row['LEIComprador'];
+
+              if($test == NULL){
+
+                echo '<button class="btn btn-primary btn-sm" style="font-size:16px" title="Clique para associar" onclick="associar('.$cc.','.$LEIComprador.')";>
+                    <i class="fas fa-check"></i>
+                </button>&nbsp';
+
+              }
+
+            }
+
+        }
+
+
+
 
       }
 
@@ -97,14 +132,29 @@ echo '
       </td>
       <td class="desc">'.$nif.'</td>
 
-      <td>
+      <td>';
 
-              <button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
-                  <i class="fa fa-user"></i>&nbsp;Perfil</button>
-                  <button type="button" class="btn btn-outline-danger">
-                       <i class="fa fa-trash"></i>&nbsp; Remover</button>
+      $sql2 = "Select * from comprador where comprador.LEIComprador = '$LEIComprador' and ccComprador = '$cc';";
+      $result3 = $con->query($sql2);
 
-      </td>
+      if ($result3->num_rows > 0) {
+
+        while($row = $result3->fetch_assoc()) {
+
+          if($associacao == 2){
+
+            echo '<button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
+                <i class="fa fa-user"></i>&nbsp;Perfil</button>';
+
+          }
+
+
+        }
+        }
+
+
+
+      echo '</td>
   </tr>
   <tr class="spacer"></tr>
 ';

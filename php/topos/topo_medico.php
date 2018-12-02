@@ -97,6 +97,10 @@ var a = document.getElementById("a").value
     <link href="../../Interior/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="../../Interior/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+
     <!-- Bootstrap CSS-->
     <link href="../../Interior/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
@@ -193,6 +197,11 @@ var a = document.getElementById("a").value
                         </li>
 
                         <li>
+                            <a href="../listas/medico-listaPedidos.php">
+                                <i class="fas fa-user-friends"></i>Lista de Associações</a>
+                        </li>
+
+                        <li>
                             <a href="../estatisticas/estatisticasMedico.php">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
@@ -254,7 +263,10 @@ var a = document.getElementById("a").value
                                 <i class="fa fa-users"></i>Lista de Utentes</a>
                         </li>
 
-
+                        <li>
+                            <a href="../listas/medico-listaPedidos.php">
+                                <i class="fas fa-user-friends"></i>Lista de Associações</a>
+                        </li>
 
                         <li>
                             <a href="../estatisticas/estatisticasMedico.php">
