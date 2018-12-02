@@ -1,4 +1,4 @@
-﻿---- PATRÍCIA -------
+
 
 - Gr�ficos
 
@@ -20,15 +20,9 @@ nr serviços por local e por especialidade
 UTENTE
 nr de consultas por mes
 
------ BRUNO ---------
+Quando pedir uma associação, ficar a laranja, verde para associar e vermelho já associado - BRUNO FAZ
 
-Quando pedir uma associação, ficar a laranja, verde para associar e vermelho já associado
-
-Não deixar os médicos/admins verem as infos dos utentes sem estarem associados
-
-Alterar as mensagens por $_SESSION['msg']
-
-Alterar os GETS por Request
+Não deixar os médicos/admins verem as infos dos utentes sem estarem associados - BRUNO FAZ
 
 Imprimir
 
