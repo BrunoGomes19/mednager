@@ -330,7 +330,7 @@ $sqlesp25 = "SELECT * from tipoServico";
 $resultesp25 = $conn->query($sqlesp25);
 
 //duvida
-$sqlcampo = "SELECT DISTINCT codRegistoCampos, nomeCampo, unidadeCampo, observacoesCampo, codEspecialidade, codComprador from registoCampos where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' )";
+$sqlcampo = "SELECT DISTINCT codRegistoCampos, nomeCampo, unidadeCampo, codEspecialidade, codComprador from registoCampos where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' )";
 $resultcampo = $conn->query($sqlcampo);
 
 ?>
@@ -1110,7 +1110,7 @@ window.setTimeout(function() {
                   <div class="form-group">
                       <div class="form-group col-md-12" id="vaidar2Editar">
                           <h6 style="text-align: right;" onclick="abrirRegistoUtente()"> + Registar utente</h6>
-                          <label>Nome completo</label>                          
+                          <label>Nome completo</label>
                           <input type="text" class="form-control" name="title" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome completo" required onkeyup="procuraUtenteEditar(this.value)">
                           <br>
                           <p id="txtHint2">A lista de utentes será exibida aqui...</p>
