@@ -1,3 +1,8 @@
+Após tudo:
+
+- Fechar todas as conexões nos ficheiros
+
+- Evitar permissões diferentes acessar a páginas não permitidas
 ﻿
 
 - Gr�ficos
