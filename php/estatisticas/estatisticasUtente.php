@@ -11,9 +11,10 @@
 
 
   $emailUtente=$_SESSION['email'];
+
   
 
-  $sqlJAN = "SELECT count(*) as nrConsultas FROM servico WHERE MONTH(servico.start) = 01";
+  $sqlJAN = "SELECT count(*) as nrConsultas FROM servico, utente WHERE MONTH(servico.start) = 01 and servico.ccUtente=utente.ccUtente and emailUtente='$emailUtente'";
   $resultJAN = $conn->query($sqlJAN);
 
   if ($resultJAN->num_rows > 0) {
@@ -27,7 +28,8 @@
   echo "Error";
   }
 
-  $sqlFEV = "SELECT count(*) as nrConsultas FROM servico WHERE MONTH(servico.start) = 02";
+
+  $sqlFEV = "SELECT count(*) as nrConsultas FROM servico, utente WHERE MONTH(servico.start) = 02 and servico.ccUtente=utente.ccUtente and emailUtente='$emailUtente'";
   $resultFEV = $conn->query($sqlFEV);
 
   if ($resultFEV->num_rows > 0) {
@@ -40,8 +42,9 @@
   } else {
   echo "Error";
   }
+  
 
-  $sqlMAR = "SELECT count(*) as nrConsultas FROM servico WHERE MONTH(servico.start) = 03";
+  $sqlMAR = "SELECT count(*) as nrConsultas FROM servico, utente WHERE MONTH(servico.start) = 03 and servico.ccUtente=utente.ccUtente and emailUtente='$emailUtente'";
   $resultMAR = $conn->query($sqlMAR);
 
   if ($resultMAR->num_rows > 0) {
@@ -55,7 +58,8 @@
   echo "Error";
   }
 
-  $sqlABR = "SELECT count(*) as nrConsultas FROM servico WHERE MONTH(servico.start) = 04";
+
+  $sqlABR = "SELECT count(*) as nrConsultas FROM servico, utente WHERE MONTH(servico.start) = 04 and servico.ccUtente=utente.ccUtente and emailUtente='$emailUtente'";
   $resultABR = $conn->query($sqlABR);
 
   if ($resultABR->num_rows > 0) {
@@ -70,7 +74,8 @@
   }
 
 
-  $sqlMAI = "SELECT count(*) as nrConsultas FROM servico WHERE MONTH(servico.start) = 05";
+
+  $sqlMAI = "SELECT count(*) as nrConsultas FROM servico, utente WHERE MONTH(servico.start) = 05 and servico.ccUtente=utente.ccUtente and emailUtente='$emailUtente'";
   $resultMAI = $conn->query($sqlMAI);
 
   if ($resultMAI->num_rows > 0) {
@@ -85,7 +90,8 @@
   }
 
 
-  $sqlJUN = "SELECT count(*) as nrConsultas FROM servico WHERE MONTH(servico.start) = 06";
+
+  $sqlJUN = "SELECT count(*) as nrConsultas FROM servico, utente WHERE MONTH(servico.start) = 06 and servico.ccUtente=utente.ccUtente and emailUtente='$emailUtente'";
   $resultJUN = $conn->query($sqlJUN);
 
   if ($resultJUN->num_rows > 0) {
@@ -99,7 +105,7 @@
   echo "Error";
   }
 
-  $sqlJUL = "SELECT count(*) as nrConsultas FROM servico WHERE MONTH(servico.start) = 07";
+  $sqlJUL = "SELECT count(*) as nrConsultas FROM servico, utente WHERE MONTH(servico.start) = 07 and servico.ccUtente=utente.ccUtente and emailUtente='$emailUtente'";
   $resultJUL = $conn->query($sqlJUL);
 
   if ($resultJUL->num_rows > 0) {
@@ -113,7 +119,7 @@
   echo "Error";
   }
 
-  $sqlAGO = "SELECT count(*) as nrConsultas FROM servico WHERE MONTH(servico.start) = 08";
+  $sqlAGO = "SELECT count(*) as nrConsultas FROM servico, utente WHERE MONTH(servico.start) = 08 and servico.ccUtente=utente.ccUtente and emailUtente='$emailUtente'";
   $resultAGO = $conn->query($sqlAGO);
 
   if ($resultAGO->num_rows > 0) {
@@ -127,7 +133,7 @@
   echo "Error";
   }
 
-  $sqlSET = "SELECT count(*) as nrConsultas FROM servico WHERE MONTH(servico.start) = 09";
+  $sqlSET = "SELECT count(*) as nrConsultas FROM servico, utente WHERE MONTH(servico.start) = 09 and servico.ccUtente=utente.ccUtente and emailUtente='$emailUtente'";
   $resultSET = $conn->query($sqlSET);
 
   if ($resultSET->num_rows > 0) {
@@ -141,7 +147,7 @@
   echo "Error";
   }
 
-  $sqlOUT = "SELECT count(*) as nrConsultas FROM servico WHERE MONTH(servico.start) = 10";
+  $sqlOUT = "SELECT count(*) as nrConsultas FROM servico, utente WHERE MONTH(servico.start) = 10 and servico.ccUtente=utente.ccUtente and emailUtente='$emailUtente'";
   $resultOUT = $conn->query($sqlOUT);
 
   if ($resultOUT->num_rows > 0) {
@@ -155,21 +161,23 @@
   echo "Error";
   }
 
-  $sqlNOV = "SELECT count(*) as nrConsultas FROM servico WHERE MONTH(servico.start) = 09";
+  $sqlNOV = "SELECT count(*) as nrConsultas FROM servico, utente WHERE MONTH(servico.start) = 11 and servico.ccUtente=utente.ccUtente and emailUtente='$emailUtente'";
   $resultNOV = $conn->query($sqlNOV);
 
-  if ($resultOUT->num_rows > 0) {
+  if ($resultNOV->num_rows > 0) {
    
-  while($row = $resultOUT->fetch_assoc()) {
+  while($row = $resultNOV->fetch_assoc()) {
       $qttNOV = $row["nrConsultas"];
 
   }
+
+  
 
   } else {
   echo "Error";
   }
 
-  $sqlDEZ = "SELECT count(*) as nrConsultas FROM servico WHERE MONTH(servico.start) = 09";
+  $sqlDEZ = "SELECT count(*) as nrConsultas FROM servico, utente WHERE MONTH(servico.start) = 12 and servico.ccUtente=utente.ccUtente and emailUtente='$emailUtente'";
   $resultDEZ = $conn->query($sqlDEZ);
 
   if ($resultDEZ->num_rows > 0) {
@@ -240,12 +248,14 @@
 
             var options = {
               title: "Número de consultas por mês",
+              
               width: 1000,
               height: 600,
               bar: {groupWidth: "95%"},
               legend: { position: "none" },
               hAxis: {format: 'decimal'},
-              vAxis: {format: 'decimal'}
+              vAxis: {format: 'decimal', minValue: 0, 
+              maxValue: 500}
             };
             var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
             chart.draw(view, options);

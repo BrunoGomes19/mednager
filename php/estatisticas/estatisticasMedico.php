@@ -144,7 +144,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
   echo "Error";
   }
 
-  $sqlquinta = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and servico.start=curdate() + INTERVAL 2 - weekday(curdate()) DAY";
+  $sqlquinta = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and servico.start=curdate() + INTERVAL 3 - weekday(curdate()) DAY";
   $resultQuinta = $conn->query($sqlquinta);
 
   if ($resultQuinta->num_rows > 0) {
@@ -307,13 +307,14 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
                              2]);
 
             var options = {
-              title: "Número de consultas por semana",
+              title: "Número de consultas esta semana",
               width: 1000,
               height: 600,
               bar: {groupWidth: "95%"},
               legend: { position: "none" },
               hAxis: {format: 'decimal'},
-              vAxis: {format: 'decimal'}
+              vAxis: {format: 'decimal', minValue: 0, 
+              maxValue: 35}
             };
             var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
             chart.draw(view, options);
