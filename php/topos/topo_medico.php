@@ -57,7 +57,7 @@ var a = document.getElementById("a").value
 }
 
 
-function notifIntervencoes(x, servico, plano, idAssoc){
+function notifIntervencoes(x, idAssoc){
 
   if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -68,18 +68,16 @@ function notifIntervencoes(x, servico, plano, idAssoc){
     }
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-          if(x==1){
-            window.location.href="../calendarioFULL/index.php";
-          } else if(x==2){
-            window.location.href="../planoMedicacaoMedico/indexUtente.php";
-          }else if(x==3){
-            window.location.href="../listas/utente-listaPedidos.php";
+          if(x==1){//Utentes
+            window.location.href="../listas/medico-luAssociados.php";
+          } else if(x==2){//admin
+            window.location.href="../listas/medico-listaPedidos.php";
           }
 
         }
     };
-    alert();
-    xmlhttp.open("GET","../topos/notifClick.php?op="+x+"&servico="+servico+"&plano="+plano+"&assoc="+idAssoc,true);
+
+    xmlhttp.open("GET","../topos/notifClickMed.php?op="+x+"&adminpedido="+adminpedido+"&utenteconfirmacao="+utenteconfirmacao,true);
     xmlhttp.send();
 
 }
@@ -343,50 +341,61 @@ function notifIntervencoes(x, servico, plano, idAssoc){
                                   </div>
                               </div>
 
-
+                              <!--NOTI WRAP-->
                                 <div class="noti-wrap">
-
-
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-notifications"></i>
                                         <?php $email = $_SESSION['email'];
+                                        $sqlnotifs = "SELECT codAlertaComprador, descriAlertaComprador, alertaComprador.estadoComprador, alertaComprador.codComprador, dataAlertaComprador, alertaComprador.idAssoc, confirmacao, associacao FROM alertaComprador, comprador, associados WHERE Comprador.codComprador = alertaComprador.codComprador and associados.idAssoc = alertaComprador.idAssoc and emailComprador ='".$email."' AND alertaComprador.estadoComprador=0";
+                                        $result2 = $conn->query($sqlnotifs);
+
+                                        if ($result2->num_rows > 0) {
+                                            echo "<span class='quantity'>";
+
+                                            $bola = "SELECT COUNT(*) as quantidadeNotif FROM alertaComprador, Comprador WHERE Comprador.codComprador=alertaComprador.codComprador AND emailComprador ='".$email."' AND alertaComprador.estadoComprador=0";
+                                            $bolinha = $conn->query($bola);
+                                            while($row = $bolinha->fetch_assoc()){
+
+                                              $quantidadeNotif = $row['quantidadeNotif'];
+
+                                              echo "$quantidadeNotif</span>";
+                                            }
+                                                  echo" <div class='notifi-dropdown js-dropdown'>";
+                                            while($row = $result2->fetch_assoc()) {
+
+                                                $descri = $row['descriAlertaComprador'];
+                                                $data = $row['dataAlertaComprador'];
+                                                $adminpedido = $row['associacao'];
+                                                $utenteconfirmacao = $row['confirmacao'];
+                                                $idAssoc = $row['idAssoc'];
+
+
+                                                if($idAssoc != null){ //utente
+
+                                                  echo "<div class='notifi__item' onclick='notifIntervencoes(1, $idAssoc);'>
+                                                  <div class='bg-c1 img-cir img-40' onclick>
+                                                      <i class='zmdi zmdi-account-box'></i>
+                                                  </div>
+                                                  <div>
+                                                      <p>Associação de utente aceite</p>
+                                                      <p class='date'>$data</p>
+                                                  </div>
+                                                  </div>";
+                                                } else if ($idAssoc == null ){//admin
+                                                  echo "<div class='notifi__item' onclick='notifIntervencoes(2, $idAssoc);'>
+                                                  <div class='bg-c2 img-cir img-40'>
+                                                      <i class='zmdi zmdi-account-box'></i>
+                                                  </div>
+                                                  <div>
+                                                      <p>Pedido de associação de admin</p>
+                                                      <p class='date'>$data</p>
+                                                  </div>
+                                                  </div>";
+                                                }
+                                            }
+                                        }
+
                                          ?>
-                                        <span class="quantity">3</span>
-                                        <div class="notifi-dropdown js-dropdown">
-                                            <div class="notifi__title">
-                                                <p>You have 3 Notifications</p>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c1 img-cir img-40">
-                                                    <i class="zmdi zmdi-email-open"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>You got a email notification</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c2 img-cir img-40">
-                                                    <i class="zmdi zmdi-account-box"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Your account has been blocked</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c3 img-cir img-40">
-                                                    <i class="zmdi zmdi-file-text"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>You got a new file</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__footer">
-                                                <a href="#">All notifications</a>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="account-wrap">

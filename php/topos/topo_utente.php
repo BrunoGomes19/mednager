@@ -328,8 +328,6 @@ if($_SESSION['permissao'] != 3){
                                         <?php
                                         $email = $_SESSION['email'];
 
-                                        //$tituloIntervencao = "SELECT servico.title from servico, associados, utente where servico.ccUtente = utente.ccUtente and associados.utente_ccUtente = utente.ccUtente and emailUtente ='".$email."' ";
-
                                         $sqlnotifs = "SELECT codAlertaUtente, descriAlertaUtente, estadoUtente, alertaUtente.ccUtente, servico_id, planoMedicacao_id, idAssoc, dataAlertaUtente FROM alertautente, utente WHERE utente.ccUtente = alertaUtente.ccUtente and emailUtente ='".$email."' AND estadoUtente=0";
                                         $result2 = $conn->query($sqlnotifs);
 
@@ -389,39 +387,6 @@ if($_SESSION['permissao'] != 3){
                                             }
                                         }
                                         ?>
-                                        <!--
-                                        <div class="notifi-dropdown js-dropdown">
-                                            <div class="notifi__item">
-                                                <div class="bg-c1 img-cir img-40">
-                                                    <i class="zmdi zmdi-email-open"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>You got a email notification</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
-                                                </div>
-                                             </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c2 img-cir img-40">
-                                                    <i class="zmdi zmdi-account-box"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Your account has been blocked</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c3 img-cir img-40">
-                                                    <i class="zmdi zmdi-file-text"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>You got a new file</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__footer">
-                                                <a href="#">All notifications</a>
-                                            </div>
-                                        </div>-->
                                     </div>
                                 </div>
                                 <div class="account-wrap">
