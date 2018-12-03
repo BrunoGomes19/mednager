@@ -20,6 +20,13 @@ $codTipoServico = filter_input(INPUT_POST, 'codTipoServico', FILTER_SANITIZE_NUM
 $codLocal = filter_input(INPUT_POST, 'codLocal', FILTER_SANITIZE_NUMBER_INT);
 //codAlertas a 0
 
+$nomeCampo = filter_input(INPUT_POST, 'nomeCampo', FILTER_SANITIZE_STRING);
+$codRegistoCampo = filter_input(INPUT_POST, 'codRegistoCampo', FILTER_SANITIZE_NUMBER_INT);
+$quantidade = filter_input(INPUT_POST, 'quantidade', FILTER_SANITIZE_NUMBER_INT);
+
+//FOR com extra + variavel a sexoComprador
+//usar a quantidade para X inserções
+
 //$originalDate = "2010-03-21";
 
 $dateArray = date_parse_from_format('m/d/Y h:i:s', $start0);

@@ -1036,25 +1036,53 @@ if ($resultlei->num_rows > 0) {
 
                                   <!-- DINAMICO-->
                                   <?php
-
+                                    $a = 0;
                                   if($leiMed != null){
                                   if ($resultcampo->num_rows > 0) {
                                     // output data of each row
                                     while($row = $resultcampo->fetch_assoc()) {
 
+
+
+
+
                                       $nomeCampo = $row['nomeCampo'];
 
                                       $codRegistoCampo = $row['codRegistoCampos'];
 
+
+                                      $a++;
+
                                         echo "<div class='form-group'>
                                             <div class='form-group col-md-12'>
-                                                <label>".$nomeCampo."</label>
-                                                <input type='text' class='form-control' name='".$nomeCampo."' id='".$nomeCampo."' placeholder='".$nomeCampo."' required>
-                                                <input type='hidden' name='".$codRegistoCampo."' id='".$codRegistoCampo."' value='".$nomeCampo."'>
+                                                <label>".$nomeCampo.$a."</label>
+                                                <input type='text' class='form-control' name='extra$a' placeholder='".$nomeCampo."$a' required>
+                                                <input type='hidden' name='".$codRegistoCampo."' value='".$nomeCampo."'>
                                             </div>
                                         </div>";
 
                                     }
+
+                                    $sqlq = "SELECT DISTINCT *, count(*) as quantidade from registoCampos where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' ) and codComprador = $codCompLei ";
+                                      $resultq = $conn->query($sqlq);
+
+                                      if ($resultq->num_rows > 0) {
+                                          // output data of each row
+                                          while($row = $resultq->fetch_assoc()) {
+
+                                            $quantidade = $row['quantidade'];
+
+                                            echo "<div class='form-group'>
+                                                <div class='form-group col-md-12'>
+
+                                                    <input type='hidden' class='form-control' name='".$quantidade."' id='".$quantidade."' placeholder='".$quantidade."' required>
+
+                                                </div>
+                                            </div>";
+
+                                          }
+                                      }
+
                                   }
                                 }
                                   ?>
