@@ -338,6 +338,8 @@ if ($resultlei->num_rows > 0) {
     while($row = $resultlei->fetch_assoc()) {
         $leiMed = $row["LEIComprador"];
 
+        if($leiMed != null){
+
 
 
         $leiadmin = "SELECT codComprador from comprador where LEIComprador = $leiMed and codPermissao = 1";
@@ -348,12 +350,13 @@ if ($resultlei->num_rows > 0) {
             while($row = $resultlei2->fetch_assoc()) {
 
                 $codCompLei = $row["codComprador"];
-                $sqlcampo = "SELECT DISTINCT codRegistoCampos, nomeCampo, unidadeCampo, codEspecialidade, codComprador from registoCampos where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' ) and codComprador = $codCompLei";
+                $sqlcampo = "SELECT DISTINCT codRegistoCampos, nomeCampo, unidadeCampo, codEspecialidade, codComprador from registoCampos where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' ) and codComprador = $codCompLei ";
                 $resultcampo = $conn->query($sqlcampo);
             }
         } else {
             echo "0 results";
         }
+      }
     }
 } else {
     echo "0 results";

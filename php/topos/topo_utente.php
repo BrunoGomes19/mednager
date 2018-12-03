@@ -334,12 +334,26 @@ if($_SESSION['permissao'] != 3){
                                                 <div class='notifi-dropdown js-dropdown'>";
                                             while($row = $result2->fetch_assoc()) {
                                                 $descri = $row['descriAlertaUtente'];
-                                                $data = $row['data'];    
-                                                //if c/ o tipo de notif para decidir a descri e o icon                                            
-                                                echo"<div class='notifi__item'>
-                                                    <div class='bg-c2 img-cir img-40'>
-                                                        <i class='zmdi zmdi-account-box'></i>
-                                                    </div>
+                                                $data = $row['dataAlertaUtente'];
+                                                $servico_id  = $row["servico_id"];
+                                                $planoMedicacao_id = $row['planoMedicacao_id'];
+                                                $idAssoc  = $row["idAssoc"];
+                                                //if c/ o tipo de notif para decidir a descri e o icon
+                                                echo"<div class='notifi__item'>";
+                                                if($servico_id != null && $planoMedicacao_id == null && $idAssoc == null){
+                                                  echo "<div class='bg-c1 img-cir img-40'>
+                                                      <i class='zmdi zmdi-account-box'></i>
+                                                  </div>";
+                                                } else if ($servico_id == null && $planoMedicacao_id != null && $idAssoc == null){
+                                                  echo "<div class='bg-c2 img-cir img-40'>
+                                                      <i class='zmdi zmdi-account-box'></i>
+                                                  </div>";
+                                                } else if($servico_id == null && $planoMedicacao_id == null && $idAssoc != null){
+                                                  echo "<div class='bg-c3 img-cir img-40'>
+                                                      <i class='zmdi zmdi-account-box'></i>
+                                                  </div>";
+                                                }
+                                                echo"
                                                     <div>
                                                         <p>$descri</p>
                                                         <p class='date'>$data</p>
