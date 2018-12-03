@@ -99,33 +99,7 @@ if($_SESSION['permissao'] != 3){
 
     }
 
-    function load_unseen_notification(view = '') {
-    	$.ajax({
-    		url:"fetch.php",
-    		method:"POST",
-    		data:{view:view},
-    		dataTyper:"json",
-    		success:function(data){
-    			$('.dropdown-menu').html(data.notification);
-    			if(data.unseen_notification > 0){
-    				$('.count').html(data.unseen_notification);
-    			}
-    		}
-    	})
 
-    }
-
-    //mudar para lido
-    load_unseen_notification();
-    $(document).on('click', '.dropdown-toggle', function(){
-    	$('.count').html('');
-    	load_unseen_notification('yes')
-    })
-
-    //a cada 5 segundos verifica se há notifs nova sem dar refresh à página
-    set_interval(function(){
-    	load_unseen_notification();
-    }, 5000);
 
     function notifIntervencoes(x, servico, plano, idAssoc){
 
@@ -148,8 +122,7 @@ if($_SESSION['permissao'] != 3){
 
             }
         };
-        alert();
-        xmlhttp.open("GET","../topos/notifClick.php?op="+x+"&servico="+servico+"&plano="+plano+"&assoc="+idAssoc,true);
+        xmlhttp.open("GET","../topos/notifClick.php?op="+x+"&servico="+servico+"&plano="+plano+"&idAssoc="+idAssoc,true);
         xmlhttp.send();
 
     }
@@ -361,8 +334,17 @@ if($_SESSION['permissao'] != 3){
                                         $result2 = $conn->query($sqlnotifs);
 
                                         if ($result2->num_rows > 0) {
-                                            echo "<span class='quantity'>3</span>
-                                                <div class='notifi-dropdown js-dropdown'>";
+                                            echo "<span class='quantity'>";
+
+                                            $bola = "SELECT COUNT(*) as quantidadeNotif FROM alertautente, utente WHERE utente.ccUtente=alertautente.ccUtente AND emailUtente ='".$email."' AND estadoUtente=0";
+                                            $bolinha = $conn->query($bola);
+                                            while($row = $bolinha->fetch_assoc()){
+
+                                              $quantidadeNotif = $row['quantidadeNotif'];
+
+                                              echo "$quantidadeNotif</span>";
+                                            }
+                                                  echo" <div class='notifi-dropdown js-dropdown'>";
                                             while($row = $result2->fetch_assoc()) {
 
                                                 $descri = $row['descriAlertaUtente'];
