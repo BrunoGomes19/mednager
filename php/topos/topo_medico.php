@@ -77,8 +77,9 @@ function notifIntervencoes(x, idAssoc){
         }
     };
 
-    xmlhttp.open("GET","../topos/notifClickMed.php?op="+x+"&adminpedido="+adminpedido+"&utenteconfirmacao="+utenteconfirmacao,true);
+    xmlhttp.open("GET","../topos/notifClickMed.php?op="+x+"&idAssoc="+idAssoc,true);
     xmlhttp.send();
+
 
 }
 

@@ -1,13 +1,15 @@
 <?php
+include("header.php");
 
 $x = $_GET['op'];
+$idAssoc = $_GET['idAssoc'];
 
 
 if($x == 1){ //assoc aceite utente
 
-  $utenteconfirmacao = $_GET['utenteconfirmacao'];
 
-  $sql = "UPDATE alertaComprador SET estadoComprador=1 WHERE id=$idAssoc";
+
+  $sql = "UPDATE alertaComprador SET estadoComprador=1 WHERE idAssoc=$idAssoc";
   $result = $conn->query($sql);
 
   if ($conn->query($sql) === TRUE) {
@@ -17,7 +19,7 @@ if($x == 1){ //assoc aceite utente
   }
 
 } else if ($x==2){ //pedido assoc admin
-  $plano = $_GET['plano'];
+
 
   $sql = "UPDATE alertaUtente SET estadoUtente=1 WHERE idAssoc=null";
   $result = $conn->query($sql);
