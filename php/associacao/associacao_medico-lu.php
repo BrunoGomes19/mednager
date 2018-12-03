@@ -21,8 +21,14 @@ if ($result->num_rows > 0) {
 }
 
 $sql = "INSERT into associados(idAssoc,comprador_codComprador,utente_ccUtente,confirmacao) values(NULL,'$codComprador','$ccUtente',0);";
-
 $query = mysqli_query($conn,$sql);
+
+
+$qualAssoc = "SELECT idAssoc from associados where comprador_codComprador = $codComprador and utente_ccUtente = $ccUtente";
+$resAssoc = $conn->query($qualAssoc);
+
+$notif = "INSERT INTO alertautente (codAlertaUtente, descriAlertaUtente, estadoUtente, ccUtente, servico_id, planoMedicacao_id, idAssoc, dataAlertaUtente) VALUES (NULL, NULL, 0, '$ccUtente', null, null, $resAssoc, now())";
+$query = mysqli_query($conn,$notif);
 
 if($query){
 
