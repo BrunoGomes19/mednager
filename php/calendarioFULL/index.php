@@ -75,6 +75,42 @@ function abrirRegistoUtente(){
 
 </script>
 
+  <script type="text/javascript">
+
+    function registarUtente() {
+
+        var nome= document.getElementById("nome").value;
+        var ccUtente= document.getElementById("ccUtentee").value;
+        var email= document.getElementById("email").value;
+        var nif= document.getElementById("nif").value;
+
+        if(nome == "" || ccUtente == "" || email == "" || nif =="" || !(email.includes("@"))){
+
+        }else{
+
+          if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                 document.getElementById("test").innerHTML = this.responseText;              
+            }
+        };
+        xmlhttp.open("GET","registaUtente.php?nome="+nome+"&cc="+ccUtente+"&email="+email+"&nif="+nif,true);
+        xmlhttp.send();
+
+        }
+
+        
+}
+
+
+  </script>
+
 <script>
 
 .modal.left .modal-dialog,
@@ -222,6 +258,9 @@ function procuraUtenteEditar(str) {
         xmlhttp.send();
     }
 }
+
+
+
 
 </script>
 
@@ -1137,45 +1176,48 @@ window.setTimeout(function() {
             </button>
         </div>
         <div class="modal-body">
-            <form class="form-horizontal" method="POST" action="../registos/medico-admin_registarutente.php">
-
-                <div class="input-group mb-3" id="nome">
+            
+         
+                <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text text-black" id="basic-addon1"><i class="fas fa-user"></i></span>
                     </div>
-                    <input type="text" class="form-control form-control-lg" placeholder="Nome completo" aria-label="nomeUtente" aria-describedby="basic-addon1" required name="nome">
+                    <input type="text" class="form-control form-control-lg" placeholder="Nome completo" aria-label="nomeUtente" aria-describedby="basic-addon1" required name="nome"  id="nome">
                 </div>
 
-                <div class="input-group mb-3" id="ccUtente">
+                <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text text-black" id="basic-addon1"><i class="fas fa-address-card"></i></span>
                     </div>
-                    <input type="text" class="form-control form-control-lg" placeholder="Cartão de cidadão" aria-label="ccUtente" aria-describedby="basic-addon1" required name="ccUtente" id="ccUtente">
+                    <input type="text" class="form-control form-control-lg" placeholder="Cartão de cidadão" aria-label="ccUtente" aria-describedby="basic-addon1" required name="ccUtente" id="ccUtentee">
                 </div>
 
 
 
 
-                <div class="input-group mb-3" id="email">
+                <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text text-black" id="basic-addon2"><i class="fas fa-at"></i></span>
                     </div>
-                    <input type="email" class="form-control form-control-lg" placeholder="E-mail" aria-label="email" aria-describedby="basic-addon1" required name="email">
+                    <input type="email" class="form-control form-control-lg" placeholder="E-mail" aria-label="email" aria-describedby="basic-addon1" required name="email"  id="email">
                 </div>
 
 
-                <div class="input-group mb-3" id="nif">
+                <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text text-black" id="basic-addon1"><i class="fas fa-id-card"></i></span>
                     </div>
                     <input type="text" class="form-control form-control-lg" placeholder="NIF" aria-label="NIFUtente" aria-describedby="basic-addon1" required name="nif" id="nif">
                 </div>
+                <p id="test"></p>
 
                 <?php
 
-                if (isset($_SESSION['msgMedicoAdminRUtente'])) {
-                    echo $_SESSION['msgMedicoAdminRUtente'];
-                    unset($_SESSION['msgMedicoAdminRUtente']);
+                @session_start();
+
+                if (isset($_SESSION['msg'])) {
+                    echo $_SESSION['msg'];
+                    unset($_SESSION['msg']);
                 }
 
                 ?>
@@ -1184,17 +1226,20 @@ window.setTimeout(function() {
                     <div class="col-12">
                         <div class="form-group">
                             <div class="p-t-20">
-                                <input class="btn btn-block btn-info" type="submit" name="submit" value="Registar"></input>
+                                <input class="btn btn-block btn-info" type="submit" value="Registar" onclick="registarUtente();"></input>
                             </div>
                         </div>
                     </div>
                 </div>
-            </form>
+            
+            
         </div>
 
       </div><!-- modal-content -->
     </div><!-- modal-dialog -->
   </div><!-- modal -->
+
+
 
 
 
