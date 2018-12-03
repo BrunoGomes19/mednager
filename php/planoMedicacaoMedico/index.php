@@ -478,6 +478,9 @@ $resultesp25 = $conn->query($sqlesp25);
                     $('#visualizar #codMedicamento').text(event.codMedicamento);
                     $('#visualizar #nomeMedicamento').text(event.nomeMedicamento);
                     $('#visualizar #color').text(event.color);
+                    $('#visualizar #nomeGenerico').text(event.nomeGenerico);
+                    $('#visualizar #dosagem').text(event.dosagem);
+                    $('#visualizar #formaFarmaceutica').text(event.formaFarmaceutica);
 
                     if(event.confirmacao == 0){
 
@@ -632,6 +635,14 @@ $resultesp25 = $conn->query($sqlesp25);
                                       <dd id="codMedicamento" class="col-sm-9"></dd>
                                       <dt class="col-sm-3">Nome do medicamento</dt>
                                       <dd id="nomeMedicamento" class="col-sm-9"></dd>
+
+                                      <dt class="col-sm-3">Nome do genérico</dt>
+                                      <dd id="nomeGenerico" class="col-sm-9"></dd>
+                                      <dt class="col-sm-3">Dosagem</dt>
+                                      <dd id="Dosagem" class="col-sm-9"></dd>
+                                      <dt class="col-sm-3">Forma Farmacêutica</dt>
+                                      <dd id="formaFarmaceutica" class="col-sm-9"></dd>
+
                                       <dt class="col-sm-3">Observações</dt>
                                       <dd id="observacoes" class="col-sm-9"></dd>
                                       <dt class="col-sm-3">Estado:</dt>

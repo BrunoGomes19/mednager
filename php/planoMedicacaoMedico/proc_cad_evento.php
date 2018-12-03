@@ -104,7 +104,7 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 
 for($i=1;$i<=$numVezes;$i++){
 
-	$result_events = "INSERT INTO planomedicacao (id,title, color, start, end, observacoes, codComprador, ccUtente,codMedicamento,confirmacao) VALUES (NULL,'$title', '$color', '$start_sem_barra', '$end_sem_barra', '$observacoes', $codComprador, $ccUtente,$codMedicamento,0)";
+	$result_events = "INSERT INTO planomedicacao (id,title, color, start, end, observacoes, codComprador, ccUtente,codMedicamento,confirmacaoplano) VALUES (NULL,'$title', '$color', '$start_sem_barra', '$end_sem_barra', '$observacoes', $codComprador, $ccUtente,$codMedicamento,0)";
 $conn->query($result_events);
 
 $start_sem_barra = date('Y-m-d H:i:s', strtotime($start_sem_barra. ' + '.$horas.' hour'));

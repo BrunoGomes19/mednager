@@ -263,7 +263,7 @@
 
 				//INSERIR NA BD
 
-		$sql = "INSERT into comprador(NIFComprador,emailComprador,ccComprador,passComprador,nrOrdem,nomeComprador,sexoComprador,codEspecialidade,codPermissao,estadoComprador,emailConfirmComprador) values('$nif','$email','$cc',md5('$pass'),$numeroOrdem,'$nome','$sexo',1,2,0,0);";
+		$sql = "INSERT into comprador(NIFComprador,emailComprador,ccComprador,passComprador,nrOrdem,nomeComprador,sexoComprador,codEspecialidade,codPermissao,estadoComprador,emailConfirmComprador,associacao) values('$nif','$email','$cc',md5('$pass'),$numeroOrdem,'$nome','$sexo',1,2,0,0,0);";
 
 		//Criar especialidade 1 - novo | O comprador só insere a sua "especialidade" após a página de registo
 
