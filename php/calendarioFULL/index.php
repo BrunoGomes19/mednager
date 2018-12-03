@@ -97,7 +97,7 @@ function abrirRegistoUtente(){
         }
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                 document.getElementById("test").innerHTML = this.responseText;
+                 document.getElementById("test").innerHTML = this.responseText;              
             }
         };
         xmlhttp.open("GET","registaUtente.php?nome="+nome+"&cc="+ccUtente+"&email="+email+"&nif="+nif,true);
@@ -105,7 +105,7 @@ function abrirRegistoUtente(){
 
         }
 
-
+        
 }
 
 
@@ -1207,8 +1207,8 @@ window.setTimeout(function() {
             </button>
         </div>
         <div class="modal-body">
-
-
+            
+         
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text text-black" id="basic-addon1"><i class="fas fa-user"></i></span>
@@ -1262,8 +1262,8 @@ window.setTimeout(function() {
                         </div>
                     </div>
                 </div>
-
-
+            
+            
         </div>
 
       </div><!-- modal-content -->

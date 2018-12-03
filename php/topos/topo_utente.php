@@ -127,35 +127,6 @@ if($_SESSION['permissao'] != 3){
     	load_unseen_notification();
     }, 5000);
 
-    function notifIntervencoes(x, servico, plano, idAssoc){
-
-      if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-              if(x==1){
-                window.location.href="../calendarioFULL/indexUtente.php";
-              } else if(x==2){
-                window.location.href="../planoMedicacaoMedico/indexUtente.php";
-              }else if(x==3){
-                window.location.href="../listas/utente-listaPedidos.php";
-              }
-
-            }
-        };
-        alert();
-        xmlhttp.open("GET","../topos/notifClick.php?op="+x+"&servico="+servico+"&plano="+plano+"&assoc="+idAssoc,true);
-        xmlhttp.send();
-
-    }
-
-
-
 
     </script>
 
@@ -361,49 +332,45 @@ if($_SESSION['permissao'] != 3){
                                         $result2 = $conn->query($sqlnotifs);
 
                                         if ($result2->num_rows > 0) {
-                                            echo "<span class='quantity'>3</span>
+                                            echo "<span class='quantity'></span>
                                                 <div class='notifi-dropdown js-dropdown'>";
                                             while($row = $result2->fetch_assoc()) {
 
                                                 $descri = $row['descriAlertaUtente'];
                                                 $data = $row['dataAlertaUtente'];
-                                                $servico  = $row["servico_id"];
-                                                $plano = $row['planoMedicacao_id'];
+                                                $servico_id  = $row["servico_id"];
+                                                $planoMedicacao_id = $row['planoMedicacao_id'];
                                                 $idAssoc  = $row["idAssoc"];
                                                 //if c/ o tipo de notif para decidir a descri e o icon
-
-                                                if($servico != null && $plano == null && $idAssoc == null){
-
-                                                  echo "<div class='notifi__item' onclick='notifIntervencoes(1, $servico, 0, 0);'>
-                                                  <div class='bg-c1 img-cir img-40' onclick>
+                                                echo"<div class='notifi__item'>";
+                                                if($servico_id != null && $planoMedicacao_id == null && $idAssoc == null){
+                                                  echo "<div class='bg-c1 img-cir img-40' onclick>
                                                       <i class='zmdi zmdi-account-box'></i>
                                                   </div>
                                                   <div>
                                                       <p>Intervenção</p>
                                                       <p class='date'>$data</p>
-                                                  </div>
                                                   </div>";
-                                                } else if ($servico == null && $plano != null && $idAssoc == null){
-                                                  echo "<div class='notifi__item' onclick='notifIntervencoes(2, 0, $plano, 0);'>
-                                                  <div class='bg-c2 img-cir img-40'>
+                                                } else if ($servico_id == null && $planoMedicacao_id != null && $idAssoc == null){
+                                                  echo "<div class='bg-c2 img-cir img-40'>
                                                       <i class='zmdi zmdi-account-box'></i>
                                                   </div>
                                                   <div>
                                                       <p>Plano de medicação</p>
                                                       <p class='date'>$data</p>
-                                                  </div>
                                                   </div>";
-                                                } else if($servico == null && $plano == null && $idAssoc != null){
-                                                  echo "<div class='notifi__item' onclick='notifIntervencoes(3, 0, 0, $idAssoc);'>
-                                                  <div class='bg-c3 img-cir img-40'>
+                                                } else if($servico_id == null && $planoMedicacao_id == null && $idAssoc != null){
+                                                  echo "<div class='bg-c3 img-cir img-40'>
                                                       <i class='zmdi zmdi-account-box'></i>
                                                   </div>
                                                   <div>
                                                       <p>Associação</p>
                                                       <p class='date'>$data</p>
-                                                  </div>
                                                   </div>";
                                                 }
+                                                echo"
+
+                                                </div>";
                                             }
                                         }
                                         ?>

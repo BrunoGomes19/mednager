@@ -319,8 +319,6 @@ var a = document.getElementById("a").value
 
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-notifications"></i>
-                                        <?php $email = $_SESSION['email'];
-                                         ?>
                                         <span class="quantity">3</span>
                                         <div class="notifi-dropdown js-dropdown">
                                             <div class="notifi__title">
