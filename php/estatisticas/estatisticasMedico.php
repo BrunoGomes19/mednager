@@ -236,48 +236,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
         </script>
 
 
-
-        <!--grafico titulares -->
-
-        <div id="chart_div" style="width: 1000px; height: 5900px;"></div>
-
-        <script type="text/javascript">
-        google.charts.load('current', {packages: ['corechart', 'bar']});
-        google.charts.setOnLoadCallback(drawBasic);
-
-        function drawBasic() {
-
-          var data = google.visualization.arrayToDataTable([
-
-            ['Titular AIM', 'Número de medicamentos',],
-            <?php
-            if($result2->num_rows > 0){
-                while($row = $result2->fetch_assoc()){
-                  echo "['".$row['titularAIM']."', ".$row['nrtits']."],";
-                }
-            }
-            ?>
-          ]);
-
-          var options = {
-            title: 'Número de medicamentos por Titular titularAIM',
-            colors: ['#5fbace'],
-            vAxis: {
-              textStyle : {
-                fontSize: 10 // or the number you want
-              }
-            },
-            chartArea:{left:300,top:40,bottom: 30,width:"100%",height:"100%"}
-
-          };
-
-          var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-
-          chart.draw(data, options);
-        }
-        </script>
-
-<!--grafico nr consultas -->
+        <!--grafico nr consultas -->
         <div id="columnchart_values" style="width: 1170px; height: 600px;"></div>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
@@ -320,6 +279,50 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
             chart.draw(view, options);
         }
         </script>
+
+
+
+        <!--grafico titulares -->
+
+        <div id="chart_div" style="width: 1000px; height: 5900px;"></div>
+
+        <script type="text/javascript">
+        google.charts.load('current', {packages: ['corechart', 'bar']});
+        google.charts.setOnLoadCallback(drawBasic);
+
+        function drawBasic() {
+
+          var data = google.visualization.arrayToDataTable([
+
+            ['Titular AIM', 'Número de medicamentos',],
+            <?php
+            if($result2->num_rows > 0){
+                while($row = $result2->fetch_assoc()){
+                  echo "['".$row['titularAIM']."', ".$row['nrtits']."],";
+                }
+            }
+            ?>
+          ]);
+
+          var options = {
+            title: 'Número de medicamentos por Titular titularAIM',
+            colors: ['#5fbace'],
+            vAxis: {
+              textStyle : {
+                fontSize: 10 // or the number you want
+              }
+            },
+            chartArea:{left:300,top:40,bottom: 30,width:"100%",height:"100%"}
+
+          };
+
+          var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+          chart.draw(data, options);
+        }
+        </script>
+
+
 
 
 
