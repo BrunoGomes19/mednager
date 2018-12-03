@@ -65,6 +65,14 @@ function abrirModal5editar(){
 }
 
 function abrirRegistoUtente(){
+
+  document.getElementById("nome").value = "";
+  document.getElementById("ccUtentee").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("nif").value = "";
+  document.getElementById("test").innerHTML = "";
+
+
   $('#ccUtente #ccUtente').val("");
   $('#nome #nome').val("");
   $('#email #email').val("");
@@ -97,7 +105,28 @@ function abrirRegistoUtente(){
         }
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                 document.getElementById("test").innerHTML = this.responseText;              
+
+
+                 if(this.responseText == "a"){
+
+                    $('#modalregistarUtente').modal('hide');
+
+                    window.setTimeout(function() {
+                     $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                         $(this).remove();
+                     });
+                    }, 6000);
+
+                    document.getElementById("utenteRegistado").style.display = "block";
+
+                    document.getElementById("utenteRegistado2").style.display = "block";
+
+                 }else{
+
+                   document.getElementById("test").innerHTML = this.responseText;
+
+                 }
+
             }
         };
         xmlhttp.open("GET","registaUtente.php?nome="+nome+"&cc="+ccUtente+"&email="+email+"&nif="+nif,true);
@@ -105,7 +134,7 @@ function abrirRegistoUtente(){
 
         }
 
-        
+
 }
 
 
@@ -910,7 +939,7 @@ if ($resultlei->num_rows > 0) {
 
                                           <div class="form-group col-md-12" id="vaidar">
                                               <label style="display:block;">CC Utente</label>
-                                              <input type="number" class="form-control" name="ccUtente" id="ccUtente" placeholder="CC do utente" required  style="width:91%;display:inline">&nbsp
+                                              <input type="number" class="form-control" name="ccUtente" id="ccUtente" placeholder="CC do utente" required readonly style="background-color: white;width:91%;display:inline">&nbsp
 
                                               <i class="fas fa-user-plus" style="font-size:25px;position:relative;top:5px;" onclick="abrirModal5();"></i>
 
@@ -1124,16 +1153,6 @@ if ($resultlei->num_rows > 0) {
     });
 </script>
 
-<script>
-
-window.setTimeout(function() {
- $(".alert").fadeTo(500, 0).slideUp(500, function(){
-     $(this).remove();
- });
-}, 6000);
-
-</script>
-
 <div class="modal right fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
     <div class="modal-dialog" role="document" style="padding-top:5%">
       <div class="modal-content" style="background-color:#f9f9f9;width:100%;">
@@ -1144,13 +1163,18 @@ window.setTimeout(function() {
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
+        <div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" id="utenteRegistado" style="background-color:#89bdf4;border-radius:8px;display:none;";>
+ 			 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+ 				<span style="color:white;">Utente registado com sucesso</span>
+ 			 </div>
         <div class="modal-body">
             <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
 
                 <div class="form-group">
                     <div class="form-group col-md-12" id="vaidar2">
-                      <h6 style="text-align: right;" onclick="abrirRegistoUtente()"> + Registar utente</h6>
-                        <label>Nome completo</label>
+                      <h6 style="text-align: right; color: #5fbace; font-weight:bold;float:right;display:inline" onclick="abrirRegistoUtente()"> + Registar utente</h6>
+                      <br>
+                        <label style="display:block">Nome completo</label>
                         <input type="text" class="form-control" name="title" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome completo" required onkeyup="procuraUtente(this.value)">
                         <br>
                         <p id="txtHint">A lista de utentes será exibida aqui...</p>
@@ -1175,13 +1199,18 @@ window.setTimeout(function() {
                   <span aria-hidden="true">&times;</span>
               </button>
           </div>
+          <div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" id="utenteRegistado2" style="background-color:#89bdf4;border-radius:8px;display:none;";>
+   			 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+   				<span style="color:white;">Utente registado com sucesso</span>
+   			 </div>
           <div class="modal-body">
               <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
 
                   <div class="form-group">
                       <div class="form-group col-md-12" id="vaidar2Editar">
-                          <h6 style="text-align: right;" onclick="abrirRegistoUtente()"> + Registar utente</h6>
-                          <label>Nome completo</label>
+                        <h6 style="text-align: right; color: #5fbace; font-weight:bold;float:right;display:inline" onclick="abrirRegistoUtente()"> + Registar utente</h6>
+                        <br>
+                          <label style="display:block">Nome completo</label>
                           <input type="text" class="form-control" name="title" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome completo" required onkeyup="procuraUtenteEditar(this.value)">
                           <br>
                           <p id="txtHint2">A lista de utentes será exibida aqui...</p>
@@ -1207,8 +1236,8 @@ window.setTimeout(function() {
             </button>
         </div>
         <div class="modal-body">
-            
-         
+              <form onsubmit="myFunction(); return false;">
+
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text text-black" id="basic-addon1"><i class="fas fa-user"></i></span>
@@ -1242,6 +1271,8 @@ window.setTimeout(function() {
                 </div>
                 <p id="test"></p>
 
+                <input id="esconderModal" type="hidden"></input>
+
                 <?php
 
                 @session_start();
@@ -1262,9 +1293,19 @@ window.setTimeout(function() {
                         </div>
                     </div>
                 </div>
-            
-            
+              </form>
+
         </div>
+
+        <script>
+
+        function myFunction(){
+
+
+
+        }
+
+        </script>
 
       </div><!-- modal-content -->
     </div><!-- modal-dialog -->

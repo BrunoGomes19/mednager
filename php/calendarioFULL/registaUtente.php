@@ -16,9 +16,9 @@
 		echo 'Número de cartão de cidadão inválido';
 
 		exit();
-		
+
 	}
-	
+
 
 	$servername = "localhost";
 	$username = "admin";
@@ -31,7 +31,7 @@
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
-	
+
 
 				$findemailc = false;
 				$findemailu = false;
@@ -68,7 +68,7 @@ if ($result->num_rows > 0) {
 
 					if( $row["emailUtente"] == $email){
 
-				
+
 
 				$findemailu = true;
 
@@ -95,7 +95,7 @@ if ($result->num_rows > 0) {
 
 
 
-				
+
 
 					$findemailc = true;
 
@@ -117,7 +117,7 @@ if ($result->num_rows > 0) {
 
 					if( $row["ccUtente"] == $ccUtente){
 
-						
+
 
 						$findccU = true;
 
@@ -137,7 +137,7 @@ if ($result->num_rows > 0) {
 
 					if( $row["ccComprador"] == $ccUtente){
 
-						
+
 
 						$findccC = true;
 
@@ -159,7 +159,7 @@ if ($result->num_rows > 0) {
 
 					if( $row["NIFUtente"] == $nif){
 
-					
+
 
 						$findnifu = true;
 
@@ -193,7 +193,7 @@ if ($result->num_rows > 0) {
 
 				echo "Este endereço de e-mail já se encontra associado a outra conta!";
 				exit();
-				
+
 
 			}else{
 				//se já houver um cc
@@ -202,14 +202,14 @@ if ($result->num_rows > 0) {
 				echo"Este número de cartão de cidadão já se encontra associado a outra conta.";
 				exit();
 
-				
+
 
 			} else if ($findnifu || $findnifc) {
 
 				echo"Este nif já se encontra associado a outra conta!";
 				exit();
 
-				
+
 
 			}else{
 
@@ -234,7 +234,7 @@ if ($result->num_rows > 0) {
 
 		if($query){
 
-			
+
 
 					$sql2 = "INSERT into associados(comprador_codComprador	, utente_ccUtente,confirmacao) values('$codComprador','$ccUtente',1);";
 
@@ -249,8 +249,6 @@ if ($result->num_rows > 0) {
 						$str = substr($str,0,12);
 
 						$url = "http://localhost/mednager/php/registos/emailConfirmUtente.php?codeEmailConfirm=$str&email=$email&tipo=u";
-
-						echo $url;
 
 						//CODIGO PHPMAILER
 
@@ -293,13 +291,12 @@ if ($result->num_rows > 0) {
 
 									$conn->query("UPDATE utente set codeEmailConfirm='$str' WHERE emailUtente='$email'");
 
-				
+									echo "a";
 
-				
 
 			}
 
-	
+
 
 					}
 
@@ -309,13 +306,6 @@ if ($result->num_rows > 0) {
 		}
 
 			}
-
-			
-
-
-
-
-		echo mysqli_error($conn);
 
 		$conn->close();
 
@@ -327,6 +317,6 @@ if ($result->num_rows > 0) {
 	exit();
 
 }
-	
+
 
 ?>
