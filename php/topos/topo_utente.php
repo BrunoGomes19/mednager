@@ -13,7 +13,7 @@ if ($result->num_rows > 0) {
 
     $nome = $row['nomeUtente'];
 
-		$email = $row['emailUtente'];
+	$email = $row['emailUtente'];
 
     $linkimagem = $row['linkimagem'];
 
@@ -321,16 +321,34 @@ if($_SESSION['permissao'] != 3){
 
 
                                 <div class="noti-wrap">
-
-
                                     <div class="noti__item js-item-menu">
-                                    	<!--<php 
-                                    		if ("(SELECT * FROM alertautente WHERE estadoUtente = 0) > 0"){
-                                    			echo "<span class='quantity'>"SELECT DA TABELA CODALERTAUTENTE WHERE ESTADO=0"</span>"
-                                    		}
-                                    	?>-->
-                                        <div class="notifi-dropdown js-dropdown count">
-                                        	<ul class="dropdown-menu "></ul>
+                                        <i class="zmdi zmdi-notifications"></i>
+                                        <?php
+                                        $sqlnrnotifs = "SELECT COUNT(*) FROM `alertautente` WHERE estadoUtente=0";
+                                        $result1 = $conn->query($sqlnrnotifs);
+                                        $sqlnotifs = "SELECT * FROM `alertautente` WHERE estadoUtente=0";
+                                        $result2 = $conn->query($sqlnotifs);
+
+                                        if ($result2->num_rows > 0) {
+                                            echo "<span class='quantity'></span>
+                                                <div class='notifi-dropdown js-dropdown'>";
+                                            while($row = $result2->fetch_assoc()) {
+                                                $descri = $row['descriAlertaUtente'];
+                                                $data = $row['data'];
+                                                echo"<div class='notifi__item'>
+                                                    <div class='bg-c1 img-cir img-40'>
+                                                        <i class='zmdi zmdi-email-open'></i>
+                                                    </div>
+                                                    <div class='content'>
+                                                        <p>$descri</p>
+                                                        <span class='date'>$data</span>
+                                                    </div>
+                                                </div>";
+                                            }
+                                        }
+                                        ?>
+                                        <!--
+                                        <div class="notifi-dropdown js-dropdown">
                                             <div class="notifi__item">
                                                 <div class="bg-c1 img-cir img-40">
                                                     <i class="zmdi zmdi-email-open"></i>
@@ -339,8 +357,29 @@ if($_SESSION['permissao'] != 3){
                                                     <p>You got a email notification</p>
                                                     <span class="date">April 12, 2018 06:50</span>
                                                 </div>
+                                             </div>
+                                            <div class="notifi__item">
+                                                <div class="bg-c2 img-cir img-40">
+                                                    <i class="zmdi zmdi-account-box"></i>
+                                                </div>
+                                                <div class="content">
+                                                    <p>Your account has been blocked</p>
+                                                    <span class="date">April 12, 2018 06:50</span>
+                                                </div>
                                             </div>
-                                        </div>
+                                            <div class="notifi__item">
+                                                <div class="bg-c3 img-cir img-40">
+                                                    <i class="zmdi zmdi-file-text"></i>
+                                                </div>
+                                                <div class="content">
+                                                    <p>You got a new file</p>
+                                                    <span class="date">April 12, 2018 06:50</span>
+                                                </div>
+                                            </div>
+                                            <div class="notifi__footer">
+                                                <a href="#">All notifications</a>
+                                            </div>
+                                        </div>-->
                                     </div>
                                 </div>
                                 <div class="account-wrap">
