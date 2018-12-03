@@ -20,7 +20,7 @@ if ($result->num_rows > 0) {
     }
 }
 
-$sql = "INSERT into associados(comprador_codComprador,utente_ccUtente,confirmacao) values('$codComprador','$ccUtente',0);";
+$sql = "INSERT into associados(idAssoc,comprador_codComprador,utente_ccUtente,confirmacao) values(NULL,'$codComprador','$ccUtente',0);";
 
 $query = mysqli_query($conn,$sql);
 

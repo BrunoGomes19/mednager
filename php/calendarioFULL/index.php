@@ -368,9 +368,40 @@ $resultesp5 = $conn->query($sqlesp5);
 $sqlesp25 = "SELECT * from tipoServico";
 $resultesp25 = $conn->query($sqlesp25);
 
-//duvida
-$sqlcampo = "SELECT DISTINCT codRegistoCampos, nomeCampo, unidadeCampo, codEspecialidade, codComprador from registoCampos where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' )";
-$resultcampo = $conn->query($sqlcampo);
+$codComprador = $_SESSION["codComprador"];
+$lei = "SELECT LEIComprador from comprador where codComprador = $codComprador";
+$resultlei = $conn->query("$lei");
+
+if ($resultlei->num_rows > 0) {
+    // output data of each row
+    while($row = $resultlei->fetch_assoc()) {
+        $leiMed = $row["LEIComprador"];
+
+        if($leiMed != null){
+
+
+
+        $leiadmin = "SELECT codComprador from comprador where LEIComprador = $leiMed and codPermissao = 1";
+        $resultlei2 = $conn->query("$leiadmin");
+
+        if ($resultlei2->num_rows > 0) {
+            // output data of each row
+            while($row = $resultlei2->fetch_assoc()) {
+
+                $codCompLei = $row["codComprador"];
+                $sqlcampo = "SELECT DISTINCT codRegistoCampos, nomeCampo, unidadeCampo, codEspecialidade, codComprador from registoCampos where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' ) and codComprador = $codCompLei ";
+                $resultcampo = $conn->query($sqlcampo);
+            }
+        } else {
+            echo "0 results";
+        }
+      }
+    }
+} else {
+    echo "0 results";
+}
+
+
 
 ?>
 

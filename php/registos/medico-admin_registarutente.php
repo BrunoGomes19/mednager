@@ -313,7 +313,7 @@ if ($result->num_rows > 0) {
 
 				if($permissao == 2){
 
-					$sql2 = "INSERT into associados(comprador_codComprador	, utente_ccUtente	) values('$codComprador','$ccUtente');";
+					$sql2 = "INSERT into associados(idAssoc,comprador_codComprador	, utente_ccUtente	,confirmacao) values(NULL,'$codComprador','$ccUtente',1);";
 
 					$query2 = mysqli_query($conn,$sql2);
 
