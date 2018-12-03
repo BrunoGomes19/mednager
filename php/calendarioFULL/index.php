@@ -1079,6 +1079,7 @@ window.setTimeout(function() {
 
                 <div class="form-group">
                     <div class="form-group col-md-12" id="vaidar2">
+                      <h6 style="text-align: right;" onclick="abrirRegistoUtente()"> + Registar utente</h6>
                         <label>Nome completo</label>
                         <input type="text" class="form-control" name="title" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome completo" required onkeyup="procuraUtente(this.value)">
                         <br>
@@ -1136,7 +1137,7 @@ window.setTimeout(function() {
             </button>
         </div>
         <div class="modal-body">
-            <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
+            <form class="form-horizontal" method="POST" action="../registos/medico-admin_registarutente.php">
 
                 <div class="input-group mb-3" id="nome">
                     <div class="input-group-prepend">
@@ -1169,6 +1170,15 @@ window.setTimeout(function() {
                     </div>
                     <input type="text" class="form-control form-control-lg" placeholder="NIF" aria-label="NIFUtente" aria-describedby="basic-addon1" required name="nif" id="nif">
                 </div>
+
+                <?php
+
+                if (isset($_SESSION['msgMedicoAdminRUtente'])) {
+                    echo $_SESSION['msgMedicoAdminRUtente'];
+                    unset($_SESSION['msgMedicoAdminRUtente']);
+                }
+
+                ?>
 
                 <div class="row border-top border-secondary">
                     <div class="col-12">
