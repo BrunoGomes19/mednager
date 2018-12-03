@@ -240,6 +240,14 @@ if ($result->num_rows > 0) {
 
 					$query2 = mysqli_query($conn,$sql2);
 
+					$qualAssoc = "SELECT idAssoc from associados where comprador_codComprador = $codComprador and utente_ccUtente = $ccUtente";
+					$resAssoc = $conn->query($qualAssoc);
+					while ($row = $resAssoc->fetch_assoc()) {
+					    $id =  $row['idAssoc'];
+					    $notif = "INSERT INTO alertautente (codAlertaUtente, descriAlertaUtente, estadoUtente, ccUtente, servico_id, planoMedicacao_id, idAssoc, dataAlertaUtente) VALUES (NULL, NULL, 0, $ccUtente, null, null, $id, now())";
+					    $query = mysqli_query($conn,$notif);
+					}
+
 					if($query2){
 
 						$str = "0123456789qwertyuiopasdfghjklzxcvbnm";
