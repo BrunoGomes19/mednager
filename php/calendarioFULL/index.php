@@ -1032,6 +1032,8 @@ if ($resultlei->num_rows > 0) {
 
                                   <!-- DINAMICO-->
                                   <?php
+
+                                  if($leiMed != null){
                                   if ($resultcampo->num_rows > 0) {
                                     // output data of each row
                                     while($row = $resultcampo->fetch_assoc()) {
@@ -1050,7 +1052,7 @@ if ($resultlei->num_rows > 0) {
 
                                     }
                                   }
-
+                                }
                                   ?>
 
 
