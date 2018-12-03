@@ -324,15 +324,18 @@ if($_SESSION['permissao'] != 3){
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-notifications"></i>
                                         <?php
-                                        $sqlnrnotifs = "SELECT COUNT(*) FROM `alertautente` WHERE estadoUtente=0";
-                                        $result1 = $conn->query($sqlnrnotifs);
-                                        $sqlnotifs = "SELECT * FROM `alertautente` WHERE estadoUtente=0";
+                                        $email = $_SESSION['email'];
+
+                                        //$tituloIntervencao = "SELECT servico.title from servico, associados, utente where servico.ccUtente = utente.ccUtente and associados.utente_ccUtente = utente.ccUtente and emailUtente ='".$email."' ";
+
+                                        $sqlnotifs = "SELECT codAlertaUtente, descriAlertaUtente, estadoUtente, alertaUtente.ccUtente, servico_id, planoMedicacao_id, idAssoc, dataAlertaUtente FROM alertautente, utente WHERE utente.ccUtente = alertaUtente.ccUtente and emailUtente ='".$email."' AND estadoUtente=0";
                                         $result2 = $conn->query($sqlnotifs);
 
                                         if ($result2->num_rows > 0) {
                                             echo "<span class='quantity'></span>
                                                 <div class='notifi-dropdown js-dropdown'>";
                                             while($row = $result2->fetch_assoc()) {
+
                                                 $descri = $row['descriAlertaUtente'];
                                                 $data = $row['dataAlertaUtente'];
                                                 $servico_id  = $row["servico_id"];
@@ -341,23 +344,32 @@ if($_SESSION['permissao'] != 3){
                                                 //if c/ o tipo de notif para decidir a descri e o icon
                                                 echo"<div class='notifi__item'>";
                                                 if($servico_id != null && $planoMedicacao_id == null && $idAssoc == null){
-                                                  echo "<div class='bg-c1 img-cir img-40'>
+                                                  echo "<div class='bg-c1 img-cir img-40' onclick>
                                                       <i class='zmdi zmdi-account-box'></i>
+                                                  </div>
+                                                  <div>
+                                                      <p>Intervenção</p>
+                                                      <p class='date'>$data</p>
                                                   </div>";
                                                 } else if ($servico_id == null && $planoMedicacao_id != null && $idAssoc == null){
                                                   echo "<div class='bg-c2 img-cir img-40'>
                                                       <i class='zmdi zmdi-account-box'></i>
+                                                  </div>
+                                                  <div>
+                                                      <p>Plano de medicação</p>
+                                                      <p class='date'>$data</p>
                                                   </div>";
                                                 } else if($servico_id == null && $planoMedicacao_id == null && $idAssoc != null){
                                                   echo "<div class='bg-c3 img-cir img-40'>
                                                       <i class='zmdi zmdi-account-box'></i>
+                                                  </div>
+                                                  <div>
+                                                      <p>Associação</p>
+                                                      <p class='date'>$data</p>
                                                   </div>";
                                                 }
                                                 echo"
-                                                    <div>
-                                                        <p>$descri</p>
-                                                        <p class='date'>$data</p>
-                                                    </div>
+
                                                 </div>";
                                             }
                                         }
