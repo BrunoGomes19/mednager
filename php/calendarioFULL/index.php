@@ -105,6 +105,7 @@ function abrirRegistoUtente(){
         }
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
+<<<<<<< HEAD
 
 
                  if(this.responseText == "a"){
@@ -127,6 +128,9 @@ function abrirRegistoUtente(){
 
                  }
 
+=======
+                 document.getElementById("test").innerHTML = this.responseText;
+>>>>>>> parent of efd0322... Revert "updates notifs"
             }
         };
         xmlhttp.open("GET","registaUtente.php?nome="+nome+"&cc="+ccUtente+"&email="+email+"&nif="+nif,true);
@@ -1236,7 +1240,11 @@ if ($resultlei->num_rows > 0) {
             </button>
         </div>
         <div class="modal-body">
+<<<<<<< HEAD
               <form onsubmit="myFunction(); return false;">
+=======
+
+>>>>>>> parent of efd0322... Revert "updates notifs"
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -1293,7 +1301,11 @@ if ($resultlei->num_rows > 0) {
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
               </form>
+=======
+
+>>>>>>> parent of efd0322... Revert "updates notifs"
 
         </div>
 
