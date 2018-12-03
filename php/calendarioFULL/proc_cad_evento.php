@@ -5,7 +5,9 @@ $codComprador = $_SESSION['codComprador'];
 
 //Incluir conexao com BD
 include_once("conexao.php");
+
 $id = filter_input(INPUT_POST, 'idnull', FILTER_SANITIZE_STRING);
+
 $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
 $color = filter_input(INPUT_POST, 'color', FILTER_SANITIZE_STRING);
 $start0 = filter_input(INPUT_POST, 'start', FILTER_SANITIZE_STRING);
@@ -21,8 +23,10 @@ $codLocal = filter_input(INPUT_POST, 'codLocal', FILTER_SANITIZE_NUMBER_INT);
 //codAlertas a 0
 
 $nomeCampo = filter_input(INPUT_POST, 'nomeCampo', FILTER_SANITIZE_STRING);
-$codRegistoCampo = filter_input(INPUT_POST, 'codRegistoCampo', FILTER_SANITIZE_NUMBER_INT);
-$quantidade = filter_input(INPUT_POST, 'quantidade', FILTER_SANITIZE_NUMBER_INT);
+
+$quantidade = 2;
+
+
 
 //FOR com extra + variavel a sexoComprador
 //usar a quantidade para X inserções
@@ -120,6 +124,29 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 	//if(mysqli_insert_id($conn)){
 
 	if ($conn->query($result_events) === TRUE) {
+
+	echo "a";
+
+		for($i=1;$i<=$quantidade;$i++){
+
+			$last_id = $conn->insert_id;
+
+			$valor = filter_input(INPUT_POST, 'extra'.$i, FILTER_SANITIZE_NUMBER_INT);
+
+			$cod = filter_input(INPUT_POST, 'cod'.$i, FILTER_SANITIZE_NUMBER_INT);
+
+			$sql9 = "INSERT INTO registodados VALUES (NULL, $valor , $last_id, $cod)";
+
+			echo $sql9;
+
+			if ($conn->query($sql9) === TRUE) {
+			    echo "New record created successfully";
+			} else {
+			    echo "Error: " . $sql9 . "<br>" . $conn->error;
+			}
+
+		}
+
 		$_SESSION['msg'] = "<div class='alert alert-primary' role='alert'>Intervenção registada com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 		//echo "<script> alert('OK');</script>";
 

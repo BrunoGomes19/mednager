@@ -105,8 +105,6 @@ function abrirRegistoUtente(){
         }
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-<<<<<<< HEAD
-
 
                  if(this.responseText == "a"){
 
@@ -128,9 +126,6 @@ function abrirRegistoUtente(){
 
                  }
 
-=======
-                 document.getElementById("test").innerHTML = this.responseText;
->>>>>>> parent of efd0322... Revert "updates notifs"
             }
         };
         xmlhttp.open("GET","registaUtente.php?nome="+nome+"&cc="+ccUtente+"&email="+email+"&nif="+nif,true);
@@ -1056,8 +1051,8 @@ if ($resultlei->num_rows > 0) {
                                         echo "<div class='form-group'>
                                             <div class='form-group col-md-12'>
                                                 <label>".$nomeCampo.$a."</label>
-                                                <input type='text' class='form-control' name='extra$a' placeholder='".$nomeCampo."$a' required>
-                                                <input type='hidden' name='".$codRegistoCampo."' value='".$nomeCampo."'>
+                                                <input type='text' class='form-control' name='extra$a' placeholder='extra$a' required>
+                                                <input type='hidden' name='cod$a' value='".$codRegistoCampo."'>
                                             </div>
                                         </div>";
 
@@ -1075,7 +1070,7 @@ if ($resultlei->num_rows > 0) {
                                             echo "<div class='form-group'>
                                                 <div class='form-group col-md-12'>
 
-                                                    <input type='hidden' class='form-control' name='".$quantidade."' id='".$quantidade."' placeholder='".$quantidade."' required>
+
 
                                                 </div>
                                             </div>";
