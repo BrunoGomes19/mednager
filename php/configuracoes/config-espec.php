@@ -79,6 +79,57 @@ function registaCampo (){
 }
 }
 
+function procuraCampos(str) {
+
+    if (str == "") {
+        document.getElementById("txtHintCampo").innerHTML = "A lista de campos configurados por si será exibida aqui...";
+        return;
+    } else {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHintCampo").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","procuraCampos.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+
+function removerCampo($cod){
+
+  bootbox.confirm({
+    message: "Tem a certeza que quer apagar este campo?<br>Se apagar este campo, todos os dados referentes a este campo serão eliminados.",
+    buttons: {
+        confirm: {
+            label: 'Sim',
+            className: 'btn-success'
+        },
+        cancel: {
+            label: 'Não',
+            className: 'btn-danger'
+        }
+    },
+    callback: function (result) {
+      if(result==true){
+          window.location.replace('removerCampo.php?cod='+$cod);
+
+      }else{
+
+
+      }
+
+    }
+  });
+
+}
+
 </script>
 
 
@@ -95,15 +146,24 @@ function registaCampo (){
 <!-- Inline CSS based on choices in "Settings" tab -->
 <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
 
+<?php
+
+@session_start();
+
+if (isset($_SESSION['msgCampo'])) {
+    echo $_SESSION['msgCampo'];
+    unset($_SESSION['msgCampo']);
+}
+?>
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
-                <div class="section__content section__content--p30">
+                <div class="section__content section__content--p30" style="float:left;max-width:50%">
                     <div class="row">
 
                         <div class="col-md-12" id="escolhaEsp">
 
-                            <h3 class="title-5 m-b-35">Configurações</h3>
+                            <h3 style="text-align:center;" class="title-5 m-b-35">Configurações</h3>
                             <form>
                                 <?php
                                     echo '<select id="dropdown-especialidades"  >';
@@ -155,6 +215,39 @@ function registaCampo (){
 
                             </form>
                         </div>
+                    </div>
+                </div>
+                <div style="float:right;width:50%;height:600px">
+                    <div class="row">
+
+                        <div class="col-md-12" id="escolhaEsp">
+
+                          <div class="modal-header">
+                              <h4 style="text-align:center;width:100%;">Lista de campos</h4>
+
+                          </div>
+                          <div class="modal-body">
+
+
+                                  <div class="form-group">
+                                      <div class="form-group col-md-12" id="vaidar2">
+
+                                          <label style="display:block">Nome do campo</label>
+                                          <input type="text" class="form-control" name="title" id="title" autocomplete="off" placeholder="Nome do campo" required onkeyup="procuraCampos(this.value)">
+                                          <br>
+                                          <p id="txtHintCampo">A lista de campos configurados por si será exibida aqui...</p>
+                                      </div>
+                                  </div>
+
+
+
+                          </div>
+
+                        </div>
+
+                        <form>
+                        <br>
+
                     </div>
                 </div>
             </div>

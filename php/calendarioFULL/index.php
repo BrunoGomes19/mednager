@@ -1387,11 +1387,8 @@ if ($resultlei->num_rows > 0) {
             </button>
         </div>
         <div class="modal-body">
-<<<<<<< HEAD
-              <form onsubmit="myFunction(); return false;">
-=======
 
->>>>>>> parent of efd0322... Revert "updates notifs"
+              <form onsubmit="myFunction(); return false;">
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -1448,11 +1445,8 @@ if ($resultlei->num_rows > 0) {
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
-              </form>
-=======
 
->>>>>>> parent of efd0322... Revert "updates notifs"
+              </form>
 
         </div>
 
