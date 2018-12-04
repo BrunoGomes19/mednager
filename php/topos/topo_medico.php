@@ -350,6 +350,8 @@ function notifIntervencoes(x, idAssoc){
                                         $sqlnotifs = "SELECT codAlertaComprador, descriAlertaComprador, alertaComprador.estadoComprador, alertaComprador.codComprador, dataAlertaComprador, alertaComprador.idAssoc, confirmacao, associacao FROM alertaComprador, comprador, associados WHERE Comprador.codComprador = alertaComprador.codComprador and associados.idAssoc = alertaComprador.idAssoc and emailComprador ='".$email."' AND alertaComprador.estadoComprador=0";
                                         $result2 = $conn->query($sqlnotifs);
 
+                                        //querys diferentes, provavelmente um union
+
                                         if ($result2->num_rows > 0) {
                                             echo "<span class='quantity'>";
 
@@ -380,7 +382,7 @@ function notifIntervencoes(x, idAssoc){
                                                   <div>
                                                       <p>Associação de utente aceite</p>
                                                       <p class='date'>$data</p>
-                                                  </div>
+                                                    </div>
                                                   </div>";
                                                 } else if ($idAssoc == null ){//admin
                                                   echo "<div class='notifi__item' onclick='notifIntervencoes(2, $idAssoc);'>

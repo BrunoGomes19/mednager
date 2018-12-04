@@ -43,6 +43,19 @@ if($quantidadeQuery<$quantidadeMedicos){
 
   if ($conn->query($sql) === TRUE) {
 
+    $ccAssoc = "SELECT codComprador from comprador where ccComprador = $ccComprador";
+    $resccAssoc = $conn->query($ccAssoc);
+    while($row = $resccAssoc->fetch_assoc()) {
+      $codAss = $row['codComprador'];
+
+    $notif = "INSERT INTO alertacomprador(codAlertaComprador, descriAlertaComprador, estadoComprador, codComprador, dataAlertaComprador, idAssoc) VALUES(null, null, 0, $codAss, now(), null)";
+  }
+    if ($conn->query($notif) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $notif . "<br>" . $conn->error;
+    }
+
     $_SESSION['msgAssociacao'] = '<script>
 
     bootbox.alert("Médico associado com sucesso!");
