@@ -371,7 +371,7 @@ background: #999;
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-notifications"></i>
                                         <?php $email = $_SESSION['email'];
-                                        $sqlnotifs = "SELECT codAlertaComprador, descriAlertaComprador, alertaComprador.estadoComprador, alertaComprador.codComprador, dataAlertaComprador, alertaComprador.idAssoc, confirmacao, associacao, utente.nomeUtente, utente.NIFUtente FROM alertaComprador, comprador, associados, utente WHERE Comprador.codComprador = alertaComprador.codComprador and associados.idAssoc = alertaComprador.idAssoc and emailComprador ='".$email."' AND alertaComprador.estadoComprador=0 AND associados.utente_ccutente = utente.ccUtente ORDER BY dataAlertaComprador DESC";
+                                        $sqlnotifs = "SELECT codAlertaComprador, descriAlertaComprador, alertaComprador.estadoComprador, alertaComprador.codComprador, dataAlertaComprador, alertaComprador.idAssoc, confirmacao, associacao, utente.nomeUtente, utente.NIFUtente FROM alertaComprador, comprador, associados, utente WHERE Comprador.codComprador = alertaComprador.codComprador and associados.idAssoc = alertaComprador.idAssoc and alertaComprador.idAssoc != 'null' and emailComprador ='".$email."' AND alertaComprador.estadoComprador=0 AND associados.utente_ccutente = utente.ccUtente ORDER BY dataAlertaComprador DESC";
                                         $result2 = $conn->query($sqlnotifs);
 
                                         //querys diferentes, provavelmente um union
@@ -379,7 +379,7 @@ background: #999;
                                         if ($result2->num_rows > 0) {
                                             echo "<span class='quantity'>";
 
-                                            $bola = "SELECT COUNT(*) as quantidadeNotif FROM alertaComprador, Comprador WHERE Comprador.codComprador=alertaComprador.codComprador AND emailComprador ='".$email."' AND alertaComprador.estadoComprador=0";
+                                            $bola = "SELECT COUNT(*) as quantidadeNotif FROM alertaComprador, Comprador WHERE Comprador.codComprador=alertaComprador.codComprador AND emailComprador ='".$email."' and alertaComprador.idAssoc != 'null' AND alertaComprador.estadoComprador=0";
                                             $bolinha = $conn->query($bola);
                                             while($row = $bolinha->fetch_assoc()){
 
@@ -407,7 +407,8 @@ background: #999;
                                                   </div>
                                                   <div>
                                                       <p>Associação Aceite</p>
-                                                      <p style='font-size:95%'>Utente: $nomeUtente, NIF: $NIFUtente</p>
+                                                      <p style='font-size:95%'>Utente: $nomeUtente</p>
+                                                      <p style='font-size:95%'>NIF: $NIFUtente</p>
                                                       <p style='font-size:80%;' class='date'>$data</p>
                                                     </div>
                                                   </div>";
