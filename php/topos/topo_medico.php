@@ -106,6 +106,36 @@ function notifIntervencoes(x, idAssoc){
     height: 100%;
 }
 
+/* Box styles */
+.myBox {
+border: none;
+padding: 5px;
+font: 17px/24px trebuchet ms;
+width: 200px;
+max-height: 600px;
+overflow: scroll;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+width: 12px;
+height: 12px;
+}
+
+::-webkit-scrollbar-track {
+background: #f5f5f5;
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+border-radius: 10px;
+background: #ccc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #999;
+}
+
 </style>
 
 <head>
@@ -326,18 +356,12 @@ function notifIntervencoes(x, idAssoc){
                             </form>
                             <div class="header-button">
 
+                              <!--NOTAS WRAP-->
                               <div class="noti-wrap">
-
-
                                 <button type="button" data-toggle="modal" data-target="#myModal2">
                                     <i class="fas fa-sticky-note" style="font-size:25px;color:#a9b3c9;"></i>
                                 </button>
                                   <div class="noti__item js-item-menu">
-
-
-
-
-
 
                                   </div>
                               </div>
@@ -347,7 +371,7 @@ function notifIntervencoes(x, idAssoc){
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-notifications"></i>
                                         <?php $email = $_SESSION['email'];
-                                        $sqlnotifs = "SELECT codAlertaComprador, descriAlertaComprador, alertaComprador.estadoComprador, alertaComprador.codComprador, dataAlertaComprador, alertaComprador.idAssoc, confirmacao, associacao FROM alertaComprador, comprador, associados WHERE Comprador.codComprador = alertaComprador.codComprador and associados.idAssoc = alertaComprador.idAssoc and emailComprador ='".$email."' AND alertaComprador.estadoComprador=0 ORDER BY dataAlertaComprador DESC";
+                                        $sqlnotifs = "SELECT codAlertaComprador, descriAlertaComprador, alertaComprador.estadoComprador, alertaComprador.codComprador, dataAlertaComprador, alertaComprador.idAssoc, confirmacao, associacao, utente.nomeUtente, utente.NIFUtente FROM alertaComprador, comprador, associados, utente WHERE Comprador.codComprador = alertaComprador.codComprador and associados.idAssoc = alertaComprador.idAssoc and emailComprador ='".$email."' AND alertaComprador.estadoComprador=0 AND associados.utente_ccutente = utente.ccUtente ORDER BY dataAlertaComprador DESC";
                                         $result2 = $conn->query($sqlnotifs);
 
                                         //querys diferentes, provavelmente um union
@@ -363,7 +387,7 @@ function notifIntervencoes(x, idAssoc){
 
                                               echo "$quantidadeNotif</span>";
                                             }
-                                                  echo" <div class='notifi-dropdown js-dropdown'>";
+                                                  echo" <div class='notifi-dropdown js-dropdown myBox'>";
                                             while($row = $result2->fetch_assoc()) {
 
                                                 $descri = $row['descriAlertaComprador'];
@@ -371,31 +395,31 @@ function notifIntervencoes(x, idAssoc){
                                                 $adminpedido = $row['associacao'];
                                                 $utenteconfirmacao = $row['confirmacao'];
                                                 $idAssoc = $row['idAssoc'];
+                                                $nomeUtente = $row['nomeUtente'];
+                                                $NIFUtente = $row['NIFUtente'];
 
 
-                                                if($idAssoc != null){ //utente
+                                                if($idAssoc != null ){ //utente
 
                                                   echo "<div class='notifi__item' onclick='notifIntervencoes(1, $idAssoc);'>
                                                   <div class='bg-c1 img-cir img-40' onclick>
-                                                      <i class='zmdi zmdi-account-box'></i>
+                                                      <i class='fas fa-user-plus'></i>
                                                   </div>
                                                   <div>
-                                                      <p>Associação de utente aceite</p>
-                                                      <p class='date'>$data</p>
+                                                      <p>Associação Aceite</p>
+                                                      <p style='font-size:95%'>Utente: $nomeUtente, NIF: $NIFUtente</p>
+                                                      <p style='font-size:80%;' class='date'>$data</p>
                                                     </div>
-                                                  </div>";
-                                                } else if ($idAssoc == null ){//admin
-                                                  echo "<div class='notifi__item' onclick='notifIntervencoes(2, $idAssoc);'>
-                                                  <div class='bg-c2 img-cir img-40'>
-                                                      <i class='zmdi zmdi-account-box'></i>
-                                                  </div>
-                                                  <div>
-                                                      <p>Pedido de associação de admin</p>
-                                                      <p class='date'>$data</p>
-                                                  </div>
                                                   </div>";
                                                 }
                                             }
+                                        } else{
+                                          echo" <div class='notifi-dropdown js-dropdown' >
+                                            <div class='notifi__item'>
+                                            <div>
+                                                <p>Sem notificações</p>
+                                            </div>
+                                          </div>";
                                         }
 
                                          ?>

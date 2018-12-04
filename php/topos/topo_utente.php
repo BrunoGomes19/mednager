@@ -336,30 +336,25 @@ background: #999;
                             </form>
                             <div class="header-button">
 
+                              <!--NOTAS WRAP-->
                               <div class="noti-wrap">
-
 
                                 <button type="button" data-toggle="modal" data-target="#myModal2">
                                     <i class="fas fa-sticky-note" style="font-size:25px;color:#a9b3c9;"></i>
                                 </button>
                                   <div class="noti__item js-item-menu">
 
-
-
-
-
-
                                   </div>
                               </div>
 
-
+                              <!--NOTI WRAP-->
                                 <div class="noti-wrap">
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-notifications"></i>
                                         <?php
                                         $email = $_SESSION['email'];
 
-                                        $sqlnotifs = "SELECT codAlertaUtente, descriAlertaUtente, estadoUtente, alertaUtente.ccUtente, servico_id, planoMedicacao_id, idAssoc, dataAlertaUtente FROM alertautente, utente WHERE utente.ccUtente = alertaUtente.ccUtente and emailUtente ='".$email."' AND estadoUtente=0 ORDER BY dataAlertaUtente DESC";
+                                        $sqlnotifs = "SELECT codAlertaUtente, descriAlertaUtente, estadoUtente, alertaUtente.ccUtente, servico_id, planoMedicacao_id, alertaUtente.idAssoc, dataAlertaUtente, nomeComprador FROM alertautente, utente, associados, comprador WHERE utente.ccUtente = alertaUtente.ccUtente AND utente.ccUtente=associados.utente_ccUtente AND associados.comprador_codComprador=comprador.codComprador AND emailUtente ='".$email."' AND estadoUtente=0 ORDER BY dataAlertaUtente DESC";
                                         $result2 = $conn->query($sqlnotifs);
 
                                         if ($result2->num_rows > 0) {
@@ -380,42 +375,52 @@ background: #999;
                                                 $data = $row['dataAlertaUtente'];
                                                 $servico  = $row["servico_id"];
                                                 $plano = $row['planoMedicacao_id'];
-                                                $idAssoc  = $row["idAssoc"];
+                                                $idAssoc  = $row['idAssoc'];
+                                                $nomeMedico = $row['nomeComprador'];
                                                 //if c/ o tipo de notif para decidir a descri e o icon
 
                                                 if($servico != null && $plano == null && $idAssoc == null){
 
                                                   echo "<div class='notifi__item' onclick='notifIntervencoes(1, $servico, 0, 0);'>
                                                   <div class='bg-c1 img-cir img-40' onclick>
-                                                      <i class='zmdi zmdi-account-box'></i>
+                                                      <i class='fas fa-clipboard-list'></i>
                                                   </div>
                                                   <div>
                                                       <p>Intervenção</p>
-                                                      <p class='date'>$data</p>
+                                                      <p style='font-size:80%;' class='date'>$data</p>
                                                   </div>
                                                   </div>";
                                                 } else if ($servico == null && $plano != null && $idAssoc == null){
                                                   echo "<div class='notifi__item' onclick='notifIntervencoes(2, 0, $plano, 0);'>
                                                   <div class='bg-c2 img-cir img-40'>
-                                                      <i class='zmdi zmdi-account-box'></i>
+                                                      <i class='fas fa-calendar-plus'></i>
                                                   </div>
                                                   <div>
-                                                      <p>Plano de medicação</p>
-                                                      <p class='date'>$data</p>
+                                                      <p>Plano de Medicação</p>
+                                                      <p style='font-size:80%;' class='date'>$data</p>
                                                   </div>
                                                   </div>";
                                                 } else if($servico == null && $plano == null && $idAssoc != null){
                                                   echo "<div class='notifi__item' onclick='notifIntervencoes(3, 0, 0, $idAssoc);'>
                                                   <div class='bg-c3 img-cir img-40'>
-                                                      <i class='zmdi zmdi-account-box'></i>
+                                                      <i class='fas fa-user-plus'></i>
                                                   </div>
                                                   <div>
-                                                      <p>Associação</p>
-                                                      <p class='date'>$data</p>
+                                                      <p>Pedido de Associação</p>
+                                                      <p style='font-size:95%;'>Médico: $nomeMedico</p>
+                                                      <p style='font-size:80%;' class='date'>$data</p>
                                                   </div>
                                                   </div>";
                                                 }
+
                                             }
+                                        }else{
+                                          echo" <div class='notifi-dropdown js-dropdown' >
+                                            <div class='notifi__item'>
+                                            <div>
+                                                <p>Sem notificações</p>
+                                            </div>
+                                          </div>";
                                         }
                                         ?>
                                     </div>
