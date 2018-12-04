@@ -267,7 +267,7 @@
 				$passNoChange = $pass;
 
 
-		$sql = "INSERT into COMPRADOR(nrOrdem, emailComprador, passComprador, nomeComprador, sexoComprador,codPermissao, codEspecialidade, LEIComprador,estadoComprador, NIFComprador, ccComprador, emailconfirmComprador,associacao) values('$numeroOrdem','$email',md5('$pass'),'$nome',' ',2,1,'$LEIComprador',0, '$nif', '$cc',0,0);";
+		$sql = "INSERT into COMPRADOR(nrOrdem, emailComprador, passComprador, nomeComprador, sexoComprador,codPermissao, codEspecialidade, LEIComprador,estadoComprador, NIFComprador, ccComprador, emailconfirmComprador,associacao) values('$numeroOrdem','$email',md5('$pass'),'$nome',' ',2,1,'$LEIComprador',0, '$nif', '$cc',0,2);";
 
 		//Criar especialidade 1 - novo | O comprador só insere a sua "especialidade" após a página de registo
 
