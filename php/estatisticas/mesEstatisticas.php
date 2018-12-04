@@ -232,19 +232,18 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
 
         <br>
         <br>
-
-        <canvas id="bar-chart-horizontal" width="1000" height="200"></canvas>
-
+        <!--grafico nr consultas -->
+        <canvas id="bar-chart" width="1700" height="500"></canvas>
         <script>
-          new Chart(document.getElementById("bar-chart-horizontal"), {
-    type: 'horizontalBar',
+          new Chart(document.getElementById("bar-chart"), {
+    type: 'bar',
     data: {
-      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+      labels: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
       datasets: [
         {
           label: "Population (millions)",
-          backgroundColor: ["#3e95cd"],
-          data: [2478,5267,734,784,433]
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: [15,20,3,13,20,10,1]
         }
       ]
     },
@@ -257,6 +256,48 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
     }
 });
         </script>
+
+        <br>
+        <br>
+<!--grafico titulares -->
+        <canvas id="bar-chart-horizontal" width="1000" height="2090"></canvas>
+
+        <script>
+          new Chart(document.getElementById("bar-chart-horizontal"), {
+    type: 'horizontalBar',
+    data: {
+      labels: [<?php
+      if($result2->num_rows > 0){
+          while($row = $result2->fetch_assoc()){
+            echo "'".$row['titularAIM']."',";
+          }
+      }
+    ?>],
+      datasets: [
+        {
+          label: "Population (millions)",
+          backgroundColor: ["#3e95cd"],
+          data: [<?php
+      if($result2->num_rows > 0){
+          while($row = $result2->fetch_assoc()){
+            echo "".$row['titularAIM'].",";
+          }
+      }
+    ?>]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Predicted world population (millions) in 2050'
+      }
+    }
+});
+        </script>       
+
+    
 
       </div>
     </div>
