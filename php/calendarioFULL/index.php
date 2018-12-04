@@ -397,7 +397,7 @@ $sqlesp25 = "SELECT * from tipoServico";
 $resultesp25 = $conn->query($sqlesp25);
 
 $codComprador = $_SESSION["codComprador"];
-$lei = "SELECT LEIComprador from comprador where codComprador = $codComprador";
+$lei = "SELECT LEIComprador,associacao from comprador where codComprador = $codComprador";
 $resultlei = $conn->query("$lei");
 
 if ($resultlei->num_rows > 0) {
@@ -405,9 +405,11 @@ if ($resultlei->num_rows > 0) {
     while($row = $resultlei->fetch_assoc()) {
         $leiMed = $row["LEIComprador"];
 
+        $associacao = $row["associacao"];
+
         if($leiMed != null){
 
-
+          if($associacao==2){
 
         $leiadmin = "SELECT codComprador from comprador where LEIComprador = $leiMed and codPermissao = 1";
         $resultlei2 = $conn->query("$leiadmin");
@@ -423,6 +425,7 @@ if ($resultlei->num_rows > 0) {
         } else {
             echo "0 results";
         }
+      }
       }
     }
 } else {
@@ -732,7 +735,7 @@ if ($resultlei->num_rows > 0) {
                                       <dt class="col-sm-3">Local</dt>
                                       <dd id="codLocal" class="col-sm-9"></dd>
                                       <?php
-
+                                      if($associacao==2){
                                       $sqlextras = "SELECT DISTINCT registodados.codRegistoCampos, nomeCampo, unidadeCampo, codEspecialidade, codComprador, valorDados from registoCampos,registodados where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' ) and codComprador = $codCompLei and registodados.codRegistoCampos = registocampos.codRegistoCampos";
                                         $resultextras = $conn->query($sqlextras);
 
@@ -762,10 +765,8 @@ if ($resultlei->num_rows > 0) {
                                                 ';
 
                                             }
-                                        } else {
-                                            echo "0 results";
                                         }
-
+}
                                        ?>
 
                                   </dl>
@@ -912,6 +913,7 @@ if ($resultlei->num_rows > 0) {
                                   <?php
                                     $a = 0;
                                   if($leiMed != null){
+                                    if($associacao==2){
                                     $sqlextrasEditar = "SELECT DISTINCT registodados.codRegistoCampos, nomeCampo, unidadeCampo, codEspecialidade, codComprador, valorDados from registoCampos,registodados where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' ) and codComprador = $codCompLei and registodados.codRegistoCampos = registocampos.codRegistoCampos";
                                       $resultextrasEditar = $conn->query($sqlextrasEditar);
 
@@ -972,6 +974,7 @@ if ($resultlei->num_rows > 0) {
                                       }
 
                                   }
+                                }
                                 }
                                   ?>
 
@@ -1141,6 +1144,7 @@ if ($resultlei->num_rows > 0) {
                                   <?php
                                     $a = 0;
                                   if($leiMed != null){
+                                    if($associacao==2){
                                   if ($resultcampo->num_rows > 0) {
                                     // output data of each row
                                     while($row = $resultcampo->fetch_assoc()) {
@@ -1196,6 +1200,7 @@ if ($resultlei->num_rows > 0) {
                                       }
 
                                   }
+                                }
                                 }
                                   ?>
 
