@@ -48,19 +48,11 @@
   $sql2 = "select distinct titularAIM, count(*) as nrtits from medicamento group by titularAIM";
   $result2 = $conn->query($sql2);
 
-  if ($result2->num_rows > 0) {
-    $arrayTitsNome = array();
-    $arrayTitsValor = array();
-  while($row = $result->fetch_assoc()) {
+  $sql22 = "select distinct titularAIM, count(*) as nrtits from medicamento group by titularAIM";
+  $result22 = $conn->query($sql22);
 
-    array_push($arrayTitsNome, $row["titularAIM"]);
-    array_push($arrayTitsValor, parseInt($row["nrtits"]));
-
-  }
-
-  } else {
-  echo "Error";
-  }
+  $sql222 = "select distinct titularAIM, count(*) as nrtits from medicamento group by titularAIM";
+  $result222 = $conn->query($sql22);
 
 
   $sqlcodCom = "select codComprador from comprador where emailComprador like '$emailComprador'";
@@ -224,7 +216,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
               options: {
                 title: {
                   display: true,
-                  text: 'Utente por sexo (quantidade)'
+                  text: 'Número de untentes por sexo (quantidade)'
                 }
               }
           });
@@ -241,9 +233,9 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
       labels: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
       datasets: [
         {
-          label: "Population (millions)",
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-          data: [15,20,3,13,20,10,1]
+          label: "Consultas",
+          backgroundColor: ["#5fbace", "#FF4848","#CDD11B","#23819C","#5fbace", "#FF4848", "#CDD11B"],
+          data: [<?php echo $qtttdomingo; ?>,<?php echo $qttsegunda; ?>,<?php echo $qtttTerca; ?>,<?php echo $qtttQuarta; ?>,<?php echo $qtttQuinta; ?>,<?php echo $qtttSexta; ?>,<?php echo $qtttSabado; ?>]
         }
       ]
     },
@@ -251,7 +243,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
       legend: { display: false },
       title: {
         display: true,
-        text: 'Predicted world population (millions) in 2050'
+        text: 'Número de consultas esta semana'
       }
     }
 });
@@ -272,15 +264,21 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
             echo "'".$row['titularAIM']."',";
           }
       }
-    ?>],
+    ?>], 
       datasets: [
         {
-          label: "Population (millions)",
-          backgroundColor: ["#3e95cd"],
+          label: "Número de medicamentos",
+          backgroundColor: [<?php
+      if($result222->num_rows > 0){
+          while($row = $result222->fetch_assoc()){
+            echo "'#5fbace',";
+          }
+      }
+    ?>],
           data: [<?php
-      if($result2->num_rows > 0){
-          while($row = $result2->fetch_assoc()){
-            echo "".$row['titularAIM'].",";
+      if($result22->num_rows > 0){
+          while($row = $result22->fetch_assoc()){
+            echo "'".$row['nrtits']."',";
           }
       }
     ?>]
@@ -291,7 +289,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
       legend: { display: false },
       title: {
         display: true,
-        text: 'Predicted world population (millions) in 2050'
+        text: 'Número de medicamentos por titular AIM'
       }
     }
 });
