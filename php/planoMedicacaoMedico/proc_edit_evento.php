@@ -110,8 +110,16 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 									$start_sem_barra = date('Y-m-d H:i:s', strtotime($start_sem_barra. ' + '.$horas.' hour'));
 									$end_sem_barra = date('Y-m-d H:i:s', strtotime($end_sem_barra. ' + '.$horas.' hour'));
 
-					$result_events = "INSERT INTO planomedicacao (id,title, color, start, end, observacoes, codComprador, ccUtente,codMedicamento) VALUES (NULL,'$title', '$color', '$start_sem_barra', '$end_sem_barra', '$observacoes', $codComprador, $ccUtente,$codMedicamento)";
+					$result_events = "INSERT INTO planomedicacao (id,title, color, start, end, observacoes, codComprador, ccUtente,codMedicamento) VALUES (NULL,'$title', '$color', '$start_sem_barra', '$end_sem_barra', '$observacoes', $codComprador, $ccUtente, $codMedicamento)";
 				$conn->query($result_events);
+
+				$qualplano = "SELECT id from planomedicacao where codComprador = $codComprador and ccUtente = $ccUtente and codMedicamento = $codMedicamento and start = '$end_sem_barra' and end = '$end_sem_barra'";
+				$resplano = $conn->query($qualplano);
+				while ($row = $resplano->fetch_assoc()) {
+				    $id =  $row['id'];
+				    $notif = "INSERT INTO alertautente (codAlertaUtente, descriAlertaUtente, estadoUtente, ccUtente, servico_id, planoMedicacao_id, idAssoc, dataAlertaUtente) VALUES (NULL, NULL, 0, $ccUtente, null, $id, null, now())";
+				    $query = mysqli_query($conn,$notif);
+				}
 
 
 
