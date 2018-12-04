@@ -237,17 +237,9 @@ background: #999;
                             </ul>
                         </li>
 
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
+                        <li>
+                            <a href="../registos/medico-admin_registoutente.php">
                                 <i class="fa fa-plus"></i>Registo de Utentes</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="../registos/medico-admin_registoutente.php">Novo Registo</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Associar Utentes</a>
-                                </li>
-                            </ul>
                         </li>
 
                         <li>
@@ -304,17 +296,9 @@ background: #999;
                             </ul>
                         </li>
 
-                        <li >
-                            <a class="js-arrow" href="#">
+                        <li>
+                            <a href="../registos/medico-admin_registoutente.php">
                                 <i class="fa fa-plus"></i>Registo de Utentes</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="../registos/medico-admin_registoutente.php">Novo registo</a>
-                                </li>
-                                <li>
-                                    <a href="../listas/medico-lu.php">Associar utente</a>
-                                </li>
-                            </ul>
                         </li>
 
                         <li>

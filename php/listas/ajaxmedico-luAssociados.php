@@ -40,7 +40,7 @@ session_start();
 
 
 
-$sql="SELECT * FROM utente,associados WHERE associados.utente_ccUtente = utente.ccUtente and associados.comprador_codComprador = $codComprador and NIFUtente like '".$q."%' ORDER BY nomeUtente limit 4;";
+$sql="SELECT * FROM utente,associados WHERE associados.utente_ccUtente = utente.ccUtente and associados.comprador_codComprador = $codComprador and associados.confirmacao = 1 and NIFUtente like '".$q."%' ORDER BY nomeUtente limit 4;";
 $result = mysqli_query($con,$sql);
 
 echo '

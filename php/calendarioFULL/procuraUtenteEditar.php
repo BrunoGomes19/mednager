@@ -72,7 +72,7 @@ $result3 = $con->query($sql2);
 
 echo '
   <tr class="spacer"></tr>
-  <tr class="tr-shadow" onclick="guardaCCEditar('.$cc.');">
+  <tr class="tr-shadow" id="HoverTR" onclick="guardaCCEditar('.$cc.');">
     ';
 
       echo '

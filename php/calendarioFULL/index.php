@@ -305,7 +305,9 @@ a:hover, a{
 }
 
 
-
+#HoverTR:hover td {
+    background-color: #dee1e5; /* or #000 */
+}
 
 
 </style>

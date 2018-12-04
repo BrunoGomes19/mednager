@@ -32,7 +32,7 @@ session_start();
   }
 
 mysqli_select_db($con,"ajax_demo");
-$sql="SELECT * FROM comprador,associados WHERE associados.comprador_codComprador = comprador.codComprador and associados.utente_ccUtente = $ccUtente and comprador.codPermissao = 2 and NIFComprador like '".$q."%' ORDER BY nomeComprador limit 4;";
+$sql="SELECT * FROM comprador,associados WHERE associados.comprador_codComprador = comprador.codComprador and associados.utente_ccUtente = $ccUtente and comprador.codPermissao = 2 and associados.confirmacao=1 and NIFComprador like '".$q."%' ORDER BY nomeComprador limit 4;";
 
 $result = mysqli_query($con,$sql);
 
@@ -72,7 +72,7 @@ echo '
   <tr class="spacer"></tr>
   <tr class="tr-shadow">
       <td>
-        
+
       </td>
       <td>'.$nome.'</td>
       <td>
