@@ -261,7 +261,7 @@ background: #999;
                         </li>
 
                         <li>
-                            <a href="../estatisticas/estatisticasUtente.php">
+                            <a href="../estatisticas/userEstatisticas.php">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
                     </ul>
@@ -314,7 +314,7 @@ background: #999;
                         </li>
 
                         <li>
-                            <a href="../estatisticas/estatisticasUtente.php">
+                            <a href="../estatisticas/userEstatisticas.php">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
 

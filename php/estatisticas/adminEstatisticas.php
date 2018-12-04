@@ -155,14 +155,7 @@
         <script>
           new Chart(document.getElementById("bar-chart-horizontal"), {
     type: 'horizontalBar',
-    axisX: {    
-      scaleBreaks: {
-        customBreaks: [{
-          startValue: 10000,
-          endValue: 35000
-        }]
-      }
-    },
+    
     data: {
       labels: [<?php
       if($result2->num_rows > 0){
@@ -196,9 +189,22 @@
       title: {
         display: true,
         text: 'Número de médicos por especialidade'
-      }
-    }
+      },
+      scales: {
+        xAxes: [{
+            display: true,
+            ticks: {
+                suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                // OR //
+                beginAtZero: true, // minimum value will be 0.
+                stepSize: 1   
+            }
+        }]
+      }      
+    },
+
 });
+          
         </script>
         <br>
         <br>
@@ -225,7 +231,7 @@
           backgroundColor: [<?php
       if($result333->num_rows > 0){
           while($row = $result333->fetch_assoc()){
-            echo "'#5fbace',";
+            echo "'#FF4848',";
           }
       }
     ?>],
@@ -244,7 +250,19 @@
       title: {
         display: true,
         text: 'Número de consultas por local'
+      },
+      scales: {
+        xAxes: [{
+            display: true,
+            ticks: {
+                suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                // OR //
+                beginAtZero: true, // minimum value will be 0.
+                stepSize: 1   
+            }
+        }]
       }
+
     }
 });
         </script>

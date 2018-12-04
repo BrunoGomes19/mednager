@@ -225,7 +225,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
         <br>
         <br>
         <!--grafico nr consultas -->
-        <canvas id="bar-chart" width="1700" height="500"></canvas>
+        <canvas id="bar-chart" width="1700" height="400"></canvas>
         <script>
           new Chart(document.getElementById("bar-chart"), {
     type: 'bar',
@@ -244,6 +244,17 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
       title: {
         display: true,
         text: 'Número de consultas esta semana'
+      },
+      scales: {
+        yAxes: [{
+            display: true,
+            ticks: {
+                suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                // OR //
+                beginAtZero: true, // minimum value will be 0.
+                stepSize: 1   
+            }
+        }]
       }
     }
 });
@@ -290,6 +301,17 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
       title: {
         display: true,
         text: 'Número de medicamentos por titular AIM'
+      },
+      scales: {
+        yAxes: [{
+            display: true,
+            ticks: {
+                suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                // OR //
+                beginAtZero: true, // minimum value will be 0.
+                stepSize: 5   
+            }
+        }]
       }
     }
 });

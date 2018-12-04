@@ -261,7 +261,7 @@ background: #999;
                         </li>
 
                         <li>
-                            <a href="../estatisticas/estatisticasMedico.php">
+                            <a href="../estatisticas/medEstatisticas.php">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
 
@@ -328,7 +328,7 @@ background: #999;
                         </li>
 
                         <li>
-                            <a href="../estatisticas/estatisticasMedico.php">
+                            <a href="../estatisticas/medEstatisticas.php">
                                 <i class="fa fa-signal"></i>Estatísticas</a>
                         </li>
 
