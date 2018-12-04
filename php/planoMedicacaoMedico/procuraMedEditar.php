@@ -85,7 +85,7 @@ $codMedicamento = $row['codMedicamento'];
 
 echo '
   <tr class="spacer"></tr>
-  <tr class="tr-shadow" style="text-align:center;" onclick="guardaMedEditar('.$codMedicamento.',\'' . str_replace("'", "\'", $nomeMedicamento) . '\');">
+  <tr class="tr-shadow" style="text-align:center;" id="HoverTR" onclick="guardaMedEditar('.$codMedicamento.',\'' . str_replace("'", "\'", $nomeMedicamento) . '\');">
     ';
 
       echo '

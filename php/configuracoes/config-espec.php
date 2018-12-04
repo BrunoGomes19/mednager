@@ -11,6 +11,40 @@ $conn->close();
 
 <meta charset="UTF-8">
 
+<style>
+
+/* Box styles */
+.myBox {
+border: none;
+padding: 5px;
+font: 17px/24px ;
+width: 200px;
+max-height: 600px;
+overflow: scroll;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+width: 12px;
+height: 12px;
+}
+
+::-webkit-scrollbar-track {
+background: #f5f5f5;
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+border-radius: 10px;
+background: #ccc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #999;
+}
+
+</style>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="../../assets/js/bootstrap.min.js"></script>
 
@@ -218,7 +252,7 @@ window.setInterval(function() {
                             <h3 id="campo" class="title-5 m-b-35"></h3>
 
                               <input class="form-control input-lg" type="text" id="nomeCampo" placeholder="Nome do campo" required /><br>
-                              <input class="form-control" type="text" id="unidadeCampo"  placeholder="Unidade do campo" required /><br>
+                              <input class="form-control" type="text" id="unidadeCampo"  maxlength="20" placeholder="Unidade do campo" required /><br>
                               <br>
                               <input type="input" value="Adicionar"  id="addCampo" class="btn btn-warning" onclick="registaCampo()">
 
@@ -226,7 +260,9 @@ window.setInterval(function() {
                         </div>
                     </div>
                 </div>
-                <div style="float:right;width:50%;height:600px">
+
+
+                <div style="float:right;width:50%;height:600px" class="myBox">
                     <div class="row">
 
                         <div class="col-md-12" id="escolhaEsp">

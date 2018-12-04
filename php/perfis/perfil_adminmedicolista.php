@@ -32,10 +32,24 @@ if ($result->num_rows > 0) {
 
   $sobremim = $row["formacaoCarreira"];
 
+  $LEIComprador = $row["LEIComprador"];
+
   }
 } else {
   echo "Error";
 }
+
+$sql55 = "select * from comprador where leiComprador=$LEIComprador and ccComprador = $cc and associacao = 2;";
+$result2 = $conn->query($sql55);
+
+if ($result2->num_rows == 0) {
+
+  echo '<script>window.location.replace("../logins/logout.php");</script>';
+
+  exit();
+
+}
+
 $conn->close();
 
 ?>

@@ -34,7 +34,7 @@ session_start();
     }
   }
 
-$sql="SELECT * FROM comprador WHERE NIFComprador like '".$q."%' and comprador.codPermissao=2 and comprador.LEIComprador = $LEIComprador ORDER BY nomeComprador;";
+$sql="SELECT * FROM comprador WHERE NIFComprador like '".$q."%' and comprador.codPermissao=2 and comprador.associacao = 2 and comprador.LEIComprador = $LEIComprador ORDER BY nomeComprador;";
 $result = mysqli_query($con,$sql);
 
 echo '
@@ -73,7 +73,7 @@ echo '
   <tr class="spacer"></tr>
   <tr class="tr-shadow">
       <td>
-        
+
       </td>
       <td>'.$nome.'</td>
       <td>
@@ -85,8 +85,7 @@ echo '
 
               <button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
                   <i class="fa fa-user"></i>&nbsp;Perfil</button>
-                  <button type="button" class="btn btn-outline-danger">
-                       <i class="fa fa-trash"></i>&nbsp; Remover</button>
+                  
 
       </td>
   </tr>
