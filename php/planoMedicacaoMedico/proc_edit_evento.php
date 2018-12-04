@@ -49,6 +49,9 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 
 	$resultado_events = mysqli_query($conn, $result_events);
 
+	$notif = "UPDATE alertaUtente set estadoUtente = 0 where planoMedicacao_id = $id";
+
+	$query = mysqli_query($conn, $notif);
 	//Verificar se alterou no banco de dados através "mysqli_affected_rows"
 
 //	$_SESSION['msg'] = $msg2;
@@ -113,17 +116,10 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 					$result_events = "INSERT INTO planomedicacao (id,title, color, start, end, observacoes, codComprador, ccUtente,codMedicamento) VALUES (NULL,'$title', '$color', '$start_sem_barra', '$end_sem_barra', '$observacoes', $codComprador, $ccUtente, $codMedicamento)";
 				$conn->query($result_events);
 
-				$qualplano = "SELECT id from planomedicacao where codComprador = $codComprador and ccUtente = $ccUtente and codMedicamento = $codMedicamento and start = '$end_sem_barra' and end = '$end_sem_barra'";
-				$resplano = $conn->query($qualplano);
-				while ($row = $resplano->fetch_assoc()) {
-				    $id =  $row['id'];
-				    $notif = "INSERT INTO alertautente (codAlertaUtente, descriAlertaUtente, estadoUtente, ccUtente, servico_id, planoMedicacao_id, idAssoc, dataAlertaUtente) VALUES (NULL, NULL, 0, $ccUtente, null, $id, null, now())";
-				    $query = mysqli_query($conn,$notif);
-				}
-
-
 
 				}
+
+
 
 					$_SESSION['msg'] = "<div class='alert alert-primary' role='alert'>Intervenção registada com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 					//echo "<script> alert('OK');</script>";

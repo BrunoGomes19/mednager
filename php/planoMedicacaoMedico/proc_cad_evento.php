@@ -43,16 +43,9 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 	$data_sem_barra = implode("-", $data_sem_barra);
 	$end_sem_barra = $data_sem_barra . " " . $hora;
 
-	$result_events = "INSERT INTO planomedicacao (id,title, color, start, end, observacoes, codComprador, ccUtente,codMedicamento,confirmacao) VALUES (NULL,'$title', '$color', '$start_sem_barra', '$end_sem_barra', '$observacoes', $codComprador, $ccUtente,$codMedicamento,0)";
+	$result_events = "INSERT INTO planomedicacao (id,title, color, start, end, observacoes, codComprador, ccUtente,codMedicamento,confirmacaoplano) VALUES (NULL,'$title', '$color', '$start_sem_barra', '$end_sem_barra', '$observacoes', $codComprador, $ccUtente,$codMedicamento,0)";
 
 
-	$qualplano = "SELECT id from planomedicacao where codComprador = $codComprador and ccUtente = $ccUtente and codMedicamento = $codMedicamento and start = '$start_sem_barra' and end = '$end_sem_barra'";
-	$resplano = $conn->query($qualplano);
-	while ($row = $resplano->fetch_assoc()) {
-			$id =  $row['id'];
-			$notif = "INSERT INTO alertautente (codAlertaUtente, descriAlertaUtente, estadoUtente, ccUtente, servico_id, planoMedicacao_id, idAssoc, dataAlertaUtente) VALUES (NULL, NULL, 0, $ccUtente, null, $id, null, now())";
-			$query = mysqli_query($conn,$notif);
-	}
 
 //	$resultado_events = mysqli_query($conn, $result_events);
 
@@ -61,6 +54,15 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 	//if(mysqli_insert_id($conn)){
 
 	if ($conn->query($result_events) === TRUE) {
+
+
+		$last_id = $conn->insert_id;
+
+
+				$notif = "INSERT INTO alertautente (codAlertaUtente, descriAlertaUtente, estadoUtente, ccUtente, servico_id, planoMedicacao_id, idAssoc, dataAlertaUtente) VALUES (NULL, NULL, 0, $ccUtente, null, $last_id, null, now())";
+
+				$query = mysqli_query($conn,$notif);
+
 		$_SESSION['msg'] = "<div class='alert alert-primary' role='alert'>Intervenção registada com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 		//echo "<script> alert('OK');</script>";
 
@@ -116,19 +118,18 @@ for($i=1;$i<=$numVezes;$i++){
 	$result_events = "INSERT INTO planomedicacao (id,title, color, start, end, observacoes, codComprador, ccUtente,codMedicamento,confirmacaoplano) VALUES (NULL,'$title', '$color', '$start_sem_barra', '$end_sem_barra', '$observacoes', $codComprador, $ccUtente,$codMedicamento,0)";
 $conn->query($result_events);
 
-$qualplano = "SELECT id from planomedicacao where codComprador = $codComprador and ccUtente = $ccUtente and codMedicamento = $codMedicamento and start = '$start_sem_barra' and end = '$end_sem_barra'";
-$resplano = $conn->query($qualplano);
-while ($row = $resplano->fetch_assoc()) {
-		$id =  $row['id'];
-		$notif = "INSERT INTO alertautente (codAlertaUtente, descriAlertaUtente, estadoUtente, ccUtente, servico_id, planoMedicacao_id, idAssoc, dataAlertaUtente) VALUES (NULL, NULL, 0, $ccUtente, null, $id, null, now())";
-		$query = mysqli_query($conn,$notif);
-}
-
 $start_sem_barra = date('Y-m-d H:i:s', strtotime($start_sem_barra. ' + '.$horas.' hour'));
 $end_sem_barra = date('Y-m-d H:i:s', strtotime($end_sem_barra. ' + '.$horas.' hour'));
 
 
 }
+
+$last_id = $conn->insert_id;
+		$notif = "INSERT INTO alertautente (codAlertaUtente, descriAlertaUtente, estadoUtente, ccUtente, servico_id, planoMedicacao_id, idAssoc, dataAlertaUtente) VALUES (NULL, NULL, 0, $ccUtente, null, $last_id, null, now())";
+
+		$query = mysqli_query($conn,$notif);
+
+
 
 	$_SESSION['msg'] = "<div class='alert alert-primary' role='alert'>Intervenção registada com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 	//echo "<script> alert('OK');</script>";
