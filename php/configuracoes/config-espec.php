@@ -155,6 +155,15 @@ if (isset($_SESSION['msgCampo'])) {
     unset($_SESSION['msgCampo']);
 }
 ?>
+<script>
+
+window.setInterval(function() {
+ $(".alert").fadeTo(500, 0).slideUp(500, function(){
+     $(this).remove();
+ });
+}, 4000);
+
+</script>
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
@@ -290,15 +299,6 @@ if (isset($_SESSION['msgCampo'])) {
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 
-    <script>
-
-    window.setTimeout(function() {
-     $(".alert").fadeTo(500, 0).slideUp(500, function(){
-         $(this).remove();
-     });
- }, 6000);
-
-</script>
 
 </body>
 
