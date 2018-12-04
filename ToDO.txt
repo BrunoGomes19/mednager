@@ -18,11 +18,11 @@ nr utentes totais e nr utentes por sexo
 nr serviços por local e por especialidade
 
 MEDICO
-nr utentes totais e nr utentes por sexo
-nr serviços por local e por especialidade
+nr utentes totais e nr utentes por sexo - já tá 
+nr serviços por local e por especialidade - só local 
 
 UTENTE
-nr de consultas por mes
+nr de consultas por mes - já tá 
 
 Quando pedir uma associação, ficar a laranja, verde para associar e vermelho já associado - BRUNO FAZ
 
@@ -30,10 +30,10 @@ Não deixar os médicos/admins verem as infos dos utentes sem estarem associados
 
 Imprimir
 
-Terminar os gráficos (Médicos associados com o lei - carolina)
+Terminar os gráficos (Médicos associados com o lei - carolina) - já tá
 
 Terminar a configuração de campos nas intervenções
 
-Criar um modal para registar um utente nas intervenções
+Criar um modal para registar um utente nas intervenções - já tá 
 
 PATRÍCIA preciso de tirar dos inserts do cad e do edit e de mudar a bd
