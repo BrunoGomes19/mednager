@@ -347,7 +347,7 @@ function notifIntervencoes(x, idAssoc){
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-notifications"></i>
                                         <?php $email = $_SESSION['email'];
-                                        $sqlnotifs = "SELECT codAlertaComprador, descriAlertaComprador, alertaComprador.estadoComprador, alertaComprador.codComprador, dataAlertaComprador, alertaComprador.idAssoc, confirmacao, associacao FROM alertaComprador, comprador, associados WHERE Comprador.codComprador = alertaComprador.codComprador and associados.idAssoc = alertaComprador.idAssoc and emailComprador ='".$email."' AND alertaComprador.estadoComprador=0";
+                                        $sqlnotifs = "SELECT codAlertaComprador, descriAlertaComprador, alertaComprador.estadoComprador, alertaComprador.codComprador, dataAlertaComprador, alertaComprador.idAssoc, confirmacao, associacao FROM alertaComprador, comprador, associados WHERE Comprador.codComprador = alertaComprador.codComprador and associados.idAssoc = alertaComprador.idAssoc and emailComprador ='".$email."' AND alertaComprador.estadoComprador=0 ORDER BY dataAlertaComprador DESC";
                                         $result2 = $conn->query($sqlnotifs);
 
                                         //querys diferentes, provavelmente um union

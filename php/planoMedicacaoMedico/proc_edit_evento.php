@@ -49,7 +49,7 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 
 	$resultado_events = mysqli_query($conn, $result_events);
 
-	$notif = "UPDATE alertaUtente set estadoUtente = 0 where planoMedicacao_id = $id";
+	$notif = "UPDATE alertaUtente set estadoUtente = 0, dataAlertaUtente  = now() where planoMedicacao_id = $id";
 
 	$query = mysqli_query($conn, $notif);
 	//Verificar se alterou no banco de dados através "mysqli_affected_rows"

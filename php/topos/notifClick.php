@@ -3,7 +3,7 @@ include("header.php");
 $x = $_GET['op'];
 
 
-if($x == 1){ //int
+if($x == 1){ //int utente
 
   $servico = $_GET['servico'];
   echo "<script> alert($servico);</script>";

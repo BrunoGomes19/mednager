@@ -70,6 +70,10 @@ if(!empty($id) && !empty($title) && !empty($color) && !empty($start) && !empty($
 			$affected=true;
   }
 
+	$notif = "UPDATE alertaUtente set estadoUtente = 0, dataAlertaUtente = now() where servico_id = $id";
+
+	$query = mysqli_query($conn, $notif);
+
 
 
 

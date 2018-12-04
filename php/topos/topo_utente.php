@@ -359,7 +359,7 @@ background: #999;
                                         <?php
                                         $email = $_SESSION['email'];
 
-                                        $sqlnotifs = "SELECT codAlertaUtente, descriAlertaUtente, estadoUtente, alertaUtente.ccUtente, servico_id, planoMedicacao_id, idAssoc, dataAlertaUtente FROM alertautente, utente WHERE utente.ccUtente = alertaUtente.ccUtente and emailUtente ='".$email."' AND estadoUtente=0";
+                                        $sqlnotifs = "SELECT codAlertaUtente, descriAlertaUtente, estadoUtente, alertaUtente.ccUtente, servico_id, planoMedicacao_id, idAssoc, dataAlertaUtente FROM alertautente, utente WHERE utente.ccUtente = alertaUtente.ccUtente and emailUtente ='".$email."' AND estadoUtente=0 ORDER BY dataAlertaUtente DESC";
                                         $result2 = $conn->query($sqlnotifs);
 
                                         if ($result2->num_rows > 0) {

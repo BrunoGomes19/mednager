@@ -145,6 +145,12 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 
 		}
 
+		$notif = "INSERT INTO alertautente (codAlertaUtente, descriAlertaUtente, estadoUtente, ccUtente, servico_id, planoMedicacao_id, idAssoc, dataAlertaUtente) VALUES (NULL, NULL, 0, $ccUtente, $last_id, null, null, now())";
+
+		$query = mysqli_query($conn,$notif);
+
+
+
 		$_SESSION['msg'] = "<div class='alert alert-primary' role='alert'>Intervenção registada com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 		//echo "<script> alert('OK');</script>";
 
