@@ -15,7 +15,7 @@ $sqlextras = "select * from servico, registodados, registocampos where servico.i
 
           echo '
 
-          <dt class="col-sm-3">'.$nomeCampo.'';
+          <dt style="max-width:100%" class="col-sm-3">'.$nomeCampo.'';
 
           if($unidadeCampo==""){
 
