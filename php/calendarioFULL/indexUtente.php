@@ -153,6 +153,17 @@ $resultesp25 = $conn->query($sqlesp25);
 
     <script>
 
+    function chamaSelect(idintervencao){
+      var xmlhttp = new XMLHttpRequest();
+       xmlhttp.onreadystatechange = function() {
+           if (this.readyState == 4 && this.status == 200) {
+               document.getElementById("selectInt").innerHTML = this.responseText;
+           }
+       };
+       xmlhttp.open("GET", "selectIntervencao?idintervencao=" + idintervencao, true);
+       xmlhttp.send();
+    }
+
         $(document).ready(function () {
 
             $('#calendar').fullCalendar({
@@ -197,8 +208,6 @@ $resultesp25 = $conn->query($sqlesp25);
                     $('#visualizar #start').text(event.start.format('DD/MM/YYYY HH:mm:ss'));
                     $('#visualizar #end').text(event.end.format('DD/MM/YYYY HH:mm:ss'));
 
-
-
                     $('#visualizar #pvpServico').text(event.pvpServico);
                     $('#visualizar #nSala').text(event.nSala);
                     $('#visualizar #observacoes').text(event.observacoes);
@@ -207,7 +216,8 @@ $resultesp25 = $conn->query($sqlesp25);
                     $('#visualizar #codTipoServico').text(event.descriTipoServico);
                     $('#visualizar #codLocal').text(event.descriLocal);
                     $('#visualizar #color').text(event.color);
-
+                    $('#visualizar #codComprador').text(event.codComprador);
+                    chamaSelect(event.id);
 
                     //Editar
 
@@ -284,6 +294,8 @@ $resultesp25 = $conn->query($sqlesp25);
   overflow-y:auto;
 }</style>
 
+
+
 <!--formden.js communicates with FormDen server to validate fields and submit via AJAX -->
 <script type="text/javascript" src="https://formden.com/static/cdn/formden.js"></script>
 
@@ -355,6 +367,42 @@ $resultesp25 = $conn->query($sqlesp25);
                                       <dt class="col-sm-3">Local</dt>
                                       <dd id="codLocal" class="col-sm-9"></dd>
 
+
+                                      <div style="width:99%;" id="selectInt">
+                                      </div>
+                                      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
                                   </dl>
 
                               </div>
@@ -414,7 +462,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Preço (€)</label>
-                                          <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico2" placeholder="Preço da intervenção (€)">
+                                          <input type="number" min="0" step="0.01" class="form-control" name="pvpServico" id="pvpServico2" placeholder="Preço da intervenção (€)">
                                       </div>
                                   </div>
                                   <div class="form-group">
@@ -570,7 +618,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Preço (€)</label>
-                                          <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção (€)" required>
+                                          <input type="number" min="0" step="0.01" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção (€)" required>
                                       </div>
                                   </div>
                                   <div class="form-group">
