@@ -150,6 +150,37 @@ if($_SESSION['permissao'] != 3){
         height: 100%;
     }
 
+
+/* Box styles */
+.myBox {
+border: none;
+padding: 5px;
+font: 17px/24px trebuchet ms;
+width: 200px;
+max-height: 600px;
+overflow: scroll;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+width: 12px;
+height: 12px;
+}
+
+::-webkit-scrollbar-track {
+background: #f5f5f5;
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+border-radius: 10px;
+background: #ccc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #999;
+}
+
     </style>
 
 
@@ -342,7 +373,7 @@ if($_SESSION['permissao'] != 3){
 
                                               echo "$quantidadeNotif</span>";
                                             }
-                                                  echo" <div class='notifi-dropdown js-dropdown'>";
+                                                  echo" <div class='notifi-dropdown js-dropdown myBox' >";
                                             while($row = $result2->fetch_assoc()) {
 
                                                 $descri = $row['descriAlertaUtente'];
