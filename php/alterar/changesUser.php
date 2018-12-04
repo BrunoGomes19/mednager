@@ -1,43 +1,7 @@
 <?php
-include('../topos/topo_medico.php');
+include('../topos/topo_utente.php');
 
 ?>
-
-<!--
-<script>
-function validatePassword() {
-var velhapass,novapass,novapassConfirmacao,output = true;
-
-velhapass = document.frmChange.velhapass;
-novapass = document.frmChange.novapass;
-novapassConfirmacao = document.frmChange.novapassConfirmacao;
-
-if(!velhapass.value) {
-  velhapass.focus();
-  document.getElementById("velhapass").innerHTML = "required";
-  output = false;
-}
-else if(!novapass.value) {
-  novapass.focus();
-  document.getElementById("novapass").innerHTML = "required";
-  output = false;
-}
-else if(!novapassConfirmacao.value) {
-  novapassConfirmacao.focus();
-  document.getElementById("novapassConfirmacao").innerHTML = "required";
-  output = false;
-}
-if(novapass.value != novapassConfirmacao.value) {
-  novapass.value="";
-  novapassConfirmacao.value="";
-  novapass.focus();
-  document.getElementById("novapassConfirmacao").innerHTML = "not same";
-  output = false;
-}   
-return output;
-}
-</script>
--->
 
 
             <!-- MAIN CONTENT-->
@@ -46,11 +10,21 @@ return output;
 <div class="content" style="padding-top:8%;"> 
   <div class="content">
     <div class="col-lg-6">
+
+    <?php
+
+      @session_start();
+
+      if (isset($_SESSION['erro'])) {
+        echo $_SESSION['erro'];
+        unset($_SESSION['erro']);
+      }
+      ?>
     <div class="card">
       <div class="card-header">
           <strong>Alterar</strong> Password
       </div>
-      <form action="alterarpass.php" method="post" class="form-horizontal" name="frmChange" onSubmit="return validatePassword()">
+      <form action="alterarpassUser.php" method="post" class="form-horizontal" name="frmChange" onSubmit="return validatePassword()">
         <div class="card-body card-block">
             
           <div class="row form-group">

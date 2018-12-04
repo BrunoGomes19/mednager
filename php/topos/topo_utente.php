@@ -447,8 +447,8 @@ if($_SESSION['permissao'] != 3){
                                                         <i class="zmdi zmdi-account"></i>Perfil</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Configurações</a>
+                                                    <a href="../alterar/changesUser.php">
+                                                        <i class="zmdi zmdi-settings"></i>Definições</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
