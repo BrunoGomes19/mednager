@@ -26,9 +26,9 @@ include('../topos/header.php');
   
 
 
-  if ( md5($velhapass) == $password) {
-    mysqli_query($conn, "UPDATE comprador set passComprador='" . md5($novapass) . "' WHERE emailComprador='$emailComprador'");
+  if ( md5($velhapass) == $password) {    
     if($novapass == $novapassConfirmacao){ 
+      mysqli_query($conn, "UPDATE comprador set passComprador='" . md5($novapass) . "' WHERE emailComprador='$emailComprador'");
 
       $_SESSION['msg'] = '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>

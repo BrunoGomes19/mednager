@@ -330,7 +330,7 @@ if($_SESSION['permissao'] != 1){
                                             <div class="account-dropdown__body">
 
                                                 <div class="account-dropdown__item">
-                                                    <a href="../alterar/changesUser.php">
+                                                    <a href="../alterar/changesAdmin.php">
                                                         <i class="zmdi zmdi-settings"></i>Definições</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
