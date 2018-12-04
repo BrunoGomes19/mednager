@@ -24,7 +24,7 @@ $codLocal = filter_input(INPUT_POST, 'codLocal', FILTER_SANITIZE_NUMBER_INT);
 
 $nomeCampo = filter_input(INPUT_POST, 'nomeCampo', FILTER_SANITIZE_STRING);
 
-$quantidade = 2;
+
 
 
 
@@ -125,19 +125,17 @@ if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty(
 
 	if ($conn->query($result_events) === TRUE) {
 
-	echo "a";
+	$last_id = $conn->insert_id;
+
+	$quantidade = filter_input(INPUT_POST, 'quantidade', FILTER_SANITIZE_NUMBER_INT);
 
 		for($i=1;$i<=$quantidade;$i++){
-
-			$last_id = $conn->insert_id;
 
 			$valor = filter_input(INPUT_POST, 'extra'.$i, FILTER_SANITIZE_NUMBER_INT);
 
 			$cod = filter_input(INPUT_POST, 'cod'.$i, FILTER_SANITIZE_NUMBER_INT);
 
 			$sql9 = "INSERT INTO registodados VALUES (NULL, $valor , $last_id, $cod)";
-
-			echo $sql9;
 
 			if ($conn->query($sql9) === TRUE) {
 			    echo "New record created successfully";

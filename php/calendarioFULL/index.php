@@ -417,7 +417,7 @@ if ($resultlei->num_rows > 0) {
             while($row = $resultlei2->fetch_assoc()) {
 
                 $codCompLei = $row["codComprador"];
-                $sqlcampo = "SELECT DISTINCT codRegistoCampos, nomeCampo, unidadeCampo, codEspecialidade, codComprador from registoCampos where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' ) and codComprador = $codCompLei ";
+                $sqlcampo = "SELECT DISTINCT codRegistoCampos, nomeCampo, unidadeCampo, codEspecialidade, codComprador from registoCampos where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' ) and codComprador = $codCompLei";
                 $resultcampo = $conn->query($sqlcampo);
             }
         } else {
@@ -731,6 +731,42 @@ if ($resultlei->num_rows > 0) {
                                       <dd id="codTipoServico" class="col-sm-9"></dd>
                                       <dt class="col-sm-3">Local</dt>
                                       <dd id="codLocal" class="col-sm-9"></dd>
+                                      <?php
+
+                                      $sqlextras = "SELECT DISTINCT registodados.codRegistoCampos, nomeCampo, unidadeCampo, codEspecialidade, codComprador, valorDados from registoCampos,registodados where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' ) and codComprador = $codCompLei and registodados.codRegistoCampos = registocampos.codRegistoCampos";
+                                        $resultextras = $conn->query($sqlextras);
+
+                                        if ($resultextras->num_rows > 0) {
+                                            // output data of each row
+                                            while($row = $resultextras->fetch_assoc()) {
+                                                $nomeCampo = $row['nomeCampo'];
+                                                $valorDados = $row['valorDados'];
+                                                $unidadeCampo = $row['unidadeCampo'];
+
+                                                echo '
+
+                                                <dt class="col-sm-3">'.$nomeCampo.'';
+
+                                                if($unidadeCampo==""){
+
+                                                }else{
+
+                                                  echo " ($unidadeCampo)";
+
+                                                }
+
+
+                                                echo '</dt>
+                                                <dd class="col-sm-9">'.$valorDados.'</dd>
+
+                                                ';
+
+                                            }
+                                        } else {
+                                            echo "0 results";
+                                        }
+
+                                       ?>
 
                                   </dl>
                                   <div style="display:block" id="tempo">
@@ -794,7 +830,7 @@ if ($resultlei->num_rows > 0) {
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Preço (€)</label>
-                                          <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico2" placeholder="Preço da intervenção (€)">
+                                          <input type="number" min="0" step="0.01" class="form-control" name="pvpServico" id="pvpServico2" placeholder="Preço da intervenção (€)">
                                       </div>
                                   </div>
                                   <div class="form-group">
@@ -872,6 +908,72 @@ if ($resultlei->num_rows > 0) {
                                       </div>
                                   </div>
 
+                                  <!-- DINAMICO-->
+                                  <?php
+                                    $a = 0;
+                                  if($leiMed != null){
+                                    $sqlextrasEditar = "SELECT DISTINCT registodados.codRegistoCampos, nomeCampo, unidadeCampo, codEspecialidade, codComprador, valorDados from registoCampos,registodados where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' ) and codComprador = $codCompLei and registodados.codRegistoCampos = registocampos.codRegistoCampos";
+                                      $resultextrasEditar = $conn->query($sqlextrasEditar);
+
+                                  if ($resultextrasEditar->num_rows > 0) {
+                                    // output data of each row
+                                    while($row = $resultextrasEditar->fetch_assoc()) {
+
+                                      $nomeCampo = $row['nomeCampo'];
+
+                                      $codRegistoCampo = $row['codRegistoCampos'];
+
+                                      $unidadeCampo = $row['unidadeCampo'];
+
+                                      $valorDados = $row['valorDados'];
+
+                                      $a++;
+
+                                        echo "<div class='form-group'>
+                                            <div class='form-group col-md-12'>
+                                                <label>".$nomeCampo." ";
+
+                                                 if($unidadeCampo==""){
+
+                                                 }else{
+
+                                                   echo " ($unidadeCampo)";
+
+                                                 }
+
+                                                   echo "</label>
+                                                <input type='text' class='form-control' name='extraEditar$a' value='$valorDados' required>
+                                                <input type='hidden' name='codEditar$a' value='".$codRegistoCampo."'>
+                                            </div>
+                                        </div>";
+
+                                    }
+
+                                    $sqlq = "SELECT DISTINCT *, count(*) as quantidade from registoCampos where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' ) and codComprador = $codCompLei ";
+                                      $resultq = $conn->query($sqlq);
+
+                                      if ($resultq->num_rows > 0) {
+                                          // output data of each row
+                                          while($row = $resultq->fetch_assoc()) {
+
+                                            $quantidade = $row['quantidade'];
+
+                                            echo "<input type='hidden' name='quantidade' value='$quantidade'>";
+
+                                            echo "<div class='form-group'>
+                                                <div class='form-group col-md-12'>
+
+
+
+                                                </div>
+                                            </div>";
+
+                                          }
+                                      }
+
+                                  }
+                                }
+                                  ?>
 
                                       <input type="hidden" name="idServico" id="idServico" value="0">
                                       <div class="form-group col-md-12">
@@ -950,7 +1052,7 @@ if ($resultlei->num_rows > 0) {
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Preço (€)</label>
-                                          <input type="decimal" min="0" step="any" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção (€)" required>
+                                          <input type="number" min="0" step="0.01" class="form-control" name="pvpServico" id="pvpServico" placeholder="Preço da intervenção (€)" required>
                                       </div>
                                   </div>
                                   <div class="form-group">
@@ -993,6 +1095,12 @@ if ($resultlei->num_rows > 0) {
                                          </select>
                                       </div>
                                   </div>
+
+                                  <?php
+
+
+
+                                   ?>
 
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
@@ -1037,21 +1145,28 @@ if ($resultlei->num_rows > 0) {
                                     // output data of each row
                                     while($row = $resultcampo->fetch_assoc()) {
 
-
-
-
-
                                       $nomeCampo = $row['nomeCampo'];
 
                                       $codRegistoCampo = $row['codRegistoCampos'];
 
+                                      $unidadeCampo = $row['unidadeCampo'];
 
                                       $a++;
 
                                         echo "<div class='form-group'>
                                             <div class='form-group col-md-12'>
-                                                <label>".$nomeCampo.$a."</label>
-                                                <input type='text' class='form-control' name='extra$a' placeholder='extra$a' required>
+                                                <label>".$nomeCampo." ";
+
+                                                 if($unidadeCampo==""){
+
+                                                 }else{
+
+                                                   echo " ($unidadeCampo)";
+
+                                                 }
+
+                                                   echo "</label>
+                                                <input type='text' class='form-control' name='extra$a' placeholder='$nomeCampo' required>
                                                 <input type='hidden' name='cod$a' value='".$codRegistoCampo."'>
                                             </div>
                                         </div>";
@@ -1066,6 +1181,8 @@ if ($resultlei->num_rows > 0) {
                                           while($row = $resultq->fetch_assoc()) {
 
                                             $quantidade = $row['quantidade'];
+
+                                            echo "<input type='hidden' name='quantidade' value='$quantidade'>";
 
                                             echo "<div class='form-group'>
                                                 <div class='form-group col-md-12'>

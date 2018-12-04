@@ -33,14 +33,10 @@ $findDataHora = false;
 
 $sql = "SELECT * FROM servico where id!=$id and (ccUtente=$ccUtente or codComprador=$codComprador) and ((('$start' between servico.start and servico.end) OR ('$end' between servico.start and servico.end)) or ((servico.start between '$start' and '$end') OR (servico.end between '$start' and '$end')));";
 
-echo $sql;
-
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
-
-			//echo "<script> alert('Erro - datas invalidas');</script>";
 
 			$findDataHora = true;
 			$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Já existe uma intervenção a decorrer nesse dia e hora!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
@@ -64,21 +60,56 @@ if(!empty($id) && !empty($title) && !empty($color) && !empty($start) && !empty($
 	$data_sem_barra = implode("-", $data_sem_barra);
 	$end_sem_barra = $data_sem_barra . " " . $hora;
 
+	$affected = false;
+
+
 	$result_events = "UPDATE servico SET title='$title', color='$color', start='$start_sem_barra', end='$end_sem_barra', pvpServico = $pvpServico, nSala = $nSala, codComprador = $codComprador, ccUtente = $ccUtente, codTipoServico = $codTipoServico, codLocal = $codLocal, observacoes = '$observacoes'  WHERE id='$id'";
-	//$msg2 = $result_events;
 
 	$resultado_events = mysqli_query($conn, $result_events);
-
-	//Verificar se alterou no banco de dados através "mysqli_affected_rows"
-
-//	$_SESSION['msg'] = $msg2;
 	if(mysqli_affected_rows($conn)){
-		$_SESSION['msg'] = "<div class='alert alert-primary' role='alert'>Intervenção editada com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+			$affected=true;
+  }
+
+
+
+
+	$quantidade = filter_input(INPUT_POST, 'quantidade', FILTER_SANITIZE_NUMBER_INT);
+
+	if($quantidade>0){
+
+		for($i=1;$i<=$quantidade;$i++){
+
+			$valor = filter_input(INPUT_POST, 'extraEditar'.$i, FILTER_SANITIZE_NUMBER_INT);
+
+			$cod = filter_input(INPUT_POST, 'codEditar'.$i, FILTER_SANITIZE_NUMBER_INT);
+
+			$sqlExtrasEditar = "UPDATE registodados SET valorDados=$valor WHERE codServico = $id and codRegistoCampos= $cod";
+
+		//	echo $sqlExtrasEditar;
+
+				/*if ($conn->query($sqlExtrasEditar) === TRUE) {
+						echo "Record updated successfully2";
+				} else {
+						echo "Error updating record2: " . $conn->error;
+				}*/
+				mysqli_query($conn, $sqlExtrasEditar);
+				if(mysqli_affected_rows($conn)){
+						$affected=true;
+				}
+		}
+	}
+
+	//echo mysqli_affected_rows($conn);
+
+	if($affected){
+
+  	$_SESSION['msg'] = "<div class='alert alert-primary' role='alert'>Intervenção editada com Sucesso<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 		header("Location: index.php");
 
 		exit();
 
 	}else{
+
 		$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Não fez nenhuma alteração à intervenção!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 		header("Location: index.php");
 
