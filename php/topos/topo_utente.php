@@ -354,7 +354,7 @@ background: #999;
                                         <?php
                                         $email = $_SESSION['email'];
 
-                                        $sqlnotifs = "SELECT codAlertaUtente, descriAlertaUtente, estadoUtente, alertaUtente.ccUtente, servico_id, planoMedicacao_id, alertaUtente.idAssoc, dataAlertaUtente, nomeComprador FROM alertautente, utente, associados, comprador WHERE utente.ccUtente = alertaUtente.ccUtente AND utente.ccUtente=associados.utente_ccUtente AND associados.comprador_codComprador=comprador.codComprador AND emailUtente ='".$email."' AND estadoUtente=0 ORDER BY dataAlertaUtente DESC";
+                                        $sqlnotifs = "SELECT codAlertaUtente, descriAlertaUtente, estadoUtente, alertaUtente.ccUtente, servico_id, planoMedicacao_id, alertaUtente.idAssoc, dataAlertaUtente, nomeComprador FROM alertautente, utente, associados, comprador WHERE utente.ccUtente = alertaUtente.ccUtente AND utente.ccUtente=associados.utente_ccUtente AND associados.comprador_codComprador=comprador.codComprador AND alertautente.idAssoc = associados.idAssoc and emailUtente ='".$email."' AND estadoUtente=0 ORDER BY dataAlertaUtente DESC";
                                         $result2 = $conn->query($sqlnotifs);
 
                                         if ($result2->num_rows > 0) {
