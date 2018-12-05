@@ -37,7 +37,7 @@ if ($result->num_rows > 0) {
 
 
 
-$sql3 = "SELECT distinct count(*) as quantidade from associados where associados.comprador_codComprador=$codComprador;";
+$sql3 = "SELECT distinct count(*) as quantidade from associados where associados.comprador_codComprador=$codComprador and confirmacao=1;";
 $result = $conn->query($sql3);
 
 if ($result->num_rows > 0) {
