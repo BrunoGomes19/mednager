@@ -211,7 +211,8 @@ $resultesp25 = $conn->query($sqlesp25);
                     $('#visualizar #pvpServico').text(event.pvpServico);
                     $('#visualizar #nSala').text(event.nSala);
                     $('#visualizar #observacoes').text(event.observacoes);
-                    $('#visualizar #ccUtente').text(event.ccUtente);
+                    $('#visualizar #ccComprador').text(event.ccComprador);
+                    $('#visualizar #nomeComprador').text(event.nomeComprador);
                     //ver How do I get the text value of a selected option?
                     $('#visualizar #codTipoServico').text(event.descriTipoServico);
                     $('#visualizar #codLocal').text(event.descriLocal);
@@ -360,8 +361,10 @@ $resultesp25 = $conn->query($sqlesp25);
                                       <dd id="nSala" class="col-sm-9"></dd>
                                       <dt class="col-sm-3">Observações</dt>
                                       <dd id="observacoes" class="col-sm-9"></dd>
-                                      <dt class="col-sm-3">CC Utente</dt>
-                                      <dd id="ccUtente" class="col-sm-9"></dd>
+                                      <dt class="col-sm-3">Nome do médico</dt>
+                                      <dd id="nomeComprador" class="col-sm-9"></dd>
+                                      <dt class="col-sm-3">CC do médico</dt>
+                                      <dd id="ccComprador" class="col-sm-9"></dd>
                                       <dt class="col-sm-3">Tipo de intervenção</dt>
                                       <dd id="codTipoServico" class="col-sm-9"></dd>
                                       <dt class="col-sm-3">Local</dt>
