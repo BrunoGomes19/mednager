@@ -191,7 +191,12 @@ a:hover, a{
     <!-- Main CSS-->
     <link href="../../Interior/css/themeProcuraUtente.css" rel="stylesheet" media="all">
 
-
+    <style>
+    #infosModalUtente{
+        max-height: calc(100vh - 200px);
+        overflow-y: auto;
+    }
+</style>
 
 
 </head>
@@ -203,7 +208,79 @@ a:hover, a{
     <div class="modal-dialog" role="document">
       <div class="modal-content">
 
-        <div class="modal-body" style="height:635px">
+        <div class="modal-body" id="infosModalUtente" style="min-height:635px;max-height: 635px;background-color:#f2f2f2;">
+
+          <div class="card-header" style="text-align: center;background-color:#f2f2f2;">
+              <h5>Informações acerca do plano de medicação</h5>
+          </div>
+
+          <div class="card">
+              <div class="card-header" style="text-align:center;">
+                  <strong>Para que serve o plano de medicação?</strong>
+              </div>
+              <div class="card-body card-block">
+                  <div class="has-success form-group">
+                      texto...
+                      asdsa
+                      dasda
+                  </div>
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="card-header" style="text-align:center;">
+                  <strong>Como posso utilizar o plano de medicação?</strong>
+              </div>
+              <div class="card-body card-block">
+                  <div class="has-success form-group">
+                      texto...
+                      asdsa
+                      dasda
+                  </div>
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="card-header" style="text-align:center;">
+                  <strong>Quanto tempo tenho para confirmar a medicação tomada?</strong>
+              </div>
+              <div class="card-body card-block">
+                  <div class="has-success form-group">
+                      texto...
+                      asdsa
+                      dasda
+                  </div>
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="card-header" style="text-align:center;">
+                  <strong>Porque é que existem cores diferentes nos planos?</strong>
+              </div>
+              <div class="card-body card-block">
+                  <div class="has-success form-group">
+                      texto...
+                      asdsa
+                      dasda
+                  </div>
+              </div>
+          </div>
+
+          <div class="card-header" style="text-align: center;background-color:#f2f2f2;">
+              <strong>Descrição das  Cores </strong>
+          </div>
+
+          <div class="card-footer" style="background-color: #f2f2f2">
+            <button style="background-color:#28c147;border:0px solid;pointer-events: none;" class="btn btn-primary btn-sm">
+                &nbsp &nbsp
+            </button> &nbsp Medicação tomada
+
+          </div>
+          <div class="card-footer" style="background-color: #f2f2f2">
+          <button style="background-color:#f73936;border:0px solid;pointer-events: none;" class="btn btn-danger btn-sm">
+              &nbsp &nbsp
+          </button> &nbsp Medicação não confirmada
+          </div>
 
 
         </div>
@@ -299,11 +376,27 @@ $resultesp25 = $conn->query($sqlesp25);
 
                     document.getElementById("botaoConfirmar").style.display = "block";
 
+                    Number.prototype.padLeft = function(base,chr){
+                        var  len = (String(base || 10).length - String(this).length)+1;
+                        return len > 0? new Array(len).join(chr || '0')+this : this;
+                    }
+
+                    var d = new Date,
+    dformat = [d.getDate().padLeft(),
+              (d.getMonth()+1).padLeft(),
+               d.getFullYear()].join('/');
+
+                    if(event.end.format('DD/MM/YYYY HH:mm:ss') < dformat){
+
+                      document.getElementById("botaoConfirmar").style.display = "none";
+
+
+                    }
+
 
                     if(event.confirmacao==1){
 
                       document.getElementById("botaoConfirmar").style.display = "none";
-
 
                     }
 
@@ -437,7 +530,9 @@ $resultesp25 = $conn->query($sqlesp25);
                   }
                   ?>
                   <div id='calendar' style="background-color:#f9fafc;border-radius: 15px;padding-left:5px;padding-right:5px;"></div>
+
               </div>
+
 
 
               <div class="modal fade" id="visualizar" tabindex="-1" role="dialog">

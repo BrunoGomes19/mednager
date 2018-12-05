@@ -27,6 +27,24 @@ while ($row_events = mysqli_fetch_assoc($resultado_events)) {
     $color = $row_events['color'];
     $start = $row_events['start'];
     $end = $row_events['end'];
+    $confirmacao = $row_events['confirmacaoplano'];
+
+    if($end < date('Y-m-d')){
+
+      if($confirmacao==0){
+
+        $color = '#f73936';
+
+      }else if($confirmacao==1){
+
+        $color = '#28c147';
+
+      }
+
+
+
+    }
+
     $observacoes = $row_events['observacoes'];
     $codComprador = $row_events['codComprador'];
 
@@ -45,7 +63,7 @@ while ($row_events = mysqli_fetch_assoc($resultado_events)) {
     $ccUtente = $row_events['ccUtente'];
     $codMedicamento = $row_events['codMedicamento'];
     $nomeMedicamento = $row_events['nomeMedicamento'];
-    $confirmacao = $row_events['confirmacaoplano'];
+
 
     $nomeGenerico = $row_events['nomeGenerico'];
     $dosagem = $row_events['dosagem'];

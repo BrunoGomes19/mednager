@@ -49,6 +49,52 @@ if ($result->num_rows > 0) {
 
 <script>
 
+function removerTodosPlanos(){
+
+  bootbox.confirm({
+    message: "Tem a certeza que quer apagar todos os planos de medicação que você criou para este utente?",
+    buttons: {
+        confirm: {
+            label: 'Sim',
+            className: 'btn-success'
+        },
+        cancel: {
+            label: 'Não',
+            className: 'btn-danger'
+        }
+    },
+    callback: function (result) {
+      if(result==true){
+
+          if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+
+                      window.location.replace('index.php?cc='+<?php echo $ccUtente; ?>);
+
+                    }
+                };
+                xmlhttp.open("GET","removerTodosPlanos.php?cc="+<?php echo $ccUtente; ?>,true);
+                xmlhttp.send();
+
+      }else{
+
+
+      }
+
+    }
+  });
+
+
+
+}
+
 function guardaMed(codMedicamento,nomeMedicamento){
 
 $('#myModalMed').modal('hide');
@@ -302,7 +348,12 @@ a:hover, a{
 
 </style>
 
-
+<style>
+#infosModalMedico{
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+</style>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -360,7 +411,105 @@ a:hover, a{
     <div class="modal-dialog" role="document">
       <div class="modal-content">
 
-        <div class="modal-body" style="height:635px">
+        <div class="modal-body" id="infosModalMedico" style="min-height:635px;max-height: 635px;background-color:#f2f2f2;">
+
+          <div class="card-header" style="text-align: center;background-color:#f2f2f2;">
+              <h5>Informações acerca do plano de medicação</h5>
+          </div>
+
+          <div class="card">
+              <div class="card-header" style="text-align:center;">
+                  <strong>Para que serve o plano de medicação?</strong>
+              </div>
+              <div class="card-body card-block">
+                  <div class="has-success form-group">
+                      texto...
+                      asdsa
+                      dasda
+                  </div>
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="card-header" style="text-align:center;">
+                  <strong>Como posso utilizar o plano de medicação?</strong>
+              </div>
+              <div class="card-body card-block">
+                  <div class="has-success form-group">
+                      texto...
+                      asdsa
+                      dasda
+                  </div>
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="card-header" style="text-align:center;">
+                  <strong>Porque é que existem cores diferentes nos planos?</strong>
+              </div>
+              <div class="card-body card-block">
+                  <div class="has-success form-group">
+                      texto...
+                      asdsa
+                      dasda
+                  </div>
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="card-header" style="text-align:center;">
+                  <strong>Quanto tempo tenho para criar um plano de medicação?</strong>
+              </div>
+              <div class="card-body card-block">
+                  <div class="has-success form-group">
+                      texto...
+                      asdsa
+                      dasda
+                  </div>
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="card-header" style="text-align:center;">
+                  <strong>Quanto tempo tenho para editar um plano de medicação?</strong>
+              </div>
+              <div class="card-body card-block">
+                  <div class="has-success form-group">
+                      texto...
+                      asdsa
+                      dasda
+                  </div>
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="card-header" style="text-align:center;">
+                  <strong>O que é o plano de medicação recorrente?</strong>
+              </div>
+              <div class="card-body card-block">
+                  <div class="has-success form-group">
+                      texto...
+                      asdsa
+                      dasda
+                  </div>
+              </div>
+          </div>
+
+          <div class="card-header" style="text-align: center;background-color:#f2f2f2;">
+              <strong>Descrição das  Cores </strong>
+          </div>
+
+          <div class="card-footer" style="background-color: #f2f2f2">
+            <button style="background-color:#28c147;border:0px solid;pointer-events: none;" class="btn btn-primary btn-sm">
+                &nbsp &nbsp
+            </button> &nbsp Medicação tomada
+
+          </div>
+          <div class="card-footer" style="background-color: #f2f2f2">
+          <button style="background-color:#f73936;border:0px solid;pointer-events: none;" class="btn btn-danger btn-sm">
+              &nbsp &nbsp
+          </button> &nbsp Medicação não confirmada
+          </div>
 
 
         </div>
@@ -433,28 +582,51 @@ $resultesp25 = $conn->query($sqlesp25);
                 selectOverlap: true,
                 eventDrop: function(event, delta, revertFunc) {
 
-  if (!confirm("Deseja mesmo alterar o dia deste plano de medicação?")) {
-      revertFunc();
-    }else{
+                  Number.prototype.padLeft = function(base,chr){
+                   var  len = (String(base || 10).length - String(this).length)+1;
+                   return len > 0? new Array(len).join(chr || '0')+this : this;
+               }
+
+            var d = new Date;
+
+             d.setHours(d.getHours() - 1);
+
+                dformat = [d.getDate().padLeft(),
+                           (d.getMonth()+1).padLeft(),
+                           d.getFullYear()].join('/');
+
+                  if(event.end.format('DD/MM/YYYY HH:mm:ss')>dformat){
+
+                    if (!confirm("Deseja mesmo alterar o dia deste plano de medicação?")) {
+                        revertFunc();
+                      }else{
 
 
 
-              if (window.XMLHttpRequest) {
-                  // code for IE7+, Firefox, Chrome, Opera, Safari
-                  xmlhttp = new XMLHttpRequest();
-              } else {
-                  // code for IE6, IE5
-                  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-              }
-              xmlhttp.onreadystatechange = function() {
-                  if (this.readyState == 4 && this.status == 200) {
-                      window.location.href = 'index.php?cc='+<?php echo $ccUtente; ?>;
+                                if (window.XMLHttpRequest) {
+                                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                                    xmlhttp = new XMLHttpRequest();
+                                } else {
+                                    // code for IE6, IE5
+                                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                                }
+                                xmlhttp.onreadystatechange = function() {
+                                    if (this.readyState == 4 && this.status == 200) {
+                                        window.location.href = 'index.php?cc='+<?php echo $ccUtente; ?>;
+                                    }
+                                };
+                                xmlhttp.open("GET","editar_drop.php?id="+event.id+"&start="+event.start.format('YYYY/MM/DD HH:mm:ss')+"&end="+event.end.format('YYYY/MM/DD HH:mm:ss'),true);
+                                xmlhttp.send();
+
+                      }
+
+                  }else{
+
+                    revertFunc();
+
                   }
-              };
-              xmlhttp.open("GET","editar_drop.php?id="+event.id+"&start="+event.start.format('YYYY/MM/DD HH:mm:ss')+"&end="+event.end.format('YYYY/MM/DD HH:mm:ss'),true);
-              xmlhttp.send();
 
-    }
+
 
   }, eventResize: function(event, delta, revertFunc) {
 
@@ -486,13 +658,59 @@ $resultesp25 = $conn->query($sqlesp25);
 
                     if(event.confirmacao == 0){
 
-                      $('#visualizar #confirmacao').text("Por tomar");
+                      Number.prototype.padLeft = function(base,chr){
+                       var  len = (String(base || 10).length - String(this).length)+1;
+                       return len > 0? new Array(len).join(chr || '0')+this : this;
+                   }
+
+                var d = new Date;
+
+                 d.setHours(d.getHours() - 1);
+
+                    dformat = [d.getDate().padLeft(),
+                               (d.getMonth()+1).padLeft(),
+                               d.getFullYear()].join('/');
+
+                               if(event.end.format('DD/MM/YYYY HH:mm:ss') < dformat){
+
+                                 $('#visualizar #confirmacao').text("O utente não confirmou a medicação tomada");
+
+                               }else{
+
+                                 $('#visualizar #confirmacao').text("Por tomar");
+
+                               }
+
+
 
                     }else if(event.confirmacao == 1){
 
                       $('#visualizar #confirmacao').text("Tomado");
 
                     }
+
+                    Number.prototype.padLeft = function(base,chr){
+                     var  len = (String(base || 10).length - String(this).length)+1;
+                     return len > 0? new Array(len).join(chr || '0')+this : this;
+                 }
+
+              var d = new Date;
+
+               d.setHours(d.getHours() - 1);
+
+                  dformat = [d.getDate().padLeft(),
+                             (d.getMonth()+1).padLeft(),
+                             d.getFullYear()].join('/');
+
+                             document.getElementById("tempo").style.display = "block";
+
+
+                             if(event.end.format('DD/MM/YYYY HH:mm:ss')<dformat){
+
+                               document.getElementById("tempo").style.display = "none";
+
+
+                             }
                     //Editar
 
                     var editartitle = (event.title);
@@ -539,9 +757,28 @@ $resultesp25 = $conn->query($sqlesp25);
                 selectable: true,
                 selectHelper: true,
                 select: function (start, end) {
-                    $('#cadastrar #start').val(moment(start).format('DD/MM/YYYY HH:mm:ss'));
-                    $('#cadastrar #end').val(moment(end).format('DD/MM/YYYY HH:mm:ss'));
-                    $('#cadastrar').modal('show');
+
+                  Number.prototype.padLeft = function(base,chr){
+                   var  len = (String(base || 10).length - String(this).length)+1;
+                   return len > 0? new Array(len).join(chr || '0')+this : this;
+               }
+
+            var d = new Date;
+
+             d.setHours(d.getHours() - 1);
+
+                dformat = [d.getDate().padLeft(),
+                           (d.getMonth()+1).padLeft(),
+                           d.getFullYear()].join('/');
+
+                           if(moment(end).format('DD/MM/YYYY HH:mm:ss') > dformat){
+
+                             $('#cadastrar #start').val(moment(start).format('DD/MM/YYYY HH:mm:ss'));
+                             $('#cadastrar #end').val(moment(end).format('DD/MM/YYYY HH:mm:ss'));
+                             $('#cadastrar').modal('show');
+
+                           }
+
                 },
 
                 //https://fullcalendar.io/docs/events-json-feed
@@ -579,6 +816,9 @@ $resultesp25 = $conn->query($sqlesp25);
                       </button>&nbsp
             </form>
             <form style ='float: right; padding: 5px'>
+                      <button type="button" class="btn btn-primary btn-sm" style="font-size:22px" onclick="removerTodosPlanos();">
+                          <i class="fas fa-trash-alt"></i>
+                      </button>&nbsp
                       <button type="button" class="btn btn-primary btn-sm" style="font-size:22px" data-toggle="modal" data-target="#myModal3">
                           <i class="fas fa-info"></i>
                       </button>&nbsp
