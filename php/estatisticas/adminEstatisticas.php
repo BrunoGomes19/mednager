@@ -46,7 +46,7 @@
   }
 
 
-  $sql = "select sexoComprador as descricao, count(*) as c from comprador where LEIComprador='$LEIComprador' and codPermissao=2 group by sexoComprador";
+  $sql = "select sexoComprador as descricao, count(*) as c from comprador where LEIComprador='$LEIComprador' and codPermissao=2 and associacao=2 group by sexoComprador";
 
   $result = $conn->query($sql);
 
@@ -73,8 +73,9 @@
     }
 
 
-  } else {
-    echo "Error3";
+  } else {    
+    echo "<br><br> Não há utentes médicos associados";
+    $semAssociacoes=100;
   }
 
 
