@@ -16,7 +16,7 @@ if ($result->num_rows > 0) {
   }
 }
 
-$sql1 = "SELECT count(*) as quantidade from comprador where codPermissao=2";
+$sql1 = "SELECT count(*) as quantidade from comprador where codPermissao=2 and LEIComprador = $LEIComprador and associacao = 2";
 $result = $conn->query($sql1);
 
 if ($result->num_rows > 0) {
@@ -30,7 +30,7 @@ if ($result->num_rows > 0) {
   }
 }
 
-$sql2 = "SELECT count(*) as quantidade from utente where codPermissao=3";
+$sql2 = "SELECT count(*) as quantidade from utente,associados,comprador where utente.ccUtente = associados.utente_ccUtente and associados.comprador_codComprador = comprador.codComprador and LEiComprador = $LEIComprador and associados.confirmacao = 1 and comprador.codPermissao = 2;";
 $result = $conn->query($sql2);
 
 if ($result->num_rows > 0) {
@@ -133,7 +133,7 @@ if ($result->num_rows > 0) {
                                             </div>
                                             <div class="text">
                                                 <h2><?php  echo $medicosRegistados;  ?></h2>
-                                                <span>médicos registados</span>
+                                                <span>médicos associados</span>
                                             </div>
                                         </div>
                                     </div>
@@ -149,8 +149,8 @@ if ($result->num_rows > 0) {
                                             <div class="text">
                                                 <h2><?php echo $utentesRegistados; ?></h2>
                                                 <span>
-                                                    <div>utentes</div>
-                                                    <div>registados</div>
+                                                    <div>utentes associados</div>
+
                                                 </span>
                                             </div>
                                         </div>
@@ -168,8 +168,8 @@ if ($result->num_rows > 0) {
                                             <div class="text">
                                                 <h2><?php   echo $intervencoesHojeTodos;   ?></h2>
                                                 <span>
-                                                    <div>intervenções</div>
-                                                    <div>hoje</div>
+                                                    <div>intervenções hoje</div>
+
                                                 </span>
                                             </div>
                                         </div>

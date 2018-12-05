@@ -176,7 +176,16 @@ function rejeitarAssociacao($codComprador){
                                                     <tr class="spacer"></tr>
                                                     ';
 
-                                                    $sql2 = "select * from comprador where LEIComprador = $LEIComprador and associacao=1;";
+
+                                                    $sql55 = "select * from comprador where LEIComprador = $LEIComprador and associacao = 2;";
+                                                      $result55 = $conn->query($sql55);
+
+                                                      if ($result55->num_rows == 0) {
+
+
+
+
+                                                    $sql2 = "select * from comprador where LEIComprador = $LEIComprador and codPermissao=1;";
                                                     $result2 = $conn->query($sql2);
 
                                                     if ($result2->num_rows > 0) {
@@ -185,20 +194,10 @@ function rejeitarAssociacao($codComprador){
 
                                                           $LEIAdmin = $row['LEIComprador'];
 
-
-                                                          $sql3 = "select * from comprador where LEIComprador = $LEIComprador and codPermissao=1;";
-                                                          $result3 = $conn->query($sql3);
-
-                                                          if ($result3->num_rows > 0) {
-                                                              // output data of each row
-                                                              while($row = $result3->fetch_assoc()) {
-
                                                                 $nomeAdmin = $row['nomeComprador'];
 
                                                                 $emailAdmin = $row['emailComprador'];
 
-                                                              }
-                                                            }
 
 
                                                           echo '<tr class="tr-shadow">
@@ -225,6 +224,7 @@ function rejeitarAssociacao($codComprador){
                                                           <tr class="spacer"></tr>';
                                                           }
                                                         }
+                                                      }
                                                         echo '</div>
 
 
