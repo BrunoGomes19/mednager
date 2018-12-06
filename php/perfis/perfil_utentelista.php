@@ -204,12 +204,7 @@ $conn->close();
             																			</button>&nbsp
                                         </form>
 
-                                        <form action="../imprimir/indexUtente.php" method="get" style ='float: right; padding: 5px'>
-                                                    <button type="submit" class="btn btn-warning btn-sm" style="font-size:16px">
-                                                      <i class="fas fa-print"></i> Imprimir
-                                                    </button>&nbsp
-                                                    <input type="hidden" name="nif" value="<?php echo $nif; ?>">
-                                        </form>
+                                        
             													</div>
                                         <div class="content">
                                             <form>
