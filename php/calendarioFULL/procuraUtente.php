@@ -8,13 +8,7 @@
 
 <?php
 
-$q = $_GET['q'];
-
-
 include('../topos/header.php');
-
-$sql="SELECT * FROM utente,associados WHERE utente.ccUtente = associados.utente_ccUtente and nomeUtente like '".$q."%' ORDER BY nomeUtente limit 4";
-$result = mysqli_query($conn,$sql);
 
 $emailA = $_SESSION['email'];
 
@@ -27,6 +21,16 @@ if ($result2->num_rows > 0) {
         $codComprador = $row['codComprador'];
     }
 }
+
+$q = $_GET['q'];
+
+
+
+
+$sql="SELECT * FROM utente,associados WHERE utente.ccUtente = associados.utente_ccUtente and associados.comprador_codComprador=$codComprador and nomeUtente like '".$q."%' ORDER BY nomeUtente limit 4";
+$result = mysqli_query($conn,$sql);
+
+
 
 echo '
 
