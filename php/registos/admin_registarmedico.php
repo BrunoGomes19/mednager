@@ -27,17 +27,7 @@
 
 	}
 
-	$servername = "localhost";
-	$username = "admin";
-	$password = "Sutas4Ever2018";
-	$bd = "mydb";
-
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $bd);
-	// Check connection
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	}
+	include "../topos/header.php";
 
 
 
