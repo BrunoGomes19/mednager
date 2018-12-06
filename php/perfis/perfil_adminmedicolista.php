@@ -156,12 +156,7 @@ $conn->close();
             																					<i class="fa fa-arrow-left"></i> Voltar
             																			</button>&nbsp
                                         </form>
-                                        <form action="../imprimir/indexMedico.php" style ='float: right; padding: 5px'>
-                                                    <button type="submit" class="btn btn-warning btn-sm" style="font-size:16px">
-                                                      <i class="fas fa-print"></i> Imprimir
-                                                    </button>&nbsp
-                                                    <input type="hidden" name="cc" value="<?php echo $cc; ?>">
-                                        </form>
+                                        
             																	</div>
                                         <div class="content">
                                             <form>
