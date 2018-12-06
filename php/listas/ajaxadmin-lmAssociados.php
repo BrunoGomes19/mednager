@@ -11,19 +11,12 @@
 
 $q = intval($_GET['q']);
 
-$con = mysqli_connect('localhost','admin','Sutas4Ever2018','mydb');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-}
-
-mysqli_select_db($con,"ajax_demo");
-
-session_start();
+include "../topos/header.php";
 
   $emailA = $_SESSION['email'];
 
   $sql = "SELECT * from comprador where emailComprador like '$emailA'";
-  $result = $con->query($sql);
+  $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
     // output data of each row
@@ -35,7 +28,7 @@ session_start();
   }
 
 $sql="SELECT * FROM comprador WHERE NIFComprador like '".$q."%' and comprador.codPermissao=2 and comprador.associacao = 2 and comprador.LEIComprador = $LEIComprador ORDER BY nomeComprador;";
-$result = mysqli_query($con,$sql);
+$result = mysqli_query($conn,$sql);
 
 echo '
 
@@ -85,7 +78,7 @@ echo '
 
               <button class="btn btn-outline-primary" onclick="verperfil('.$cc.');">
                   <i class="fa fa-user"></i>&nbsp;Perfil</button>
-                  
+
 
       </td>
   </tr>
@@ -121,7 +114,7 @@ if ($result->num_rows == 0) {
 
 }
 
-mysqli_close($con);
+mysqli_close($conn);
 ?>
 </body>
 </html>

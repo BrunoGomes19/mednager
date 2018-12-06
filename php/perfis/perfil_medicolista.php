@@ -158,7 +158,7 @@ $conn->close();
                                                   <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Endereço de e-mail</label>
-                                                        <input type="text" class="form-control" value="<?php echo $emailComprador; ?>" readonly>
+                                                        <input type="text" class="form-control" value="<?php echo mb_substr($emailComprador, 0, 3); ?>**********@**********" readonly>
                                                     </div>
                                                   </div>
                                               </div>
@@ -179,12 +179,7 @@ $conn->close();
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-md-6">
-                                                      <div class="form-group">
-                                                          <label>Data de nascimento</label>
-                                                          <input type="text" class="form-control" value="<?php echo $date; ?>" readonly>
-                                                      </div>
-                                                    </div>
+
                                                     <div class="col-md-6">
                                                       <div class="form-group">
                                                           <label>Cidade</label>

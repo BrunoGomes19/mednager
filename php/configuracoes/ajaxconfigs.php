@@ -1,6 +1,5 @@
 <?php
 
-
 include("../topos/header.php");
 
 $nome = $_GET["nome"];

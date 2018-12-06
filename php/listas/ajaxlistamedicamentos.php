@@ -25,27 +25,21 @@ function tirarAcentos($str){
 
 $str = tirarAcentos($str);
 
-
-
-$con = mysqli_connect('localhost','admin','Sutas4Ever2018','mydb');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-}
-
+include "../topos/header.php";
 
   if($codEspecialidade==1){
 
     $sql="SELECT * from medicamento where nomeMedicamento like '".$str."%' limit 50";
 
-    mysqli_select_db($con,"ajax_demo");
-    $result = mysqli_query($con,$sql);
+    mysqli_select_db($conn,"ajax_demo");
+    $result = mysqli_query($conn,$sql);
 
     if ($result->num_rows == 0) {
 
       $sql="SELECT * from medicamento where nomeGenerico like '".$str."%' limit 50";
 
-       mysqli_select_db($con,"ajax_demo");
-       $result = mysqli_query($con,$sql);
+       mysqli_select_db($conn,"ajax_demo");
+       $result = mysqli_query($conn,$sql);
 
     }
 
@@ -54,23 +48,23 @@ if (!$con) {
     $sql="SELECT * from medicamento, especialidade, medicamentoespecialidade where medicamento.codMedicamento=medicamentoespecialidade.codMedicamento and especialidade.codEspecialidade=medicamentoespecialidade.codEspecialidade and especialidade.descriEspecialidade like '".$descriEspecialidade."'
      and nomeMedicamento like '".$str."%' limit 50";
 
-     mysqli_select_db($con,"ajax_demo");
-     $result = mysqli_query($con,$sql);
+     mysqli_select_db($conn,"ajax_demo");
+     $result = mysqli_query($conn,$sql);
 
      if ($result->num_rows == 0) {
 
        $sql="SELECT * from medicamento, especialidade, medicamentoespecialidade where medicamento.codMedicamento=medicamentoespecialidade.codMedicamento and especialidade.codEspecialidade=medicamentoespecialidade.codEspecialidade and especialidade.descriEspecialidade like '".$descriEspecialidade."'
         and nomeGenerico like '".$str."%' limit 50";
 
-        mysqli_select_db($con,"ajax_demo");
-        $result = mysqli_query($con,$sql);
+        mysqli_select_db($conn,"ajax_demo");
+        $result = mysqli_query($conn,$sql);
 
      }
 
   }
 
-  mysqli_select_db($con,"ajax_demo");
-  $result = mysqli_query($con,$sql);
+  mysqli_select_db($conn,"ajax_demo");
+  $result = mysqli_query($conn,$sql);
 
 
 
@@ -154,7 +148,7 @@ if (!$con) {
 
   }
 
-mysqli_close($con);
+mysqli_close($conn);
 
 
 

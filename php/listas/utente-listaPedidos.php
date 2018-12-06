@@ -31,7 +31,7 @@ $result2 = $conn->query($sql2);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-  
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
       <script src="../../assets/js/bootstrap.min.js"></script>
 
@@ -160,7 +160,7 @@ function rejeitarAssociacao($ccUtente,$codComprador){
                                                           <tr>
                                                               <th></th>
                                                               <th>Nome do médico</th>
-                                                              <th>CC</th>
+                                                              <th>NIF</th>
                                                               <th>Especialidade</th>
                                                               <th></th>
                                                           </tr>
@@ -186,12 +186,14 @@ function rejeitarAssociacao($ccUtente,$codComprador){
 
                                                           $ccUtente = $row['utente_ccUtente'];
 
+                                                          $NIFComprador = $row['NIFComprador'];
+
 
                                                           echo '<tr class="tr-shadow">
                                                               <td></td>
                                                               <td>'.$nomeMedico.'</td>
                                                               <td>
-                                                                  <span class="block-email">'.$ccComprador.'</span>
+                                                                  <span class="block-email">'.$NIFComprador.'</span>
                                                               </td>
                                                               <td class="desc">'.$especialidade.'</td>
 

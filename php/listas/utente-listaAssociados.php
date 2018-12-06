@@ -126,7 +126,7 @@ function removerAssociacao($ccUtente,$codComprador){
                                                           <tr>
                                                               <th></th>
                                                               <th>Nome do médico</th>
-                                                              <th>CC</th>
+                                                              <th>NIF</th>
                                                               <th>Especialidade</th>
                                                               <th></th>
                                                           </tr>
@@ -152,12 +152,13 @@ function removerAssociacao($ccUtente,$codComprador){
 
                                                           $ccUtente = $row['utente_ccUtente'];
 
+                                                          $NIFComprador = $row['NIFComprador'];
 
                                                           echo '<tr class="tr-shadow">
                                                               <td></td>
                                                               <td>'.$nomeMedico.'</td>
                                                               <td>
-                                                                  <span class="block-email">'.$ccComprador.'</span>
+                                                                  <span class="block-email">'.$NIFComprador.'</span>
                                                               </td>
                                                               <td class="desc">'.$especialidade.'</td>
 

@@ -4,13 +4,7 @@
 
 if(isset($_POST['submit'])){
 
-	$servername='localhost';
-	$username = 'admin';
-	$password = 'Sutas4Ever2018';
-	$bd = 'mydb';
-	$conn = mysqli_connect($servername, $username, $password, $bd);
-
-
+	include "../topos/config.php";
 
 	$user = $_POST["username"];
 	$pass = $_POST["password"];

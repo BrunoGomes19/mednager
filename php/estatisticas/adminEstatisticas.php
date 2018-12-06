@@ -2,7 +2,7 @@
 <html>
 <head>
   <?php
-  include('../topos/topo_Admin.php');
+  include('../topos/topo_admin.php');
   ?>
 
 </head>
@@ -17,8 +17,8 @@
   $result = $conn->query($sqlLEI);
 
   if ($result->num_rows > 0) {
-    // output data of each row  
-    
+    // output data of each row
+
     while($row = $result->fetch_assoc()) {
       $LEIComprador = $row["LEIComprador"];
 
@@ -34,8 +34,8 @@
   $resultmeds = $conn->query($sqtotalMed);
 
   if ($resultmeds->num_rows > 0) {
-    // output data of each row  
-    
+    // output data of each row
+
     while($row = $resultmeds->fetch_assoc()) {
       $nrMed = $row["nrMed"];
 
@@ -73,7 +73,7 @@
     }
 
 
-  } else {    
+  } else {
     echo "<br><br> Não há utentes médicos associados";
     $semAssociacoes=100;
   }
@@ -89,7 +89,7 @@
   $sql222 = "select descriEspecialidade, COUNT(*) as nrMedicos from especialidade, comprador where comprador.codEspecialidade=especialidade.codEspecialidade and codPermissao=2 and LEIComprador='$LEIComprador' group by descriEspecialidade";
   $result222 = $conn->query($sql222);
 
-  
+
 
 
 
@@ -103,7 +103,7 @@
   $sql333 = "select local.descriLocal, COUNT(*) as nrEsp from local, servico, comprador WHERE local.codLocal=servico.codLocal and comprador.codComprador=servico.codComprador and LEIComprador='$LEIComprador' GROUP BY local.descriLocal";
   $result333 = $conn->query($sql333);
 
-  
+
 
 
 
@@ -147,7 +147,7 @@
         </script>
 
         <br>
-        <br>        
+        <br>
 
 
         <!--grafico numero de medicos por especialidade -->
@@ -156,7 +156,7 @@
         <script>
           new Chart(document.getElementById("bar-chart-horizontal"), {
     type: 'horizontalBar',
-    
+
     data: {
       labels: [<?php
       if($result2->num_rows > 0){
@@ -164,7 +164,7 @@
             echo "'".$row['descriEspecialidade']."',";
           }
       }
-    ?>, 'Total'], 
+    ?>, 'Total'],
       datasets: [
         {
           label: "Número de médicos",
@@ -198,14 +198,14 @@
                 suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
                 // OR //
                 beginAtZero: true, // minimum value will be 0.
-                stepSize: 1   
+                stepSize: 1
             }
         }]
-      }      
+      }
     },
 
 });
-          
+
         </script>
         <br>
         <br>
@@ -225,7 +225,7 @@
             echo "'".$row['descriLocal']."',";
           }
       }
-    ?>], 
+    ?>],
       datasets: [
         {
           label: "Número de consultas",
@@ -259,7 +259,7 @@
                 suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
                 // OR //
                 beginAtZero: true, // minimum value will be 0.
-                stepSize: 1   
+                stepSize: 1
             }
         }]
       }
@@ -267,7 +267,7 @@
     }
 });
         </script>
-        
+
 
 
 

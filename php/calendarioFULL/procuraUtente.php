@@ -10,21 +10,16 @@
 
 $q = $_GET['q'];
 
-$con = mysqli_connect('localhost','admin','Sutas4Ever2018','mydb');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-}
 
-mysqli_select_db($con,"ajax_demo");
+include('../topos/header.php');
+
 $sql="SELECT * FROM utente,associados WHERE utente.ccUtente = associados.utente_ccUtente and nomeUtente like '".$q."%' ORDER BY nomeUtente limit 4";
-$result = mysqli_query($con,$sql);
-
-session_start();
+$result = mysqli_query($conn,$sql);
 
 $emailA = $_SESSION['email'];
 
 $sql3 = "Select * from comprador where emailComprador='$emailA'";
-$result2 = $con->query($sql3);
+$result2 = $conn->query($sql3);
 
 if ($result2->num_rows > 0) {
     // output data of each row
@@ -41,8 +36,8 @@ echo '
         <tr>
 
             <th>Nome</th>
-            <th>Cartão de cidadão</th>
-            <th>NIF</th>
+            <th> &nbsp &nbsp &nbsp &nbsp &nbsp NIF</th>
+            <th>Localidade</th>
 
         </tr>
     </thead>
@@ -61,11 +56,11 @@ $cc = $row['ccUtente'];
 
 $nif = $row['NIFUtente'];
 
-
+$localidade = $row['localidadeUtente'];
 
 
 $sql2 = "Select * from associados where associados.utente_ccUtente = '$cc' and associados.comprador_codComprador = '$codComprador';";
-$result3 = $con->query($sql2);
+$result3 = $conn->query($sql2);
 
 
 
@@ -78,9 +73,9 @@ echo '
       echo '
       <td>'.$nome.'</td>
       <td>
-          <span class="block-email">'.$cc.'</span>
+          <span class="block-email">'.$nif.'</span>
       </td>
-      <td class="desc">'.$nif.'</td>
+      <td class="desc">'.$localidade.'</td>
 
 
   </tr>
@@ -116,7 +111,7 @@ if ($result->num_rows == 0) {
 
 }
 
-mysqli_close($con);
+mysqli_close($conn);
 ?>
 </body>
 </html>

@@ -10,21 +10,15 @@
 
 $q = intval($_GET['q']);
 
-$con = mysqli_connect('localhost','admin','Sutas4Ever2018','mydb');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-}
+include "../topos/header.php";
 
-mysqli_select_db($con,"ajax_demo");
-$sql="SELECT * FROM comprador WHERE NIFComprador like '".$q."%' and comprador.codPermissao=2 ORDER BY nomeComprador";
-$result = mysqli_query($con,$sql);
-
-session_start();
+$sql="SELECT * FROM comprador,especialidade WHERE comprador.codEspecialidade = especialidade.codEspecialidade and NIFComprador like '".$q."%' and comprador.codPermissao=2 ORDER BY nomeComprador";
+$result = mysqli_query($conn,$sql);
 
 $emailA = $_SESSION['email'];
 
 $sql3 = "Select * from comprador where emailComprador='$emailA'";
-$result2 = $con->query($sql3);
+$result2 = $conn->query($sql3);
 
 if ($result2->num_rows > 0) {
     // output data of each row
@@ -42,8 +36,8 @@ echo '
         <tr>
             <th>Associar</th>
             <th>Nome</th>
-            <th>Cartão de cidadão</th>
             <th>NIF</th>
+            <th>Especialidade</th>
             <th></th>
         </tr>
     </thead>
@@ -62,8 +56,10 @@ $cc = $row['ccComprador'];
 
 $nif = $row['NIFComprador'];
 
+$descriEspecialidade = $row['descriEspecialidade'];
+
 $sql2 = "Select * from comprador where comprador.LEIComprador = '$LEIComprador' and ccComprador = '$cc';";
-$result3 = $con->query($sql2);
+$result3 = $conn->query($sql2);
 
 echo '
   <tr class="spacer"></tr>
@@ -99,7 +95,7 @@ echo '
       } else {
 
         $sql22 = "Select * from comprador where ccComprador = '$cc';";
-        $result33 = $con->query($sql22);
+        $result33 = $conn->query($sql22);
 
         if ($result33->num_rows > 0) {
             // output data of each row
@@ -128,14 +124,14 @@ echo '
     echo'  </td>
       <td>'.$nome.'</td>
       <td>
-          <span class="block-email">'.$cc.'</span>
+          <span class="block-email">'.$nif.'</span>
       </td>
-      <td class="desc">'.$nif.'</td>
+      <td class="desc">'.$descriEspecialidade.'</td>
 
       <td>';
 
       $sql2 = "Select * from comprador where comprador.LEIComprador = '$LEIComprador' and ccComprador = '$cc';";
-      $result3 = $con->query($sql2);
+      $result3 = $conn->query($sql2);
 
       if ($result3->num_rows > 0) {
 
@@ -188,7 +184,7 @@ if ($result->num_rows == 0) {
 
 }
 
-mysqli_close($con);
+mysqli_close($conn);
 ?>
 </body>
 </html>

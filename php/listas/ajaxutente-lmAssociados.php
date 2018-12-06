@@ -10,17 +10,12 @@
 
 $q = intval($_GET['q']);
 
-$con = mysqli_connect('localhost','admin','Sutas4Ever2018','mydb');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-}
-
-session_start();
+include "../topos/header.php";
 
   $emailA = $_SESSION['email'];
 
   $sql = "SELECT * from utente where emailUtente like '$emailA'";
-  $result = $con->query($sql);
+  $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
     // output data of each row
@@ -31,10 +26,10 @@ session_start();
     }
   }
 
-mysqli_select_db($con,"ajax_demo");
+mysqli_select_db($conn,"ajax_demo");
 $sql="SELECT * FROM comprador,associados WHERE associados.comprador_codComprador = comprador.codComprador and associados.utente_ccUtente = $ccUtente and comprador.codPermissao = 2 and associados.confirmacao=1 and NIFComprador like '".$q."%' ORDER BY nomeComprador limit 4;";
 
-$result = mysqli_query($con,$sql);
+$result = mysqli_query($conn,$sql);
 
 echo '
 
@@ -119,7 +114,7 @@ if ($result->num_rows == 0) {
 
 }
 
-mysqli_close($con);
+mysqli_close($conn);
 ?>
 </body>
 </html>

@@ -10,15 +10,11 @@
 
 $q = intval($_GET['q']);
 
-$con = mysqli_connect('localhost','admin','Sutas4Ever2018','mydb');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-}
+include "../topos/header.php";
 
-mysqli_select_db($con,"ajax_demo");
 $sql="SELECT * FROM utente,comprador,associados WHERE utente.ccUtente = associados.utente_ccUtente and associados.comprador_codComprador = comprador.codComprador and LEIComprador = 123 and NIFUtente like '".$q."%' ORDER BY nomeUtente";
 
-$result = mysqli_query($con,$sql);
+$result = mysqli_query($conn,$sql);
 
 echo '
 
@@ -109,7 +105,7 @@ if ($result->num_rows == 0) {
 
 }
 
-mysqli_close($con);
+mysqli_close($conn);
 ?>
 </body>
 </html>

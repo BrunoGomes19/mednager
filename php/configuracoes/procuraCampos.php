@@ -10,16 +10,10 @@
 
 $q = $_GET['q'];
 
-$con = mysqli_connect('localhost','admin','Sutas4Ever2018','mydb');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-}
+include "../topos/header.php";
 
-mysqli_select_db($con,"ajax_demo");
 $sql="SELECT * FROM registocampos, especialidade WHERE especialidade.codEspecialidade = registocampos.codEspecialidade and nomeCampo like '".$q."%' ORDER BY nomeCampo limit 4";
-$result = mysqli_query($con,$sql);
-
-session_start();
+$result = mysqli_query($conn,$sql);
 
 echo '
 
@@ -100,7 +94,7 @@ if ($result->num_rows == 0) {
 
 }
 
-mysqli_close($con);
+mysqli_close($conn);
 ?>
 </body>
 </html>

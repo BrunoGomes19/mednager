@@ -2,7 +2,7 @@
 <html>
 <head>
   <?php
-  include('../topos/topo_Admin.php');
+  include('../topos/topo_admin.php');
   ?>
 
 </head>
@@ -17,8 +17,8 @@
   $result = $conn->query($sqlLEI);
 
   if ($result->num_rows > 0) {
-    // output data of each row  
-    
+    // output data of each row
+
     while($row = $result->fetch_assoc()) {
       $LEIComprador = $row["LEIComprador"];
 
@@ -34,8 +34,8 @@
   $result = $conn->query($sqtotalMed);
 
   if ($result->num_rows > 0) {
-    // output data of each row  
-    
+    // output data of each row
+
     while($row = $result->fetch_assoc()) {
       $nrMed = $row["nrMed"];
 
@@ -174,8 +174,8 @@
             if($result2->num_rows > 0){
               while($row = $result2->fetch_assoc()){
                 echo "['".$row['descriEspecialidade']."', ".$row['nrMedicos']."],";
-              }                
-            }            
+              }
+            }
             ?>
             ['TOTAL', <?php echo $nrMed; ?>]
           ]);
@@ -219,8 +219,8 @@
             if($result3->num_rows > 0){
               while($row = $result3->fetch_assoc()){
                 echo "['".$row['descriLocal']."', ".$row['nrEsp']."],";
-              }                
-            }            
+              }
+            }
             ?>
             ]);
 
@@ -238,7 +238,7 @@
 
 
 
-        
+
 
 
 

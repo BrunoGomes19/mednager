@@ -10,22 +10,12 @@
 
 $q = intval($_GET['q']);
 
-$con = mysqli_connect('localhost','admin','Sutas4Ever2018','mydb');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-}
-
-mysqli_select_db($con,"ajax_demo");
-
-
-
-
-session_start();
+include "../topos/header.php";
 
   $emailA = $_SESSION['email'];
 
   $sql = "SELECT * from comprador where emailComprador like '$emailA'";
-  $result = $con->query($sql);
+  $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
     // output data of each row
@@ -41,7 +31,7 @@ session_start();
 
 
 $sql="SELECT * FROM utente,associados WHERE associados.utente_ccUtente = utente.ccUtente and associados.comprador_codComprador = $codComprador and associados.confirmacao = 1 and NIFUtente like '".$q."%' ORDER BY nomeUtente limit 4;";
-$result = mysqli_query($con,$sql);
+$result = mysqli_query($conn,$sql);
 
 echo '
 
@@ -53,8 +43,8 @@ echo '
 
             </th>
             <th>Nome</th>
-            <th>Cartão de cidadão</th>
             <th>NIF</th>
+            <th>Localidade</th>
             <th></th>
         </tr>
     </thead>
@@ -73,7 +63,7 @@ $cc = $row['ccUtente'];
 
 $nif = $row['NIFUtente'];
 
-
+$localidade = $row['localidadeUtente'];
 
 echo '
   <tr class="spacer"></tr>
@@ -83,9 +73,9 @@ echo '
       </td>
       <td>'.$nome.'</td>
       <td>
-          <span class="block-email">'.$cc.'</span>
+          <span class="block-email">'.$nif.'</span>
       </td>
-      <td class="desc">'.$nif.'</td>
+      <td class="desc">'.$localidade.'</td>
 
       <td>
 
@@ -129,7 +119,7 @@ if ($result->num_rows == 0) {
 
 }
 
-mysqli_close($con);
+mysqli_close($conn);
 ?>
 </body>
 </html>

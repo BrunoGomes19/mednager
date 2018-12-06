@@ -11,14 +11,10 @@
 
 $q = intval($_GET['q']);
 
-$con = mysqli_connect('localhost','admin','Sutas4Ever2018','mydb');
-if (!$con) {
-    die('Could not connect: ' . mysqli_error($con));
-}
+include "../topos/header.php";
 
-mysqli_select_db($con,"ajax_demo");
-$sql="SELECT * FROM comprador WHERE NIFComprador like '".$q."%' ORDER BY nomeComprador";
-$result = mysqli_query($con,$sql);
+$sql="SELECT * FROM comprador,especialidade WHERE comprador.codEspecialidade = especialidade.codEspecialidade and codPermissao=2 and NIFComprador like '".$q."%' ORDER BY nomeComprador";
+$result = mysqli_query($conn,$sql);
 
 echo '
 
@@ -30,8 +26,8 @@ echo '
 
             </th>
             <th>Nome</th>
-            <th>Cartão de cidadão</th>
             <th>NIF</th>
+            <th>Especialidade</th>
             <th></th>
         </tr>
     </thead>
@@ -50,19 +46,19 @@ $cc = $row['ccComprador'];
 
 $nif = $row['NIFComprador'];
 
-
+$descriEspecialidade = $row['descriEspecialidade'];
 
 echo '
   <tr class="spacer"></tr>
   <tr class="tr-shadow">
       <td>
-          
+
       </td>
       <td>'.$nome.'</td>
       <td>
-          <span class="block-email">'.$cc.'</span>
+          <span class="block-email">'.$nif.'</span>
       </td>
-      <td class="desc">'.$nif.'</td>
+      <td class="desc">'.$descriEspecialidade.'</td>
 
       <td>
 
@@ -103,7 +99,7 @@ if ($result->num_rows == 0) {
 
 }
 
-mysqli_close($con);
+mysqli_close($conn);
 ?>
 </body>
 </html>
