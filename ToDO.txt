@@ -31,6 +31,19 @@ Bugs:
 
 - Alinhar as estatisticas do index
 
+-----
+
+Por cima do Início escrever MÉDICO!!!!!
+
+Tentar colocar o Fullcalendar dentro do topo
+
+Alterar a foto de fundo, os icones, as pastas, e o header do chrome
+
+Alterar os dados pessoais por ********* médico
+
+CRIAR mails próprios para receber os emails e enviar,
+limpar o mail do mednager@outlook.pt
+
 
 Após tudo:
 
