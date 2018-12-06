@@ -95,6 +95,52 @@ function removerTodosPlanos(){
 
 }
 
+function checkAllPlanos(){
+
+  bootbox.confirm({
+    message: "Tem a certeza que quer marcar todos os planos de medicação deste utente como tomado?",
+    buttons: {
+        confirm: {
+            label: 'Sim',
+            className: 'btn-success'
+        },
+        cancel: {
+            label: 'Não',
+            className: 'btn-danger'
+        }
+    },
+    callback: function (result) {
+      if(result==true){
+
+          if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+
+                      window.location.replace('index.php?cc='+<?php echo $ccUtente; ?>);
+
+                    }
+                };
+                xmlhttp.open("GET","checkAllPlanos.php?cc="+<?php echo $ccUtente; ?>,true);
+                xmlhttp.send();
+
+      }else{
+
+
+      }
+
+    }
+  });
+
+
+
+}
+
 function guardaMed(codMedicamento,nomeMedicamento){
 
 $('#myModalMed').modal('hide');
@@ -665,17 +711,34 @@ $resultesp25 = $conn->query($sqlesp25);
 
                 var d = new Date;
 
-                 d.setHours(d.getHours() - 1);
-
                     dformat = [d.getDate().padLeft(),
                                (d.getMonth()+1).padLeft(),
                                d.getFullYear()].join('/');
 
+                               var d2 = new Date;
+
+                                   dformat2 = [(d2.getDate()-1).padLeft(),
+                                              (d2.getMonth()+1).padLeft(),
+                                              d2.getFullYear()].join('/');
+
+
+
                                if(event.end.format('DD/MM/YYYY HH:mm:ss') < dformat){
 
                                  //IF para aparecer outra msg no amarelo
+                                 if(event.end.format('DD/MM/YYYY HH:mm:ss') < dformat2){
 
-                                 $('#visualizar #confirmacao').text("O utente não confirmou a medicação tomada");
+                                    $('#visualizar #confirmacao').text("O utente não confirmou a medicação tomada");
+
+
+                                 }else{
+
+                                    $('#visualizar #confirmacao').text("Por tomar");
+
+
+                                 }
+
+
 
                                }else{
 
@@ -820,6 +883,9 @@ $resultesp25 = $conn->query($sqlesp25);
             <form style ='float: right; padding: 5px'>
                       <button type="button" class="btn btn-primary btn-sm" style="font-size:22px" onclick="removerTodosPlanos();">
                           <i class="fas fa-trash-alt"></i>
+                      </button>&nbsp
+                      <button type="button" class="btn btn-primary btn-sm" style="font-size:22px" onclick="checkAllPlanos();">
+                          <i class="fas fa-check"></i>
                       </button>&nbsp
                       <button type="button" class="btn btn-primary btn-sm" style="font-size:22px" data-toggle="modal" data-target="#myModal3">
                           <i class="fas fa-info"></i>
