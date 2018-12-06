@@ -1,3 +1,37 @@
+Email iniciais****
+
+E no máximo mostrar NIF
+
+Colocar ***** nos inputs mais pessoais
+
+Imprimir so plano de medicação
+
+validação da medicação tomada automaticamente (icone lá em cima para marcar auto tudo nesse utente)
+
+erro acentos - $conn_>set_charset("utf8");
+
+To-do-list:
+
+- Alterar os GETS por Request
+
+- Imprimir
+
+- Terminar os gráficos (Médicos associados com o lei - carolina)
+
+- night-mode
+
+- Fechar todas as conexões
+
+
+Bugs:
+
+- Modal das notas e outros (se clicar fora ao mesmo tempo que abre fica tudo cizento)
+
+- Acentos
+
+- Alinhar as estatisticas do index
+
+
 Após tudo:
 
 - Fechar todas as conexões nos ficheiros
