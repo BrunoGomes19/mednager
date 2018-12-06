@@ -81,6 +81,28 @@ function abrirRegistoUtente(){
 }
 
 
+function chamaSelect(idintervencao){
+  var xmlhttp = new XMLHttpRequest();
+   xmlhttp.onreadystatechange = function() {
+       if (this.readyState == 4 && this.status == 200) {
+           document.getElementById("selectInt").innerHTML = this.responseText;
+       }
+   };
+   xmlhttp.open("GET", "selectIntervencao?idintervencao=" + idintervencao, true);
+   xmlhttp.send();
+}
+
+function chamaSelectInputs(idintervencao){
+  var xmlhttp = new XMLHttpRequest();
+   xmlhttp.onreadystatechange = function() {
+       if (this.readyState == 4 && this.status == 200) {
+           document.getElementById("selectIntInputs").innerHTML = this.responseText;
+       }
+   };
+   xmlhttp.open("GET", "selectIntervencaoInputs?idintervencao=" + idintervencao, true);
+   xmlhttp.send();
+}
+
 </script>
 
   <script type="text/javascript">
@@ -586,7 +608,8 @@ if ($resultlei->num_rows > 0) {
                     $('#visualizar #codTipoServico').text(event.descriTipoServico);
                     $('#visualizar #codLocal').text(event.descriLocal);
                     $('#visualizar #color').text(event.color);
-
+                    chamaSelect(event.id);
+                    chamaSelectInputs(event.id);
 
                     //Editar
 
@@ -736,40 +759,11 @@ if ($resultlei->num_rows > 0) {
                                       <dd id="codTipoServico" class="col-sm-9"></dd>
                                       <dt class="col-sm-3">Local</dt>
                                       <dd id="codLocal" class="col-sm-9"></dd>
-                                      <?php
-                                      if($associacao==2){
-                                      $sqlextras = "SELECT DISTINCT registodados.codRegistoCampos, nomeCampo, unidadeCampo, codEspecialidade, codComprador, valorDados from registoCampos,registodados where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' ) and codComprador = $codCompLei and registodados.codRegistoCampos = registocampos.codRegistoCampos";
-                                        $resultextras = $conn->query($sqlextras);
 
-                                        if ($resultextras->num_rows > 0) {
-                                            // output data of each row
-                                            while($row = $resultextras->fetch_assoc()) {
-                                                $nomeCampo = $row['nomeCampo'];
-                                                $valorDados = $row['valorDados'];
-                                                $unidadeCampo = $row['unidadeCampo'];
-
-                                                echo '
-
-                                                <dt class="col-sm-3">'.$nomeCampo.'';
-
-                                                if($unidadeCampo==""){
-
-                                                }else{
-
-                                                  echo " ($unidadeCampo)";
-
-                                                }
+                                      <div id="selectInt">
+                                      </div>
 
 
-                                                echo '</dt>
-                                                <dd class="col-sm-9">'.$valorDados.'</dd>
-
-                                                ';
-
-                                            }
-                                        }
-}
-                                       ?>
 
                                   </dl>
                                   <div style="display:block" id="tempo">
@@ -912,73 +906,7 @@ if ($resultlei->num_rows > 0) {
                                   </div>
 
                                   <!-- DINAMICO-->
-                                  <?php
-                                    $a = 0;
-                                  if($leiMed != null){
-                                    if($associacao==2){
-                                    $sqlextrasEditar = "SELECT DISTINCT registodados.codRegistoCampos, nomeCampo, unidadeCampo, codEspecialidade, codComprador, valorDados from registoCampos,registodados where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' ) and codComprador = $codCompLei and registodados.codRegistoCampos = registocampos.codRegistoCampos";
-                                      $resultextrasEditar = $conn->query($sqlextrasEditar);
-
-                                  if ($resultextrasEditar->num_rows > 0) {
-                                    // output data of each row
-                                    while($row = $resultextrasEditar->fetch_assoc()) {
-
-                                      $nomeCampo = $row['nomeCampo'];
-
-                                      $codRegistoCampo = $row['codRegistoCampos'];
-
-                                      $unidadeCampo = $row['unidadeCampo'];
-
-                                      $valorDados = $row['valorDados'];
-
-                                      $a++;
-
-                                        echo "<div class='form-group'>
-                                            <div class='form-group col-md-12'>
-                                                <label>".$nomeCampo." ";
-
-                                                 if($unidadeCampo==""){
-
-                                                 }else{
-
-                                                   echo " ($unidadeCampo)";
-
-                                                 }
-
-                                                   echo "</label>
-                                                <input type='text' class='form-control' name='extraEditar$a' value='$valorDados' required>
-                                                <input type='hidden' name='codEditar$a' value='".$codRegistoCampo."'>
-                                            </div>
-                                        </div>";
-
-                                    }
-
-                                    $sqlq = "SELECT DISTINCT *, count(*) as quantidade from registoCampos where codEspecialidade =(SELECT distinct codEspecialidade from comprador where emailComprador = '".$email."' ) and codComprador = $codCompLei ";
-                                      $resultq = $conn->query($sqlq);
-
-                                      if ($resultq->num_rows > 0) {
-                                          // output data of each row
-                                          while($row = $resultq->fetch_assoc()) {
-
-                                            $quantidade = $row['quantidade'];
-
-                                            echo "<input type='hidden' name='quantidade' value='$quantidade'>";
-
-                                            echo "<div class='form-group'>
-                                                <div class='form-group col-md-12'>
-
-
-
-                                                </div>
-                                            </div>";
-
-                                          }
-                                      }
-
-                                  }
-                                }
-                                }
-                                  ?>
+                                  <div id="selectIntInputs"></div>
 
                                       <input type="hidden" name="idServico" id="idServico" value="0">
                                       <div class="form-group col-md-12">
