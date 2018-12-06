@@ -1,0 +1,28 @@
+Tentamos remover o papel da vida dos médicos para passarem ao modo digital
+
+Oferecemos uma plataforma em que o médico se aproxima do utente
+
+Na lista de medicamentos, podemos pesquisar pelo nome do medicamento ou pelo nome do genérico
+O genérico como muitas pessoas sabem, tem sido cada vez mais procurado e neste momento é quase tanto ou mais
+procurado como o nome do medicamento
+
+Plataforma dinamica
+
+Existirá um backoffice para configuração de campos
+Caso seja um coletivo, poderá criar campos dinamicos para os seus médicos preencherem quando registam uma intervenção
+
+Futuramente podemos vender os dados para consultórios ou laboratórios
+
+Podemos tentar fazer uma parceria com a infarmed pois temos uma base de dados com os medicamentos
+
+Ordem de apresentação: médico, utente e depois coletivo
+
+Falar sobre a importancia dos pontos fortes do trabalho, campos dinamicos, plano de medicação
+
+Aproximação do utente com o médico
+
+Após a apresentação do médico e do utente, explicar detalhadamente a definição de coletivo
+
+Dar o exemplo da CUF, que é um grupo de hospitais em que nela tem vários médicos associados e basicamente
+damos acesso a uma conta de administrador a um responsável na CUF, e esse administrador poderá fazer a
+configuração de campos, controlar o histórico de consultas dos seus médicos e ver estatísticas

@@ -1,78 +1,24 @@
-Email iniciais****
+TO-DO:
 
-E no máximo mostrar NIF
+Por cima do menu de cada index escreve (Utente,Médico,Admin)
 
-Colocar ***** nos inputs mais pessoais
+Colocar o Fullcalendar dentro do topo
 
-Imprimir so plano de medicação
+Imprimir apenas os planos de medicação
 
-validação da medicação tomada automaticamente (icone lá em cima para marcar auto tudo nesse utente)
+Campos que não queiramos mostrar colocamos: *****, por exemplo Email: bru******@********
 
-erro acentos - $conn_>set_charset("utf8");
+O dado mais pessoal que devemos mostrar é o NIF
 
-To-do-list:
+Imprimir só plano de medicação
 
-- Alterar os GETS por Request
+Fechar todas as conexões
 
-- Imprimir
-
-- Terminar os gráficos (Médicos associados com o lei - carolina)
-
-- night-mode
-
-- Fechar todas as conexões
+Evitar permissões diferentes acessar a páginas não permitidas
 
 
 Bugs:
 
 - Modal das notas e outros (se clicar fora ao mesmo tempo que abre fica tudo cizento)
 
-- Acentos
-
-- Alinhar as estatisticas do index
-
------
-
-Por cima do Início escrever MÉDICO!!!!!
-
-Tentar colocar o Fullcalendar dentro do topo
-
-Alterar a foto de fundo, os icones, as pastas, e o header do chrome
-
-Alterar os dados pessoais por ********* médico
-
-CRIAR mails próprios para receber os emails e enviar,
-limpar o mail do mednager@outlook.pt
-
-
-Após tudo:
-
-- Fechar todas as conexões nos ficheiros
-
-- Evitar permissões diferentes acessar a páginas não permitidas
-﻿
-
-- Gr�ficos
-
-notifs - qui�� v 2.0
-https://www.cloudways.com/blog/real-time-php-notification-system/
-
-ADICIONAR CAMPOS DA ESPECIALIDADE , GESTAO
-
-STATS
-ADMIN
-nr utentes totais e nr utentes por sexo
-nr serviços por local e por especialidade
-
-MEDICO
-nr utentes totais e nr utentes por sexo - já tá
-nr serviços por local e por especialidade - só local
-
-UTENTE
-nr de consultas por mes - já tá
-
-Imprimir
-
-Terminar os gráficos (Médicos associados com o lei - carolina) - já tá
-
-PATRÍCIA preciso de tirar dos inserts do cad e do edit e de mudar a bd
+- Query das intervenções (Verificar se existe algum intervenção naquele momento)

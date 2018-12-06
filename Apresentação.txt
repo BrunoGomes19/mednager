@@ -1,0 +1,44 @@
+- Explicar a relação utente - médico
+
+MÉDICO
+
+- Fazer login num médico
+
+- Ter já utentes, médicos e admins registados e associados entre si
+
+- Mostrar todas as funcionalidades do médico
+
+- Dar enfase ao registo de um utente no modal das intervenções e marcá-lo
+numa intervenção para mostrar a simplicidade (por exemplo não necessitamos de
+sair das intervenções para ir registar um utente)
+
+- Não esquecer de mostrar os campos dinamicos nas intervenções para
+referenciamos mais à frente, quando falarmos do coletivo
+
+- Depois de tudo, marcar planos de medicação para aquele utente
+
+UTENTE
+
+- Entrar na conta do utente criado?
+
+- Mostrar as funcionalidades do utente
+
+- Ir ao plano de medicação ver os planos de medicação criados pelo médico anterior
+
+- Confirmar alguns planos de medicação para quando voltarmos ao médico, mostrarmos
+a interligação do utente com o médico (Mostrar as diferentes cores e a medicação tomada ou não)
+
+COLETIVO
+
+- Explicar o conceito de coletivo
+
+- Mostrar a referência do utente registado no modal da intervenção e ver na lista de utentes (do coletivo)
+o utente lá, já associado
+
+- Dizer que temos a plataforma totalmente preparado para clínicas médicos e grupos como por exemplo a CUF
+
+- Mostrar as funcionalidades do admin
+
+- Por fim e muito importante, referenciar também que quando marcámos a intervenção com aquele médico X que estava associado a este coletivo,
+havia um campo dinamico (extra) que foi configurado por este administrador, e aí mostramos a lista de campos, e fazemos um campo extra, e apartir
+daí mostramos o quão fácil é ter um diretor clinico a gerir o seu próprio mednager, sem depender dos programadores
