@@ -29,7 +29,19 @@ while ($row_events = mysqli_fetch_assoc($resultado_events)) {
     $dosagem = $row_events['dosagem'];
     $formaFarmaceutica = $row_events['formaFarmaceutica'];
 
-    if($end < date('Y-m-d')){
+    if(($end > date('Y-m-d',strtotime('-1 day'))) && $end < date('Y-m-d') ){
+
+      if($confirmacao==0){
+
+        $color = '#ffbb00';
+
+      }else if($confirmacao==1){
+
+        $color = '#28c147';
+
+      }
+
+    }else if(($end < date('Y-m-d',strtotime('-1 day')))){
 
       if($confirmacao==0){
 
@@ -40,8 +52,6 @@ while ($row_events = mysqli_fetch_assoc($resultado_events)) {
         $color = '#28c147';
 
       }
-
-
 
     }
 

@@ -276,6 +276,13 @@ a:hover, a{
             </button> &nbsp Medicação tomada
 
           </div>
+
+          <div class="card-footer" style="background-color: #f2f2f2">
+          <button style="background-color:#ffbb00;border:0px solid;pointer-events: none;" class="btn btn-danger btn-sm">
+              &nbsp &nbsp
+          </button> &nbsp Último dia para confirmar a medicação
+          </div>
+
           <div class="card-footer" style="background-color: #f2f2f2">
           <button style="background-color:#f73936;border:0px solid;pointer-events: none;" class="btn btn-danger btn-sm">
               &nbsp &nbsp
@@ -382,7 +389,7 @@ $resultesp25 = $conn->query($sqlesp25);
                     }
 
                     var d = new Date,
-    dformat = [d.getDate().padLeft(),
+    dformat = [(d.getDate()-1).padLeft(),
               (d.getMonth()+1).padLeft(),
                d.getFullYear()].join('/');
 

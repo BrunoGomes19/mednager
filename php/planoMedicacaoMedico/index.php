@@ -673,6 +673,8 @@ $resultesp25 = $conn->query($sqlesp25);
 
                                if(event.end.format('DD/MM/YYYY HH:mm:ss') < dformat){
 
+                                 //IF para aparecer outra msg no amarelo
+
                                  $('#visualizar #confirmacao').text("O utente não confirmou a medicação tomada");
 
                                }else{
