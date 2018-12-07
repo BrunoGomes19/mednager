@@ -10,8 +10,6 @@ Campos que não queiramos mostrar colocamos: *****, por exemplo Email: bru******
 
 O dado mais pessoal que devemos mostrar é o NIF
 
-Imprimir só plano de medicação
-
 Fechar todas as conexões
 
 Evitar permissões diferentes acessar a páginas não permitidas
