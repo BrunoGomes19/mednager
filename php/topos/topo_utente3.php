@@ -374,8 +374,11 @@ background: #999;
                                             $servico  = $row["servico_id"];
                                             $plano = $row['planoMedicacao_id'];
 
+
+
                                             array_push($notifs, $codAlertaUtente, $descri, $data, $nomeMedico, $idAssoc, $servico, $plano);
                                             $bolinhaCount++;
+
                                           }
 
                                         }
@@ -391,9 +394,11 @@ background: #999;
                                             $servico  = $row["servico_id"];
                                             $plano = $row['planoMedicacao_id'];
 
+                                            if($idAssoc == null){
                                             array_push($notifs, $codAlertaUtente, $descri, $data, $nomeMedico, $idAssoc, $servico, $plano);
                                             $bolinhaCount++;
 
+                                          }
                                           }
 
                                         }
@@ -429,10 +434,10 @@ background: #999;
                                                   <p>Intervenção</p>
                                                   <p style='font-size:80%;' class='date'>$dat</p>
                                               </div>
-                                              </div>
+
 
                                               </div>";
-                                              $bolinhaCount--;
+
                                             } else if($notifs[$i+5] == null && $notifs[$i+6] != null && $notifs[$i+4] == null){
                                               //plano
                                               $plan= $notifs[$i+6];
@@ -444,11 +449,10 @@ background: #999;
                                               <div>
                                                   <p>Plano de medicação</p>
                                                   <p style='font-size:80%;' class='date'>$dat</p>
-                                              </div>
+
                                               </div>
 
                                               </div>";
-                                              $bolinhaCount--;
 
 
                                             } else if($notifs[$i+5] == null && $notifs[$i+6] == null && $notifs[$i+4] != null){
@@ -465,14 +469,14 @@ background: #999;
                                               <p style='font-size:95%;'>Médico: $nomeMed</p>
                                                   <p style='font-size:80%;' class='date'>$dat</p>
                                               </div>
-                                              </div>
 
                                               </div>";
-                                              $bolinhaCount--;
+
 
 
 
                                             }
+                                            $bolinhaCount--;
                                           }
                                         }
 
