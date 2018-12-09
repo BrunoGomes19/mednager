@@ -20,3 +20,7 @@ Bugs:
 - Modal das notas e outros (se clicar fora ao mesmo tempo que abre fica tudo cizento)
 
 - Query das intervenções (Verificar se existe algum intervenção naquele momento)
+
+- Fix estatísticas
+
+- Fix notificações
