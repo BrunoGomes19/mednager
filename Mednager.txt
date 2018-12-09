@@ -26,3 +26,20 @@ Após a apresentação do médico e do utente, explicar detalhadamente a defini�
 Dar o exemplo da CUF, que é um grupo de hospitais em que nela tem vários médicos associados e basicamente
 damos acesso a uma conta de administrador a um responsável na CUF, e esse administrador poderá fazer a
 configuração de campos, controlar o histórico de consultas dos seus médicos e ver estatísticas
+
+
+
+
+**********ESBOÇO IDEIAS TEXTO INICIAL (faltam citar algumas cenas de cima)
+(há coisas que podemos por aqui mas p.e os campos dinamicos deviam ser explicadas so na altura)
+
+Bom dia! ***intro fancy
+Para começar, vou explicar-vos o conceito do nome Mednager: deriva da mistura entre o termo med de médico/medicina/por aí e manager, que significa gestor. O objetivo do nosso projeto é fornecer ao médico ferramentas de gestão para o seu quotidiano profissional e também para fortalecer a relação que há entre médico e utente.
+
+Todos sabemos o quão demoradas podem ser as filas de espera para consultas, todos os minutos que esperamos até sermos atendidos (ainda até na parte administrativa) para muitas outras coisas (esta parte tem de ser mt melhorada).
+
+Focados na tecnologia e saúde, pois são duas grandes componentes do futuro, vemos o nosso produto como super dinâmico e inovador, tendo também em conta o tempo que tivemos disponível e a experiência que adquirimos ao longo deste ano.
+
+Temos features simples como listas de utentes e de médicos, ... como também temos calendários pessoais, planos de medicação versáteis, estatísticas e configurações dinâmicas personalizadas de acordo com as necessidades de cada um. Tudo isto, tendo sempre em conta a proteção de dados dos nossos clientes.
+
+Assim, esperamos agradar-vos e mostrar-vos um pouco do que é o nosso projeto e como foi pensado e desenvolvido, sempre na ótica de uma progressão futurista do contacto entre o médico e o utente.
