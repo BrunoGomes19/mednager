@@ -262,6 +262,7 @@
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Estatísticas</li>
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Planos de Medicação</li>
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Lista de Medicamentos</li>
+                  <li><span class="fa-li"><i class="fa fa-check"></i></span>Registo de campos dinâmicos</li>
                 </ul>
                 <hr>
                 <div class="text-center">
@@ -280,10 +281,12 @@
                 <ul class="fa-ul">
                   <li><span class="fa-li "><i class="fa fa-check"></i></span>Agenda Pessoal</li>
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Associação de Utentes</li>
+                  <li><span class="fa-li"><i class="fa fa-check"></i></span>Registo de Utentes</li>
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Gestão de Intervenções</li>
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Estatísticas</li>
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Planos de Medicação</li>
                   <li><span class="fa-li"><i class="fa fa-check"></i></span>Lista de Medicamentos</li>
+
                 </ul>
                 <hr>
                 <div class="text-center">
