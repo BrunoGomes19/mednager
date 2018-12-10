@@ -139,7 +139,7 @@ if ($result->num_rows > 0) {
                                             <div class="icon">
                                                 <i class="fa fa-group"></i>
                                                 <div class="text">
-                                                    <h2>&nbsp;<?php   echo $utentesAssociados;   ?></h2>
+                                                    <h2>&nbsp;56</h2>
                                                 </div>
                                             </div>
                                             <div class="text">                                               
@@ -156,7 +156,7 @@ if ($result->num_rows > 0) {
                                             <div class="icon">
                                                 <i class="fa fa-home"></i>
                                                 <div class="text">
-                                                    <h2>&nbsp;<?php   echo $locaisdiferentes;    ?></h2>
+                                                    <h2>&nbsp;3</h2>
                                                  </div>
                                             </div>
                                             <div class="text">                                              
@@ -174,7 +174,7 @@ if ($result->num_rows > 0) {
                                             <div class="icon">
                                                 <i class="zmdi zmdi-calendar-note"></i>
                                                 <div class="text">
-                                                    <h2>&nbsp;<?php   echo $intervencoesHoje;   ?></h2>
+                                                    <h2>&nbsp;12</h2>
                                                 </div>
                                             </div>
                                             <div class="text">                                                
@@ -194,7 +194,7 @@ if ($result->num_rows > 0) {
                                             <div class="icon">
                                                 <i class="zmdi zmdi-calendar-note"></i>
                                                 <div class="text">
-                                                    <h2>&nbsp;<?php  echo $intervencoesSemana;  ?></h2>
+                                                    <h2>&nbsp;68</h2>
                                                 </div>
                                             </div>
                                             <div class="text">
@@ -208,6 +208,27 @@ if ($result->num_rows > 0) {
 
                         </div>
 
+                        <div class="au-card recent-report">
+                                    <div class="au-card-inner">
+                                        <h5 class="title-2">recent reports</h5>
+                                        <div class="chart-info">
+                                            <div class="chart-info__left">
+                                                <div class="chart-note">
+                                                    <span class="dot dot--blue"></span>
+                                                    <span>products</span>
+                                                </div>
+                                                <div class="chart-note mr-0">
+                                                    <span class="dot dot--green"></span>
+                                                    <span>services</span>
+                                                </div>
+                                            </div>                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        <div>
+                            
+                        </div>
 
                         <div class="row" style="margin-top:auto;">
                             <div class="col-md-12">

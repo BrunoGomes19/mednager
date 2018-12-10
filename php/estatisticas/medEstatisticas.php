@@ -200,8 +200,11 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
         <!--grafico sexos -->
+        <div class="au-card recent-report">
+        <div class="au-card-inner">
         <canvas id="pie-chart" width="1000" height="300"></canvas>
-
+      </div>
+    </div>
         <script>
           new Chart(document.getElementById("pie-chart"), {
               type: 'pie',
@@ -221,11 +224,12 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
               }
           });
         </script>
-
-        <br>
-        <br>
         <!--grafico nr consultas -->
+        <div class="au-card recent-report">
+        <div class="au-card-inner">
         <canvas id="bar-chart" width="1700" height="400"></canvas>
+      </div>
+    </div>
         <script>
           new Chart(document.getElementById("bar-chart"), {
     type: 'bar',
@@ -258,13 +262,16 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
       }
     }
 });
+
         </script>
 
-        <br>
-        <br>
+        
 <!--grafico titulares -->
+        <div class="au-card recent-report">
+        <div class="au-card-inner">
         <canvas id="bar-chart-horizontal" width="700%" height="10000%"></canvas>
-
+      </div>
+    </div>
         <script>
           new Chart(document.getElementById("bar-chart-horizontal"), {
     type: 'horizontalBar',
