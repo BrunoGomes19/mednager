@@ -195,7 +195,7 @@ background: #999;
       <div class="modal-content">
 
         <div class="modal-body" style="height:635px" id="divnotas">
-          <textarea name="Text1" id="a" onkeyup="guardarNotas();" maxlength="1000"><?php echo $notas;  ?></textarea>
+          <textarea name="Text1" id="a" placeholder="Notas:" onkeyup="guardarNotas();" maxlength="1000"><?php echo $notas;  ?></textarea>
 
         </div>
 
@@ -551,10 +551,7 @@ background: #999;
                                                     <a href="../alterar/changesUser.php">
                                                         <i class="zmdi zmdi-settings"></i>Definições</a>
                                                 </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-money-box"></i>Pagamentos</a>
-                                                </div>
+                                              
                                             </div>
                                             <div class="account-dropdown__footer">
                                                 <a href="../logins/logout.php">
