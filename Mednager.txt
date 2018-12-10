@@ -21,7 +21,7 @@ configuração de campos, controlar o histórico de consultas dos seus médicos 
 
 
 
-
+************
 -Tentamos remover o papel da vida dos médicos para passarem ao modo digital
 
 - Oferecemos uma plataforma em que o médico se aproxima do utente
