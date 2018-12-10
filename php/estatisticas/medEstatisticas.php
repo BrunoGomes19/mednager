@@ -61,8 +61,8 @@
   $result = $conn->query($sqlcodCom);
 
   if ($result->num_rows > 0) {
-    // output data of each row  
-    
+    // output data of each row
+
     while($row = $result->fetch_assoc()) {
       $codComprador = $row["codComprador"];
 
@@ -79,7 +79,7 @@ $sqlsegunda = "SELECT count(*) as quantidade from servico,comprador where compra
   $resultSegunda = $conn->query($sqlsegunda);
 
   if ($resultSegunda->num_rows > 0) {
-   
+
   while($row = $resultSegunda->fetch_assoc()) {
       $qttsegunda = $row["quantidade"];
 
@@ -93,7 +93,7 @@ $sqlsegunda = "SELECT count(*) as quantidade from servico,comprador where compra
   $resultdomingo = $conn->query($sqldomingo);
 
   if ($resultdomingo->num_rows > 0) {
-   
+
   while($row = $resultdomingo->fetch_assoc()) {
       $qtttdomingo = $row["quantidade"];
 
@@ -108,7 +108,7 @@ $sqlsegunda = "SELECT count(*) as quantidade from servico,comprador where compra
   $resultTerca = $conn->query($sqlterca);
 
   if ($resultTerca->num_rows > 0) {
-   
+
   while($row = $resultTerca->fetch_assoc()) {
       $qtttTerca = $row["quantidade"];
 
@@ -123,7 +123,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
   $resultQuarta = $conn->query($sqlquarta);
 
   if ($resultQuarta->num_rows > 0) {
-   
+
   while($row = $resultQuarta->fetch_assoc()) {
       $qtttQuarta = $row["quantidade"];
 
@@ -137,7 +137,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
   $resultQuinta = $conn->query($sqlquinta);
 
   if ($resultQuinta->num_rows > 0) {
-   
+
   while($row = $resultQuinta->fetch_assoc()) {
       $qtttQuinta = $row["quantidade"];
 
@@ -151,7 +151,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
   $resultSexta = $conn->query($sqlsexta);
 
   if ($resultSexta->num_rows > 0) {
-   
+
   while($row = $resultSexta->fetch_assoc()) {
       $qtttSexta = $row["quantidade"];
 
@@ -166,7 +166,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
   $resultSabado = $conn->query($sqlsabado);
 
   if ($resultSabado->num_rows > 0) {
-   
+
   while($row = $resultSabado->fetch_assoc()) {
       $qtttSabado = $row["quantidade"];
 
@@ -197,7 +197,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
 
     <div class="row" >
       <div class="col-md-12" >
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
         <!--grafico sexos -->
         <canvas id="pie-chart" width="1000" height="300"></canvas>
@@ -252,7 +252,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
                 suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
                 // OR //
                 beginAtZero: true, // minimum value will be 0.
-                stepSize: 1   
+                stepSize: 1
             }
         }]
       }
@@ -263,7 +263,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
         <br>
         <br>
 <!--grafico titulares -->
-        <canvas id="bar-chart-horizontal" width="1000" height="2090"></canvas>
+        <canvas id="bar-chart-horizontal" width="700%" height="10000%"></canvas>
 
         <script>
           new Chart(document.getElementById("bar-chart-horizontal"), {
@@ -275,7 +275,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
             echo "'".$row['titularAIM']."',";
           }
       }
-    ?>], 
+    ?>],
       datasets: [
         {
           label: "Número de medicamentos",
@@ -309,15 +309,15 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
                 suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
                 // OR //
                 beginAtZero: true, // minimum value will be 0.
-                stepSize: 5   
+                stepSize: 5
             }
         }]
       }
     }
 });
-        </script>       
+        </script>
 
-    
+
 
       </div>
     </div>
