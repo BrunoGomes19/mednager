@@ -31,7 +31,9 @@ $end = $dateArray2["year"]."-".$dateArray2["day"]."-".$dateArray2["month"]." ".$
 
 $findDataHora = false;
 
-$sql = "SELECT * FROM servico where id!=$id and (ccUtente=$ccUtente or codComprador=$codComprador) and ((('$start' between servico.start and servico.end) OR ('$end' between servico.start and servico.end)) or ((servico.start between '$start' and '$end') OR (servico.end between '$start' and '$end')));";
+//select DATE_FORMAT('2015-12-02 20:00:00','%Y-%m-%d %H:%i:%s') + INTERVAL -1 second;
+
+$sql = "SELECT * FROM servico where id!=$id and (ccUtente=$ccUtente or codComprador=$codComprador) and ((((DATE_FORMAT('$start','%Y-%m-%d %H:%i:%s') + INTERVAL 1 second) between servico.start and servico.end) OR ((DATE_FORMAT('$end','%Y-%m-%d %H:%i:%s') + INTERVAL - 1 second) between servico.start and servico.end)) or ((servico.start between (DATE_FORMAT('$start','%Y-%m-%d %H:%i:%s') + INTERVAL 1 second) and (DATE_FORMAT('$end','%Y-%m-%d %H:%i:%s') + INTERVAL - 1 second)) OR (servico.end between (DATE_FORMAT('$start','%Y-%m-%d %H:%i:%s') + INTERVAL 1 second) and (DATE_FORMAT('$end','%Y-%m-%d %H:%i:%s') + INTERVAL - 1 second))));";
 
 $result = $conn->query($sql);
 
@@ -42,6 +44,7 @@ if ($result->num_rows > 0) {
 			$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Já existe uma intervenção a decorrer nesse dia e hora!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 			header("Location: index.php");
 			exit();
+			echo $sql;
 }
 
 if($findDataHora == false){
@@ -111,6 +114,8 @@ if(!empty($id) && !empty($title) && !empty($color) && !empty($start) && !empty($
 		header("Location: index.php");
 
 		exit();
+
+		echo $sql;
 
 	}else{
 

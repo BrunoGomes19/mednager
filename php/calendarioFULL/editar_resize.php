@@ -40,7 +40,7 @@ if ($result->num_rows > 0) {
 
 $findDataHora = false;
 
-$sql = "SELECT * FROM servico where id!=$id and (ccUtente=$ccUtente or codComprador=$codComprador) and ((('$start_sem_barra' between servico.start and servico.end) OR ('$end_sem_barra' between servico.start and servico.end)) or ((servico.start between '$start_sem_barra' and '$end_sem_barra') OR (servico.end between '$start' and '$end')));";
+$sql = "SELECT * FROM servico where id!=$id and (ccUtente=$ccUtente or codComprador=$codComprador) and ((((DATE_FORMAT('$start','%Y-%m-%d %H:%i:%s') + INTERVAL 1 second) between servico.start and servico.end) OR ((DATE_FORMAT('$end','%Y-%m-%d %H:%i:%s') + INTERVAL - 1 second) between servico.start and servico.end)) or ((servico.start between (DATE_FORMAT('$start','%Y-%m-%d %H:%i:%s') + INTERVAL 1 second) and (DATE_FORMAT('$end','%Y-%m-%d %H:%i:%s') + INTERVAL - 1 second)) OR (servico.end between (DATE_FORMAT('$start','%Y-%m-%d %H:%i:%s') + INTERVAL 1 second) and (DATE_FORMAT('$end','%Y-%m-%d %H:%i:%s') + INTERVAL - 1 second))));";
 
 $result = $conn->query($sql);
 

@@ -44,7 +44,7 @@ $end = $dateArray2["year"]."-".$dateArray2["day"]."-".$dateArray2["month"]." ".$
 
 $findDataHora = false;
 
-$sql = "SELECT * FROM servico where (ccUtente=$ccUtente or codComprador=$codComprador) and ((('$start' between servico.start and servico.end) OR ('$end' between servico.start and servico.end)) or ((servico.start between '$start' and '$end') OR (servico.end between '$start' and '$end')));";
+$sql = "SELECT * FROM servico where id!=$id and (ccUtente=$ccUtente or codComprador=$codComprador) and ((((DATE_FORMAT('$start','%Y-%m-%d %H:%i:%s') + INTERVAL 1 second) between servico.start and servico.end) OR ((DATE_FORMAT('$end','%Y-%m-%d %H:%i:%s') + INTERVAL - 1 second) between servico.start and servico.end)) or ((servico.start between (DATE_FORMAT('$start','%Y-%m-%d %H:%i:%s') + INTERVAL 1 second) and (DATE_FORMAT('$end','%Y-%m-%d %H:%i:%s') + INTERVAL - 1 second)) OR (servico.end between (DATE_FORMAT('$start','%Y-%m-%d %H:%i:%s') + INTERVAL 1 second) and (DATE_FORMAT('$end','%Y-%m-%d %H:%i:%s') + INTERVAL - 1 second))));";
 
 $result = $conn->query($sql);
 
