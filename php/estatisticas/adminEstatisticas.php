@@ -28,7 +28,7 @@
     echo "Error1";
   }
 
-  $sqtotalMed = "select emailComprador, count(*) as nrMed from comprador where codPermissao=2";
+  $sqtotalMed = "select emailComprador, count(*) as nrMed from comprador where codPermissao=2  and LEIComprador='$LEIComprador'";
 
 
   $resultmeds = $conn->query($sqtotalMed);
@@ -124,7 +124,7 @@
       <div class="col-md-12" >
 
         <!--grafico sexos -->
-        <canvas id="pie-chart" width="1000" height="300"></canvas>
+        <canvas id="pie-chart" width="100%" height="100%"></canvas>
 
         <script>
           new Chart(document.getElementById("pie-chart"), {
