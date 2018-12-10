@@ -29,7 +29,7 @@ $end = $dateArray2["year"]."-".$dateArray2["day"]."-".$dateArray2["month"]." ".$
 
 if(($dias == 1 && $horas == 0) || $horas == 0){
 
-if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty($codMedicamento) && !empty($observacoes)) {
+if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty($codMedicamento) ) {
 	//Converter a data e hora do formato brasileiro para o formato do Banco de Dados
 	$data = explode(" ", $start);
 	list($date, $hora) = $data;
@@ -99,7 +99,7 @@ $numVezes *= $dias;
 
 
 
-if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty($codMedicamento) && !empty($observacoes)) {
+if(!empty($title) && !empty($color) && !empty($start) && !empty($end) && !empty($codMedicamento)) {
 	//Converter a data e hora do formato brasileiro para o formato do Banco de Dados
 	$data = explode(" ", $start);
 	list($date, $hora) = $data;
