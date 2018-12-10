@@ -12,7 +12,7 @@ $q = intval($_GET['q']);
 
 include "../topos/header.php";
 
-$sql="SELECT * FROM utente,comprador,associados WHERE utente.ccUtente = associados.utente_ccUtente and associados.comprador_codComprador = comprador.codComprador and LEIComprador = 123 and NIFUtente like '".$q."%' ORDER BY nomeUtente";
+$sql="SELECT * FROM utente,comprador,associados WHERE utente.ccUtente = associados.utente_ccUtente and associados.comprador_codComprador = comprador.codComprador and LEIComprador = 123 and NIFUtente like '".$q."%' group by utente.ccUtente ORDER BY nomeUtente";
 
 $result = mysqli_query($conn,$sql);
 

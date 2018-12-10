@@ -10411,7 +10411,7 @@ fieldset[disabled] .btttt-neutral.active {
 }
 
 .card-user .image {
-    height: 110px;
+    height: 100%;
 }
 
 .card-user .image-plain {
@@ -10422,7 +10422,7 @@ fieldset[disabled] .btttt-neutral.active {
 .card-user .author {
     text-align: center;
     text-transform: none;
-    margin-top: -70px;
+    margin-top: -110px;
 }
 
 .card-user .avatar {

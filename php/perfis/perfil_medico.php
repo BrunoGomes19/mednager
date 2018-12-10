@@ -60,12 +60,12 @@ $conn->close();
 
                               <div class="col-md-4">
                                     <div class="card card-user">
-                                        <div class="image">
+                                        <div style="height:20%;">
                                             <img src="../../assets/images/fundo.jpg" alt="..."/>
                                         </div>
                                         <div class="content">
                                             <div class="author">
-                                                 <div class="image" style="width: 50%; margin-left: auto; margin-right: auto; border-radius: 15px">
+                                                 <div style="width: 50%; margin-left: auto; margin-right: auto; border-radius: 15px">
 
 
                                                       <?php
@@ -176,7 +176,7 @@ $conn->close();
                                         </div>
                                     </div>
                                 </div>
-                                
+
 
 
 
