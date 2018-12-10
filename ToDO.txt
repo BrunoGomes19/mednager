@@ -1,7 +1,5 @@
 TO-DO:
 - Imprimir apenas os planos de medicação
-- Query das intervenções (Verificar se existe alguma intervenção naquele momento)
-- Ver acentos nos emails enviados e recebidos
 
 
 
