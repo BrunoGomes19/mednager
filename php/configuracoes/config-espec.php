@@ -277,7 +277,7 @@ window.setInterval(function() {
                                   <div class="form-group">
                                       <div class="form-group col-md-12" id="vaidar2">
 
-                                          <label style="display:block">Nome do campo</label>
+                                        
                                           <input type="text" class="form-control" name="title" id="title" autocomplete="off" placeholder="Nome do campo" required onkeyup="procuraCampos(this.value)">
                                           <br>
                                           <p id="txtHintCampo">A lista de campos configurados por si será exibida aqui...</p>

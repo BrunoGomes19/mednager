@@ -265,7 +265,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
 
         </script>
 
-        
+
 <!--grafico titulares -->
         <div class="au-card recent-report">
         <div class="au-card-inner">
