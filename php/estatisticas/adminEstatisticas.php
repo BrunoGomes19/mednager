@@ -161,7 +161,9 @@
       labels: [<?php
       if($result2->num_rows > 0){
           while($row = $result2->fetch_assoc()){
+            if($row['descriEspecialidade'] != NULL){
             echo "'".$row['descriEspecialidade']."',";
+          }
           }
       }
     ?>, 'Total'],
@@ -171,15 +173,19 @@
           backgroundColor: [<?php
       if($result222->num_rows > 0){
           while($row = $result222->fetch_assoc()){
+            if($row['descriEspecialidade'] != NULL){
             echo "'#5fbace',";
+          }
           }
       }
     ?>, '#5fbace'],
           data: [<?php
       if($result22->num_rows > 0){
           while($row = $result22->fetch_assoc()){
+            if($row['descriEspecialidade'] != NULL){
             echo "'".$row['nrMedicos']."',";
           }
+        }
       }
     ?>, <?php echo $nrMed; ?>]
         }

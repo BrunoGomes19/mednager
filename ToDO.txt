@@ -6,10 +6,6 @@ Colocar o Fullcalendar dentro do topo
 
 Imprimir apenas os planos de medicação
 
-Campos que não queiramos mostrar colocamos: *****, por exemplo Email: bru******@********
-
-O dado mais pessoal que devemos mostrar é o NIF
-
 Fechar todas as conexões
 
 Evitar permissões diferentes acessar a páginas não permitidas
