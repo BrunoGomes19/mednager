@@ -894,7 +894,7 @@ if ($resultlei->num_rows > 0) {
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Observações</label>
-                                          <textarea class="form-control" name="observacoes" style="resize:none;" autocomplete="off" id="observacoes2" placeholder="Observações" required rows="4"></textarea>
+                                          <textarea class="form-control" name="observacoes" style="resize:none;" autocomplete="off" id="observacoes2" placeholder="Observações"  rows="4"></textarea>
                                       </div>
                                   </div>
 
@@ -1052,7 +1052,7 @@ if ($resultlei->num_rows > 0) {
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Observações</label>
-                                          <textarea class="form-control" name="observacoes" style="resize:none;" autocomplete="off" id="observacoes" placeholder="Observações" required rows="4"></textarea>
+                                          <textarea class="form-control" name="observacoes" style="resize:none;" autocomplete="off" id="observacoes" placeholder="Observações"  rows="4"></textarea>
 
                                       </div>
                                   </div>
@@ -1155,7 +1155,7 @@ if ($resultlei->num_rows > 0) {
                                                  }
 
                                                    echo "</label>
-                                                <input type='text' class='form-control' name='extra$a' placeholder='$nomeCampo' required>
+                                                <input type='text' class='form-control' name='extra$a' placeholder='$nomeCampo' >
                                                 <input type='hidden' name='cod$a' value='".$codRegistoCampo."'>
                                             </div>
                                         </div>";

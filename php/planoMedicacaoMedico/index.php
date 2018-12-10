@@ -1016,7 +1016,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Observações</label>
-                                          <textarea class="form-control" name="observacoes" style="resize:none;" autocomplete="off" id="observacoes2" placeholder="Observações" required rows="4"></textarea>
+                                          <textarea class="form-control" name="observacoes" style="resize:none;" autocomplete="off" id="observacoes2" placeholder="Observações2"  rows="4"></textarea>
                                       </div>
                                   </div>
 
@@ -1133,7 +1133,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                 <div class='form-group'>
                                     <div class='form-group col-md-12'>
                                         <label>Observações</label>
-                                        <textarea class='form-control' name='observacoes' style='resize:none;' autocomplete='off' id='observacoes' placeholder='Observações' required rows='4'></textarea>
+                                        <textarea class='form-control' name='observacoes' style='resize:none;' autocomplete='off' id='observacoes' placeholder='Observações'  rows='4'></textarea>
 
                                     </div>
                                 </div>
