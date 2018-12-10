@@ -7,9 +7,12 @@ include('../topos/topo_admin.php');
             <!-- MAIN CONTENT-->
 <link href="../../assets/css/style.css" rel="stylesheet">
 
-<div class="content" style="padding-top:8%;"> 
-  <div class="content">
-    <div class="col-lg-6">
+<div class="main-content">
+                <div class="section__content section__content--p30">
+
+
+                    <div class="row">
+                        <div class="col-md-12">
 
     <?php
 
@@ -20,7 +23,8 @@ include('../topos/topo_admin.php');
         unset($_SESSION['erro']);
       }
       ?>
-    <div class="card">
+      <br>
+    <div class="card" style="width: 50%; margin:0 auto; text-align: center;">
       <div class="card-header">
           <strong>Alterar</strong> Password
       </div>
@@ -60,6 +64,7 @@ include('../topos/topo_admin.php');
         </div>
       </form>
     </div> 
+    <br>
 
     <?php
 

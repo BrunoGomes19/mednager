@@ -22,12 +22,24 @@ include('../topos/header.php');
   } else {
   echo "Error";
   }
+
+
+  if(md5($velhapass)==$password && md5($novapassConfirmacao)==$password){
+    $_SESSION['erro'] = '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#ff3333;border-radius:8px";>
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <span style="color:white;">As passwords nova e antiga são iguais.</span>
+     </div>';
+     header("Location: changesUser.php");         
+
+      exit();
+
+
+  }
   
   
 
 
-  if ( md5($velhapass) == $password) {
-    
+  if ( md5($velhapass) == $password) {   
     if($novapass == $novapassConfirmacao){
     mysqli_query($conn, "UPDATE utente set passUtente='" . md5($novapass) . "' WHERE emailUtente='$emailUtente'"); 
 
@@ -42,7 +54,7 @@ include('../topos/header.php');
     }else{      
       $_SESSION['erro'] = '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#ff3333;border-radius:8px";>
      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <span style="color:white;">As passwords pass não coincidem. Tente novamente.</span>
+      <span style="color:white;">As passwords não coincidem. Tente novamente.</span>
      </div>';
      header("Location: changesUser.php");         
 

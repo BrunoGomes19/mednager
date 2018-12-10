@@ -22,6 +22,18 @@ include('../topos/header.php');
   } else {
   echo "Error";
   }
+
+  if(md5($velhapass)==$password && md5($novapassConfirmacao)==$password){
+    $_SESSION['erro'] = '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#ff3333;border-radius:8px";>
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <span style="color:white;">As passwords nova e antiga são iguais.</span>
+     </div>';
+     header("Location: changesAdmin.php");         
+
+      exit();
+
+
+  }
   
   
 

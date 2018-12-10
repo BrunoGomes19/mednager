@@ -6,10 +6,14 @@ include('../topos/topo_utente.php');
 
             <!-- MAIN CONTENT-->
 <link href="../../assets/css/style.css" rel="stylesheet">
+<div class="content" >
 
-<div class="content" style="padding-top:8%;"> 
-  <div class="content">
-    <div class="col-lg-6">
+<div class="main-content">
+                <div class="section__content section__content--p30">
+
+
+                    <div class="row">
+                        <div class="col-md-12">
 
     <?php
 
@@ -20,7 +24,8 @@ include('../topos/topo_utente.php');
         unset($_SESSION['erro']);
       }
       ?>
-    <div class="card">
+      <br>
+    <div class="card" style="width: 50%; margin:0 auto; text-align: center;">
       <div class="card-header">
           <strong>Alterar</strong> Password
       </div>
@@ -29,7 +34,7 @@ include('../topos/topo_utente.php');
             
           <div class="row form-group">
               <div class="col col-md-3">
-                  <label for="hf-email" class=" form-control-label">Password antiga</label>
+                  <label for="hf-email" class=" form-control-label" style="color: #5FBACE;"><b>Password antiga</b></label>
               </div>
               <div class="col-12 col-md-9">
                   <input type="password" id="velhapass" name="velhapass" placeholder="Por favor insira a password antiga..." class="form-control">
@@ -37,7 +42,7 @@ include('../topos/topo_utente.php');
           </div>
           <div class="row form-group">
               <div class="col col-md-3">
-                  <label for="hf-password" class=" form-control-label">nova Password</label>
+                  <label for="hf-password" class=" form-control-label" style="color: #5FBACE;"><b>nova Password</b></label>
               </div>
               <div class="col-12 col-md-9">
                   <input type="password" id="novapass" name="novapass" placeholder="Por favor insira a nova password..." class="form-control">
@@ -45,7 +50,7 @@ include('../topos/topo_utente.php');
           </div>
           <div class="row form-group">
               <div class="col col-md-3">
-                  <label for="hf-password" class=" form-control-label">confirmação da nova Password</label>
+                  <label for="hf-password" class=" form-control-label" style="color: #5FBACE;"><b>confirmação da nova Password</b></label>
               </div>
               <div class="col-12 col-md-9">
                   <input type="password" id="novapassConfirmacao" name="novapassConfirmacao" placeholder="Por favor confirme a nova password..." class="form-control">
@@ -56,10 +61,11 @@ include('../topos/topo_utente.php');
         <div class="card-footer">
             
             <input type="submit" name="submit"
-                        value="ALTERAR" class="btnSubmit">                                        
+                        value="Alterar" class="btnSubmit">                                        
         </div>
       </form>
     </div> 
+    <br>
 
     <?php
 
