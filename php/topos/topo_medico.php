@@ -229,7 +229,7 @@ background: #999;
                                 <i class="fas fa-book"></i>Agenda</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="../calendarioFULL/index.php">Gestão de intervenções</a>
+                                    <a href="../calendarioFULL/index.php">Gestão de intervençõelse</a>
                                 </li>
                                 <li>
                                     <a href="../listas/historicoconsultas-medico.php">Histórico</a>

@@ -242,7 +242,7 @@ a:hover, a{
               </div>
               <div class="card-body card-block">
                   <div class="has-success form-group">
-                      Tem 24h para confirmar a toma do medicamento.
+                      Tem 24h para confirmar a toma do medicamento (desde a hora atual até 24h antes).
                   </div>
               </div>
           </div>

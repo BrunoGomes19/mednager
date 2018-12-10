@@ -354,6 +354,11 @@ a:hover, a{
     height: 100%;
 }
 
+#infosModalMedico{
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
 </style>
 
 <head>
@@ -392,7 +397,57 @@ a:hover, a{
     <div class="modal-dialog" role="document">
       <div class="modal-content">
 
-        <div class="modal-body" style="height:635px">
+        <div class="modal-body" id="infosModalMedico" style="max-height: 635px;background-color:#f2f2f2;">
+          <div class="card-header" style="text-align: center;background-color:#f2f2f2;">
+              <h5>Informações acerca da agenda</h5>
+          </div>
+
+          <div class="card">
+              <div class="card-header" style="text-align:center;">
+                  <strong>Para que serve a agenda?</strong>
+              </div>
+              <div class="card-body card-block">
+                  <div class="has-success form-group">
+                      A agenda serve para ter a sua rotina profissional organizada de forma simples: todas as suas intervenções para o dia, semana ou mês estão à distância de um clique em forma de calendário ou lista. Pode criar planificações de consultas, cirurgias, exames, entre outros bem como editá-los ou removê-los. Aceda onde quer que esteja.
+                  </div>
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="card-header" style="text-align:center;">
+                  <strong>Como posso utilizar a agenda?</strong>
+              </div>
+              <div class="card-body card-block">
+                  <div class="has-success form-group">
+                      Cada bloco contém informações importantes sobre a intervenção bem como a possibilidade de editar ou eliminar o plano. Pode também arrastar para dias diferentes ou alterar o tempo da intervenção reajustando a altura do bloco.
+                  </div>
+              </div>
+          </div>
+
+
+          <div class="card">
+              <div class="card-header" style="text-align:center;">
+                  <strong>Quanto tempo tenho para criar uma intervenção?</strong>
+              </div>
+              <div class="card-body card-block">
+                  <div class="has-success form-group">
+                      Tem 24h para criar uma intervenção (desde a hora atual até 24h antes).
+                  </div>
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="card-header" style="text-align:center;">
+                  <strong>Quanto tempo tenho para editar uma intervenção?</strong>
+              </div>
+              <div class="card-body card-block">
+                  <div class="has-success form-group">
+                      Tem 24h para editar uma intervenção (desde a hora atual até 24h antes).
+                  </div>
+              </div>
+          </div>
+
+
 
 
         </div>

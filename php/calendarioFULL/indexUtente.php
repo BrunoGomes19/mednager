@@ -59,6 +59,11 @@ a:hover, a{
     height: 100%;
 }
 
+#infosModalMedico{
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
 </style>
 
 <head>
@@ -97,7 +102,34 @@ a:hover, a{
     <div class="modal-dialog" role="document">
       <div class="modal-content">
 
-        <div class="modal-body" style="height:635px">
+        <div class="modal-body" id="infosModalMedico" style="max-height: 635px;background-color:#f2f2f2;">
+          <div class="card-header" style="text-align: center;background-color:#f2f2f2;">
+              <h5>Informações acerca da agenda</h5>
+          </div>
+
+          <div class="card">
+              <div class="card-header" style="text-align:center;">
+                  <strong>Para que serve a agenda?</strong>
+              </div>
+              <div class="card-body card-block">
+                  <div class="has-success form-group">
+                      A agenda serve para ter a sua rotina organizada de forma simples: todas as suas intervenções para o dia, semana ou mês estão à distância de um clique em forma de calendário ou lista. Aceda onde quer que esteja.
+                  </div>
+              </div>
+          </div>
+
+          <div class="card">
+              <div class="card-header" style="text-align:center;">
+                  <strong>Como posso utilizar a agenda?</strong>
+              </div>
+              <div class="card-body card-block">
+                  <div class="has-success form-group">
+                      Cada bloco contém informações importantes sobre a intervenção. Esta agenda é meramente informativa, apenas o médico que criou a sua intervenção a pode alterar ou remover.
+                  </div>
+              </div>
+          </div>
+
+
 
 
         </div>
@@ -321,6 +353,8 @@ $resultesp25 = $conn->query($sqlesp25);
                       <button type="button" class="btn btn-primary btn-sm" style="font-size:22px" data-toggle="modal" data-target="#myModal3">
                           <i class="fas fa-info"></i>
                       </button>&nbsp
+
+
             </form>
 
             <div class="main-content" style="padding-top:0px;background-color:#dce0e5;padding-bottom:2%;">
