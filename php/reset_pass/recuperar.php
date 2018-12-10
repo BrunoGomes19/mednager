@@ -89,6 +89,8 @@ if(isset($_POST['submit'])){
 
 			$mail = new PHPMailer;
 
+			$mail->CharSet = "UTF-8";
+
 			$mail->SMTPDebug = 4;                               // Enable verbose debug output
 
 			$mail->SMTPOptions = array( 'ssl' => array( 'verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true ) );                                     // Set mailer to use SMTP
@@ -108,7 +110,7 @@ if(isset($_POST['submit'])){
 			//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 			$mail->isHTML(true);                                  // Set email format to HTML
 
-			$mail->Subject = 'Recuperacao de palavra-passe';
+			$mail->Subject = 'Recuperação de palavra-passe';
 			$mail->Body    = 'Para recuperar a palavra-passe clique no link abaixo: <br>'.$url;
 			$mail->AltBody = '';
 
@@ -117,10 +119,12 @@ if(isset($_POST['submit'])){
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
 			} else {
 
-				$_SESSION['msgRecuperacao'] = '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				 <span style="color:white;">E-mail enviado com sucesso!</span>
-				</div>';
+				$conn->query("UPDATE comprador set tokenComprador='$str' WHERE emailComprador='$email'");
+
+				$_SESSION['msgRecuperacao'] = '<div class="alert alert-warning alert-dismissible fade-show" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					 <span style="color:white;">Dentro de alguns minutos receberá um email para recuperar a sua palavra-passe.</span>
+					</div>';
 
 				header("Location: ../logins/authentication-login.php");
 
@@ -134,16 +138,9 @@ if(isset($_POST['submit'])){
 
 		//mail($email,"Reset password","To reset your password, please click here: ola","From: bgomes18.1999@gmail.com\r\n");
 
-		$conn->query("UPDATE comprador set tokenComprador='$str' WHERE emailComprador='$email'");
 
-		$_SESSION['msgRecuperacao'] = '<div class="alert alert-warning alert-dismissible fade-show" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			 <span style="color:white;">Dentro de alguns minutos receberá um e-mail para recuperar a sua palavra-passe.</span>
-			</div>';
 
-		header("Location: ../logins/authentication-login.php");
 
-		exit();
 
 	}else{
 
@@ -170,6 +167,8 @@ if(isset($_POST['submit'])){
 
 			$mail = new PHPMailer;
 
+			$mail->CharSet = "UTF-8";
+
 			$mail->SMTPDebug = 4;                               // Enable verbose debug output
 
 			 $mail->SMTPOptions = array( 'ssl' => array( 'verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true ) );                                     // Set mailer to use SMTP
@@ -189,7 +188,7 @@ if(isset($_POST['submit'])){
 			//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 			$mail->isHTML(true);                                  // Set email format to HTML
 
-			$mail->Subject = 'Recuperacao de palavra-passe';
+			$mail->Subject = 'Recuperação de palavra-passe';
 			$mail->Body    = 'Para recuperar a palavra-passe clique no link abaixo: <br>'.$url;
 			$mail->AltBody = '';
 
@@ -198,10 +197,12 @@ if(isset($_POST['submit'])){
 				echo 'Mailer Error: ' . $mail->ErrorInfo;
 			} else {
 
-				$_SESSION['msgRecuperacao'] = '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				 <span style="color:white;">E-mail enviado com sucesso!</span>
-				</div>';
+				$conn->query("UPDATE utente set tokenUtente='$str' WHERE emailUtente='$email'");
+
+				$_SESSION['msgRecuperacao'] = '<div class="alert alert-warning alert-dismissible fade-show" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					 <span style="color:white;">Dentro de alguns minutos receberá um e-mail para recuperar a sua palavra-passe.</span>
+					</div>';
 
 				header("Location: ../logins/authentication-login.php");
 
@@ -215,21 +216,11 @@ if(isset($_POST['submit'])){
 
 		//mail($email,"Recuperação de palavra-passe - mednager","To reset your password, please click here: $url","From: admin@mednager.local\r\n");
 
-		$conn->query("UPDATE utente set tokenUtente='$str' WHERE emailUtente='$email'");
+
 
 		//FIM DA RECUPERAÇÃO
 
 
-
-
-		$_SESSION['msgRecuperacao'] = '<div class="alert alert-warning alert-dismissible fade-show" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			 <span style="color:white;">Dentro de alguns minutos receberá um e-mail para recuperar a sua palavra-passe.</span>
-			</div>';
-
-		header("Location: ../logins/authentication-login.php");
-
-		exit();
 
 	}else{
 

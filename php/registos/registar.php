@@ -281,6 +281,8 @@
 
 				$mail = new PHPMailer;
 
+				$mail->CharSet = "UTF-8";
+
 				$mail->SMTPDebug = 4;                               // Enable verbose debug output
 
 				$mail->SMTPOptions = array( 'ssl' => array( 'verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true ) );                                     // Set mailer to use SMTP
@@ -300,14 +302,16 @@
 				//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 				$mail->isHTML(true);                                  // Set email format to HTML
 
-				$mail->Subject = 'Confirmacao de email';
-				$mail->Body    = 'Para terminar a confirmacao de email clique no seguinte link: <br>'.$url;
+				$mail->Subject = 'Confirmação de email';
+				$mail->Body    = 'Para confirmar o email clique no seguinte link: <br>'.$url;
 				$mail->AltBody = '';
 
 				if(!$mail->send()) {
 					echo 'Message could not be sent.';
 					echo 'Mailer Error: ' . $mail->ErrorInfo;
 				} else {
+
+					$conn->query("UPDATE comprador set codeEmailConfirm='$str' WHERE emailComprador='$email'");
 
 					$_SESSION['msgRegisto'] = '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#89bdf4;border-radius:8px";>
 							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -326,7 +330,7 @@
 
 			//mail($email,"Reset password","To reset your password, please click here: ola","From: bgomes18.1999@gmail.com\r\n");
 
-			$conn->query("UPDATE comprador set codeEmailConfirm='$str' WHERE emailComprador='$email'");
+
 
 
 

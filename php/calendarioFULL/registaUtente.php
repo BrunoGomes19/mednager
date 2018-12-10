@@ -247,6 +247,8 @@ if ($result->num_rows > 0) {
 
 							$mail = new PHPMailer;
 
+							$mail->CharSet = "UTF-8";
+
 							$mail->SMTPDebug = 4;                               // Enable verbose debug output
 
 							$mail->SMTPOptions = array( 'ssl' => array( 'verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true ) );                                     // Set mailer to use SMTP
@@ -269,7 +271,7 @@ if ($result->num_rows > 0) {
 							$mail->Subject = 'Bem-vindo ao mednager!';
 							$mail->Body    = 'Foi registado na plataforma mednager!<br>
 							<br>As suas credenciais:
-							<br>Identificacao: '.$ccUtente.'
+							<br>Identificação: '.$ccUtente.'
 							<br>Palavra-passe: '.$passNoChange.'
 							<br><br>Para entrar na plataforma clique no seguinte link:<br>'.$url;
 							$mail->AltBody = '';
