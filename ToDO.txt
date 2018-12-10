@@ -11,6 +11,4 @@ TO-DO:
 
 - Modal das notas e outros (se clicar fora ao mesmo tempo que abre fica tudo cizento)
 
-- Foto de perfil
-
 - Ajustar para mobile
