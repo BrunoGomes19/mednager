@@ -1,21 +1,16 @@
 TO-DO:
 
-Por cima do menu de cada index escreve (Utente,Médico,Admin)
+- Colocar o Fullcalendar dentro do topo (tentei mas não deu)
 
-Colocar o Fullcalendar dentro do topo
+- Imprimir apenas os planos de medicação
 
-Imprimir apenas os planos de medicação
+- Fechar todas as conexões
 
-Fechar todas as conexões
-
-Evitar permissões diferentes acessar a páginas não permitidas
-
-
-Bugs:
+- Evitar permissões diferentes acessar a páginas não permitidas
 
 - Modal das notas e outros (se clicar fora ao mesmo tempo que abre fica tudo cizento)
 
-- Query das intervenções (Verificar se existe algum intervenção naquele momento)
+- Query das intervenções (Verificar se existe alguma intervenção naquele momento)
 
 - Fix estatísticas
 
