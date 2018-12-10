@@ -208,7 +208,7 @@ if ($result->num_rows > 0) {
 
                         </div>
 
-                        <div class="au-card recent-report">
+                        <!--<div class="au-card recent-report">
                                     <div class="au-card-inner">
                                         <h5 class="title-2">recent reports</h5>
                                         <div class="chart-info">
@@ -226,7 +226,7 @@ if ($result->num_rows > 0) {
                                         </div>
                                     </div>
                                 </div>
-                        <div>
+                        <div>-->
                             
                         </div>
 
