@@ -139,7 +139,7 @@ if ($result->num_rows > 0) {
                                             <div class="icon">
                                                 <i class="fa fa-group"></i>
                                                 <div class="text">
-                                                    <h2>&nbsp;56</h2>
+                                                    <h2>&nbsp;<?php echo $utentesAssociados; ?></h2>
                                                 </div>
                                             </div>
                                             <div class="text">                                               
@@ -156,7 +156,7 @@ if ($result->num_rows > 0) {
                                             <div class="icon">
                                                 <i class="fa fa-home"></i>
                                                 <div class="text">
-                                                    <h2>&nbsp;3</h2>
+                                                    <h2>&nbsp;<?php echo $locaisdiferentes; ?></h2>
                                                  </div>
                                             </div>
                                             <div class="text">                                              
@@ -174,7 +174,7 @@ if ($result->num_rows > 0) {
                                             <div class="icon">
                                                 <i class="zmdi zmdi-calendar-note"></i>
                                                 <div class="text">
-                                                    <h2>&nbsp;12</h2>
+                                                    <h2>&nbsp;<?php echo $intervencoesHoje; ?></h2>
                                                 </div>
                                             </div>
                                             <div class="text">                                                
@@ -194,7 +194,7 @@ if ($result->num_rows > 0) {
                                             <div class="icon">
                                                 <i class="zmdi zmdi-calendar-note"></i>
                                                 <div class="text">
-                                                    <h2>&nbsp;68</h2>
+                                                    <h2>&nbsp;<?php echo $intervencoesSemana; ?></h2>
                                                 </div>
                                             </div>
                                             <div class="text">
