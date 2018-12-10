@@ -280,6 +280,9 @@ background: #999;
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
+
+                      <p style="text-align:center;padding-bottom:8%;font-size:18px;"><strong>Utente</strong></p>
+
                         <li class="active has-sub">
                             <a href="../indexes/index-utente.php">
                                 <i class="fa fa-home"></i>Início</a>
