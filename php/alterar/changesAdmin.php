@@ -22,18 +22,23 @@ include('../topos/topo_admin.php');
         echo $_SESSION['erro'];
         unset($_SESSION['erro']);
       }
+
+      if (isset($_SESSION['msg'])) {
+        echo $_SESSION['msg'];
+        unset($_SESSION['msg']);
+      }
       ?>
       <br>
     <div class="card" style="width: 50%; margin:0 auto; text-align: center;">
       <div class="card-header">
-          <strong>Alterar</strong> Password
+          <strong>Alterar Password</strong>
       </div>
       <form action="alterarpassAdmin.php" method="post" class="form-horizontal" name="frmChange" onSubmit="return validatePassword()">
         <div class="card-body card-block">
             
           <div class="row form-group">
               <div class="col col-md-3">
-                  <label for="hf-email" class=" form-control-label">Password antiga</label>
+                  <label for="hf-email" class=" form-control-label" style="color: #5FBACE;"><b>Password antiga</b></label>
               </div>
               <div class="col-12 col-md-9">
                   <input type="password" id="velhapass" name="velhapass" placeholder="Por favor insira a password antiga..." class="form-control">
@@ -41,7 +46,7 @@ include('../topos/topo_admin.php');
           </div>
           <div class="row form-group">
               <div class="col col-md-3">
-                  <label for="hf-password" class=" form-control-label">nova Password</label>
+                  <label for="hf-password" class=" form-control-label" style="color: #5FBACE;"><b>nova Password</b></label>
               </div>
               <div class="col-12 col-md-9">
                   <input type="password" id="novapass" name="novapass" placeholder="Por favor insira a nova password..." class="form-control">
@@ -49,7 +54,7 @@ include('../topos/topo_admin.php');
           </div>
           <div class="row form-group">
               <div class="col col-md-3">
-                  <label for="hf-password" class=" form-control-label">confirmação da nova Password</label>
+                  <label for="hf-password" class=" form-control-label" style="color: #5FBACE;"><b>confirmação da nova Password</b></label>
               </div>
               <div class="col-12 col-md-9">
                   <input type="password" id="novapassConfirmacao" name="novapassConfirmacao" placeholder="Por favor confirme a nova password..." class="form-control">
@@ -60,22 +65,11 @@ include('../topos/topo_admin.php');
         <div class="card-footer">
             
             <input type="submit" name="submit"
-                        value="ALTERAR" class="btnSubmit">                                        
+                        value="ALTERAR" class="btn btn-warning">                                        
         </div>
       </form>
     </div> 
     <br>
-
-    <?php
-
-      @session_start();
-
-      if (isset($_SESSION['msg'])) {
-        echo $_SESSION['msg'];
-        unset($_SESSION['msg']);
-      }
-      ?>
-
   </div>
 </div>
 

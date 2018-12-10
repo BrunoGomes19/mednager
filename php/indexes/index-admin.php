@@ -125,7 +125,7 @@ if ($result->num_rows > 0) {
 
                         <div class="row m-t-25">
                             <div class="col-sm-6 col-lg-2">
-                                <div class="overview-item overview-item--c1" style="height:83%;text-align: center">
+                                <div class="overview-item overview-item--c4" style="height:83%;text-align: center">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -142,7 +142,7 @@ if ($result->num_rows > 0) {
                                 </div>
                             </div>
                             <div class="col-sm-6 col-lg-2">
-                                <div class="overview-item overview-item--c2" style="height:83%;text-align: center">
+                                <div class="overview-item overview-item--c3" style="height:83%;text-align: center">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -160,7 +160,7 @@ if ($result->num_rows > 0) {
                                 </div>
                             </div>
                             <div class="col-sm-6 col-lg-2">
-                                <div class="overview-item overview-item--c3" style="height:83%;text-align: center">
+                                <div class="overview-item overview-item--c1" style="height:83%;text-align: center">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
@@ -180,7 +180,7 @@ if ($result->num_rows > 0) {
                                 </div>
                             </div>
                             <div class="col-sm-6 col-lg-2">
-                                <div class="overview-item overview-item--c4" style="height:83%;width: 108%; text-align: center">
+                                <div class="overview-item overview-item--c2" style="height:83%;width: 108%; text-align: center">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">

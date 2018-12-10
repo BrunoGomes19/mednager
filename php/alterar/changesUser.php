@@ -23,11 +23,16 @@ include('../topos/topo_utente.php');
         echo $_SESSION['erro'];
         unset($_SESSION['erro']);
       }
+
+      if (isset($_SESSION['msg'])) {
+        echo $_SESSION['msg'];
+        unset($_SESSION['msg']);
+      }
       ?>
       <br>
     <div class="card" style="width: 50%; margin:0 auto; text-align: center;">
       <div class="card-header">
-          <strong>Alterar</strong> Password
+          <strong>Alterar Password</strong>
       </div>
       <form action="alterarpassUser.php" method="post" class="form-horizontal" name="frmChange" onSubmit="return validatePassword()">
         <div class="card-body card-block">
@@ -61,22 +66,11 @@ include('../topos/topo_utente.php');
         <div class="card-footer">
             
             <input type="submit" name="submit"
-                        value="Alterar" class="btnSubmit">                                        
+                        value="Alterar" class="btn btn-warning">                                        
         </div>
       </form>
     </div> 
     <br>
-
-    <?php
-
-      @session_start();
-
-      if (isset($_SESSION['msg'])) {
-        echo $_SESSION['msg'];
-        unset($_SESSION['msg']);
-      }
-      ?>
-
   </div>
 </div>
 
