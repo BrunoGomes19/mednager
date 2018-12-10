@@ -74,7 +74,7 @@
 
 
 
-$sqlsegunda = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and servico.start=curdate() + INTERVAL 0 - weekday(curdate()) DAY";
+$sqlsegunda = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and date(servico.start)=curdate() + INTERVAL 0 - weekday(curdate()) DAY";
 
   $resultSegunda = $conn->query($sqlsegunda);
 
@@ -89,7 +89,7 @@ $sqlsegunda = "SELECT count(*) as quantidade from servico,comprador where compra
   echo "Error";
   }
 
-  $sqldomingo = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and servico.start=curdate() + INTERVAL -1 - weekday(curdate()) DAY";
+  $sqldomingo = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and date(servico.start)=curdate() + INTERVAL -1 - weekday(curdate()) DAY";
   $resultdomingo = $conn->query($sqldomingo);
 
   if ($resultdomingo->num_rows > 0) {
@@ -104,7 +104,7 @@ $sqlsegunda = "SELECT count(*) as quantidade from servico,comprador where compra
   }
 
 
-  $sqlterca = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and servico.start=curdate() + INTERVAL 1 - weekday(curdate()) DAY";
+  $sqlterca = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and date(servico.start)=curdate() + INTERVAL 1 - weekday(curdate()) DAY";
   $resultTerca = $conn->query($sqlterca);
 
   if ($resultTerca->num_rows > 0) {
@@ -119,7 +119,7 @@ $sqlsegunda = "SELECT count(*) as quantidade from servico,comprador where compra
   }
 
 
-$sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and servico.start=curdate() + INTERVAL 2 - weekday(curdate()) DAY";
+$sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and date(servico.start)=curdate() + INTERVAL 2 - weekday(curdate()) DAY";
   $resultQuarta = $conn->query($sqlquarta);
 
   if ($resultQuarta->num_rows > 0) {
@@ -133,7 +133,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
   echo "Error";
   }
 
-  $sqlquinta = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and servico.start=curdate() + INTERVAL 3 - weekday(curdate()) DAY";
+  $sqlquinta = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and date(servico.start)=curdate() + INTERVAL 3 - weekday(curdate()) DAY";
   $resultQuinta = $conn->query($sqlquinta);
 
   if ($resultQuinta->num_rows > 0) {
@@ -147,7 +147,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
   echo "Error";
   }
 
-  $sqlsexta = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and servico.start=curdate() + INTERVAL 4 - weekday(curdate()) DAY";
+  $sqlsexta = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and date(servico.start)=curdate() + INTERVAL 4 - weekday(curdate()) DAY";
   $resultSexta = $conn->query($sqlsexta);
 
   if ($resultSexta->num_rows > 0) {
@@ -162,7 +162,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
   }
 
 
-  $sqlsabado = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and servico.start=curdate() + INTERVAL 5 - weekday(curdate()) DAY";
+  $sqlsabado = "SELECT count(*) as quantidade from servico,comprador where comprador.codComprador = servico.codComprador and comprador.codPermissao=2 and servico.codComprador='$codComprador' and date(servico.start)=curdate() + INTERVAL 5 - weekday(curdate()) DAY";
   $resultSabado = $conn->query($sqlsabado);
 
   if ($resultSabado->num_rows > 0) {
