@@ -109,28 +109,26 @@ function aceito(){
 
                                     </div>
 
-                  <textarea rows="17" cols="55" id="a" readonly style="padding:2%;border-radius:3px" onscroll="aceito();">
-                    TERMOS E CONDIÇÕES
-Política de privacidade e Termos e Condições
+                  <textarea rows="17" cols="55" id="a" readonly style="padding:2%;border-radius:3px; text-align: justify;" onscroll="aceito();">
+TERMOS E CONDIÇÕES
 
-A Texto Editores respeita a privacidade individual e valoriza a confiança dos seus utilizadores, clientes e parceiros. Como tal, estamos empenhados em proteger a informação pessoal que venha a partilhar connosco. Esta página descreve como fazemos uso dessa informação.
+Política de privacidade e Termos e Condições:
+A plataforma mednager respeita a privacidade individual e valoriza a confiança dos seus utilizadores. Como tal, estamos empenhados em proteger a informação pessoal que venha a partilhar connosco. Esta página descreve como fazemos uso dessa informação.
 
-Recepção de dados
-Ao ceder-nos a sua informação pessoal, voluntariamente, ela apenas será acedida pelos nossos serviços. É considerado informação pessoal tudo o que possa ser usado para identificar um utilizador como, por exemplo, nome, endereço electrónico, título, data de nascimento, género, profissão, interesses pessoais ou demais dados necessários para que possamos prestar o serviço solicitado ou até melhorar o funcionamento do Site. Não registamos automaticamente informação pessoal, incluindo o seu endereço de IP. O registo dos endereços de IP que consultam o Site servem apenas para efeito de análise estatística de tráfego. Os dados fornecidos não serão transferidos para terceiros sem o seu consentimento prévio, mas podem ser usados dentro da editora ou por outra empresa actuando como agente da editora para fins de processamento ou correio.
+Recepção de dados:
+Ao ceder-nos a sua informação pessoal, voluntariamente, ela apenas será acedida pelos nossos serviços. É considerado informação pessoal tudo o que possa ser usado para identificar um utilizador como, por exemplo, nome, email, número do cartão de cidadão, número de indentificação bancária, número de identificação fiscal, data de nascimento, género, morada, contacto telefónico, interesses pessoais ou demais dados necessários para que possamos prestar o serviço solicitado ou até melhorar o funcionamento do Site. Não registamos automaticamente informação pessoal, incluindo o seu endereço de IP. Os dados fornecidos não serão transferidos para terceiros sem o seu consentimento prévio.
 
 Actualização da informação
-Se, a qualquer momento, desejar interromper a recepção de e-mails ou outras comunicações connosco, ou se tiver enviado informação pessoal identificável através do nosso Site e gostaria que essa informação fosse apagada dos registos, é favor notificar-nos para webmaster@leya.com. A correcção ou mudança dos seus dados também é possível.
+Se, a qualquer momento, desejar interromper a recepção de e-mails ou outras comunicações connosco, ou se tiver enviado informação pessoal identificável através do nosso Site e gostaria que essa informação fosse apagada dos registos, é favor notificar-nos para mednager@outlook.com. A correcção ou mudança dos seus dados também é possível.
 
-Ligações a Sites de terceiros
-Por cortesia aos nossos visitantes, o nosso Site contém ligações para alguns Sites de terceiros, os quais, a nosso ver, podem conter informações úteis. A Política de Privacidade aqui apresentada não se aplica a estes Sites, por isso, aconselhamos vivamente a consulta da Política de Privacidade dos mesmos.
 
-Outros
-O material disposto neste Site, em texto e imagem, é propriedade da editora ou de terceiros; a sua utilização é feita com a devida autorização dos seus autores. A utilização não autorizada constitui um crime punível por lei. Se tiver dúvidas ou alguma questão sobre a forma como gerimos a informação, por favor envie-nos um e-mail para webmaster@leya.com. Este endereço também é reservado à comunicação de factos que possam, de uma maneira ou outra, infringir alguma das normas explícitas nesta política, bem como comprometer a segurança do Site e o seu normal funcionamento.
+Outros:
+O material disposto neste Site, em texto e imagem, é propriedade da plataforma mednager; a sua utilização é feita com a devida autorização dos seus autores. A utilização não autorizada constitui um crime punível por lei. Se tiver dúvidas ou alguma questão sobre a forma como gerimos a informação, por favor envie-nos um e-mail para mednager@outlook.com. Este endereço também é reservado à comunicação de factos que possam, de uma maneira ou outra, infringir alguma das normas explícitas nesta política, bem como comprometer a segurança do Site e o seu normal funcionamento.
 
-Actualizações
-Quaisquer mudanças realizadas na Política de Privacidade deste Site serão descriminadas nesta página e podem ser efectuadas a qualquer momento. Se a alteração for substancial e tiver implicações na forma como usamos os seus dados, será informado através de uma aviso na página de entrada do Site.
+Atualizações:
+Quaisquer mudanças realizadas na Política de Privacidade deste Site serão aqui descriminadas e podem ser efectuadas a qualquer momento. Se a alteração for substancial e tiver implicações na forma como usamos os seus dados, será informado através de uma aviso na página de entrada do Site.
 
-Data de publicação deste aviso legal: Outubro 2011.
+Data de publicação deste aviso legal: dezembro 2018.
                   </textarea>
 
 
