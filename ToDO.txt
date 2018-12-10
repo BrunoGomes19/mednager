@@ -24,3 +24,5 @@ Bugs:
 - Fix estatísticas
 
 - Fix notificações
+
+- Ver acentos nos emails enviados e recebidos
