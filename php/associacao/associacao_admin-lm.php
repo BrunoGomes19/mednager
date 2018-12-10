@@ -58,7 +58,7 @@ if($quantidadeQuery<$quantidadeMedicos){
 
     $_SESSION['msgAssociacao'] = '<script>
 
-    bootbox.alert("Médico associado com sucesso!");
+    bootbox.alert("Pedido de associação pendente!");
 
 
     </script>';

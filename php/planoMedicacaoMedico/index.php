@@ -492,7 +492,7 @@ a:hover, a{
               </div>
               <div class="card-body card-block">
                   <div class="has-success form-group">
-                      Tem 24h para criar um plano de medicação.
+                      Tem 24h para criar um plano de medicação (desde a hora atual até 24h antes).
                   </div>
               </div>
           </div>
@@ -503,7 +503,7 @@ a:hover, a{
               </div>
               <div class="card-body card-block">
                   <div class="has-success form-group">
-                      Tem 24h para editar um plano de medicação.
+                      Tem 24h para editar um plano de medicação (desde a hora atual até 24h antes).
                   </div>
               </div>
           </div>

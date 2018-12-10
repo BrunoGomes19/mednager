@@ -1,24 +1,17 @@
 TO-DO:
+- Imprimir apenas os planos de medicação
+- Query das intervenções (Verificar se existe alguma intervenção naquele momento)
+- Ver acentos nos emails enviados e recebidos
+
+
 
 - Colocar o Fullcalendar dentro do topo (tentei mas não deu)
-
-- Imprimir apenas os planos de medicação
 
 - Fechar todas as conexões
 
 - Evitar permissões diferentes acessar a páginas não permitidas
 
 - Modal das notas e outros (se clicar fora ao mesmo tempo que abre fica tudo cizento)
-
-- Query das intervenções (Verificar se existe alguma intervenção naquele momento)
-
-- Fix estatísticas
-
-- Fix notificações (supostamente ja dava)
-
-- Ver acentos nos emails enviados e recebidos
-
-- fazer modal da informaçao em calenadrio, plano, etc
 
 - Foto de perfil
 
