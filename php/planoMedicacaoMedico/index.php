@@ -1034,7 +1034,7 @@ $resultesp25 = $conn->query($sqlesp25);
                                   <div class="form-group">
                                       <div class="form-group col-md-12">
                                           <label>Por quantos dias deseja este plano de medicação?</label>
-                                          <input type="number" min="1" max="30" class="form-control" step="1" name="dias" placeholder="Número de dias" id="dias" value="1" onKeyPress="DataHora(event, this)">
+                                          <input type="number" min="1" max="700" class="form-control" step="1" name="dias" placeholder="Número de dias" id="dias" value="1" onKeyPress="DataHora(event, this)">
                                       </div>
                                   </div>
 
