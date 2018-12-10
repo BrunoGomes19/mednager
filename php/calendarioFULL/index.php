@@ -783,16 +783,16 @@ if ($resultlei->num_rows > 0) {
                                           <div class="form-group col-md-12">
                                               <label>Cor</label>
                                               <select name="color" class="form-control" id="color2">
-                                                  <option style="color:#5fbace;" value="#5fbace">Mednager</option>
-                                                  <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
-                                                  <option style="color:#0071C5;" value="#0071c5">Azul Turquesa</option>
-                                                  <option style="color:#FF4500;" value="#FF4500">Laranja</option>
-                                                  <option style="color:#ff8080;" value="#ff8080">Rosa</option>
-                                                  <option style="color:#4dff4d;" value="#4dff4d"> Alface</option>
-                                                  <option style="color:#b366ff;" value="#b366ff">Roxo</option>
-                                                  <option style="color:#adad85;" value="#adad85">Cinzento</option>
-                                                  <option style="color:#228B22;" value="#228B22">Verde</option>
-                                                  <option style="color:#ff1a1a;" value="#ff1a1a">Vermelho</option>
+                                                <option style="color:#5fbace;" value="#5fbace">Mednager</option>
+                                                <option style="color:#e6e600;" value="#e6e600">Mostarda</option>
+                                                <option style="color:#0071C5;" value="#0071c5">Azul Turquesa</option>
+                                                <option style="color:#FF4500;" value="#FF4500">Laranja</option>
+                                                <option style="color:#ff8080;" value="#ff8080">Rosa</option>
+                                                <option style="color:#77b300;" value="#77b300">Tropa</option>
+                                                <option style="color:#b366ff;" value="#b366ff">Roxo</option>
+                                                <option style="color:#adad85;" value="#adad85">Cinzento</option>
+                                                <option style="color:#ffcc66;" value="#ffcc66">Pêssego</option>
+                                                <option style="color:#ccff33;" value="#ccff33">Lima</option>
                                               </select>
                                           </div>
                                       </div>
@@ -944,16 +944,16 @@ if ($resultlei->num_rows > 0) {
                                       <div class="form-group col-md-12">
                                           <label>Cor</label>
                                           <select name="color" class="form-control" id="color">
-                                              <option style="color:#5fbace;" value="#5fbace">Mednager</option>
-                                              <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
-                                              <option style="color:#0071C5;" value="#0071c5">Azul Turquesa</option>
-                                              <option style="color:#FF4500;" value="#FF4500">Laranja</option>
-                                              <option style="color:#ff8080;" value="#ff8080">Rosa</option>
-                                              <option style="color:#4dff4d;" value="#4dff4d">Alface</option>
-                                              <option style="color:#b366ff;" value="#b366ff">Roxo</option>
-                                              <option style="color:#adad85;" value="#adad85">Cinzento</option>
-                                              <option style="color:#228B22;" value="#228B22">Verde</option>
-                                              <option style="color:#ff1a1a;" value="#ff1a1a">Vermelho</option>
+                                            <option style="color:#5fbace;" value="#5fbace">Mednager</option>
+                                            <option style="color:#e6e600;" value="#e6e600">Mostarda</option>
+                                            <option style="color:#0071C5;" value="#0071c5">Azul Turquesa</option>
+                                            <option style="color:#FF4500;" value="#FF4500">Laranja</option>
+                                            <option style="color:#ff8080;" value="#ff8080">Rosa</option>
+                                            <option style="color:#77b300;" value="#77b300">Tropa</option>
+                                            <option style="color:#b366ff;" value="#b366ff">Roxo</option>
+                                            <option style="color:#adad85;" value="#adad85">Cinzento</option>
+                                            <option style="color:#ffcc66;" value="#ffcc66">Pêssego</option>
+                                            <option style="color:#ccff33;" value="#ccff33">Lima</option>
                                           </select>
                                       </div>
                                   </div>

@@ -26,3 +26,5 @@ Bugs:
 - Fix notificações
 
 - Ver acentos nos emails enviados e recebidos
+
+- fazer modal da informaçao em calenadrio, plano, etc
