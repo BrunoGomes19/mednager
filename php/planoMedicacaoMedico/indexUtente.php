@@ -220,9 +220,7 @@ a:hover, a{
               </div>
               <div class="card-body card-block">
                   <div class="has-success form-group">
-                      texto...
-                      asdsa
-                      dasda
+                      O plano de medicação serve para ter a sua "agenda" de medicamentos e horários dos mesmos, permitindo a rápida gestão da sua rotina diária onde quer que esteja. Serve também para o seu médico o/a acompanhar mais facilmente de maneira remota.
                   </div>
               </div>
           </div>
@@ -233,9 +231,7 @@ a:hover, a{
               </div>
               <div class="card-body card-block">
                   <div class="has-success form-group">
-                      texto...
-                      asdsa
-                      dasda
+                      Cada bloco contém informações importantes sobre o medicamento bem como um botão para confirmação da toma do mesmo.
                   </div>
               </div>
           </div>
@@ -246,25 +242,11 @@ a:hover, a{
               </div>
               <div class="card-body card-block">
                   <div class="has-success form-group">
-                      texto...
-                      asdsa
-                      dasda
+                      Tem 24h para confirmar a toma do medicamento.
                   </div>
               </div>
           </div>
 
-          <div class="card">
-              <div class="card-header" style="text-align:center;">
-                  <strong>Porque é que existem cores diferentes nos planos?</strong>
-              </div>
-              <div class="card-body card-block">
-                  <div class="has-success form-group">
-                      texto...
-                      asdsa
-                      dasda
-                  </div>
-              </div>
-          </div>
 
           <div class="card-header" style="text-align: center;background-color:#f2f2f2;">
               <strong>Descrição das  Cores </strong>

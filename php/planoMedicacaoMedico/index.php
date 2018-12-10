@@ -469,9 +469,7 @@ a:hover, a{
               </div>
               <div class="card-body card-block">
                   <div class="has-success form-group">
-                      texto...
-                      asdsa
-                      dasda
+                      O plano de medicação serve para ter a sua "agenda" de medicamentos e horários dos mesmos de todos os seus utentes, permitindo a rápida gestão das suas rotinas diárias onde quer que esteja. O utente tem também uma parte importante neste plano, visto que pode confirmar a toma do medicamento.
                   </div>
               </div>
           </div>
@@ -482,25 +480,11 @@ a:hover, a{
               </div>
               <div class="card-body card-block">
                   <div class="has-success form-group">
-                      texto...
-                      asdsa
-                      dasda
+                      Cada bloco contém informações importantes sobre o medicamento bem como a possibilidade de editar ou eliminar o plano. Dispõe também de um botão onde pode marcar todos os planos de medicação do utente como tomados e outro para apagar todos os planos de medicação que criou para o mesmo.
                   </div>
               </div>
           </div>
 
-          <div class="card">
-              <div class="card-header" style="text-align:center;">
-                  <strong>Porque é que existem cores diferentes nos planos?</strong>
-              </div>
-              <div class="card-body card-block">
-                  <div class="has-success form-group">
-                      texto...
-                      asdsa
-                      dasda
-                  </div>
-              </div>
-          </div>
 
           <div class="card">
               <div class="card-header" style="text-align:center;">
@@ -508,9 +492,7 @@ a:hover, a{
               </div>
               <div class="card-body card-block">
                   <div class="has-success form-group">
-                      texto...
-                      asdsa
-                      dasda
+                      Tem 24h para criar um plano de medicação.
                   </div>
               </div>
           </div>
@@ -521,9 +503,7 @@ a:hover, a{
               </div>
               <div class="card-body card-block">
                   <div class="has-success form-group">
-                      texto...
-                      asdsa
-                      dasda
+                      Tem 24h para editar um plano de medicação.
                   </div>
               </div>
           </div>
@@ -534,9 +514,8 @@ a:hover, a{
               </div>
               <div class="card-body card-block">
                   <div class="has-success form-group">
-                      texto...
-                      asdsa
-                      dasda
+                      O plano de medicação recorrente não é mais do que um plano com um determinado medicamento que possui horas de intervalo entre tomas.
+                      Exemplo: Tomar um medicamento de 12h em 12h durante 7 dias.
                   </div>
               </div>
           </div>
@@ -551,6 +530,13 @@ a:hover, a{
             </button> &nbsp Medicação tomada
 
           </div>
+
+          <div class="card-footer" style="background-color: #f2f2f2">
+          <button style="background-color:#ffbb00;border:0px solid;pointer-events: none;" class="btn btn-danger btn-sm">
+              &nbsp &nbsp
+          </button> &nbsp Último dia para confirmar a medicação
+          </div>
+
           <div class="card-footer" style="background-color: #f2f2f2">
           <button style="background-color:#f73936;border:0px solid;pointer-events: none;" class="btn btn-danger btn-sm">
               &nbsp &nbsp
