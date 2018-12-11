@@ -124,7 +124,7 @@
       <div class="col-md-12" >
 
         <!--grafico sexos -->
-        <canvas id="pie-chart" width="100%" height="100%"></canvas>
+        <canvas id="pie-chart" width="3000" height="1000"></canvas>
 
         <script>
           new Chart(document.getElementById("pie-chart"), {
@@ -234,7 +234,7 @@
     ?>],
       datasets: [
         {
-          label: "Número de consultas",
+          label: "Número de intervenções",
           backgroundColor: [<?php
       if($result333->num_rows > 0){
           while($row = $result333->fetch_assoc()){
@@ -256,7 +256,7 @@
       legend: { display: false },
       title: {
         display: true,
-        text: 'Número de consultas por local'
+        text: 'Número de intervenções por local'
       },
       scales: {
         xAxes: [{

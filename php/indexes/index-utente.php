@@ -13,7 +13,7 @@ if ($result->num_rows > 0) {
   }
 }
 
-$sql1 = "SELECT distinct count(*) as quantidade from associados where associados.utente_ccUtente=$ccUtente;";
+$sql1 = "SELECT distinct count(*) as quantidade from associados where associados.utente_ccUtente=$ccUtente and associados.confirmacao=1;";
 $result = $conn->query($sql1);
 
 if ($result->num_rows > 0) {

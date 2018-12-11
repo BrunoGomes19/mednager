@@ -1,4 +1,13 @@
 TO-DO:
+
+IMPORTANTEEEE
+CONFIG DINAMICA PARA MEDICAMENTOS PARA ESPECIALIDADE
+PAGINA IGUAL AS CONFIGS
+
+- Plano de medicação certinho: confirmar tudo so ate ao dia de hj
+
+
+
 - Imprimir apenas os planos de medicação
 
 

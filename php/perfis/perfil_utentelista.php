@@ -25,7 +25,7 @@ $result2 = $conn->query($sql55);
 
 if ($result2->num_rows == 0) {
 
-  echo '<script>window.location.replace("../logins/logout.php");</script>';
+  echo '<script>window.location.replace("../indexes/index-medico.php");</script>';
 
   exit();
 
