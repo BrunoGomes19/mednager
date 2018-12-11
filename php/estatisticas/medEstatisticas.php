@@ -219,7 +219,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
               options: {
                 title: {
                   display: true,
-                  text: 'Número de untentes por sexo (quantidade)'
+                  text: 'Número de utentes por sexo (quantidade)'
                 }
               }
           });
@@ -247,7 +247,7 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
       legend: { display: false },
       title: {
         display: true,
-        text: 'Número de consultas esta semana'
+        text: 'Número de intervenções esta semana'
       },
       scales: {
         yAxes: [{

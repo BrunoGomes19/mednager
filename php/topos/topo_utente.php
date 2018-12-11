@@ -360,7 +360,7 @@ background: #999;
                                         $sqlnotifsAssoc = "SELECT codAlertaUtente, descriAlertaUtente, estadoUtente, alertaUtente.ccUtente, servico_id, planoMedicacao_id, alertaUtente.idAssoc, dataAlertaUtente, nomeComprador FROM alertautente, utente, associados, comprador WHERE utente.ccUtente = alertaUtente.ccUtente AND utente.ccUtente=associados.utente_ccUtente AND associados.comprador_codComprador=comprador.codComprador AND alertautente.idAssoc = associados.idAssoc and emailUtente ='".$email."' AND estadoUtente=0 ORDER BY dataAlertaUtente DESC";
                                         $result2 = $conn->query($sqlnotifsAssoc);
 
-                                        $sqlnotifs = "SELECT codAlertaUtente, descriAlertaUtente, estadoUtente, alertaUtente.ccUtente, servico_id, planoMedicacao_id, alertaUtente.idAssoc, dataAlertaUtente, nomeComprador FROM alertautente, utente, associados, comprador WHERE utente.ccUtente = alertaUtente.ccUtente AND utente.ccUtente=associados.utente_ccUtente AND associados.comprador_codComprador=comprador.codComprador AND emailUtente ='".$email."' AND estadoUtente=0 ORDER BY dataAlertaUtente DESC";
+                                        $sqlnotifs = "SELECT codAlertaUtente, descriAlertaUtente, estadoUtente, alertaUtente.ccUtente, servico_id, planoMedicacao_id, alertaUtente.idAssoc, dataAlertaUtente, nomeComprador FROM alertautente, utente, associados, comprador WHERE utente.ccUtente = alertaUtente.ccUtente AND utente.ccUtente=associados.utente_ccUtente AND associados.comprador_codComprador=comprador.codComprador AND emailUtente ='".$email."' AND estadoUtente=0 group by codAlertaUtente ORDER BY dataAlertaUtente DESC";
                                         $result3 = $conn->query($sqlnotifs);
 
                                         $bolinhaCount = 0;
@@ -551,7 +551,7 @@ background: #999;
                                                     <a href="../alterar/changesUser.php">
                                                         <i class="zmdi zmdi-settings"></i>Definições</a>
                                                 </div>
-                                              
+
                                             </div>
                                             <div class="account-dropdown__footer">
                                                 <a href="../logins/logout.php">

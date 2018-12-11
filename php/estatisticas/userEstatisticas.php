@@ -12,13 +12,13 @@
 
   $emailUtente=$_SESSION['email'];
 
-  
+
 
   $sqlJAN = "SELECT count(*) as nrConsultas FROM servico, utente WHERE MONTH(servico.start) = 01 and servico.ccUtente=utente.ccUtente and emailUtente='$emailUtente'";
   $resultJAN = $conn->query($sqlJAN);
 
   if ($resultJAN->num_rows > 0) {
-   
+
   while($row = $resultJAN->fetch_assoc()) {
       $qttJAN = $row["nrConsultas"];
 
@@ -33,7 +33,7 @@
   $resultFEV = $conn->query($sqlFEV);
 
   if ($resultFEV->num_rows > 0) {
-   
+
   while($row = $resultFEV->fetch_assoc()) {
       $qttFEV = $row["nrConsultas"];
 
@@ -42,13 +42,13 @@
   } else {
   echo "Error";
   }
-  
+
 
   $sqlMAR = "SELECT count(*) as nrConsultas FROM servico, utente WHERE MONTH(servico.start) = 03 and servico.ccUtente=utente.ccUtente and emailUtente='$emailUtente'";
   $resultMAR = $conn->query($sqlMAR);
 
   if ($resultMAR->num_rows > 0) {
-   
+
   while($row = $resultMAR->fetch_assoc()) {
       $qttMAR = $row["nrConsultas"];
 
@@ -63,7 +63,7 @@
   $resultABR = $conn->query($sqlABR);
 
   if ($resultABR->num_rows > 0) {
-   
+
   while($row = $resultABR->fetch_assoc()) {
       $qttABR = $row["nrConsultas"];
 
@@ -79,7 +79,7 @@
   $resultMAI = $conn->query($sqlMAI);
 
   if ($resultMAI->num_rows > 0) {
-   
+
   while($row = $resultMAI->fetch_assoc()) {
       $qttMAI = $row["nrConsultas"];
 
@@ -95,7 +95,7 @@
   $resultJUN = $conn->query($sqlJUN);
 
   if ($resultJUN->num_rows > 0) {
-   
+
   while($row = $resultJUN->fetch_assoc()) {
       $qttJUN = $row["nrConsultas"];
 
@@ -109,7 +109,7 @@
   $resultJUL = $conn->query($sqlJUL);
 
   if ($resultJUL->num_rows > 0) {
-   
+
   while($row = $resultJUL->fetch_assoc()) {
       $qttJUL = $row["nrConsultas"];
 
@@ -123,7 +123,7 @@
   $resultAGO = $conn->query($sqlAGO);
 
   if ($resultAGO->num_rows > 0) {
-   
+
   while($row = $resultAGO->fetch_assoc()) {
       $qttAGO = $row["nrConsultas"];
 
@@ -137,7 +137,7 @@
   $resultSET = $conn->query($sqlSET);
 
   if ($resultSET->num_rows > 0) {
-   
+
   while($row = $resultSET->fetch_assoc()) {
       $qttSET = $row["nrConsultas"];
 
@@ -151,7 +151,7 @@
   $resultOUT = $conn->query($sqlOUT);
 
   if ($resultOUT->num_rows > 0) {
-   
+
   while($row = $resultOUT->fetch_assoc()) {
       $qttOUT = $row["nrConsultas"];
 
@@ -165,13 +165,13 @@
   $resultNOV = $conn->query($sqlNOV);
 
   if ($resultNOV->num_rows > 0) {
-   
+
   while($row = $resultNOV->fetch_assoc()) {
       $qttNOV = $row["nrConsultas"];
 
   }
 
-  
+
 
   } else {
   echo "Error";
@@ -181,7 +181,7 @@
   $resultDEZ = $conn->query($sqlDEZ);
 
   if ($resultDEZ->num_rows > 0) {
-   
+
   while($row = $resultDEZ->fetch_assoc()) {
       $qttDEZ = $row["nrConsultas"];
 
@@ -209,8 +209,8 @@
 
 
     <div class="row" >
-      <div class="col-md-12" >       
-        
+      <div class="col-md-12" >
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
 <!--grafico nr consultas -->
@@ -243,7 +243,7 @@
       legend: { display: false },
       title: {
         display: true,
-        text: 'Número de consultas esta semana'
+        text: 'Número de intervenções esta semana'
       },
       scales: {
         yAxes: [{
@@ -252,7 +252,7 @@
                 suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
                 // OR //
                 beginAtZero: true, // minimum value will be 0.
-                stepSize: 1   
+                stepSize: 1
             }
         }]
       }

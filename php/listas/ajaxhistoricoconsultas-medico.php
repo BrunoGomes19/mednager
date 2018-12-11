@@ -58,7 +58,7 @@ if($op==1){
       echo "0 results";
   }
 
-  $sql2 = "select servico.observacoes,servico.id,servico.title,servico.start,servico.end,utente.ccUtente,utente.nomeUtente,servico.pvpServico,descriLocal from comprador, servico, local, utente where utente.ccUtente = servico.ccUtente and servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.codComprador = '$codComprador' and servico.end<now() order by servico.end desc;";
+  $sql2 = "select servico.observacoes,servico.id,servico.title,servico.start,servico.end,utente.ccUtente,utente.nomeUtente,servico.pvpServico,descriLocal from comprador, servico, local, utente, associados where associados.comprador_codComprador=comprador.codComprador and associados.utente_ccUtente = utente.ccUtente and utente.ccUtente = servico.ccUtente and servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.codComprador = '$codComprador' and servico.end<now() order by servico.end desc;";
   $result2 = $conn->query($sql2);
 
 
@@ -160,7 +160,7 @@ if($op==1){
           echo "0 results";
       }
 //select servico.codServico,servico.descriServico,servico.dataHoraServico,comprador.nomeComprador,servico.pvpServico,servico.duracaoServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.dataHoraServico<now();
-      $sql2 = "select servico.observacoes,servico.id,servico.title,servico.start,servico.end,utente.nomeUtente,comprador.nomeComprador,servico.pvpServico,descriLocal,utente.ccUtente from utente,comprador, servico, local where utente.ccUtente = servico.ccUtente and local.codLocal = servico.codLocal and servico.codComprador = comprador.codComprador and servico.codComprador = '$codComprador' and NIFUtente like '".$q."%' order by servico.start desc;";
+      $sql2 = "select servico.observacoes,servico.id,servico.title,servico.start,servico.end,utente.nomeUtente,comprador.nomeComprador,servico.pvpServico,descriLocal,utente.ccUtente from utente,comprador, servico, local, associados where associados.comprador_codComprador=comprador.codComprador and associados.utente_ccUtente = utente.ccUtente and utente.ccUtente = servico.ccUtente and local.codLocal = servico.codLocal and servico.codComprador = comprador.codComprador and servico.codComprador = '$codComprador' and servico.end<now() and NIFUtente like '".$q."%' order by servico.start desc;";
 
       //  //$sql="SELECT * FROM utente WHERE NIFUtente like '".$q."%' ORDER BY nomeUtente limit 4";
 
