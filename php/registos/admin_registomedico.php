@@ -84,7 +84,7 @@ session_start();
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-quote-right"></i></span>
                                     </div>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Número de ordem" aria-label="numeroOrdem" aria-describedby="basic-addon1" required name="numeroOrdem" id="numeroOrdem">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Cédula" aria-label="numeroOrdem" aria-describedby="basic-addon1" required name="numeroOrdem" id="numeroOrdem">
                                 </div>
 
 
@@ -176,7 +176,7 @@ function checkInp(){
   var regex=/^[a-zA-Z]+$/;
     if (isNaN(x))
   {
-    numeroOrdem.setCustomValidity("Este número de ordem é inválido!");
+    numeroOrdem.setCustomValidity("Esta cédula é inválida!");
   }else{
 
 	    numeroOrdem.setCustomValidity("");

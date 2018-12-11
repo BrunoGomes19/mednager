@@ -23,7 +23,7 @@
 
 	if(!is_numeric($numeroOrdem)){
 
-		$_SESSION['msgRegisto'] = '<p id="erro">Este número de ordem é inválido.<br><br></p>';
+		$_SESSION['msgRegisto'] = '<p id="erro">Esta cédula é inválida.<br><br></p>';
 
 		header("Location: authentication-register.php");
 
@@ -120,7 +120,7 @@
 
 					if( $row["nrOrdem"] == $numeroOrdem){
 
-				echo "Este número de ordem já está registado noutro médico." ;
+				echo "Esta cédula já está registada noutro médico." ;
 
 					$findno = true;
 
@@ -225,7 +225,7 @@
 				//se já houver um numero de ordem
 				if($findno){
 
-				$_SESSION['msgRegisto'] = '<p id="erro">Este número de ordem já está associado a outra conta.<br><br></p>';
+				$_SESSION['msgRegisto'] = '<p id="erro">Esta cédula já está associada a outra conta.<br><br></p>';
 
 				header("Location: authentication-register.php");
 

@@ -175,7 +175,7 @@
 
 	}else if($findno){
 
-		$_SESSION['msgRegistoNO'] = '<p id="erro">Este número de ordem já está associado a outra conta.<br><br></p>';
+		$_SESSION['msgRegistoNO'] = '<p id="erro">Esta cédula já está associada a outra conta.<br><br></p>';
 
 		header("Location: registomedico.php");
 
