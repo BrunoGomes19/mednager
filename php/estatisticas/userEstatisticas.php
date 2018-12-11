@@ -243,7 +243,7 @@
       legend: { display: false },
       title: {
         display: true,
-        text: 'Número de intervenções esta semana'
+        text: 'Número de intervenções este mês'
       },
       scales: {
         yAxes: [{

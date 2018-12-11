@@ -54,7 +54,23 @@ if ($result->num_rows > 0) {
   echo "Error";
 }
 
-$sql55 = "SELECT * FROM utente,comprador,associados WHERE utente.ccUtente = associados.utente_ccUtente and associados.comprador_codComprador = comprador.codComprador and LEIComprador = 123 and associados.utente_ccUtente = $cc and associados.confirmacao=1 ORDER BY nomeUtente";
+
+$email = $_SESSION['email'];
+
+$sql = "SELECT * FROM comprador where emailComprador = '$email'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        $LEIComprador = $row['LEIComprador'];
+    }
+} else {
+    echo "0 results";
+}
+
+
+$sql55 = "SELECT * FROM utente,comprador,associados WHERE utente.ccUtente = associados.utente_ccUtente and associados.comprador_codComprador = comprador.codComprador and LEIComprador = $LEIComprador and associados.utente_ccUtente = $cc and associados.confirmacao=1 ORDER BY nomeUtente";
 $result2 = $conn->query($sql55);
 
 if ($result2->num_rows == 0) {
@@ -169,7 +185,7 @@ $conn->close();
                                                       <i class="fa fa-arrow-left"></i> Voltar
                                                   </button>&nbsp
                                         </form>
-                                      
+
             																	</div>
                                         <div class="content">
                                             <form>
