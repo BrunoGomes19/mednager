@@ -123,7 +123,7 @@ $conn->close();
 
 										<div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="numeroOrdem">Número de ordem</label>
+                                                <label for="numeroOrdem">Cédula</label>
                                                 <input type="text" class="form-control" value="<?php	echo $n_ordem;	?>" required name="numeroOrdem" id="numeroOrdem">
                                             </div>
                                         </div>
@@ -418,7 +418,7 @@ $conn->close();
 	  var regex=/^[a-zA-Z]+$/;
 	    if (isNaN(y))
 	  {
-	    numeroOrdem.setCustomValidity("Este número de ordem é inválido!");
+	    numeroOrdem.setCustomValidity("Esta cédula é inválida!");
 	  }else{
 
 		    numeroOrdem.setCustomValidity("");
