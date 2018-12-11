@@ -40,5 +40,5 @@ o utente lá, já associado
 - Mostrar as funcionalidades do admin
 
 - Por fim e muito importante, referenciar também que quando marcámos a intervenção com aquele médico X que estava associado a este coletivo,
-havia um campo dinamico (extra) que foi configurado por este administrador, e aí mostramos a lista de campos, e fazemos um campo extra, e apartir
+havia um campo dinamico (extra) que foi configurado por este administrador, e aí mostramos a lista de campos, e fazemos um campo extra, e a partir
 daí mostramos o quão fácil é ter um diretor clinico a gerir o seu próprio mednager, sem depender dos programadores
