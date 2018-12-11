@@ -218,23 +218,14 @@
               <img src="../../landingPage/img/servicos/previsao.png" class="img-fluid" alt="">
             </div>
           </div>
-
         </div>
-
-        <!--<section id="texto">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4 wow fadeInRight visible-xs">
-                        <img src="../../landingPage/servicos/textinho.png" style="width:310%" class="img-responsive"  />
-                    </div>
-                </div>
-            </div>
-        </section>-->
-
       </div>
-
+  
+          <div class="container">
+              <img width=1110 src="../../assets/images/mednager-screens.png" alt="MockUp">
+          </div>
     </section>
-
+    
 
 
     <!--==========================
