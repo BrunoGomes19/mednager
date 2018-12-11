@@ -12,7 +12,21 @@ $q = intval($_GET['q']);
 
 include "../topos/header.php";
 
-$sql="SELECT * FROM utente,comprador,associados WHERE utente.ccUtente = associados.utente_ccUtente and associados.comprador_codComprador = comprador.codComprador and LEIComprador = 123 and NIFUtente like '".$q."%' group by utente.ccUtente ORDER BY nomeUtente";
+$email = $_SESSION['email'];
+
+$sql = "SELECT * FROM comprador where emailComprador = '$email'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        $LEIComprador = $row['LEIComprador'];
+    }
+} else {
+    echo "0 results";
+}
+
+$sql="SELECT * FROM utente,comprador,associados WHERE utente.ccUtente = associados.utente_ccUtente and associados.comprador_codComprador = comprador.codComprador and LEIComprador = $LEIComprador and associados.confirmacao=1 and NIFUtente like '".$q."%' group by utente.ccUtente ORDER BY nomeUtente";
 
 $result = mysqli_query($conn,$sql);
 

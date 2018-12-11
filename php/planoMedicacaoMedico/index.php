@@ -98,7 +98,7 @@ function removerTodosPlanos(){
 function checkAllPlanos(){
 
   bootbox.confirm({
-    message: "Tem a certeza que quer marcar todos os planos de medicação deste utente como tomado?",
+    message: "Tem a certeza que quer marcar todos os planos de medicação até hoje como tomados?",
     buttons: {
         confirm: {
             label: 'Sim',
