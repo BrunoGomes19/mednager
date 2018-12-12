@@ -232,6 +232,85 @@ if($datainicio == "" && $datafim == ""){
     <tr class="spacer"></tr>';
   }
 
+  if ($result->num_rows == 0 || $result2->num_rows == 0) {
+
+
+
+    $sql22 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start between concat((('$datainicio') - INTERVAL 1 DAY),' 00:00:00') and concat((('$datainicio') + INTERVAL 1 DAY),' 23:59:59') and servico.start<now() order by servico.start desc;";
+    $result22 = $conn->query($sql22);
+
+    if ($result22->num_rows > 0) {
+
+      echo '
+      <br>
+      <tr>Sem resultados!</tr><br>
+
+      <br><p style="text-align:center;font-size:18px;"><strong>Recomendações</strong></p><br>';
+
+
+    while($row = $result22->fetch_assoc()) {
+
+      $codServico = $row['id'];
+
+      $descriServico = $row['title'];
+
+      $start = $row['start'];
+
+      $end = $row['end'];
+
+      $pvpServico = $row['pvpServico'];
+
+      $nomeMedico = $row['nomeComprador'];
+
+      $descriLocal = $row['descriLocal'];
+
+      $ccComprador = $row['ccComprador'];
+
+      $observacoes = $row['observacoes'];
+
+
+
+      echo '<tr class="tr-shadow">
+          <td></td>
+          <td>'.$descriServico.'</td>
+          <td>
+              <span class="block-email">'.$start.'</span>
+          </td>
+          <td class="desc">'.$nomeMedico.'</td>
+
+          <td title="Ver mais informações">
+
+
+                  <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" onclick="x('.$codServico.',\'' . str_replace("'", "\'", $descriServico) . '\',\'' . str_replace("'", "\'", $start) . '\',\'' . str_replace("'", "\'", $end) . '\','.$pvpServico.',\'' . str_replace("'", "\'", $nomeMedico) . '\',\'' . str_replace("'", "\'", $descriLocal) . '\','.$ccComprador.',\'' . str_replace("'", "\'", $observacoes) . '\');">
+                      <i class="fas fa-info"></i></button>
+
+          </td>
+      </tr>
+      <tr class="spacer"></tr>';
+
+      if ($result22->num_rows == 0) {
+
+        echo '<br>
+          <tr>Sem resultados!</tr>
+
+
+        ';
+
+
+      }
+
+    }
+}else{
+
+  echo "Sem resultados...<br>";
+
+}
+
+
+
+
+  }
+
 
 
 
@@ -251,16 +330,7 @@ if($datainicio == "" && $datafim == ""){
 
   ';
 
-  if ($result->num_rows == 0 || $result2->num_rows == 0) {
 
-    echo '<br>
-      <tr>Sem resultados!</tr>
-
-
-    ';
-
-
-  }
 
 }else if($datainicio == "" && $datafim != ""){
 
@@ -340,6 +410,85 @@ if($datainicio == "" && $datafim == ""){
     <tr class="spacer"></tr>';
   }
 
+  if ($result->num_rows == 0 || $result2->num_rows == 0) {
+
+
+
+    $sql22 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start between concat((('$datafim') - INTERVAL 1 DAY),' 00:00:00') and concat((('$datafim') + INTERVAL 1 DAY),' 23:59:59') and servico.start<now() order by servico.start desc;";
+    $result22 = $conn->query($sql22);
+
+    if ($result22->num_rows > 0) {
+
+      echo '
+      <br>
+      <tr>Sem resultados!</tr><br>
+
+      <br><p style="text-align:center;font-size:18px;"><strong>Recomendações</strong></p><br>';
+
+
+    while($row = $result22->fetch_assoc()) {
+
+      $codServico = $row['id'];
+
+      $descriServico = $row['title'];
+
+      $start = $row['start'];
+
+      $end = $row['end'];
+
+      $pvpServico = $row['pvpServico'];
+
+      $nomeMedico = $row['nomeComprador'];
+
+      $descriLocal = $row['descriLocal'];
+
+      $ccComprador = $row['ccComprador'];
+
+      $observacoes = $row['observacoes'];
+
+
+
+      echo '<tr class="tr-shadow">
+          <td></td>
+          <td>'.$descriServico.'</td>
+          <td>
+              <span class="block-email">'.$start.'</span>
+          </td>
+          <td class="desc">'.$nomeMedico.'</td>
+
+          <td title="Ver mais informações">
+
+
+                  <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" onclick="x('.$codServico.',\'' . str_replace("'", "\'", $descriServico) . '\',\'' . str_replace("'", "\'", $start) . '\',\'' . str_replace("'", "\'", $end) . '\','.$pvpServico.',\'' . str_replace("'", "\'", $nomeMedico) . '\',\'' . str_replace("'", "\'", $descriLocal) . '\','.$ccComprador.',\'' . str_replace("'", "\'", $observacoes) . '\');">
+                      <i class="fas fa-info"></i></button>
+
+          </td>
+      </tr>
+      <tr class="spacer"></tr>';
+
+      if ($result22->num_rows == 0) {
+
+        echo '<br>
+          <tr>Sem resultados!</tr>
+
+
+        ';
+
+
+      }
+
+    }
+}else{
+
+  echo "Sem resultados...<br>";
+
+}
+
+
+
+
+  }
+
 
 
 
@@ -359,17 +508,6 @@ if($datainicio == "" && $datafim == ""){
 
   ';
 
-  if ($result->num_rows == 0 || $result2->num_rows == 0) {
-
-    echo '<br>
-      <tr>Sem resultados!</tr>
-
-
-    ';
-
-
-  }
-
 }else{
 
 if($datainicio > $datafim){
@@ -377,6 +515,8 @@ if($datainicio > $datafim){
   echo "A data de início não pode ser posterior à data de fim!";
 
 }else{
+
+
 
 
     $sql = "SELECT * FROM utente where emailUtente='$emailA'";
@@ -394,8 +534,8 @@ if($datainicio > $datafim){
         echo "0 results";
     }
 
-    $sql2 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start between concat('$datainicio',' 00:00:00') and concat('$datafim',' 23:59:59') and servico.start<now() order by servico.start desc;";
-    $result2 = $conn->query($sql2);
+    $sql25 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start between concat('$datainicio',' 00:00:00') and concat('$datafim',' 23:59:59') and servico.start<now() order by servico.start desc;";
+    $result25 = $conn->query($sql25);
 
     echo '
 
@@ -415,7 +555,7 @@ if($datainicio > $datafim){
 
     ';
 
-    while($row = $result2->fetch_assoc()) {
+    while($row = $result25->fetch_assoc()) {
 
       $codServico = $row['id'];
 
@@ -453,9 +593,86 @@ if($datainicio > $datafim){
           </td>
       </tr>
       <tr class="spacer"></tr>';
+
+
     }
 
+    if ($result->num_rows == 0 || $result25->num_rows == 0) {
 
+
+//aqui
+
+$sql22 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start between concat((('$datainicio') - INTERVAL 2 DAY),' 00:00:00') and concat((('$datafim') + INTERVAL 1 DAY),' 23:59:59') and servico.start<now() order by servico.start desc;";
+$result22 = $conn->query($sql22);
+
+if ($result22->num_rows > 0) {
+
+  echo '
+  <br>
+  <tr>Sem resultados!</tr><br>
+
+  <br><p style="text-align:center;font-size:18px;"><strong>Recomendações</strong></p><br>';
+
+
+while($row = $result22->fetch_assoc()) {
+
+  $codServico = $row['id'];
+
+  $descriServico = $row['title'];
+
+  $start = $row['start'];
+
+  $end = $row['end'];
+
+  $pvpServico = $row['pvpServico'];
+
+  $nomeMedico = $row['nomeComprador'];
+
+  $descriLocal = $row['descriLocal'];
+
+  $ccComprador = $row['ccComprador'];
+
+  $observacoes = $row['observacoes'];
+
+
+
+  echo '<tr class="tr-shadow">
+      <td></td>
+      <td>'.$descriServico.'</td>
+      <td>
+          <span class="block-email">'.$start.'</span>
+      </td>
+      <td class="desc">'.$nomeMedico.'</td>
+
+      <td title="Ver mais informações">
+
+
+              <button class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal" onclick="x('.$codServico.',\'' . str_replace("'", "\'", $descriServico) . '\',\'' . str_replace("'", "\'", $start) . '\',\'' . str_replace("'", "\'", $end) . '\','.$pvpServico.',\'' . str_replace("'", "\'", $nomeMedico) . '\',\'' . str_replace("'", "\'", $descriLocal) . '\','.$ccComprador.',\'' . str_replace("'", "\'", $observacoes) . '\');">
+                  <i class="fas fa-info"></i></button>
+
+      </td>
+  </tr>
+  <tr class="spacer"></tr>';
+
+  if ($result22->num_rows == 0) {
+
+    echo '<br>
+      <tr>Sem resultados!</tr>
+
+
+    ';
+
+
+  }
+
+}
+}else{
+
+echo "Sem resultados...<br>";
+
+}
+
+    }
 
 
     echo '
@@ -474,16 +691,7 @@ if($datainicio > $datafim){
 
     ';
 
-    if ($result->num_rows == 0 || $result2->num_rows == 0) {
 
-      echo '<br>
-        <tr>Sem resultados!</tr>
-
-
-      ';
-
-
-    }
 
 
 }
