@@ -8,7 +8,7 @@ include "../topos/header.php";
 
   $sql = "DELETE FROM planomedicacao WHERE ccUtente=$cc and codComprador = $codComprador";
 
-  $sql = "UPDATE planomedicacao SET confirmacaoplano=1 WHERE ccUtente = $cc and codComprador = $codComprador";
+  $sql = "UPDATE planomedicacao SET confirmacaoplano=1 WHERE ccUtente = $cc and codComprador = $codComprador and start<now();";
 
 if ($conn->query($sql) === TRUE) {
 
