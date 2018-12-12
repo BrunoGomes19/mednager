@@ -66,12 +66,8 @@ function verperfil($cc){
 window.location.replace('../perfis/perfil_utentelista.php?cc='+$cc);
 }
 
-function showUser() {
-  var dataini = document.getElementById("dataini").value;
-  var datafim = document.getElementById("datafim").value;
-  alert(dataini);
-  alert(datafim);
-    if (dataini == "") {
+function showUser(str) {
+    if (str == "") {
 
       if (window.XMLHttpRequest) {
           // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -85,11 +81,11 @@ function showUser() {
               document.getElementById("txtHint").innerHTML = this.responseText;
           }
       };
-      xmlhttp.open("GET","ajaxhistoricoconsultas-utente?q="+dataini+"&op=1",true);
+      xmlhttp.open("GET","ajaxhistoricoconsultas-utente?q="+str+"&op=1",true);
       xmlhttp.send();
 
 
-    } else if(dataini != null && datafim !=null) {
+    } else {
         if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
@@ -102,25 +98,9 @@ function showUser() {
                 document.getElementById("txtHint").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET","ajaxhistoricoconsultas-utente.php?q="+dataini+"&r="+datafim+"&op=3",true);
+        xmlhttp.open("GET","ajaxhistoricoconsultas-utente.php?q="+str+"&op=2",true);
         xmlhttp.send();
-    } else if (dataini != null){
-      if (window.XMLHttpRequest) {
-          // code for IE7+, Firefox, Chrome, Opera, Safari
-          xmlhttp = new XMLHttpRequest();
-      } else {
-          // code for IE6, IE5
-          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-      }
-      xmlhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-              document.getElementById("txtHint").innerHTML = this.responseText;
-          }
-      };
-      xmlhttp.open("GET","ajaxhistoricoconsultas-utente.php?q="+dataini+"&r="+datafim+"&op=2",true);
-      xmlhttp.send();
-
-  }
+    }
 }
 </script>
 
@@ -162,13 +142,7 @@ function showUser() {
                                                             <i class="fa fa-search"></i>
                                                         </button>
 
-                                                        <input type="text" class="form-control" name="date" placeholder="YYYY-MM-DD (Início)"  id="dataini" name="input1-group2" placeholder="Data da intervenção" class="form-control" onchange="showUser()" autocomplete="off">
-                                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-
-                                                        <button class="btn btn-primary" disabled>
-                                                            <i class="fa fa-search"></i>
-                                                        </button>
-                                                        <input type="text" class="form-control" name="date" placeholder="YYYY-MM-DD (Fim)"  id="datafim" name="input2-group2" placeholder="Data da intervenção" class="form-control" onchange="showUser()" autocomplete="off">
+                                                        <input type="text" class="form-control" name="date" placeholder="YYYY-MM-DD"  id="input1-group2" name="input1-group2" placeholder="Data da intervenção" class="form-control" onchange="showUser(this.value)" autocomplete="off">
 
 
 
@@ -301,7 +275,7 @@ function showUser() {
 
 
                                                 </div>
-
+                                                
                                                     <!--<tr class="spacer"></tr>
                                                     <tr class="tr-shadow">
                                                         <td>
