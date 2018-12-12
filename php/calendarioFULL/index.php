@@ -132,6 +132,10 @@ function chamaSelectInputs(idintervencao){
 
                     $('#modalregistarUtente').modal('hide');
 
+                    $('#myModal5').modal('hide');
+
+                    $('#myModal5editar').modal('hide');
+
                     window.setTimeout(function() {
                      $(".alert").fadeTo(500, 0).slideUp(500, function(){
                          $(this).remove();
@@ -140,7 +144,11 @@ function chamaSelectInputs(idintervencao){
 
                     document.getElementById("utenteRegistado").style.display = "block";
 
+                    $('#vaidar #ccUtente').val(ccUtente);
+
                     document.getElementById("utenteRegistado2").style.display = "block";
+
+                    $('#vaidareditar #ccUtente2').val(ccUtente);
 
                  }else{
 
@@ -791,6 +799,10 @@ if ($resultlei->num_rows > 0) {
                                   <span aria-hidden="true">&times;</span>
                               </button>
                           </div>
+                          <div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" id="utenteRegistado2" style="background-color:#89bdf4;border-radius:8px;display:none;";>
+                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <span style="color:white;">Utente registado com sucesso</span>
+                         </div>
                           <div class="modal-body">
                               <div class="visualizar">
                                   <dl class="row">
@@ -980,11 +992,16 @@ if ($resultlei->num_rows > 0) {
                   <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
                           <div class="modal-header">
+
                               <h4 class="modal-title text-center">Registar intervenção</h4>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                               </button>
                           </div>
+                          <div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" id="utenteRegistado" style="background-color:#89bdf4;border-radius:8px;display:none;";>
+                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <span style="color:white;">Utente registado com sucesso</span>
+                         </div>
                           <div class="modal-body">
                               <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
 
@@ -1028,7 +1045,7 @@ if ($resultlei->num_rows > 0) {
 
                                           <div class="form-group col-md-12" id="vaidar">
                                               <label style="display:block;">CC Utente</label>
-                                              <input type="number" class="form-control" name="ccUtente" id="ccUtente" placeholder="CC do utente" required readonly style="background-color: white;width:91%;display:inline">&nbsp
+                                              <input type="number" class="form-control" name="ccUtente" id="ccUtente" placeholder="CC do utente2" required readonly style="background-color: white;width:91%;display:inline">&nbsp
 
                                               <i class="fas fa-user-plus" style="font-size:25px;position:relative;top:5px;" onclick="abrirModal5();"></i>
 
@@ -1299,10 +1316,7 @@ if ($resultlei->num_rows > 0) {
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" id="utenteRegistado" style="background-color:#89bdf4;border-radius:8px;display:none;";>
- 			 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
- 				<span style="color:white;">Utente registado com sucesso</span>
- 			 </div>
+
         <div class="modal-body">
             <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
 
@@ -1335,10 +1349,7 @@ if ($resultlei->num_rows > 0) {
                   <span aria-hidden="true">&times;</span>
               </button>
           </div>
-          <div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" id="utenteRegistado2" style="background-color:#89bdf4;border-radius:8px;display:none;";>
-   			 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-   				<span style="color:white;">Utente registado com sucesso</span>
-   			 </div>
+
           <div class="modal-body">
               <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
 
