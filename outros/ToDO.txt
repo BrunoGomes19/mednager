@@ -9,12 +9,6 @@ PAGINA IGUAL AS CONFIGS
 
 - Imprimir apenas os planos de medicação
 
-- Colocar um intervalo de datas (desde ... até ...) no histórico de consultas do utente
-
-- Após o registo inserir automaticamente o CC do utente no campo (Modal do registo de utentes - intervenções)
-
-
-
 - Colocar o Fullcalendar dentro do topo
 
 - Fechar todas as conexões
