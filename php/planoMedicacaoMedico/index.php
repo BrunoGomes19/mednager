@@ -330,7 +330,7 @@ body {
 
 function procuraMed(str) {
     if (str == "") {
-        document.getElementById("txtHint").innerHTML = "A lista de utentes será exibida aqui...";
+        document.getElementById("txtHint").innerHTML = "A lista de medicamentos será exibida aqui...";
         return;
     } else {
         if (window.XMLHttpRequest) {
@@ -352,7 +352,7 @@ function procuraMed(str) {
 
 function procuraMedEditar(str) {
     if (str == "") {
-        document.getElementById("txtHint").innerHTML = "A lista de utentes será exibida aqui...";
+        document.getElementById("txtHint").innerHTML = "A lista de medicamentos será exibida aqui...";
         return;
     } else {
         if (window.XMLHttpRequest) {
@@ -1309,7 +1309,7 @@ window.setTimeout(function() {
                           <label>Nome do medicamento</label>
                           <input type="text" class="form-control" name="title" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome do medicamento ou nome do genérico" required onkeyup="procuraMedEditar(this.value)">
                           <br>
-                          <p id="txtHint2">A lista de utentes será exibida aqui...</p>
+                          <p id="txtHint2">A lista de medicamentos será exibida aqui...</p>
                       </div>
                   </div>
 
