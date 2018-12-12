@@ -208,27 +208,61 @@ if ($result->num_rows > 0) {
 
                         </div>
 
-                        <!--<div class="au-card recent-report">
+                        
+                        <!--<script>
+                            window.onload = function () {
+
+                            var dps = []; // dataPoints
+                            var chart = new CanvasJS.Chart("chartContainer", {
+                                axisY: {
+                                    includeZero: false
+                                },      
+                                data: [{
+                                    type: "line",
+                                    dataPoints: dps
+                                }]
+                            });
+
+                            var xVal = 0;
+                            var yVal = 100; 
+                            var updateInterval = 1000;
+                            var dataLength = 20; // number of dataPoints visible at any point
+
+                            var updateChart = function (count) {
+
+                                count = count || 1;
+
+                                for (var j = 0; j < count; j++) {
+                                    yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
+                                    dps.push({
+                                        x: xVal,
+                                        y: yVal
+                                    });
+                                    xVal++;
+                                }
+
+                                if (dps.length > dataLength) {
+                                    dps.shift();
+                                }
+
+                                chart.render();
+                            };
+
+                            updateChart(dataLength);
+                            setInterval(function(){updateChart()}, updateInterval);
+
+                            }
+                        </script>
+                        <div class="au-card recent-report">
                                     <div class="au-card-inner">
-                                        <h5 class="title-2">recent reports</h5>
-                                        <div class="chart-info">
-                                            <div class="chart-info__left">
-                                                <div class="chart-note">
-                                                    <span class="dot dot--blue"></span>
-                                                    <span>products</span>
-                                                </div>
-                                                <div class="chart-note mr-0">
-                                                    <span class="dot dot--green"></span>
-                                                    <span>services</span>
-                                                </div>
-                                            </div>                                                
-                                            </div>
+                                        <h5 class="title-3">Intervenções : mês</h5>
+                                        <div id="chartContainer" style="height: 370px; width:100%;"></div>
                                         </div>
                                     </div>
                                 </div>
-                        <div>-->
+                        <div>
                             
-                        </div>
+                        </div>-->
 
                         <div class="row" style="margin-top:auto;">
                             <div class="col-md-12">
@@ -269,6 +303,9 @@ if ($result->num_rows > 0) {
 
     <!-- Main JS-->
     <script src="../../Interior/js/main.js"></script>
+
+    <!--Do Gráfico-->
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 <script>
 

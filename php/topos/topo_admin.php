@@ -195,9 +195,21 @@ if($_SESSION['permissao'] != 1){
                                 <i class="fas fa-calendar-alt"></i>Planos de Medicação</a>
                         </li>
                         <br>
-                        <li>
-                            <a href="../configuracoes/config-espec.php">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
                                 <i class="zmdi zmdi-settings"></i>Configurações</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="../configuracoes/config-espec.php">Campos</a>
+                                </li>
+                                <li>
+                                    <a href="../configuracoes/configura-especialidades-medicamentos.php">Especialidades</a>
+                                </li>
+                                <li>
+                                    <a href="../configuracoes/config-categ.php">Categorias</a>
+                                </li>
+                                <li>
+                            </ul>
                         </li>
 
                     </ul>
@@ -266,9 +278,21 @@ if($_SESSION['permissao'] != 1){
                         </li>
 
                         <br>
-                        <li>
-                            <a href="../configuracoes/config-espec.php">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
                                 <i class="zmdi zmdi-settings"></i>Configurações</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="../configuracoes/config-espec.php">Campos por especialidade</a>
+                                </li>
+                                <li>
+                                    <a href="../configuracoes/configura-especialidades-medicamentos.php">Medicamentos por especialidade</a>
+                                </li>
+                                <li>
+                                    <a href="../configuracoes/config-categ.php">Medicamentos por categorias</a>
+                                </li>
+                                <li>
+                            </ul>
                         </li>
                     </ul>
                 </nav>
