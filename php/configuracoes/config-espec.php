@@ -1,6 +1,8 @@
 <?php
 include('../topos/topo_admin.php');
 
+  
+
 $sql = "SELECT * from especialidade";
 $result = $conn->query($sql);
 
@@ -62,19 +64,10 @@ function nomeCampo(){
 
 
   }else{
-
-
-        document.getElementById('configEsp').style.display = "block";
-
-
+    document.getElementById('configEsp').style.display = "block";
     document.getElementById('campo').innerHTML = "Adicionar campo - "+a;
 
   }
-
-
-
-
-
 }
 
 

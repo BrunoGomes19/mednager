@@ -76,38 +76,36 @@ function procuraMed(str) {
 }
 
 function guardaEsp(){
+  var esp = $("#dropdown-especialidades option:selected").val();
 
   alert(esp);
+}
+
+function guardaMedicamento(codMedicamento){
+
+  document.getElementById("title").value = nomeMedicamento;
 }
 
 
 
 function guardaMed(codMedicamento,nomeMedicamento){
 
-  var esp = $("#dropdown-especialidades option:selected").val();
+  document.getElementById("title").value = 
 
-
-
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","insereMedicamentoEspecialidade.php?codMedicamento="+codMedicamento+"&esp="+esp,true);
-        xmlhttp.send();
-    
-
-
-
-
-
+  if (window.XMLHttpRequest) {
+      // code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp = new XMLHttpRequest();
+  } else {
+      // code for IE6, IE5
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("txtHint").innerHTML = this.responseText;
+      }
+  };
+  xmlhttp.open("GET","insereMedicamentoEspecialidade.php?codMedicamento="+codMedicamento+"&esp="+esp,true);
+  xmlhttp.send();
 }
 
 
