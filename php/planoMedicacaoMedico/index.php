@@ -47,7 +47,28 @@ if ($result->num_rows > 0) {
 
 ?>
 
+<style>
+
+@media print {
+   .noprint{
+      display: none !important;
+   }
+}
+
+@page { size: auto;  margin: 0mm; }
+
+@page { size: landscape; }
+
+
+</style>
+
 <script>
+
+function imprimir(){
+
+  window.print();
+
+}
 
 function removerTodosPlanos(){
 
@@ -862,18 +883,21 @@ $resultesp25 = $conn->query($sqlesp25);
 
             <!-- MAIN CONTENT-->
             <form action="../indexes/index-medico.php" method="GET" style ='float: left; padding: 5px'>
-                      <button type="submit" class="btn btn-primary btn-sm" style="font-size:16px">
+                      <button type="submit" class="btn btn-primary btn-sm noprint" style="font-size:16px">
                           <i class="fa fa-arrow-left"></i> Voltar
                       </button>&nbsp
             </form>
             <form style ='float: right; padding: 5px'>
-                      <button type="button" class="btn btn-primary btn-sm" style="font-size:22px" onclick="removerTodosPlanos();">
+                      <button type="button" class="btn btn-primary btn-sm noprint" style="font-size:22px" onclick="imprimir();">
+                          <i class="fas fa-print"></i>
+                      </button>&nbsp
+                      <button type="button" class="btn btn-primary btn-sm noprint" style="font-size:22px" onclick="removerTodosPlanos();">
                           <i class="fas fa-trash-alt"></i>
                       </button>&nbsp
-                      <button type="button" class="btn btn-primary btn-sm" style="font-size:22px" onclick="checkAllPlanos();">
+                      <button type="button" class="btn btn-primary btn-sm noprint" style="font-size:22px" onclick="checkAllPlanos();">
                           <i class="fas fa-check"></i>
                       </button>&nbsp
-                      <button type="button" class="btn btn-primary btn-sm" style="font-size:22px" data-toggle="modal" data-target="#myModal3">
+                      <button type="button" class="btn btn-primary btn-sm noprint" style="font-size:22px" data-toggle="modal" data-target="#myModal3">
                           <i class="fas fa-info"></i>
                       </button>&nbsp
             </form>
