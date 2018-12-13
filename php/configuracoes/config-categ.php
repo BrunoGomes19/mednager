@@ -163,10 +163,10 @@ window.setInterval(function() {
 
                       <div class="card" style="width: 80%; margin:0 auto; text-align: center;">
                         <div class="card-header">
-                            <strong>Associar medicamento a uma categoria</strong>
+                            <h4><strong>Associar medicamento a uma categoria</strong></h4>
 
                             <div class="modal-header">
-                              <h4 style="text-align:left;width:100%;">Categorias</h4>
+                              <h5 style="text-align:left;width:100%;">Categorias</h5>
                             </div> 
                             <div class="modal-body">
                               <form style="text-align: left">
@@ -206,9 +206,9 @@ window.setInterval(function() {
 
                           <br style="clear: both;">
 
-                          <div style="width:80%;height:50%;" >
+                          <div style="width:100%;height:50%;" >
                              <div class="modal-header">
-                                    <h4 style="text-align:left;width:100%;">Lista de medicamentos</h4>
+                                    <h5 style="text-align:left;width:100%;">Lista de medicamentos</h5>
                                 </div>
                               <div class="row">
 
