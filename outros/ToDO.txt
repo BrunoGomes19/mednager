@@ -1,5 +1,7 @@
 TO-DO:
 
+Lista de medicamentos (Fazer para aparecer só as listas das especialidades e categorias do LEI associado )
+
 IMPORTANTEEEE
 CONFIG DINAMICA PARA MEDICAMENTOS PARA ESPECIALIDADE
 PAGINA IGUAL AS CONFIGS

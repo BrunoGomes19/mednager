@@ -4,6 +4,8 @@ include('../topos/topo_medico.php');
 $sql = "SELECT * from especialidade";
 $result = $conn->query($sql);
 
+$sql2 = "SELECT * from categorias";
+$result2 = $conn->query($sql2);
 
 $conn->close();
 
@@ -18,18 +20,15 @@ $conn->close();
 
 <script>
 
-
-
-//
-
 function escolherEspecialidade(esp,str) {
 
-//if was onclick do:
-//  document.getElementById("input1-group2").value="";
+var yesEspecialidade = document.getElementById("dropdown-especialidades");
 
-var yes = document.getElementById("dropdown-especialidades");
+var yesCategoria = document.getElementById("dropdown-categorias");
 
-yes.onchange = function(){
+yesEspecialidade.onchange = function(){
+
+    $('#dropdown-categorias').find($('option')).attr('selected',false)
 
    document.getElementById("input1-group2").value = "";
 
@@ -37,32 +36,92 @@ yes.onchange = function(){
 
 }
 
+yesCategoria.onchange = function(){
 
+  $('#dropdown-especialidades').find($('option')).attr('selected',false)
 
+   document.getElementById("input1-group2").value = "";
+
+    document.getElementById("txtHint").innerHTML = "A lista de medicamentos será exibida aqui.";
+
+}
 
     var selectBox = document.getElementById("dropdown-especialidades");
     var codEspecialidade = selectBox.options[selectBox.selectedIndex].value;
     var descriEspecialidade = selectBox.options[selectBox.selectedIndex].text;
 
-    if (esp == "") {
-        document.getElementById("txtHint").innerHTML = "A lista de medicamentos será exibida aqui.";
-        return;
-    } else {
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","ajaxlistamedicamentos.php?cod="+codEspecialidade+"&descri="+descriEspecialidade+"&str="+esp,true);
-        xmlhttp.send();
+    var selectBox2 = document.getElementById("dropdown-categorias");
+    var codCategoria = selectBox2.options[selectBox2.selectedIndex].value;
+    var descriCategoria = selectBox2.options[selectBox2.selectedIndex].text;
+
+    if(descriEspecialidade != "Todas as especialidades"){
+
+      if (esp == "") {
+          document.getElementById("txtHint").innerHTML = "A lista de medicamentos será exibida aqui.";
+          return;
+      } else {
+          if (window.XMLHttpRequest) {
+              // code for IE7+, Firefox, Chrome, Opera, Safari
+              xmlhttp = new XMLHttpRequest();
+          } else {
+              // code for IE6, IE5
+              xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("txtHint").innerHTML = this.responseText;
+              }
+          };
+          xmlhttp.open("GET","ajaxlistamedicamentos.php?cod="+codEspecialidade+"&descri="+descriEspecialidade+"&str="+esp,true);
+          xmlhttp.send();
+      }
+
+    }else if(descriCategoria != "Todas as categorias"){
+
+      if (esp == "") {
+          document.getElementById("txtHint").innerHTML = "A lista de medicamentos será exibida aqui.";
+          return;
+      } else {
+          if (window.XMLHttpRequest) {
+              // code for IE7+, Firefox, Chrome, Opera, Safari
+              xmlhttp = new XMLHttpRequest();
+          } else {
+              // code for IE6, IE5
+              xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("txtHint").innerHTML = this.responseText;
+              }
+          };
+          xmlhttp.open("GET","ajaxlistamedicamentoscategorias.php?cod="+codCategoria+"&descri="+descriCategoria+"&str="+esp,true);
+          xmlhttp.send();
+      }
+
+    }else{
+      if (esp == "") {
+          document.getElementById("txtHint").innerHTML = "A lista de medicamentos será exibida aqui.";
+          return;
+      } else {
+          if (window.XMLHttpRequest) {
+              // code for IE7+, Firefox, Chrome, Opera, Safari
+              xmlhttp = new XMLHttpRequest();
+          } else {
+              // code for IE6, IE5
+              xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("txtHint").innerHTML = this.responseText;
+              }
+          };
+          xmlhttp.open("GET","ajaxlistamedicamentotodos.php?str="+esp,true);
+          xmlhttp.send();
+}
+
     }
+
+
 }
 
 </script>
@@ -118,7 +177,6 @@ yes.onchange = function(){
 
                                         </div>
                                         <div class="table-data__tool-right">
-                                          
 <?php
                                           echo '<select id="dropdown-especialidades" onchange="escolherEspecialidade();">';
 ?>
@@ -132,11 +190,48 @@ yes.onchange = function(){
 
                                                   if($descriEspecialidade == ""){
 
-                                                    echo '<option value=1>Todos</option>';
+                                                    echo '<option value=1>Todas as especialidades</option>';
 
                                                   }else{
 
                                                     echo '<option value='.$codEspecialidade.'> '.$descriEspecialidade.' </option>';
+
+                                                  }
+
+
+
+
+
+
+                                                }
+                                            } else {
+                                                echo "0 results";
+                                            }
+                                            ?>
+
+                                          </select>
+
+                                        </div>
+
+                                        <div class="table-data__tool-right">
+<?php
+                                          echo '<select id="dropdown-categorias" onchange="escolherEspecialidade();">';
+?>
+                                          <?php  if ($result2->num_rows > 0) {
+                                                // output data of each row
+                                                while($row = $result2->fetch_assoc()) {
+
+                                                  $descriCategoria = $row['nomeCategoria'];
+
+                                                  $codCategoria = $row['idcategoria'];
+
+                                                  if($descriCategoria == ""){
+
+                                                    echo '<option value=1>Todas as categorias</option>';
+
+                                                  }else{
+
+                                                    echo '<option value='.$codCategoria.'> '.$descriCategoria.' </option>';
 
                                                   }
 
