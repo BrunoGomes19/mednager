@@ -176,12 +176,15 @@ window.setInterval(function() {
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
-                <div class="section__content section__content--p30" style="float:left;max-width:50%">
-                    <div class="row">
+              <div class="card" style="width: 80%; margin:0 auto; text-align: center;">
+                <div class="card-header">
+                  <h4><strong>Adicionar/ Remover categoria</strong></h4>
+                  <div class="modal-header">
+                    <h5 style="text-align:left;width:100%;">Nome da categoria</h5>
+                  </div>
+                  <div class="col-md-12" id="escolhaEsp">
 
-                        <div class="col-md-12" id="escolhaEsp">
-
-                            <h3 style="text-align:center;" class="title-5 m-b-35">Configurações</h3>
+                            <br>
                             <form>
 
                               <input class="form-control input-lg" type="text" id="nomeCampo" placeholder="Nome da categoria" required /><br>
@@ -189,7 +192,7 @@ window.setInterval(function() {
 
                                 <div class="rs-select2--light "><br>
                                   <div id="txtHint" ><b></b></div>
-                                    <input type="button" value="Adicionar" class="btn btn-primary" id="btnHome" onclick="adicionaCat()";>
+                                    <input type="button" value="Adicionar" class="btn btn-warning" id="btnHome" onclick="adicionaCat()";>
                                 </div>
                             </form>
                         </div>
@@ -210,17 +213,10 @@ window.setInterval(function() {
 
                             </form>
                         </div>
-                    </div>
                 </div>
-
-
-                <div style="float:right;width:50%;height:600px" class="myBox">
-                    <div class="row">
-
-                        <div class="col-md-12" id="escolhaEsp">
-
-                          <div class="modal-header">
-                              <h4 style="text-align:center;width:100%;">Lista de categorias</h4>
+                 <div class="card-footer">
+                  <div class="modal-header">
+                              <h5 style="text-align:left;width:100%;">Lista de categorias</h5>
 
                           </div>
                           <div class="modal-body">
@@ -240,13 +236,9 @@ window.setInterval(function() {
 
                           </div>
 
-                        </div>
-
-                        <form>
-                        <br>
-
-                    </div>
-                </div>
+                 </div>
+              </div>
+              
             </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
