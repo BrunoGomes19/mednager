@@ -4,14 +4,7 @@ IMPORTANTEEEE
 CONFIG DINAMICA PARA MEDICAMENTOS PARA ESPECIALIDADE
 PAGINA IGUAL AS CONFIGS
 
-
 -STATS MÉDICO: QD NÃO HÁ UTENTES O PRIMEIRO GRAFICO FICA A BRANCO. YEMOS DE FAZER UM IF SE N HOUVER UTENTES
-
-- Imprimir apenas os planos de medicação
-
-- Colocar um intervalo de datas (desde ... até ...) no histórico de consultas do utente
-
-- Após o registo inserir automaticamente o CC do utente no campo (Modal do registo de utentes - intervenções)
 
 
 

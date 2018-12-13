@@ -30,6 +30,19 @@ if ($result->num_rows > 0) {
 ?>
 
 
+<style>
+
+@media print {
+   .noprint{
+      display: none !important;
+   }
+}
+
+@page {margin: 0mm; size: landscape; }
+
+
+</style>
+
 <script>
 
 .modal.left .modal-dialog,
@@ -152,6 +165,16 @@ a:hover, a{
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+<script>
+
+function imprimir(){
+
+  window.print();
+
+}
+
+</script>
 
 <style>
 
@@ -340,9 +363,6 @@ $resultesp25 = $conn->query($sqlesp25);
                 eventOverlap: true,
                 selectOverlap: true,
 
-
-
-
                 eventClick: function (event) {
 
                     $("#apagar_evento").attr("href", "proc_apagar_evento.php?id=" + event.id+"&cc="+event.ccUtente);
@@ -499,12 +519,15 @@ $resultesp25 = $conn->query($sqlesp25);
 
             <!-- MAIN CONTENT-->
             <form action="../indexes/index-utente.php" method="GET" style ='float: left; padding: 5px'>
-                      <button type="submit" class="btn btn-primary btn-sm" style="font-size:16px">
+                      <button type="submit" class="btn btn-primary btn-sm noprint" style="font-size:16px">
                           <i class="fa fa-arrow-left"></i> Voltar
                       </button>&nbsp
             </form>
             <form style ='float: right; padding: 5px'>
-                      <button type="button" class="btn btn-primary btn-sm" style="font-size:22px" data-toggle="modal" data-target="#myModal3">
+                      <button type="button" class="btn btn-primary btn-sm noprint" style="font-size:22px" onclick="imprimir();">
+                          <i class="fas fa-print"></i>
+                      </button>&nbsp
+                      <button type="button" class="btn btn-primary btn-sm noprint" style="font-size:22px" data-toggle="modal" data-target="#myModal3">
                           <i class="fas fa-info"></i>
                       </button>&nbsp
             </form>

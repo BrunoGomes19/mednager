@@ -1,7 +1,7 @@
 <?php
 include('../topos/topo_admin.php');
 
-$sql = "SELECT * from especialidade";
+$sql = "SELECT * from categorias";
 $result = $conn->query($sql);
 
 
@@ -53,6 +53,8 @@ background: #999;
 <script>
 
 
+
+
 function procuraMed(str) {
     if (str == "") {
         document.getElementById("txtHint").innerHTML = "A lista de medicamentos será exibida aqui...";
@@ -75,22 +77,14 @@ function procuraMed(str) {
     }
 }
 
-function guardaEsp(){
-  var esp = $("#dropdown-especialidades option:selected").val();
+function adicionaMedCat(){
 
-  alert(esp);
-}
-
-function guardaMedicamento(codMedicamento){
-
-  document.getElementById("title").value = nomeMedicamento;
-}
+  var cat = $("#dropdown-categorias option:selected").val();
 
 
+  var codMedicamento = document.getElementById('guardaCodMed').value;
 
-function guardaMed(codMedicamento,nomeMedicamento){
 
-  document.getElementById("title").value = 
 
   if (window.XMLHttpRequest) {
       // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -104,8 +98,25 @@ function guardaMed(codMedicamento,nomeMedicamento){
           document.getElementById("txtHint").innerHTML = this.responseText;
       }
   };
-  xmlhttp.open("GET","insereMedicamentoEspecialidade.php?codMedicamento="+codMedicamento+"&esp="+esp,true);
+  xmlhttp.open("GET","insereMedicamentoCategoria.php?codMedicamento="+codMedicamento+"&cat="+cat,true);
   xmlhttp.send();
+
+}
+
+
+
+
+function guardaMed(codMedicamento,nomeMedicamento){
+
+  document.getElementById('title').value = nomeMedicamento;
+document.getElementById('guardaCodMed').value = codMedicamento;
+document.getElementById("txtHint").innerHTML = "";
+
+
+
+
+
+
 }
 
 
@@ -154,27 +165,27 @@ window.setInterval(function() {
                         <h3 style="text-align:center;" class="title-5 m-b-35">Configurações</h3>
 
                         <br>
-                        <h4 style="text-align:left;width:100%;">Especialidades</h4>
+                        <h4 style="text-align:left;width:100%;">Categorias</h4>
                         <br>
                         <form style="text-align: left">
                             <?php
-                                echo '<select style="margin-right: auto; margin-left: auto;width:73%" id="dropdown-especialidades" onchange="guardaEsp()">';
+                                echo '<select style="margin-right: auto; margin-left: auto;width:73%" id="dropdown-categorias"  >';
                             ?>
                             <?php
                             if ($result->num_rows > 0) {
                                 // output data of each row
                                 while($row = $result->fetch_assoc()) {
-                                    $descriEspecialidade = $row['descriEspecialidade'];
+                                    $nomeCategoria = $row['nomeCategoria'];
 
-                                    $codEspecialidade = $row['codEspecialidade'];
+                                    $idCategoria = $row['idcategoria'];
 
-                                    if($descriEspecialidade == ""){
+                                    if($nomeCategoria == ""){
 
                                         echo '<option value=1 hidden>Escolha uma especialidade</option>';
 
                                     }else{
 
-                                        echo '<option value='.$codEspecialidade.'> '.$descriEspecialidade.' </option>';
+                                        echo '<option value='.$idCategoria.'> '.$nomeCategoria.' </option>';
 
                                     }
                                 }
@@ -185,25 +196,25 @@ window.setInterval(function() {
 
                                 </select>
 
-                            
+
                         </form><br><br>
 
-                        
+
                       </div>
 
                     </div>
                     <div style="text-align: center">
-                    <input type="button" value="Adicionar" class="btn btn-warning" id="btnHome" onclick="adiciona()";>
+                    <input type="button" value="Adicionar" class="btn btn-warning" id="btnHome" onclick="adicionaMedCat()";>
                     </div>
                   </div>
-                  
-                
-                  
-                    
+
+
+
+
                 <div>
 
-                <br style="clear: both;"> 
-                <br style="clear: both;"> 
+                <br style="clear: both;">
+                <br style="clear: both;">
 
                 <div style="width:80%;height:50%; margin-left: auto; margin-right: auto;" >
                    <div class="modal-header">
@@ -211,7 +222,7 @@ window.setInterval(function() {
                       </div>
                     <div class="row">
 
-                     
+
 
                       <div class="modal-body">
                         <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
@@ -219,7 +230,8 @@ window.setInterval(function() {
                           <div class="form-group">
                               <div class="form-group col-md-12" id="vaidarmed">
                                   <label>Nome do medicamento</label>
-                                  <input type="text" class="form-control" name="titleMed" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome do medicamento ou nome do genérico" required onkeyup="procuraMed2(this.value)">
+                                  <input type="text" class="form-control" name="titleMed" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome do medicamento ou nome do genérico" required onkeyup="procuraMed(this.value)">
+                                  <input type="hidden" id="guardaCodMed">
                                   <br>
                                   <p id="txtHint">A lista de medicamentos será exibida aqui...</p>
                               </div>

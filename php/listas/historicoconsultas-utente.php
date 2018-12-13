@@ -66,8 +66,11 @@ function verperfil($cc){
 window.location.replace('../perfis/perfil_utentelista.php?cc='+$cc);
 }
 
-function showUser(str) {
-    if (str == "") {
+function showUser() {
+
+  var datainicio = document.getElementById("datainicio").value;
+
+  var datafim = document.getElementById("datafim").value;
 
       if (window.XMLHttpRequest) {
           // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -81,26 +84,9 @@ function showUser(str) {
               document.getElementById("txtHint").innerHTML = this.responseText;
           }
       };
-      xmlhttp.open("GET","ajaxhistoricoconsultas-utente?q="+str+"&op=1",true);
+      xmlhttp.open("GET","ajaxhistoricoconsultas-utente?datainicio="+datainicio+"&datafim="+datafim,true);
       xmlhttp.send();
 
-
-    } else {
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","ajaxhistoricoconsultas-utente.php?q="+str+"&op=2",true);
-        xmlhttp.send();
-    }
 }
 </script>
 
@@ -142,8 +128,15 @@ function showUser(str) {
                                                             <i class="fa fa-search"></i>
                                                         </button>
 
-                                                        <input type="text" class="form-control" name="date" placeholder="YYYY-MM-DD"  id="input1-group2" name="input1-group2" placeholder="Data da intervenção" class="form-control" onchange="showUser(this.value)" autocomplete="off">
+                                                        <input type="text" class="form-control" name="date" placeholder="YYYY-MM-DD (início)"  id="datainicio" name="input1-group2" placeholder="Data da intervenção" class="form-control" onchange="showUser()" autocomplete="off">
 
+                                                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+
+                                                        <button class="btn btn-primary" disabled>
+                                                            <i class="fa fa-search"></i>
+                                                        </button>
+
+                                                        <input type="text" class="form-control" name="date" placeholder="YYYY-MM-DD (fim)"  id="datafim" name="datafim" placeholder="Data da intervenção" class="form-control" onchange="showUser()" autocomplete="off">
 
 
                                                     </div>
@@ -275,7 +268,7 @@ function showUser(str) {
 
 
                                                 </div>
-                                                
+
                                                     <!--<tr class="spacer"></tr>
                                                     <tr class="tr-shadow">
                                                         <td>
