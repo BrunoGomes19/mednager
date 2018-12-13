@@ -199,15 +199,19 @@ if($_SESSION['permissao'] != 1){
                             <a class="js-arrow" href="#">
                                 <i class="zmdi zmdi-settings"></i>Configurações</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="../configuracoes/config-espec.php">Campos</a>
-                                </li>
-                                <li>
-                                    <a href="../configuracoes/configura-especialidades-medicamentos.php">Especialidades</a>
-                                </li>
-                                <li>
-                                    <a href="../configuracoes/config-categ.php">Categorias</a>
-                                </li>
+                              <li>
+                                  <a href="../configuracoes/config-espec.php">Campos por especialidade</a>
+                              </li>
+
+                              <li>
+                                  <a href="../configuracoes/addCategorias.php">Gestão de categorias</a>
+                              </li>
+                              <li>
+                                  <a href="../configuracoes/config-categ.php">Medicamentos por categorias</a>
+                              </li>
+                              <li>
+                                  <a href="../configuracoes/configura-especialidades-medicamentos.php">Medicamentos por especialidade</a>
+                              </li>
                                 <li>
                             </ul>
                         </li>
@@ -285,12 +289,17 @@ if($_SESSION['permissao'] != 1){
                                 <li>
                                     <a href="../configuracoes/config-espec.php">Campos por especialidade</a>
                                 </li>
+
                                 <li>
-                                    <a href="../configuracoes/configura-especialidades-medicamentos.php">Medicamentos por especialidade</a>
+                                    <a href="../configuracoes/addCategorias.php">Gestão de categorias</a>
                                 </li>
                                 <li>
                                     <a href="../configuracoes/config-categ.php">Medicamentos por categorias</a>
                                 </li>
+                                <li>
+                                    <a href="../configuracoes/configura-especialidades-medicamentos.php">Medicamentos por especialidade</a>
+                                </li>
+
                                 <li>
                             </ul>
                         </li>
