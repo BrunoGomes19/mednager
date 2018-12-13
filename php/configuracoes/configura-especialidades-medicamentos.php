@@ -155,91 +155,84 @@ window.setInterval(function() {
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
-                <div class="section__content section__content--p30" style="margin-left: auto; margin-right: auto; max-width:50%">
+                <div class="section__content section__content--p30">
                     <div class="row" >
-                      <div  style="align-items: center;width:100%" id="escolhaEsp">
 
-                        <h3 style="text-align:center;" class="title-5 m-b-35">Configurações</h3>
+                      <div class="card" style="width: 80%; margin:0 auto; text-align: center;">
+                        <div class="card-header">
+                            <strong>Associar medicamento a uma especialidade</strong>
 
-                        <br>
-                        <h4 style="text-align:left;width:100%;">Especialidades</h4>
-                        <br>
-                        <form style="text-align: left">
-                            <?php
-                                echo '<select style="margin-right: auto; margin-left: auto;width:73%" id="dropdown-especialidades">';
-                            ?>
-                            <?php
-                            if ($result->num_rows > 0) {
-                                // output data of each row
-                                while($row = $result->fetch_assoc()) {
-                                    $descriEspecialidade = $row['descriEspecialidade'];
+                            <div class="modal-header">
+                              <h4 style="text-align:left;width:100%;">Especialidades</h4>
+                            </div> 
+                            <div class="modal-body">
+                              <form style="text-align: left">
+                                <?php
+                                
+                                    echo '<select style="width:33%" id="dropdown-especialidades">';
+                                ?>
+                                <?php
+                                if ($result->num_rows > 0) {
+                                    // output data of each row
+                                    while($row = $result->fetch_assoc()) {
+                                        $descriEspecialidade = $row['descriEspecialidade'];
 
-                                    $codEspecialidade = $row['codEspecialidade'];
+                                        $codEspecialidade = $row['codEspecialidade'];
 
-                                    if($descriEspecialidade == ""){
+                                        if($descriEspecialidade == ""){
 
-                                        echo '<option value=1 hidden>Escolha uma especialidade</option>';
+                                            echo '<option value=1 hidden>Escolha uma especialidade</option>';
 
-                                    }else{
+                                        }else{
 
-                                        echo '<option value='.$codEspecialidade.'> '.$descriEspecialidade.' </option>';
+                                            echo '<option value='.$codEspecialidade.'> '.$descriEspecialidade.' </option>';
 
+                                        }
                                     }
+                                } else {
+                                    echo "0 results";
                                 }
-                            } else {
-                                echo "0 results";
-                            }
-                            ?>
+                                
+                                ?>
 
-                                </select>
-
-
-                        </form><br><br>
-
-
-                      </div>
-
-                    </div>
-
-                  </div>
+                                </select>                                  
+                              </form>
+                          </div>
 
 
 
+                          <br style="clear: both;">
 
-                <div>
+                          <div style="width:80%;height:50%;" >
+                             <div class="modal-header">
+                                    <h4 style="text-align:left;width:100%;">Lista de medicamentos</h4>
+                                </div>
+                              <div class="row">
+                                <div class="modal-body">
+                                  <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
 
-                <br style="clear: both;">
-                <br style="clear: both;">
+                                    <div class="form-group">
+                                        <div class="form-group col-md-12" id="vaidarmed">
+                                            
+                                            <input type="text" class="form-control" name="titleMed" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome do medicamento ou nome do genérico" required onkeyup="procuraMed(this.value)">
+                                            <input type="hidden" id="guardaCodMed">
+                                            <br>
+                                            <p id="txtHint"></p>
+                                        </div>
+                                    </div>
+                                  </form>
+                                </div>
 
-                <div style="width:80%;height:50%; margin-left: auto; margin-right: auto;" >
-                   <div class="modal-header">
-                          <h4 style="text-align:left;width:100%;">Lista de campos</h4>
-                      </div>
-                    <div class="row">
-
-
-
-                      <div class="modal-body">
-                        <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
-
-                          <div class="form-group">
-                              <div class="form-group col-md-12" id="vaidarmed">
-                                  <label>Nome do medicamento</label>
-                                  <input type="text" class="form-control" name="titleMed" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome do medicamento ou nome do genérico" required onkeyup="procuraMed(this.value)">
-                                  <input type="hidden" id="guardaCodMed">
-                                  <br>
-                                  <p id="txtHint">A lista de medicamentos será exibida aqui...</p>
                               </div>
                           </div>
-                        </form>
+                        </div>                        
+                        <div class="card-footer">
+                          <div style="text-align: center">
+                            <input type="button" value="Associar" class="btn btn-warning" id="btnHome" onclick="adicionaMedEsp()";>
+                          </div>
+                        </div>                                        
                       </div>
-
-                    </div>
-                </div>
-                <div style="text-align: center">
-                <input type="button" value="Adicionar" class="btn btn-warning" id="btnHome" onclick="adicionaMedEsp()";>
-                </div>
-              </div>
+                    </div> 
             </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
