@@ -59,7 +59,8 @@ function adicionaCat (){
 
     var nome = document.getElementById('nomeCampo').value;
 
-    if(nome == "" || unid=="" ){
+
+    if(nome == "" ){
 
 
 
@@ -187,6 +188,7 @@ window.setInterval(function() {
 
 
                                 <div class="rs-select2--light "><br>
+                                  <div id="txtHint" ><b></b></div>
                                     <input type="button" value="Adicionar" class="btn btn-primary" id="btnHome" onclick="adicionaCat()";>
                                 </div>
                             </form>

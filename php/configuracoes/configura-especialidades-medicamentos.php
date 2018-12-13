@@ -193,21 +193,19 @@ window.setInterval(function() {
 
                                 </select>
 
-                            
+
                         </form><br><br>
 
-                        
+
                       </div>
 
                     </div>
-                    <div style="text-align: center">
-                    <input type="button" value="Adicionar" class="btn btn-warning" id="btnHome" onclick="adicionaMedEsp()";>
-                    </div>
+
                   </div>
-                  
-                
-                  
-                    
+
+
+
+
                 <div>
 
                 <br style="clear: both;">
@@ -237,6 +235,9 @@ window.setInterval(function() {
                       </div>
 
                     </div>
+                </div>
+                <div style="text-align: center">
+                <input type="button" value="Adicionar" class="btn btn-warning" id="btnHome" onclick="adicionaMedEsp()";>
                 </div>
               </div>
             </div>

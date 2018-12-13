@@ -24,6 +24,7 @@ echo '
 
             <th>Nome</th>
             <th></th>
+            <th></th><th></th>
         </tr>
     </thead>
     <tbody>
@@ -44,7 +45,8 @@ echo '
   <tr class="spacer"></tr>
   <tr class="tr-shadow">
 
-      <td>'.$nomeCategoria.'</td>';
+      <td>'.$nomeCategoria.'</td>
+      <td></td><td></td><td></td>';
 
       echo '<td><button class="btn btn-danger btn-sm" style="font-size:16px" title="Clique para eliminar esta categoria" onclick="removerCateg('.$idcategoria.')";>
         <i class="fas fa-times"></i>
