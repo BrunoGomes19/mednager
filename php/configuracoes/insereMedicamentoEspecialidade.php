@@ -19,7 +19,10 @@ $sql = "INSERT INTO medicamentoEspecialidade (codMedicamento, codEspecialidade)
 VALUES ($codMedicamento, $esp)";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    echo '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#58da81;border-radius:8px";>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+   <span style="color:white;">Medicamento associado com sucesso!</span>
+  </div>';
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
