@@ -187,7 +187,7 @@ window.setInterval(function() {
                             <br>
                             <form>
 
-                              <input class="form-control input-lg" type="text" id="nomeCampo" placeholder="Nome da categoria" required /><br>
+                              <input class="form-control input-lg" type="text" id="nomeCampo" placeholder="Insira o nome da categoria que pretende adicionar" required /><br>
 
 
                                 <div class="rs-select2--light "><br>

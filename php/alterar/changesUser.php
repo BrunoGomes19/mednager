@@ -30,7 +30,7 @@ include('../topos/topo_utente.php');
       }
       ?>
       <br>
-    <div class="card" style="width: 50%; margin:0 auto; text-align: center;">
+    <div class="card" style="width: 70%;margin:0 auto; text-align: center;">
       <div class="card-header">
           <strong>Alterar Password</strong>
       </div>

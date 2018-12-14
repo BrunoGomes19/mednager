@@ -173,27 +173,26 @@ if($_SESSION['permissao'] != 1){
                             <a href="../estatisticas/adminEstatisticas.php">
                                 <i class="fas fa-signal"></i>Estatísticas</a>
                         </li>
-                        <li>
-                            <a href="table.html">
-                                <i class="fas fa-calendar-alt"></i>Planos de Medicação</a>
-                        </li>
+                        
                         <li>
                             <a href="../listas/listamedicamentos2.php">
                                 <i class="far fa-medkit"></i>Medicamentos</a>
                         </li>
                         <br>
-                        <li>
-                            <a href="../registos/medico-admin_registoutente.php">
-                                <i class="fas fa-plus"></i>Registo de Utentes</a>
+                       <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-plus"></i>Registo</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="../registos/admin_registomedico.php">Registo de Médicos</a>
+                                </li>
+
+                                <li>
+                                    <a href="../registos/medico-admin_registoutente.php">Registo de Utentes</a>
+                                </li>
+                            </ul>
                         </li>
-                        <li>
-                            <a href="../registos/admin_registomedico.php">
-                                <i class="fas fa-plus"></i>Registo de Médicos</a>
-                        </li>
-                        <li>
-                            <a href="table.html">
-                                <i class="fas fa-calendar-alt"></i>Planos de Medicação</a>
-                        </li>
+                        
                         <br>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
@@ -272,15 +271,20 @@ if($_SESSION['permissao'] != 1){
                                 <i class="fa fa-medkit"></i>Medicamentos</a>
                         </li>
                         <br>
-                        <li>
-                            <a href="../registos/medico-admin_registoutente.php">
-                                <i class="fas fa-plus"></i>Registo de Utentes</a>
-                        </li>
-                        <li>
-                            <a href="../registos/admin_registomedico.php">
-                                <i class="fas fa-plus"></i>Registo de Médicos</a>
-                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-plus"></i>Registo</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="../registos/admin_registomedico.php">Registo de Médicos</a>
+                                </li>
 
+                                <li>
+                                    <a href="../registos/medico-admin_registoutente.php">Registo de Utentes</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
                         <br>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
@@ -364,7 +368,7 @@ if($_SESSION['permissao'] != 1){
 
                                                 <div class="account-dropdown__item">
                                                     <a href="../alterar/changesAdmin.php">
-                                                        <i class="zmdi zmdi-settings"></i>Definições</a>
+                                                        <i class="zmdi zmdi-settings"></i>Alterar Password</a>
                                                 </div>
 
                                             </div>
