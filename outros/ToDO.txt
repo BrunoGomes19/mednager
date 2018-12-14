@@ -1,14 +1,5 @@
 TO-DO:
-
-Lista de medicamentos (Fazer para aparecer só as listas das especialidades e categorias do LEI associado )
-
-IMPORTANTEEEE
-CONFIG DINAMICA PARA MEDICAMENTOS PARA ESPECIALIDADE
-PAGINA IGUAL AS CONFIGS
-
 -STATS MÉDICO: QD NÃO HÁ UTENTES O PRIMEIRO GRAFICO FICA A BRANCO. YEMOS DE FAZER UM IF SE N HOUVER UTENTES
-
-
 
 - Colocar o Fullcalendar dentro do topo
 
