@@ -167,7 +167,7 @@ window.setInterval(function() {
 
                             <div class="modal-header">
                               <h5 style="text-align:left;width:100%;">Categorias</h5>
-                            </div> 
+                            </div>
                             <div class="modal-body">
                               <form style="text-align: left">
                                 <?php
@@ -183,7 +183,7 @@ window.setInterval(function() {
 
                                         if($nomeCategoria == ""){
 
-                                            echo '<option value=1 hidden>Escolha uma especialidade</option>';
+                                            echo '<option value=1 hidden>Escolha uma categoria</option>';
 
                                         }else{
 
@@ -218,7 +218,7 @@ window.setInterval(function() {
                                   <form class="form-horizontal" method="POST" action="proc_cad_evento.php">
 
                                     <div class="form-group">
-                                        <div class="form-group col-md-12" id="vaidarmed">                                            
+                                        <div class="form-group col-md-12" id="vaidarmed">
                                             <input type="text" class="form-control" name="titleMed" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome do medicamento ou nome do genérico" required onkeyup="procuraMed(this.value)">
                                             <input type="hidden" id="guardaCodMed">
                                             <br>
@@ -229,17 +229,17 @@ window.setInterval(function() {
                                 </div>
 
                               </div>
-                          </div>                   
+                          </div>
                         <div class="card-footer">
                           <div style="text-align: center">
                             <input type="button" value="Associar" class="btn btn-warning" id="btnHome" onclick="adicionaMedCat()";>
                           </div>
-                        </div>                                        
+                        </div>
                       </div>
-                    </div> 
+                    </div>
             </div>
 
-            
+
         </div>
 
     </div>
