@@ -164,12 +164,12 @@ window.setInterval(function() {
 
                             <div class="modal-header">
                               <h5 style="text-align:left;width:100%;">Especialidades</h5>
-                            </div> 
+                            </div>
                             <div class="modal-body">
                               <form style="text-align: left">
                                 <?php
-                                
-                                    echo '<select style="width:33%" id="dropdown-especialidades">';
+
+                                    echo '<select id="dropdown-especialidades">';
                                 ?>
                                 <?php
                                 if ($result->num_rows > 0) {
@@ -192,10 +192,10 @@ window.setInterval(function() {
                                 } else {
                                     echo "0 results";
                                 }
-                                
+
                                 ?>
 
-                                </select>                                  
+                                </select>
                               </form>
                           </div>
 
@@ -213,7 +213,7 @@ window.setInterval(function() {
 
                                     <div class="form-group">
                                         <div class="form-group col-md-12" id="vaidarmed">
-                                            
+
                                             <input type="text" class="form-control" name="titleMed" onfocus="this.value=''" id="title" autocomplete="off" placeholder="Nome do medicamento ou nome do genérico" required onkeyup="procuraMed(this.value)">
                                             <input type="hidden" id="guardaCodMed">
                                             <br>
@@ -225,14 +225,14 @@ window.setInterval(function() {
 
                               </div>
                           </div>
-                        </div>                        
+                        </div>
                         <div class="card-footer">
                           <div style="text-align: center">
                             <input type="button" value="Associar" class="btn btn-warning" id="btnHome" onclick="adicionaMedEsp()";>
                           </div>
-                        </div>                                        
+                        </div>
                       </div>
-                    </div> 
+                    </div>
             </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
