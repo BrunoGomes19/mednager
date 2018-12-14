@@ -56,7 +56,7 @@ yesCategoria.onchange = function(){
 
     if(descriEspecialidade != "Todas as especialidades"){
 
-      if (esp == "") {
+      if (esp == "" || esp == undefined) {
           document.getElementById("txtHint").innerHTML = "A lista de medicamentos será exibida aqui.";
           return;
       } else {
@@ -78,7 +78,7 @@ yesCategoria.onchange = function(){
 
     }else if(descriCategoria != "Todas as categorias"){
 
-      if (esp == "") {
+      if (esp == "" || esp == undefined) {
           document.getElementById("txtHint").innerHTML = "A lista de medicamentos será exibida aqui.";
           return;
       } else {

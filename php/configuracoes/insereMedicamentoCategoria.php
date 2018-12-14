@@ -11,10 +11,10 @@ include('../topos/header.php');
 
 $codMedicamento = $_GET['codMedicamento'];
 $cat = $_GET['cat'];
+$codComprador = $_SESSION['codComprador'];
 
-
-$sql = "INSERT INTO medicamentoCategoria (codMedicamento, idcategoria)
-VALUES ($codMedicamento, $cat)";
+$sql = "INSERT INTO medicamentoCategoria (codMedicamento, idcategoria, codComprador)
+VALUES ($codMedicamento, $cat, $codComprador)";
 
 if ($conn->query($sql) === TRUE) {
   echo'<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#58da81;border-radius:8px";>

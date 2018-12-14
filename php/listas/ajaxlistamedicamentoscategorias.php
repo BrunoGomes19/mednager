@@ -25,6 +25,11 @@ $str = tirarAcentos($str);
 
 include "../topos/header.php";
 
+$codComprador = $_SESSION['codComprador'];
+
+$permissao = $_SESSION['permissao'];
+
+
   if($codCategoria==1){
 
     $sql="SELECT * from medicamento where nomeMedicamento like '".$str."%' limit 50";
@@ -43,8 +48,56 @@ include "../topos/header.php";
 
   }else{
 
+  if($permissao==2){
+
+    $sql = "SELECT * FROM comprador where codComprador = $codComprador";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+
+          $LEIMedico = $row['LEIComprador'];
+
+        }
+
+            $sqlAdmin = "SELECT * FROM comprador where LEIComprador = '$LEIMedico' and codPermissao = 1";
+            $resultAdmin = $conn->query($sqlAdmin);
+
+            if ($resultAdmin->num_rows > 0) {
+                // output data of each row
+                while($row = $resultAdmin->fetch_assoc()) {
+                    $codCompradorAdmin = $row['codComprador'];
+                }
+
+                $sql="SELECT * from medicamento, categorias, medicamentocategoria, comprador where comprador.associacao = 2 and medicamento.codMedicamento = medicamentocategoria.codMedicamento and medicamentocategoria.idcategoria = categorias.idcategoria and categorias.nomeCategoria like '".$descriCategoria."'
+                 and medicamentocategoria.codComprador = $codCompradorAdmin and nomeMedicamento like '".$str."%' limit 50";
+
+                 mysqli_select_db($conn,"ajax_demo");
+                 $result = mysqli_query($conn,$sql);
+
+                 if ($result->num_rows == 0) {
+
+                   $sql="SELECT * from medicamento, categorias, medicamentocategoria, comprador where comprador.associacao = 2 and medicamento.codMedicamento = medicamentocategoria.codMedicamento and medicamentocategoria.idcategoria = categorias.idcategoria and categorias.nomeCategoria like '".$descriCategoria."'
+                    and medicamentocategoria.codComprador = $codCompradorAdmin and nomeGenerico like '".$str."%' limit 50";
+
+                    mysqli_select_db($conn,"ajax_demo");
+                    $result = mysqli_query($conn,$sql);
+
+                 }
+
+            }
+
+
+
+    } else {
+        echo "Sem resultados...";
+    }
+
+  }else{
+
     $sql="SELECT * from medicamento, categorias, medicamentocategoria where medicamento.codMedicamento = medicamentocategoria.codMedicamento and medicamentocategoria.idcategoria = categorias.idcategoria and categorias.nomeCategoria like '".$descriCategoria."'
-     and nomeMedicamento like '".$str."%' limit 50";
+     and medicamentocategoria.codComprador = $codComprador and nomeMedicamento like '".$str."%' limit 50";
 
      mysqli_select_db($conn,"ajax_demo");
      $result = mysqli_query($conn,$sql);
@@ -52,17 +105,14 @@ include "../topos/header.php";
      if ($result->num_rows == 0) {
 
        $sql="SELECT * from medicamento, categorias, medicamentocategoria where medicamento.codMedicamento = medicamentocategoria.codMedicamento and medicamentocategoria.idcategoria = categorias.idcategoria and categorias.nomeCategoria like '".$descriCategoria."'
-        and nomeGenerico like '".$str."%' limit 50";
+        and medicamentocategoria.codComprador = $codComprador and nomeGenerico like '".$str."%' limit 50";
 
         mysqli_select_db($conn,"ajax_demo");
         $result = mysqli_query($conn,$sql);
 
      }
-
+   }
   }
-
-  mysqli_select_db($conn,"ajax_demo");
-  $result = mysqli_query($conn,$sql);
 
 
 
@@ -136,7 +186,7 @@ include "../topos/header.php";
   ';
 
 
-  if ($result->num_rows == 0) {
+  if ($result->num_rows == 0 || $resultAdmin->num_rows == 0) {
 
     echo '<br>
       <tr>Sem resultados!</tr>

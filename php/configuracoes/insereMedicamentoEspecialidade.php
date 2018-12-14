@@ -6,17 +6,19 @@
 </head>
 <body>
 
-   
+
 
 <?php
 include('../topos/header.php');
+
+$codComprador = $_SESSION['codComprador'];
 
 $codMedicamento = $_GET['codMedicamento'];
 $esp = $_GET['esp'];
 
 
-$sql = "INSERT INTO medicamentoEspecialidade (codMedicamento, codEspecialidade)
-VALUES ($codMedicamento, $esp)";
+$sql = "INSERT INTO medicamentoEspecialidade (codMedicamento, codEspecialidade, codComprador)
+VALUES ($codMedicamento, $esp, $codComprador)";
 
 if ($conn->query($sql) === TRUE) {
     echo '<div class="alert alert-warning alert-dismissible" data-auto-dismiss role="alert" style="background-color:#58da81;border-radius:8px";>
