@@ -19,7 +19,7 @@ function tirarAcentos($str){
     return preg_replace(array("/(á|à|ã|â|ä)/","/(Á|À|Ã|Â|Ä)/","/(é|è|ê|ë)/","/(É|È|Ê|Ë)/","/(í|ì|î|ï)/","/(Í|Ì|Î|Ï)/","/(ó|ò|õ|ô|ö)/","/(Ó|Ò|Õ|Ô|Ö)/","/(ú|ù|û|ü)/","/(Ú|Ù|Û|Ü)/","/(ñ)/","/(Ñ)/"),explode(" ","a A e E i I o O u U n N"),$str);
 }
 
-
+$find = false;
 
 $str = tirarAcentos($str);
 
@@ -64,6 +64,8 @@ $permissao = $_SESSION['permissao'];
             $sqlAdmin = "SELECT * FROM comprador where LEIComprador = '$LEIMedico' and codPermissao = 1";
             $resultAdmin = $conn->query($sqlAdmin);
 
+            $find = true;
+
             if ($resultAdmin->num_rows > 0) {
                 // output data of each row
                 while($row = $resultAdmin->fetch_assoc()) {
@@ -71,7 +73,7 @@ $permissao = $_SESSION['permissao'];
                 }
 
                 $sql="SELECT * from medicamento, categorias, medicamentocategoria, comprador where comprador.associacao = 2 and medicamento.codMedicamento = medicamentocategoria.codMedicamento and medicamentocategoria.idcategoria = categorias.idcategoria and categorias.nomeCategoria like '".$descriCategoria."'
-                 and medicamentocategoria.codComprador = $codCompradorAdmin and nomeMedicamento like '".$str."%' limit 50";
+                 and medicamentocategoria.codComprador = $codCompradorAdmin and nomeMedicamento like '".$str."%' group by medicamento.codMedicamento limit 50";
 
                  mysqli_select_db($conn,"ajax_demo");
                  $result = mysqli_query($conn,$sql);
@@ -79,12 +81,14 @@ $permissao = $_SESSION['permissao'];
                  if ($result->num_rows == 0) {
 
                    $sql="SELECT * from medicamento, categorias, medicamentocategoria, comprador where comprador.associacao = 2 and medicamento.codMedicamento = medicamentocategoria.codMedicamento and medicamentocategoria.idcategoria = categorias.idcategoria and categorias.nomeCategoria like '".$descriCategoria."'
-                    and medicamentocategoria.codComprador = $codCompradorAdmin and nomeGenerico like '".$str."%' limit 50";
+                    and medicamentocategoria.codComprador = $codCompradorAdmin and nomeGenerico like '".$str."%' group by medicamento.codMedicamento limit 50";
 
                     mysqli_select_db($conn,"ajax_demo");
                     $result = mysqli_query($conn,$sql);
 
                  }
+
+
 
             }
 
@@ -186,7 +190,7 @@ $permissao = $_SESSION['permissao'];
   ';
 
 
-  if ($result->num_rows == 0 || $resultAdmin->num_rows == 0) {
+  if ($result->num_rows == 0) {
 
     echo '<br>
       <tr>Sem resultados!</tr>
@@ -195,6 +199,22 @@ $permissao = $_SESSION['permissao'];
     ';
 
   }
+
+  if($find){
+
+    if ($resultAdmin->num_rows == 0) {
+
+      echo '<br>
+        <tr>Sem resultados!</tr>
+
+
+      ';
+
+    }
+
+  }
+
+
 
 mysqli_close($conn);
 
