@@ -99,7 +99,7 @@
     <div class="intro-container wow fadeIn">
     	<a href="#"><img src="../../landingPage/img/logos/logotipo.png" class="img-responsive" style="width: 600px; margin-top: -16px;"></a>
 
-      <p class="mb-4 pb-0" style="background-color: rgba(6, 12, 34, 0.1); border-radius: 15px">&nbsp&nbspO melhor amigo do médico&nbsp&nbsp</p>
+      <p class="mb-4 pb-0" style="background-color: rgba(6, 12, 34, 0.1); border-radius: 15px">&nbsp&nbspA solução dinâmica&nbsp&nbsp</p>
 
 
     </div>
@@ -220,12 +220,12 @@
           </div>
         </div>
       </div>
-  
+
           <div class="container">
               <img width=1110 src="../../assets/images/mednager-screens.png" alt="MockUp">
           </div>
     </section>
-    
+
 
 
     <!--==========================
