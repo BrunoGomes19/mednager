@@ -271,7 +271,7 @@ function showUser(str) {
                                                   if ($result->num_rows == 0 || $result2->num_rows == 0) {
 
                                                     echo '<br>
-                                                      <tr>Sem resultados!</tr>
+                                                      <tr>Não foram encontradas consultas antes da data de hoje!</tr>
 
 
                                                     ';

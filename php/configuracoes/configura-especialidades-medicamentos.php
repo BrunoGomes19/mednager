@@ -13,6 +13,11 @@ $conn->close();
 
 <style>
 
+#HoverTR:hover td {
+    background-color: #dee1e5;
+    /* or #000 */
+}
+
 /* Box styles */
 .myBox {
 border: none;
