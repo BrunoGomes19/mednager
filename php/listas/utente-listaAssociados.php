@@ -93,7 +93,7 @@ function removerAssociacao($ccUtente,$codComprador){
                     <div class="row">
 
                                     <div class="table-responsive table-responsive-data2">
-<h3 class="title-5 m-b-35" style="text-align:center;">Lista de associações pendentes</h3>
+<h3 class="title-5 m-b-35" style="text-align:center;">Lista de associados</h3>
 <br>
 
 
