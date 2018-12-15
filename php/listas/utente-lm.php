@@ -100,7 +100,7 @@ function showUser(str) {
 
 
 
-                                                <div id="txtHint"><b>A lista de todos os médicos será exibida aqui.</b></div>
+                                                <div id="txtHint"><b>A lista de médicos registados será exibida aqui.</b></div>
 
                                                     <!--<tr class="spacer"></tr>
                                                     <tr class="tr-shadow">

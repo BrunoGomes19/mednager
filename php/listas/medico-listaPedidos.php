@@ -244,7 +244,7 @@ function rejeitarAssociacao($codComprador){
                                                   if ($result->num_rows == 0 || $result2->num_rows == 0) {
 
                                                     echo '<br>
-                                                      <tr>Sem resultados!</tr>
+                                                      <tr>Não possui associações pendentes.</tr>
 
 
                                                     ';

@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-$sql2 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start<now() order by servico.start desc;";
+$sql2 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.end<now() order by servico.start desc;";
 $result2 = $conn->query($sql2);
 
 

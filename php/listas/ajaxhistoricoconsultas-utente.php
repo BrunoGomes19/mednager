@@ -60,7 +60,7 @@ if($datainicio == "" && $datafim == ""){
       echo "0 results";
   }
 
-  $sql2 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start<now() order by servico.start desc;";
+  $sql2 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.end<now() order by servico.start desc;";
   $result2 = $conn->query($sql2);
 
 
@@ -171,7 +171,7 @@ if($datainicio == "" && $datafim == ""){
       echo "0 results";
   }
 
-  $sql2 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start between concat('$datainicio',' 00:00:00') and concat('$datainicio',' 23:59:59') and servico.start<now() order by servico.start desc;";
+  $sql2 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start between concat('$datainicio',' 00:00:00') and concat('$datainicio',' 23:59:59') and servico.end<now() order by servico.start desc;";
   $result2 = $conn->query($sql2);
 
   echo '
@@ -236,7 +236,7 @@ if($datainicio == "" && $datafim == ""){
 
 
 
-    $sql22 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start between concat((('$datainicio') - INTERVAL 1 DAY),' 00:00:00') and concat((('$datainicio') + INTERVAL 1 DAY),' 23:59:59') and servico.start<now() order by servico.start desc;";
+    $sql22 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start between concat((('$datainicio') - INTERVAL 1 DAY),' 00:00:00') and concat((('$datainicio') + INTERVAL 1 DAY),' 23:59:59') and servico.end<now() order by servico.start desc;";
     $result22 = $conn->query($sql22);
 
     if ($result22->num_rows > 0) {
@@ -349,7 +349,7 @@ if($datainicio == "" && $datafim == ""){
       echo "0 results";
   }
 
-  $sql2 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start between concat('$datafim',' 00:00:00') and concat('$datafim',' 23:59:59') and servico.start<now() order by servico.start desc;";
+  $sql2 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start between concat('$datafim',' 00:00:00') and concat('$datafim',' 23:59:59') and servico.end<now() order by servico.start desc;";
   $result2 = $conn->query($sql2);
 
   echo '
@@ -414,7 +414,7 @@ if($datainicio == "" && $datafim == ""){
 
 
 
-    $sql22 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start between concat((('$datafim') - INTERVAL 1 DAY),' 00:00:00') and concat((('$datafim') + INTERVAL 1 DAY),' 23:59:59') and servico.start<now() order by servico.start desc;";
+    $sql22 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start between concat((('$datafim') - INTERVAL 1 DAY),' 00:00:00') and concat((('$datafim') + INTERVAL 1 DAY),' 23:59:59') and servico.end<now() order by servico.start desc;";
     $result22 = $conn->query($sql22);
 
     if ($result22->num_rows > 0) {
@@ -534,7 +534,7 @@ if($datainicio > $datafim){
         echo "0 results";
     }
 
-    $sql25 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start between concat('$datainicio',' 00:00:00') and concat('$datafim',' 23:59:59') and servico.start<now() order by servico.start desc;";
+    $sql25 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start between concat('$datainicio',' 00:00:00') and concat('$datafim',' 23:59:59') and servico.end<now() order by servico.start desc;";
     $result25 = $conn->query($sql25);
 
     echo '
@@ -602,7 +602,7 @@ if($datainicio > $datafim){
 
 //aqui
 
-$sql22 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start between concat((('$datainicio') - INTERVAL 2 DAY),' 00:00:00') and concat((('$datafim') + INTERVAL 1 DAY),' 23:59:59') and servico.start<now() order by servico.start desc;";
+$sql22 = "select servico.observacoes,comprador.ccComprador,servico.id,servico.title,servico.start,servico.end,comprador.nomeComprador,servico.pvpServico,descriLocal from comprador, servico, local where servico.codLocal = local.codLocal and servico.codComprador = comprador.codComprador and servico.ccUtente = '$cc' and servico.start between concat((('$datainicio') - INTERVAL 2 DAY),' 00:00:00') and concat((('$datafim') + INTERVAL 1 DAY),' 23:59:59') and servico.end<now() order by servico.start desc;";
 $result22 = $conn->query($sql22);
 
 if ($result22->num_rows > 0) {
