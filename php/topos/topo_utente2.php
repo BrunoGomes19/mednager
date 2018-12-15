@@ -621,7 +621,7 @@ background: #999;
                                                 </div>
                                                 <div class="account-dropdown__item">
                                                     <a href="../alterar/changesUser.php">
-                                                        <i class="zmdi zmdi-settings"></i>Definições</a>
+                                                        <i class="zmdi zmdi-settings"></i>Alterar Password</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
