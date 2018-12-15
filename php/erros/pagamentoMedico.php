@@ -89,7 +89,7 @@ if(!(isset($_SESSION['email']) && $_SESSION['email'] != "")){
                 <div class="row" style="width: 100%; height: 100%; display: flex; flex-direction: row; justify-content: center; align-items: center;">
                             <div class="col-lg-6">
 
-                <p class="text-muted m-t-30 m-b-30"><b style="color: #5FBACE">Para ativar a sua conta por favor realize o pagamento e envie um email para <a href="mailto:mednager@outlook.pt">mednager@outlook.pt</a>  com o comprovativo e identificação da identidade.</b>
+                <p class="text-muted m-t-30 m-b-30"><b style="color: #5FBACE">Para ativar a sua conta por favor realize o pagamento e envie um email para <a href="mailto:mednager@outlook.pt">mednager@outlook.pt</a>  com o comprovativo e a sua identificação.</b>
                 <br>
                                 <div class="card">
 
@@ -99,7 +99,7 @@ if(!(isset($_SESSION['email']) && $_SESSION['email'] != "")){
 
                                         <form action="" method="post" novalidate="novalidate">
                                             <div class="form-group">
-                                                <h1>133,44€</h1>
+                                                <h1>29,99€</h1>
                                                 <label for="cc-payment" class="control-label mb-1">(c/ IVA)</label>
                                             </div>
 
@@ -115,15 +115,15 @@ if(!(isset($_SESSION['email']) && $_SESSION['email'] != "")){
                                                     <div class="input-group">
 
                                                     </div>
-                                                    <label for="x_card_code" class="control-label mb-1">Entidade: 222334</label>
+                                                    <label for="x_card_code" class="control-label mb-1">Entidade: _ _ _ _ _</label>
                                                     <div class="input-group">
 
                                                     </div>
-                                                    <label for="x_card_code" class="control-label mb-1">Referência: 234567890</label>
+                                                    <label for="x_card_code" class="control-label mb-1">Referência: _ _ _ &nbsp _ _ _ &nbsp _ _ _ </label>
                                                     <div class="input-group">
 
                                                     </div>
-                                                    <label for="x_card_code" class="control-label mb-1">Valor: 133, 44€</label>
+                                                    <label for="x_card_code" class="control-label mb-1">Valor: 29,99€</label>
                                                     <div class="input-group">
 
                                                     </div>

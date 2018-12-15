@@ -68,8 +68,8 @@
 
                 <h3 class="text-uppercase error-subtitle">A sua conta encontra-se inativa!</h3>
                 <br><br>
-                <p class="text-muted m-t-30 m-b-30">Para ativar a sua conta clique no email recebido após o seu registo.<br><br>Não recebeu o email de confirmação? Clique aqui!</p>
-                <br><br>
+                <p class="text-muted m-t-30 m-b-30">Para ativar a sua conta clique no email recebido após o seu registo.</p>
+                <br>
                 <a href="../logins/authentication-login.php" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Voltar</a> </div>
         </div>
         <!-- ============================================================== -->
