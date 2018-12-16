@@ -128,7 +128,7 @@ function removerAssociacao($codComprador){
 
                 <form action="medico-listaPedidos.php" method="POST">
                               <button class="btn btn-primary" type="submit">
-                                  <i class="fa fa-search"></i> Pedidos
+                                  <i class="fa fa-bars"></i> Pedidos
                               </button>
                 </form>
 

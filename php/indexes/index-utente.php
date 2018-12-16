@@ -67,8 +67,8 @@ if ($result->num_rows > 0) {
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="overview-wrap">
-                                    <h2 class="title-1">Olá, <?php
+                                
+                                    <h1 class="title-1"><br><big>Olá, <?php
 
 									if($sexo=="Masculino"){
 
@@ -84,7 +84,7 @@ if ($result->num_rows > 0) {
                   }
 									}
 
-									?><?php $login_session=$_SESSION['login_user']; echo $nome;?>! <br><br><br></h2>
+									?><?php $login_session=$_SESSION['login_user']; echo $nome;?>! </big><br><br><br></h1>
 
                                 </div>
                             </div>
@@ -139,7 +139,7 @@ if ($result->num_rows > 0) {
 
 
                         </div>
-                        <br><br><br><br><br><br>
+                        
 
 
                         <div class="row">

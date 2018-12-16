@@ -168,7 +168,7 @@ window.setInterval(function() {
 
                       <div class="card" style="width: 80%; margin:0 auto; text-align: center;">
                         <div class="card-header">
-                            <h4><strong>Associar medicamento a uma categoria</strong></h4>
+                            <h4><strong>Associar medicamentos a categorias</strong></h4>
 
                             <div class="modal-header">
                               <h5 style="text-align:left;width:100%;">Categorias</h5>
@@ -176,7 +176,7 @@ window.setInterval(function() {
                             <div class="modal-body">
                               <form style="text-align: left">
                                 <?php
-                                    echo '<select style="width:33%" id="dropdown-categorias"  >';
+                                    echo '<select style="border-radius: 12px; background: #f8f9fa; border: 2px solid #5fbace;" id="dropdown-categorias"  >';
                                 ?>
                                 <?php
                                 if ($result->num_rows > 0) {

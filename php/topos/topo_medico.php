@@ -226,7 +226,7 @@ background: #999;
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-book"></i>Agenda</a>
+                                <i class="fas fa-book"></i>Agenda&nbsp;<i class="fa fa-sort-desc"></i></a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
                                     <a href="../calendarioFULL/index.php">Gestão de intervençõelse</a>
@@ -287,7 +287,7 @@ background: #999;
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-book"></i>Agenda</a>
+                                <i class="fas fa-book"></i>Agenda&nbsp;<i class="fa fa-sort-desc"></i></a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
                                     <a href="../calendarioFULL/index.php">Gestão de intervenções</a>

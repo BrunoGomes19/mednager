@@ -244,7 +244,7 @@ background: #999;
 
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tasks"></i>Intervenções</a>
+                                <i class="fas fa-tasks"></i>Intervenções&nbsp;<i class="fa fa-sort-desc"></i></a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
                                     <a href="../calendarioFULL/indexUtente.php">Gestão</a>
@@ -300,7 +300,7 @@ background: #999;
 
                         <li>
                             <a class="js-arrow" href="#">
-                                <i class="fa fa-tasks"></i>Intervenções</a>
+                                <i class="fa fa-tasks"></i>Intervenções&nbsp;<i class="fa fa-sort-desc"></i></a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                     <a href="../calendarioFULL/indexUtente.php">Gestão</a>

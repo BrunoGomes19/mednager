@@ -194,15 +194,20 @@ window.setInterval(function() {
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
+              <h3 style="text-align:center;" class="title-5 m-b-35">Adicionar/ Remover campos</h3>
                 <div class="section__content section__content--p30" style="float:left;max-width:50%">
                     <div class="row">
 
-                        <div class="col-md-12" id="escolhaEsp">
 
-                            <h3 style="text-align:center;" class="title-5 m-b-35">Configurações</h3>
+                        <div class="col-md-12" id="escolhaEsp">
+                          <div class="modal-header">
+                              <h5 style="text-align:center;width:100%;">Especialidades</h5><br>
+                            </div><br>
+
+                            
                             <form>
                                 <?php
-                                    echo '<select id="dropdown-especialidades"  >';
+                                    echo '<select style="border-radius: 12px; background: #f8f9fa; border: 2px solid #5fbace;" id="dropdown-especialidades"  >';
                                 ?>
                                 <?php
                                 if ($result->num_rows > 0) {
@@ -261,8 +266,7 @@ window.setInterval(function() {
                         <div class="col-md-12" id="escolhaEsp">
 
                           <div class="modal-header">
-                              <h4 style="text-align:center;width:100%;">Lista de campos</h4>
-
+                            <h5 style="text-align:center;width:100%;">Lista de campos</h5>
                           </div>
                           <div class="modal-body">
 

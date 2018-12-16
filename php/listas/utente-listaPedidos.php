@@ -127,7 +127,7 @@ function rejeitarAssociacao($ccUtente,$codComprador){
 
                 <form action="utente-listaAssociados.php" method="POST">
                               <button class="btn btn-primary" type="submit">
-                                  <i class="fa fa-search"></i> Associados
+                                  <i class="fa fa-bars"></i> Associados
                               </button>
                 </form>
 
@@ -232,7 +232,7 @@ function rejeitarAssociacao($ccUtente,$codComprador){
                                                   if ($result->num_rows == 0 || $result2->num_rows == 0) {
 
                                                     echo '<br>
-                                                      <tr>Sem resultados!</tr>
+                                                      <tr>Sem pedidos!</tr>
 
 
                                                     ';

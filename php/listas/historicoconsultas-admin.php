@@ -137,7 +137,7 @@ function showUser(str) {
 
 
 
-                            <h3 class="title-5 m-b-35">Histórico de intervenções</h3>
+                            <h3 class="title-5 m-b-35" style="text-align: center">Histórico de intervenções</h3>
                                     <div class="table-data__tool">
                                         <div class="table-data__tool-left">
                                             <div class="rs-select2--light ">

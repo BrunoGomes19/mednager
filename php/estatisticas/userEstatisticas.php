@@ -210,6 +210,7 @@
 
     <div class="row" >
       <div class="col-md-12" >
+        <h3 class="title-5 m-b-35" style="text-align: center">Estatísticas</h3>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 

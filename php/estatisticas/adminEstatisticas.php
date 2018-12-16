@@ -7,6 +7,15 @@
 
 </head>
 <body>
+   <!-- MAIN CONTENT-->
+<div class="main-content">
+  <div class="section__content section__content--p30">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <div class="row" >
+      <div class="col-md-12" >
+        <h3 class="title-5 m-b-35" style="text-align: center">Estatísticas</h3>
   <?php
 
   $emailComprador=$_SESSION['email'];
@@ -28,22 +37,7 @@
     echo "Error1";
   }
 
-  $sqtotalMed = "select emailComprador, count(*) as nrMed from comprador where codPermissao=2  and LEIComprador='$LEIComprador'";
-
-
-  $resultmeds = $conn->query($sqtotalMed);
-
-  if ($resultmeds->num_rows > 0) {
-    // output data of each row
-
-    while($row = $resultmeds->fetch_assoc()) {
-      $nrMed = $row["nrMed"];
-
-    }
-
-  } else {
-    echo "Error2";
-  }
+ 
 
 
   $sql = "select sexoComprador as descricao, count(*) as c from comprador where LEIComprador='$LEIComprador' and codPermissao=2 and associacao=2 group by sexoComprador";
@@ -71,11 +65,34 @@
         $contagem_nd = $row["c"];
       }
     }
+    echo '<canvas id="pie-chart" width="3000" height="1000"></canvas>';
 
 
   } else {
     echo "<br><br> Não há utentes médicos associados";
     $semAssociacoes=100;
+  }
+
+
+   $sqtotalMed = "select emailComprador, count(*) as nrMed from comprador where codPermissao=2  and LEIComprador='$LEIComprador'";
+
+
+  $resultmeds = $conn->query($sqtotalMed);
+
+  if ($resultmeds->num_rows > 0) {
+    // output data of each row
+
+    while($row = $resultmeds->fetch_assoc()) {
+      $nrMed = $row["nrMed"];
+
+    }
+
+  } else {
+    echo "Error2";
+  }
+
+  if($nrMed!=0){
+    echo '<br><br><div><canvas id="bar-chart-horizontal" width="1000%" height="200%"></canvas></div>';
   }
 
 
@@ -90,7 +107,24 @@
   $result222 = $conn->query($sql222);
 
 
+  $sqltotalServ = "select emailComprador, count(*) as nrIntr from servico, comprador where servico.codComprador=comprador.codComprador and codPermissao=2 and LEIComprador='$LEIComprador'";
+  $resultservs = $conn->query($sqltotalServ);
 
+  if ($resultservs->num_rows > 0) {
+    // output data of each row
+
+    while($row = $resultservs->fetch_assoc()) {
+      $nrservs = $row["nrIntr"];
+
+    }
+
+  } else {
+    echo "Error2";
+  }
+
+  if($nrservs!=0){
+    echo '<br><br><canvas id="bar-chart-horizontal2" width="1000%" height="100%"></canvas>';
+  }
 
 
 
@@ -112,19 +146,22 @@
 
   ?>
 
+  </div>
+    </div>
 
 
-  <!-- MAIN CONTENT-->
-<div class="main-content">
-  <div class="section__content section__content--p30">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
-    <div class="row" >
-      <div class="col-md-12" >
+
+  </div>
+</div>
+
+
+
+ 
 
         <!--grafico sexos -->
-        <canvas id="pie-chart" width="3000" height="1000"></canvas>
+        
 
         <script>
           new Chart(document.getElementById("pie-chart"), {
@@ -151,7 +188,7 @@
 
 
         <!--grafico numero de medicos por especialidade -->
-        <canvas id="bar-chart-horizontal" width="1000%" height="200%"></canvas>
+        
 
         <script>
           new Chart(document.getElementById("bar-chart-horizontal"), {
@@ -218,7 +255,7 @@
 
         <!--grafico de locais-->
 
-        <canvas id="bar-chart-horizontal2" width="1000%" height="100%"></canvas>
+        
 
         <script>
           new Chart(document.getElementById("bar-chart-horizontal2"), {
@@ -277,15 +314,7 @@
 
 
 
-      </div>
-    </div>
-
-
-
-
-
-  </div>
-</div>
+      
 
 
 <!-- Jquery JS-->

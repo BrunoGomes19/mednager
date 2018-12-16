@@ -159,15 +159,9 @@ if($_SESSION['permissao'] != 1){
                             <a href="../listas/admin-lm.php">
                                 <i class="fas fa-user-md"></i>Lista de Médicos</a>
                         </li>
-                        <li class="has-sub">
-                            <!--MUDAR PARA GERIR CAMPOS DE ESPECIALIDADES-->
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-tasks"></i>Intervenções</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="../listas/historicoconsultas-admin.php">Histórico</a>
-                                </li>
-                            </ul>
+                        <li>
+                            <a href="../listas/historicoconsultas-admin.php">
+                                <i class="fas fa-tasks""></i>Intervenções</a>
                         </li>
                         <li>
                             <a href="../estatisticas/adminEstatisticas.php">
@@ -196,7 +190,7 @@ if($_SESSION['permissao'] != 1){
                         <br>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="zmdi zmdi-settings"></i>Configurações</a>
+                                <i class="fa fa-gears"></i>Configurações</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                               <li>
                                   <a href="../configuracoes/config-espec.php">Campos por especialidade</a>
@@ -251,14 +245,8 @@ if($_SESSION['permissao'] != 1){
                         </li>
 
                         <li>
-                            <a class="js-arrow" href="#">
-                                <i class="fa fa-tasks"></i>Intervenções</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-
-                                <li>
-                                    <a href="../listas/historicoconsultas-admin.php">Histórico</a>
-                                </li>
-                            </ul>
+                            <a href="../listas/historicoconsultas-admin.php">
+                                <i class="fas fa-tasks""></i>Intervenções</a>
                         </li>
 
                         <li>
@@ -273,7 +261,7 @@ if($_SESSION['permissao'] != 1){
                         <br>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-plus"></i>Registo</a>
+                                <i class="fas fa-plus"></i>Registo&nbsp;<i class="fa fa-sort-desc"></i></a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
                                     <a href="../registos/admin_registomedico.php">Registo de Médicos</a>
@@ -288,7 +276,7 @@ if($_SESSION['permissao'] != 1){
                         <br>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="zmdi zmdi-settings"></i>Configurações</a>
+                                <i class="fa fa-gears"></i>Configurações&nbsp;<i class="fa fa-sort-desc"></i></a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
                                     <a href="../configuracoes/config-espec.php">Campos por especialidade</a>
@@ -345,7 +333,7 @@ if($_SESSION['permissao'] != 1){
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="../../assets/images/users/1.jpg" alt="John Doe" />
+                                            <img src="../../assets/images/users/admin.png" alt="John Doe" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">Administrador</a>
@@ -354,7 +342,7 @@ if($_SESSION['permissao'] != 1){
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="../../assets/images/users/1.jpg" alt="John Doe" />
+                                                        <img src="../../assets/images/users/admin.png" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">

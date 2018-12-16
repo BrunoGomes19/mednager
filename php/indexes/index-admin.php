@@ -95,10 +95,8 @@ if ($result->num_rows > 0) {
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="overview-wrap">
-                                    <h2 class="title-1">Olá, Administrador! <br><br><br></h2>
-
-                                </div>
+                                <h1 class="title-1" style="text-align: left"><br><big>Olá, Administrador! </big><br><br><br></h1>
+                                
                             </div>
                         </div>
 

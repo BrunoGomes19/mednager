@@ -101,7 +101,7 @@ function showUser(str) {
 
                                                   <form action="medico-lu.php" method="POST">
                                                         <button type="submit" class="btn btn-primary" >
-                                                            <i class="fa fa-search"></i> Todos
+                                                            <i class="fa fa-bars"></i> Todos
                                                         </button>
                                                       </form>
 

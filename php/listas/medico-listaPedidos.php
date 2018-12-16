@@ -131,7 +131,7 @@ function rejeitarAssociacao($codComprador){
 
                 <form action="medico-listaAssociados.php" method="POST">
                               <button class="btn btn-primary" type="submit">
-                                  <i class="fa fa-search"></i> Associado
+                                  <i class="fa fa-bars"></i> Associado
                               </button>
                 </form>
 

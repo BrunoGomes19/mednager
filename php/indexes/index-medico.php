@@ -96,9 +96,8 @@ if ($result->num_rows > 0) {
 
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="overview-wrap">
-                                    <h2 class="title-1">Olá, <?php
+                            <div class="col-md-12">                                
+                                    <h1 class="title-1"><br><big>Olá, <?php
 
 
 
@@ -129,7 +128,7 @@ if ($result->num_rows > 0) {
                             echo $_SESSION['msgUtenteAdd'];
                             unset($_SESSION['msgUtenteAdd']);
                         }
-                        ?>
+                        ?> </big></h1>
 
                         <div class="row m-t-25">
                             <div class="col-sm-6 col-lg-2">

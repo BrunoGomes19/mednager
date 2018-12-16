@@ -101,7 +101,7 @@ function removerAssociacao($ccUtente,$codComprador){
 
                 <form action="utente-listaPedidos.php" method="POST">
                               <button class="btn btn-primary" type="submit">
-                                  <i class="fa fa-search"></i> Pedidos
+                                  <i class="fa fa-bars"></i> Pedidos
                               </button>
                 </form>
 
@@ -192,7 +192,7 @@ function removerAssociacao($ccUtente,$codComprador){
                                                   if ($result->num_rows == 0 || $result2->num_rows == 0) {
 
                                                     echo '<br>
-                                                      <tr>Sem resultados!</tr>
+                                                      <tr>Sem nenhuma associação!</tr>
 
 
                                                     ';

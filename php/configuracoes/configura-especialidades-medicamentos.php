@@ -174,7 +174,7 @@ window.setInterval(function() {
                               <form style="text-align: left">
                                 <?php
 
-                                    echo '<select id="dropdown-especialidades">';
+                                    echo '<select style="border-radius: 12px; background: #f8f9fa; border: 2px solid #5fbace;" id="dropdown-especialidades">';
                                 ?>
                                 <?php
                                 if ($result->num_rows > 0) {

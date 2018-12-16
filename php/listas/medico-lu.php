@@ -213,7 +213,7 @@ function showUser(str) {
 
                                                   <form action="medico-luAssociados.php" method="POST">
                                                         <button type="submit" class="btn btn-primary" >
-                                                            <i class="fa fa-search"></i> Associados
+                                                            <i class="fa fa-bars"></i> Associados
                                                         </button>
                                                       </form>
 

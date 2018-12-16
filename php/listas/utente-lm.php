@@ -59,7 +59,7 @@ function showUser(str) {
 
 
 
-                            <h3 class="title-5 m-b-35">Lista de médicos registados</h3>
+                            <h3 class="title-5 m-b-35" style="text-align: center">Lista de médicos registados</h3>
                                     <div class="table-data__tool">
                                         <div class="table-data__tool-left">
                                             <div class="rs-select2--light ">
@@ -87,7 +87,7 @@ function showUser(str) {
 
                                           <form action="utente-lmAssociados.php" method="POST">
                                                         <button class="btn btn-primary" type="submit">
-                                                            <i class="fa fa-search"></i> Associados
+                                                            <i class="fa fa-bars"></i> Associados
                                                         </button>
                                           </form>
 
