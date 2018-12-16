@@ -178,7 +178,7 @@ window.setInterval(function() {
             <div class="main-content">
               <div class="card" style="width: 80%; margin:0 auto; text-align: center;">
                 <div class="card-header">
-                  <h4><strong>Adicionar/ Remover categoria</strong></h4>
+                  <h4><strong>Adicionar/Remover categoria</strong></h4>
                   <div class="modal-header">
                     <h5 style="text-align:left;width:100%;">Nome da categoria</h5>
                   </div>
@@ -238,7 +238,7 @@ window.setInterval(function() {
 
                  </div>
               </div>
-              
+
             </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->

@@ -194,7 +194,7 @@ window.setInterval(function() {
 
             <!-- MAIN CONTENT-->
             <div class="main-content">
-              <h3 style="text-align:center;" class="title-5 m-b-35">Adicionar/ Remover campos</h3>
+              <h3 style="text-align:center;" class="title-5 m-b-35">Adicionar/Remover campos</h3>
                 <div class="section__content section__content--p30" style="float:left;max-width:50%">
                     <div class="row">
 
@@ -204,7 +204,7 @@ window.setInterval(function() {
                               <h5 style="text-align:center;width:100%;">Especialidades</h5><br>
                             </div><br>
 
-                            
+
                             <form>
                                 <?php
                                     echo '<select style="border-radius: 12px; background: #f8f9fa; border: 2px solid #5fbace;" id="dropdown-especialidades"  >';
