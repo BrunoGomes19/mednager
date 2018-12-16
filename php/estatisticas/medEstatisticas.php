@@ -7,6 +7,15 @@
 
 </head>
 <body>
+  !-- MAIN CONTENT-->
+<div class="main-content">
+  <div class="section__content section__content--p30">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <div class="row" >
+      <div class="col-md-12" >
+        <h3 class="title-5 m-b-35" style="text-align: center">Estatísticas</h3>
   <?php
 
 
@@ -38,6 +47,7 @@
       }
 
     }
+    echo '<canvas id="pie-chart" width="1000" height="300"></canvas>';
 
 
   } else {
@@ -188,21 +198,12 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
 
 
 
-  <!-- MAIN CONTENT-->
-<div class="main-content">
-  <div class="section__content section__content--p30">
-
-
-
-
-    <div class="row" >
-      <div class="col-md-12" >
+  
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
         <!--grafico sexos -->
-        <div class="au-card recent-report">
-        <div class="au-card-inner">
-        <canvas id="pie-chart" width="1000" height="300"></canvas>
+        
+        
       </div>
     </div>
         <script>
@@ -224,10 +225,11 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
               }
           });
         </script>
+
+
         <!--grafico nr consultas -->
-        <div class="au-card recent-report">
-        <div class="au-card-inner">
-        <canvas id="bar-chart" width="1700" height="400"></canvas>
+        
+        <br><br><canvas id="bar-chart" width="1700" height="400"></canvas>
       </div>
     </div>
         <script>
@@ -267,9 +269,8 @@ $sqlquarta = "SELECT count(*) as quantidade from servico,comprador where comprad
 
 
 <!--grafico titulares -->
-        <div class="au-card recent-report">
-        <div class="au-card-inner">
-        <canvas id="bar-chart-horizontal" width="700%" height="10000%"></canvas>
+        
+        <br><br><canvas id="bar-chart-horizontal" width="700%" height="10000%"></canvas>
       </div>
     </div>
         <script>

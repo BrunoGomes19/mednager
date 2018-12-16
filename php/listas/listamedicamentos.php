@@ -152,7 +152,7 @@ yesCategoria.onchange = function(){
 
 
 
-                            <h3 class="title-5 m-b-35">Lista de medicamentos</h3>
+                            <h3 class="title-5 m-b-35" style="text-align: center">Lista de medicamentos</h3>
                                     <div class="table-data__tool">
                                         <div class="table-data__tool-left">
                                             <div class="rs-select2--light ">
@@ -178,7 +178,7 @@ yesCategoria.onchange = function(){
                                         </div>
                                         <div class="table-data__tool-right">
 <?php
-                                          echo '<select id="dropdown-especialidades" onchange="escolherEspecialidade();">';
+                                          echo '<select id="dropdown-especialidades" style="border-radius: 12px; background: #f8f9fa; border: 2px solid #5fbace;" onchange="escolherEspecialidade();">';
 ?>
                                           <?php  if ($result->num_rows > 0) {
                                                 // output data of each row
@@ -215,7 +215,7 @@ yesCategoria.onchange = function(){
 
                                         <div class="table-data__tool-right">
 <?php
-                                          echo '<select id="dropdown-categorias" onchange="escolherEspecialidade();">';
+                                          echo '<select id="dropdown-categorias" style="border-radius: 12px; background: #f8f9fa; border: 2px solid #5fbace;" onchange="escolherEspecialidade();">';
 ?>
                                           <?php  if ($result2->num_rows > 0) {
                                                 // output data of each row
