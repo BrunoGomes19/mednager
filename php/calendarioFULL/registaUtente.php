@@ -277,14 +277,13 @@ if ($result->num_rows > 0) {
 							$mail->AltBody = '';
 
 							if(!$mail->send()) {
-								echo 'Message could not be sent.';
-								echo 'Mailer Error: ' . $mail->ErrorInfo;
-							}
+								echo "b";
+							}else{
 
 									$conn->query("UPDATE utente set codeEmailConfirm='$str' WHERE emailUtente='$email'");
 
 									echo "a";
-
+}
 
 			}
 

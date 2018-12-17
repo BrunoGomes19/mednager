@@ -150,6 +150,28 @@ function chamaSelectInputs(idintervencao){
 
                     $('#vaidareditar #ccUtente2').val(ccUtente);
 
+                 }else if(this.responseText == "b"){
+
+                   $('#modalregistarUtente').modal('hide');
+
+                   $('#myModal5').modal('hide');
+
+                   $('#myModal5editar').modal('hide');
+
+                   window.setTimeout(function() {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                        $(this).remove();
+                    });
+                   }, 6000);
+
+                   document.getElementById("utenteRegistado").style.display = "block";
+
+                   $('#vaidar #ccUtente').val(ccUtente);
+
+                   document.getElementById("utenteRegistado2").style.display = "block";
+
+                   $('#vaidareditar #ccUtente2').val(ccUtente);
+
                  }else{
 
                    document.getElementById("test").innerHTML = this.responseText;
