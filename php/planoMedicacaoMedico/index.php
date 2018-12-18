@@ -1008,12 +1008,9 @@ $resultesp25 = $conn->query($sqlesp25);
                                               <input readonly style="background-color:white;" type="text" class="form-control" name="start" id="start2" onKeyPress="DataHora(event, this)">
                                           </div>
                                       </div>
-                                      <div class="form-group">
-                                          <div class="form-group col-md-12">
-                                              <label>Data Final</label>
-                                              <input type="text" readonly style="background-color:white;" class="form-control" name="end" id="end2" onKeyPress="DataHora(event, this)">
-                                          </div>
-                                      </div>
+
+                                              <input type="text" hidden readonly style="background-color:white;" class="form-control" name="end" id="end2" onKeyPress="DataHora(event, this)">
+
                                       <div class="form-group">
                                         <div class="form-group col-md-12" id="vaidareditar">
                                             <label style="display:block;">Nome do medicamento</label>
@@ -1135,12 +1132,9 @@ $resultesp25 = $conn->query($sqlesp25);
                                           <input readonly style="background-color:white;" type="text" class="form-control" name="start" id="start" onKeyPress="DataHora(event, this)">
                                       </div>
                                   </div>
-                                  <div class="form-group">
-                                      <div class="form-group col-md-12">
-                                          <label>Data Final</label>
-                                          <input readonly style="background-color:white;" type="text" class="form-control" name="end" id="end" onKeyPress="DataHora(event, this)">
-                                      </div>
-                                  </div>
+
+                                          <input readonly style="background-color:white;" hidden type="text" class="form-control" name="end" id="end" onKeyPress="DataHora(event, this)">
+
 
 
                                   <div class='form-group col-md-12' id='vaidarmed'>
