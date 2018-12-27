@@ -1,9 +1,0 @@
-- Alterar a foto de fundo para o logotipo do mednager
-
-- Criar uma pasta chamada Backup com os ficheiros do ambiente de trabalho
-
-- Remover o header do chrome (Facebook e etc)
-
-- Criar emails próprios para receber os emails de verificação de conta, e etc
-
-- Limpar o email do mednager@outlook.pt
