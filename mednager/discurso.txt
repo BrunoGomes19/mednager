@@ -1,0 +1,43 @@
+*********ESBOÇO IDEIAS TEXTO INICIAL (faltam citar algumas cenas de cima)
+(há coisas que podemos por aqui mas p.e os campos dinamicos deviam ser explicadas so na altura)
+
+__________________________TEXTOS________________________________
+
+INTRO ___________________
+
+Boa tarde! ***intro fancy
+Para começar, vou explicar-vos o conceito do nome Mednager: deriva da mistura entre o termo med de médico/medicina/por aí e manager, que significa gestor. O objetivo do nosso projeto é fornecer ao médico ferramentas de gestão para o seu quotidiano profissional e também para fortalecer a relação que há entre médico e utente.
+
+Todos sabemos o quão cansativo é esperar nas filas para as consultas, ainda até na parte administrativa. Ou quando não nos lembramos se já tomámos a medicação, se a consulta foi alterada ou até as horas da mesma. Às vezes, sentimos que a relação médico-utente é quase nula, pois a interação com o médico é praticamente presencial e momentânea (em consulta rápida).
+Na ótica do médico, pensamos que uma plataforma digital amigável cheia de recursos dinâmicos e simples seria o ideal: ter todos os recursos à distância de um clique, podendo ainda interagir com o utente. Insistimos em fortalecer esta relação porque vemos a tecnologia a evoluir mas o contacto entre nós, humanos, consegue diminuir gradualmente em inúmeras situações. Levar-nos-ia, então, a uma aproximação e, consequentemente, uma abordagem mais familiar e segura com quem trata de nós.
+
+Focados na tecnologia e saúde, pois são duas grandes componentes do futuro, vemos o nosso produto como super dinâmico e inovador. Apelamos À redução do uso do papel e à informatização dos dados, com o objetivo da facilidade de acesso, filtragem de dados e minimização da perda dos dados. Temos features simples como listas de utentes e de médicos, ... como também temos calendários pessoais, planos de medicação versáteis, estatísticas e configurações dinâmicas personalizadas de acordo com as necessidades de cada um. Tudo isto tendo sempre em conta a proteção de dados dos nossos clientes.
+
+Assim, esperamos agradar-vos e mostrar-vos um pouco do o nosso projeto e como foi pensado e desenvolvido, sempre na ótica de uma progressão futurista do contacto entre o médico e o utente.
+
+___________________
+
+
+REGISTO UTENTE NO MODAL DAS INTERVENÇOES ___________________
+
+Agora queremos mostrar-vos uma das partes mais dinâmicas e importantes do nosso trabalho: a possibilidade de registar o utente na hora de uma nova intervenção.
+Com esta funcionalidade não precisamos de sair do nosso calendário, basta adicionarmos 4 campos e o utente é registado na hora, sem necessidade de confirmar posteriormente a associação ao médico.
+Vemos esta funcionalidade como um atalho para o médico não perder tempo em listas e registos, num provável cenário de consulta presencial, o que diminui "as pequeninas coisas que temos de fazer em tempo real".
+-___________________
+
+CONCEITO DE COLETIVO + LEI____________________
+Quando falamos em coletivo, falamos de uma entidade superior aos médicos no sentido em que esta é quem faz a gestão um conjunto de médicos e utentes. É quem tem o poder de decidir se determinado médico ou utente se agrega ou não ao seu grupo. ISto acontece através do LEI, que é um código alfanumérico de 20 dígitos aceite internacionalmente e que identifica, de forma unívoca, pessoas coletivas e outros intervenientes de mercado.
+(A legislação comunitária prevê que, a partir de 3 de janeiro de 2018, todas as entidades coletivas tenham de dispor de um LEI para darem ordens no mercado de capitais.
+Mais de 510 mil entidades a nível mundial e 1700 em Portugal já têm um LEI atribuído. )
+______________________
+
+CAMPOS DINAMICOS________
+A grande vantagem, muito inovadora e dinâmica, que poupará tempo e problemas tanto ao administrador como à equipa programadora, são os campos dinâmicos. O diretor clínico poderá configurar campos específicos (e as suas respetivas unidades) para diferentes especialidades, bem como apagá-los se necessário. Exemplo prático: Para pediatria queremos que os médicos possam preencher o perímetro cefálico de uma criança. Para medicina geral precisamos da altura do indivíduo. Conseguimos, então, adicionar esses campos para especialidades distintas, sendo que diferentes médicos têm acesso a diferentes campos na mesma plataforma.
+
+Palha a vender
+______________________
+
+
+FINAL:
+novas metas: mensagens entre ut e med
+humildemente orgulhosos, xoxo

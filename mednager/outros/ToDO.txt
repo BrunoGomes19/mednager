@@ -1,0 +1,11 @@
+TO-DO:
+
+- Colocar o Fullcalendar dentro do topo
+
+- Fechar todas as conexões
+
+- Evitar permissões diferentes acessar a páginas não permitidas
+
+- Modal das notas e outros (se clicar fora ao mesmo tempo que abre fica tudo cizento)
+
+- Ajustar para mobile
